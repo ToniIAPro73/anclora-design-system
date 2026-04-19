@@ -183,7 +183,12 @@ Product medallions (`assets/logos/*.png`) are the ecosystem's primary iconograph
 ```
 README.md                     ← you are here
 SKILL.md                      ← Agent Skill definition (for Claude Code)
-colors_and_type.css           ← tokens + type styles + product scopes
+colors_and_type.css           ← compatibility wrapper for legacy previews and UI kits
+src/
+  system.css                  ← extracted design system entrypoint
+  tokens/                     ← core + semantic tokens
+  themes/                     ← theme scopes (intermediate extraction)
+  foundations/                ← typography and primitive UI rules
 assets/
   logos/                      ← 10 product medallions (PNG)
 preview/                      ← individual cards rendered in the Design System tab
@@ -194,6 +199,10 @@ ui_kits/
 ```
 
 Each UI kit contains its own `README.md`, `index.html` entry, and `*.jsx` component files.
+
+The extraction is intentionally incremental:
+- existing previews and kits still import `colors_and_type.css`
+- new system work should prefer `src/system.css`
 
 ---
 

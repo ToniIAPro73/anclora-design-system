@@ -1,0 +1,67 @@
+/* =========================================================
+   TYPOGRAPHY FOUNDATIONS
+   ========================================================= */
+
+.h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5vw, 4.7rem);
+  line-height: 1.02;
+  letter-spacing: var(--track-title);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  line-height: 1.08;
+  letter-spacing: var(--track-title);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  line-height: 1.15;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-eyebrow);
+}
+
+.p {
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.72;
+  color: var(--text-secondary);
+}
+
+.p-lead {
+  font-size: 1.12rem;
+  line-height: 1.78;
+  color: var(--text-secondary);
+  max-width: 52rem;
+}
+
+.meta {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.display-script {
+  font-family: var(--font-portfolio-script);
+  color: var(--accent);
+}
+
+.code, code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}

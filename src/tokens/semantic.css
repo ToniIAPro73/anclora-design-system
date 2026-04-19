@@ -1,0 +1,66 @@
+/* =========================================================
+   SEMANTIC TOKENS
+   ========================================================= */
+
+:root {
+  --bg: var(--group-ink);
+  --bg-raised: var(--group-surface);
+  --bg-strong: var(--group-surface-2);
+  --fg1: var(--group-copy);
+  --fg2: var(--group-muted);
+  --fg3: var(--group-silver);
+  --accent: var(--coin-group);
+  --border: var(--group-border);
+  --line-soft: rgba(255, 255, 255, 0.06);
+  --line-strong: rgba(255, 255, 255, 0.14);
+
+  --surface-canvas: var(--bg);
+  --surface-subtle: color-mix(in srgb, var(--bg-raised) 72%, transparent);
+  --surface-panel: var(--bg-raised);
+  --surface-panel-strong: var(--bg-strong);
+  --surface-elevated: color-mix(in srgb, var(--bg-strong) 86%, white 14%);
+  --surface-overlay: color-mix(in srgb, var(--bg) 82%, black 18%);
+  --surface-glass: color-mix(in srgb, var(--bg-raised) 84%, transparent);
+  --surface-hero-protection: linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--bg) 78%, transparent) 100%);
+
+  --text-primary: var(--fg1);
+  --text-secondary: var(--fg2);
+  --text-muted: color-mix(in srgb, var(--fg2) 78%, transparent);
+  --text-eyebrow: var(--fg3);
+  --text-link: var(--accent);
+  --text-on-accent: #0f1720;
+  --text-inverse: #ffffff;
+
+  --action-primary-bg: var(--accent);
+  --action-primary-fg: var(--text-on-accent);
+  --action-primary-border: color-mix(in srgb, var(--accent) 48%, white 16%);
+  --action-secondary-bg: color-mix(in srgb, var(--surface-panel) 88%, transparent);
+  --action-secondary-fg: var(--text-primary);
+  --action-secondary-border: var(--border);
+  --action-ghost-bg: rgba(255, 255, 255, 0.04);
+  --action-ghost-fg: var(--text-primary);
+  --action-ghost-border: color-mix(in srgb, var(--border) 92%, transparent);
+  --action-destructive-bg: rgba(194, 74, 74, 0.14);
+  --action-destructive-fg: #ffb8b9;
+  --action-destructive-border: rgba(194, 74, 74, 0.32);
+
+  --border-subtle: color-mix(in srgb, var(--border) 76%, transparent);
+  --border-default: var(--border);
+  --border-strong: var(--line-strong);
+  --focus-ring: color-mix(in srgb, var(--accent) 52%, white 20%);
+  --focus-ring-offset: color-mix(in srgb, var(--bg) 66%, black 34%);
+  --status-success-surface: rgba(82, 190, 128, 0.18);
+  --status-success-text: #a9efb7;
+  --status-review-surface: rgba(144, 206, 214, 0.16);
+  --status-review-text: #8fc3c7;
+  --status-warning-surface: rgba(212, 175, 55, 0.16);
+  --status-warning-text: #d8bf86;
+  --status-danger-surface: rgba(225, 87, 89, 0.18);
+  --status-danger-text: #ffb8b9;
+
+  --motion-hover-lift-card: -3px;
+  --motion-hover-lift-button: -2px;
+  --motion-hover-lift-frame: -2px;
+  --motion-enter-overlay: var(--dur-base);
+  --motion-hero-emphasis: var(--dur-slow);
+}
