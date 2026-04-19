@@ -1,0 +1,48 @@
+{
+  "name": "@anclora/design-system",
+  "version": "0.1.0",
+  "entrypoints": {
+    "system": "./src/system.css",
+    "legacy": "./colors_and_type.css",
+    "tokens": {
+      "core": "./src/tokens/core.css",
+      "semantic": "./src/tokens/semantic.css"
+    },
+    "taxonomy": {
+      "tier": "./src/taxonomy/tier.css",
+      "domain": "./src/taxonomy/domain.css",
+      "archetype": "./src/taxonomy/archetype.css",
+      "role": "./src/taxonomy/role.css",
+      "clusters": "./src/taxonomy/clusters.css"
+    },
+    "themes": {
+      "product": "./src/themes/product.css"
+    },
+    "foundations": {
+      "typography": "./src/foundations/typography.css",
+      "primitives": "./src/foundations/primitives.css"
+    },
+    "components": {
+      "index": "./src/components/index.css",
+      "button": "./src/components/button.css",
+      "surfacePanel": "./src/components/surface-panel.css",
+      "appTile": "./src/components/app-tile.css",
+      "metricCard": "./src/components/metric-card.css",
+      "sectionHeading": "./src/components/section-heading.css",
+      "languageSwitcher": "./src/components/language-switcher.css",
+      "formField": "./src/components/form-field.css",
+      "sidebarNav": "./src/components/sidebar-nav.css",
+      "tabs": "./src/components/tabs.css",
+      "breadcrumb": "./src/components/breadcrumb.css",
+      "subnav": "./src/components/subnav.css",
+      "statStrip": "./src/components/stat-strip.css",
+      "dataTable": "./src/components/data-table.css",
+      "emptyState": "./src/components/empty-state.css",
+      "toast": "./src/components/toast.css",
+      "modal": "./src/components/modal.css",
+      "drawer": "./src/components/drawer.css",
+      "topbar": "./src/components/topbar.css"
+    }
+  },
+  "recommendedImport": "@anclora/design-system/system.css"
+}

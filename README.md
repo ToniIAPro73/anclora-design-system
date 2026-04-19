@@ -39,6 +39,27 @@ This system was synthesized from a read-only seed mounted at `Anclora-DesignSyst
 
 No Figma files. No codebase imports beyond the seed above.
 
+## Consumption
+
+This repo is now consumable as a CSS package entrypoint for apps.
+
+Recommended import:
+
+```css
+@import "@anclora/design-system/system.css";
+```
+
+Consumption rules:
+- compose taxonomy in the app shell first
+- apply `product-*` only for product-specific overrides
+- use canonical components from `src/components/` above foundations
+- treat `src/patterns/` and `src/examples/` as composition guidance, not as package API
+
+Operational packaging artifacts:
+- [package.json](/home/toni/projects/anclora-design-system/package.json)
+- [design-system.manifest.json](/home/toni/projects/anclora-design-system/design-system.manifest.json)
+- [docs/consuming-from-apps.md](/home/toni/projects/anclora-design-system/docs/consuming-from-apps.md)
+
 ---
 
 ## 3. CONTENT FUNDAMENTALS
@@ -183,15 +204,22 @@ Product medallions (`assets/logos/*.png`) are the ecosystem's primary iconograph
 ```
 README.md                     ← you are here
 SKILL.md                      ← Agent Skill definition (for Claude Code)
+package.json                  ← CSS package entrypoints and exports
+design-system.manifest.json   ← machine-readable map of system entrypoints
 colors_and_type.css           ← compatibility wrapper for legacy previews and UI kits
+docs/                         ← audit + operating model for repo and contract boundary
 src/
   system.css                  ← extracted design system entrypoint
   tokens/                     ← core + semantic tokens
-  themes/                     ← theme scopes (intermediate extraction)
+  taxonomy/                   ← composable tier/domain/archetype/role/cluster layers
+  themes/                     ← product themes and compatibility aliases
   foundations/                ← typography and primitive UI rules
+  components/                 ← canonical reusable components (incremental rollout)
+  patterns/                   ← reusable compositions above components
+  examples/                   ← reference implementations by app type
 assets/
   logos/                      ← 10 product medallions (PNG)
-preview/                      ← individual cards rendered in the Design System tab
+preview/                      ← contract and primitive previews rendered in the Design System tab
 ui_kits/
   anclora-group/              ← corporate portal (role-based app switcher)
   anclora-private-estates/    ← ultra-premium real estate landing
@@ -203,6 +231,10 @@ Each UI kit contains its own `README.md`, `index.html` entry, and `*.jsx` compon
 The extraction is intentionally incremental:
 - existing previews and kits still import `colors_and_type.css`
 - new system work should prefer `src/system.css`
+- consumer apps can now import the repo as `@anclora/design-system/system.css`
+
+Adoption docs:
+- [docs/consuming-from-apps.md](/home/toni/projects/anclora-design-system/docs/consuming-from-apps.md)
 
 ---
 

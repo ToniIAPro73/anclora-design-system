@@ -1,0 +1,58 @@
+{
+  "name": "@anclora/design-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Executable brand and UI system for the Anclora ecosystem.",
+  "license": "UNLICENSED",
+  "sideEffects": [
+    "*.css",
+    "src/**/*.css",
+    "colors_and_type.css"
+  ],
+  "files": [
+    "README.md",
+    "colors_and_type.css",
+    "design-system.manifest.json",
+    "src/",
+    "docs/",
+    "assets/",
+    "fonts/"
+  ],
+  "style": "./src/system.css",
+  "exports": {
+    "./system.css": "./src/system.css",
+    "./legacy.css": "./colors_and_type.css",
+    "./tokens/core.css": "./src/tokens/core.css",
+    "./tokens/semantic.css": "./src/tokens/semantic.css",
+    "./taxonomy/tier.css": "./src/taxonomy/tier.css",
+    "./taxonomy/domain.css": "./src/taxonomy/domain.css",
+    "./taxonomy/archetype.css": "./src/taxonomy/archetype.css",
+    "./taxonomy/role.css": "./src/taxonomy/role.css",
+    "./taxonomy/clusters.css": "./src/taxonomy/clusters.css",
+    "./themes/product.css": "./src/themes/product.css",
+    "./foundations/typography.css": "./src/foundations/typography.css",
+    "./foundations/primitives.css": "./src/foundations/primitives.css",
+    "./components/index.css": "./src/components/index.css",
+    "./components/button.css": "./src/components/button.css",
+    "./components/surface-panel.css": "./src/components/surface-panel.css",
+    "./components/app-tile.css": "./src/components/app-tile.css",
+    "./components/metric-card.css": "./src/components/metric-card.css",
+    "./components/section-heading.css": "./src/components/section-heading.css",
+    "./components/language-switcher.css": "./src/components/language-switcher.css",
+    "./components/form-field.css": "./src/components/form-field.css",
+    "./components/sidebar-nav.css": "./src/components/sidebar-nav.css",
+    "./components/tabs.css": "./src/components/tabs.css",
+    "./components/breadcrumb.css": "./src/components/breadcrumb.css",
+    "./components/subnav.css": "./src/components/subnav.css",
+    "./components/stat-strip.css": "./src/components/stat-strip.css",
+    "./components/data-table.css": "./src/components/data-table.css",
+    "./components/empty-state.css": "./src/components/empty-state.css",
+    "./components/toast.css": "./src/components/toast.css",
+    "./components/modal.css": "./src/components/modal.css",
+    "./components/drawer.css": "./src/components/drawer.css",
+    "./components/topbar.css": "./src/components/topbar.css"
+  },
+  "scripts": {
+    "pack:check": "npm pack --dry-run"
+  }
+}

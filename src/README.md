@@ -47,6 +47,8 @@ Current layers:
   Executable references by app type. These demonstrate adoption and may include app-specific composition without becoming canonical.
 - `system.css`
   Aggregate entrypoint for the extracted system.
+- package consumers should import `@anclora/design-system/system.css`
+- machine-readable entrypoints are listed in `design-system.manifest.json`
 
 Compatibility:
 
