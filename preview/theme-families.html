@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Anclora Theme Families</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    html,body{margin:0;background:#0b1018;color:#fff;font-family:var(--font-sans)}
+    .wrap{padding:24px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .theme-card{padding:22px;border-radius:28px;border:1px solid rgba(255,255,255,0.08);min-height:280px;box-sizing:border-box}
+    .head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:20px}
+    .title{font-family:var(--font-display);font-size:1.7rem;letter-spacing:-0.02em;margin:8px 0 0}
+    .lede{font-size:0.96rem;line-height:1.65;color:var(--text-secondary);max-width:40ch}
+    .swatches{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:18px}
+    .swatch{min-height:82px;border-radius:16px;border:1px solid var(--border-default);padding:10px;display:flex;flex-direction:column;justify-content:flex-end;box-sizing:border-box}
+    .swatch b{font-size:0.56rem;letter-spacing:0.16em;text-transform:uppercase}
+    .swatch span{font-size:0.6rem;opacity:0.72;margin-top:4px;font-family:var(--font-mono)}
+    .topbar-demo{margin-top:18px}
+    @media (max-width:900px){.wrap{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="theme-card anclora-group" style="background:linear-gradient(180deg,#0f1520,#151c28)">
+      <div class="head">
+        <div>
+          <div class="eyebrow">Entidad Matriz</div>
+          <h2 class="title">Group</h2>
+          <p class="lede">Entrada corporativa del ecosistema. Plata cepillada, profundidad oscura y chrome institucional.</p>
+        </div>
+        <span class="theme-chip">Internal Corporate</span>
+      </div>
+      <div class="shell-topbar topbar-demo">
+        <span class="theme-chip">Portal corporativo</span>
+        <button class="btn btn-ghost">Abrir acceso</button>
+      </div>
+      <div class="swatches">
+        <div class="swatch" style="background:var(--surface-canvas)"><b>Canvas</b><span>group</span></div>
+        <div class="swatch" style="background:var(--surface-panel)"><b>Panel</b><span>surface-panel</span></div>
+        <div class="swatch" style="background:var(--accent);color:var(--text-on-accent)"><b>Accent</b><span>silver</span></div>
+        <div class="swatch" style="background:var(--surface-glass)"><b>Glass</b><span>overlay</span></div>
+      </div>
+    </section>
+
+    <section class="theme-card anclora-pe" style="background:linear-gradient(180deg,#0d1b1a,#102423)">
+      <div class="head">
+        <div>
+          <div class="eyebrow">Ultra Premium</div>
+          <h2 class="title">Private Estates</h2>
+          <p class="lede">Oscuro editorial, acento oro y paneles nobles. La familia más ceremoniosa del sistema.</p>
+        </div>
+        <span class="theme-chip">Ultra Premium</span>
+      </div>
+      <div class="shell-topbar topbar-demo">
+        <span class="theme-chip">Mallorca</span>
+        <button class="btn btn-primary">Solicitar acceso</button>
+      </div>
+      <div class="swatches">
+        <div class="swatch" style="background:var(--surface-canvas)"><b>Canvas</b><span>pe</span></div>
+        <div class="swatch" style="background:var(--surface-panel)"><b>Panel</b><span>surface-panel</span></div>
+        <div class="swatch" style="background:var(--accent);color:var(--text-on-accent)"><b>Accent</b><span>gold</span></div>
+        <div class="swatch" style="background:var(--surface-glass)"><b>Glass</b><span>topbar</span></div>
+      </div>
+    </section>
+
+    <section class="theme-card anclora-portfolio" style="background:linear-gradient(180deg,#f8f5f2,#faf9f6);color:#0f172a">
+      <div class="head">
+        <div>
+          <div class="eyebrow">Portfolio</div>
+          <h2 class="title">Showcase / Landing</h2>
+          <p class="lede">Editorial público, orientado a narrativa y conversión. Secciones claras con chrome oscuro puntual.</p>
+        </div>
+        <span class="theme-chip">Public Showcase</span>
+      </div>
+      <div class="shell-topbar topbar-demo" style="background:rgba(15,23,42,0.78);color:#f8f5f2;border-color:rgba(248,245,242,0.12)">
+        <span class="theme-chip" style="background:rgba(248,245,242,0.1);border-color:rgba(248,245,242,0.14);color:#f8f5f2">ES / EN</span>
+        <button class="btn btn-primary">Descargar dossier</button>
+      </div>
+      <div class="swatches">
+        <div class="swatch" style="background:var(--surface-canvas)"><b>Canvas</b><span>ivory</span></div>
+        <div class="swatch" style="background:var(--surface-panel)"><b>Panel</b><span>cream</span></div>
+        <div class="swatch" style="background:var(--accent);color:var(--text-on-accent)"><b>Accent</b><span>gold</span></div>
+        <div class="swatch" style="background:var(--surface-overlay);color:#f8f5f2"><b>Overlay</b><span>navy glass</span></div>
+      </div>
+    </section>
+
+    <section class="theme-card anclora-internal" style="background:linear-gradient(180deg,#120f0d,#1a1410)">
+      <div class="head">
+        <div>
+          <div class="eyebrow">Internal</div>
+          <h2 class="title">Operational Shell</h2>
+          <p class="lede">Carbón cálido, coral operativo y paneles densos. Lectura rápida y profundidad controlada.</p>
+        </div>
+        <span class="theme-chip">App Internal</span>
+      </div>
+      <div class="shell-topbar topbar-demo">
+        <span class="theme-chip">Brand authority engine</span>
+        <button class="btn btn-primary">Generar activo</button>
+      </div>
+      <div class="swatches">
+        <div class="swatch" style="background:var(--surface-canvas)"><b>Canvas</b><span>internal-base</span></div>
+        <div class="swatch" style="background:var(--surface-panel)"><b>Panel</b><span>warm charcoal</span></div>
+        <div class="swatch" style="background:var(--accent);color:var(--text-on-accent)"><b>Accent</b><span>coral</span></div>
+        <div class="swatch" style="background:var(--action-secondary-bg)"><b>Secondary</b><span>sage</span></div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
