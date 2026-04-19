@@ -54,6 +54,11 @@
         align-items: start;
       }
 
+      .demo-grid--navigation {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        align-items: start;
+      }
+
       .demo-cluster {
         display: flex;
         flex-wrap: wrap;
@@ -70,6 +75,11 @@
         padding-top: 12px;
         color: var(--text-muted);
         font-size: 0.82rem;
+      }
+
+      .demo-toast-wrap {
+        display: flex;
+        justify-content: flex-end;
       }
 
       .demo-note {
@@ -96,6 +106,11 @@
           <span>Command Center reference shell</span>
         </div>
         <div class="ac-topbar__actions">
+          <div class="ac-language-switcher" aria-label="Language switcher">
+            <a class="ac-language-switcher__option" href="#" aria-current="true">ES</a>
+            <a class="ac-language-switcher__option" href="#">EN</a>
+            <a class="ac-language-switcher__option" href="#">DE</a>
+          </div>
           <a class="ac-button ac-button--ghost ac-button--sm" href="#surfaces">
             <span class="ac-button__label">Surfaces</span>
           </a>
@@ -358,6 +373,63 @@
         </article>
       </section>
 
+      <section class="demo-grid demo-grid--navigation" id="local-navigation">
+        <article class="ac-surface-panel">
+          <div class="ac-surface-panel__header">
+            <p class="ac-surface-panel__eyebrow">Breadcrumb</p>
+            <h3 class="ac-surface-panel__title">Hierarchical context</h3>
+          </div>
+          <div class="ac-surface-panel__body">
+            <nav class="ac-breadcrumb" aria-label="Breadcrumb">
+              <span class="ac-breadcrumb__item">
+                <a class="ac-breadcrumb__link" href="#">Ecosystem</a>
+                <span class="ac-breadcrumb__separator">/</span>
+              </span>
+              <span class="ac-breadcrumb__item">
+                <a class="ac-breadcrumb__link" href="#">Command Center</a>
+                <span class="ac-breadcrumb__separator">/</span>
+              </span>
+              <span class="ac-breadcrumb__item">
+                <span class="ac-breadcrumb__current">Contracts</span>
+              </span>
+            </nav>
+            <p style="margin: 0;">Breadcrumb communicates location and ancestry, but not app-specific routing logic.</p>
+          </div>
+        </article>
+
+        <article class="ac-surface-panel">
+          <div class="ac-surface-panel__header">
+            <p class="ac-surface-panel__eyebrow">Tabs</p>
+            <h3 class="ac-surface-panel__title">Local view switching</h3>
+          </div>
+          <div class="ac-tabs">
+            <div class="ac-tabs__list" role="tablist" aria-label="View switcher">
+              <a class="ac-tabs__tab" href="#" aria-current="page">Overview</a>
+              <a class="ac-tabs__tab" href="#">Signals</a>
+              <a class="ac-tabs__tab" href="#">Motion</a>
+            </div>
+            <div class="ac-tabs__panel">
+              <p style="margin: 0;">Tabs remain neutral at component level; the meaning of each view belongs to the consuming app.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="ac-surface-panel">
+          <div class="ac-surface-panel__header">
+            <p class="ac-surface-panel__eyebrow">Subnav</p>
+            <h3 class="ac-surface-panel__title">Section-level navigation</h3>
+          </div>
+          <div class="ac-surface-panel__body">
+            <nav class="ac-subnav" aria-label="Section navigation">
+              <a class="ac-subnav__link" href="#" aria-current="page">Summary</a>
+              <a class="ac-subnav__link" href="#">Coverage</a>
+              <a class="ac-subnav__link" href="#">Exceptions</a>
+            </nav>
+            <p style="margin: 0;">Use subnav for contextual sections, not for primary product navigation.</p>
+          </div>
+        </article>
+      </section>
+
       <section class="demo-grid" id="data-table">
         <article class="ac-surface-panel">
           <div class="ac-surface-panel__header">
@@ -455,6 +527,51 @@
             </div>
           </aside>
         </div>
+      </section>
+
+      <section class="demo-grid demo-grid--cards" id="feedback">
+        <article class="ac-surface-panel">
+          <div class="ac-surface-panel__header">
+            <p class="ac-surface-panel__eyebrow">EmptyState</p>
+            <h3 class="ac-surface-panel__title">No-data and no-results shell</h3>
+          </div>
+          <div class="ac-empty-state">
+            <div class="ac-empty-state__mark">0</div>
+            <h3 class="ac-empty-state__title">No contracts pending review</h3>
+            <p class="ac-empty-state__summary">
+              The component provides neutral structure for absence states. Copy, recovery actions and thresholds belong to the consumer.
+            </p>
+            <div class="ac-empty-state__actions">
+              <button class="ac-button ac-button--ghost" type="button"><span class="ac-button__label">Refresh</span></button>
+              <button class="ac-button ac-button--secondary" type="button"><span class="ac-button__label">View archive</span></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="ac-surface-panel ac-surface-panel--strong">
+          <div class="ac-surface-panel__header">
+            <p class="ac-surface-panel__eyebrow">Toast</p>
+            <h3 class="ac-surface-panel__title">Transient feedback surface</h3>
+          </div>
+          <div class="demo-toast-wrap">
+            <div class="ac-toast-stack">
+              <article class="ac-toast" data-tone="success">
+                <div class="ac-toast__header">
+                  <p class="ac-toast__title">Contract synchronized</p>
+                  <span class="status-badge is-success">Success</span>
+                </div>
+                <p class="ac-toast__summary">The latest design system primitives were applied to the target workspace.</p>
+              </article>
+              <article class="ac-toast" data-tone="review">
+                <div class="ac-toast__header">
+                  <p class="ac-toast__title">Review still required</p>
+                  <span class="status-badge is-review">Review</span>
+                </div>
+                <p class="ac-toast__summary">Two modal variants still need approval before they can be promoted to shared patterns.</p>
+              </article>
+            </div>
+          </div>
+        </article>
       </section>
 
       <p class="demo-note">

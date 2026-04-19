@@ -145,11 +145,16 @@ src/
 - `SurfacePanel`
 - `Topbar`
 - `SidebarNav`
+- `Tabs`
+- `Breadcrumb`
+- `Subnav`
 - `AppTile`
 - `MetricCard`
 - `StatStrip`
 - `FormField`
 - `DataTable`
+- `EmptyState`
+- `Toast`
 - `LanguageSwitcher`
 - `Modal`
 - `Drawer`

@@ -1,0 +1,57 @@
+/* Canonical toast surface for transient feedback. */
+
+.ac-toast-stack {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.ac-toast {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 380px;
+  padding: 16px 18px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--surface-panel-strong) 92%, transparent) 0%,
+      color-mix(in srgb, var(--surface-panel) 88%, transparent) 100%);
+  box-shadow: var(--shadow-lg), var(--shadow-inset);
+}
+
+.ac-toast__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.ac-toast__title {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.ac-toast__summary {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.ac-toast[data-tone="success"] {
+  border-color: color-mix(in srgb, var(--status-success-text) 22%, var(--border-default));
+}
+
+.ac-toast[data-tone="review"] {
+  border-color: color-mix(in srgb, var(--status-review-text) 22%, var(--border-default));
+}
+
+.ac-toast[data-tone="warning"] {
+  border-color: color-mix(in srgb, var(--status-warning-text) 22%, var(--border-default));
+}
+
+.ac-toast[data-tone="danger"] {
+  border-color: color-mix(in srgb, var(--status-danger-text) 22%, var(--border-default));
+}
