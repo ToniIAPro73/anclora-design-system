@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anclora Taxonomy Contracts Preview</title>
+    <link rel="stylesheet" href="../src/system.css" />
+    <style>
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at top left, rgba(201, 169, 95, 0.12), transparent 30%),
+          linear-gradient(180deg, #091018 0%, #0f1720 100%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+
+      .page {
+        padding: 40px 0 72px;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: var(--text-eyebrow);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: var(--track-eyebrow);
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-family: var(--font-display);
+        font-size: clamp(2.6rem, 4vw, 4.25rem);
+        letter-spacing: var(--track-title);
+      }
+
+      h2 {
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+
+      p {
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .matrix {
+        display: grid;
+        gap: 24px;
+      }
+
+      .contract-card {
+        padding: 28px;
+      }
+
+      .sample-grid {
+        display: grid;
+        gap: 20px;
+      }
+
+      .token-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .token-row code {
+        padding: 8px 12px;
+        border: 1px solid var(--border-default);
+        border-radius: var(--radius-pill);
+        background: color-mix(in srgb, var(--surface-panel) 84%, transparent);
+        color: var(--text-primary);
+        font-size: 0.74rem;
+      }
+
+      .metric-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--metric-density-gap);
+      }
+
+      .metric {
+        padding: 18px;
+      }
+
+      .metric strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.5rem;
+      }
+
+      @media (max-width: 900px) {
+        .metric-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="shell-frame stack" style="--stack-gap: 32px;">
+        <section class="stack">
+          <div class="eyebrow">Taxonomy contracts preview</div>
+          <h1>La taxonomía ya puede expresarse como superficie ejecutable.</h1>
+          <p>
+            Esta preview no representa una app concreta. Valida que el design system puede componerse por tier, domain,
+            archetype, role, cluster y product sin colapsar en demos cerradas.
+          </p>
+        </section>
+
+        <section class="matrix">
+          <article class="product-anclora-private-estates tier-ultra-premium domain-real-estate archetype-landing role-guest cluster-entry surface-card brand-glow grid-noise contract-card stack">
+            <div class="hero-split">
+              <div class="stack">
+                <div class="eyebrow">Ultra premium · real estate · landing</div>
+                <h2>Private Estates</h2>
+                <p>Superficie ceremonial, serif display, panel amplio y glow contenido para experiencia editorial.</p>
+                <div class="cluster">
+                  <button class="btn btn-primary btn-sweep">Solicitar acceso</button>
+                  <button class="btn btn-ghost">Ver portfolio</button>
+                </div>
+              </div>
+              <div class="surface-frame hero-panel stack">
+                <span class="theme-chip">Tier ultra premium</span>
+                <span class="status-badge is-warning">Curated</span>
+                <div class="token-row">
+                  <code>radius-card: 2rem</code>
+                  <code>halo sweep: on</code>
+                  <code>role: guest</code>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-anclora-command-center tier-premium domain-cross-domain archetype-command-center role-executive cluster-core surface-card brand-glow contract-card stack">
+            <div class="stack">
+              <div class="eyebrow">Premium · cross_domain · command center</div>
+              <h2>Command Center</h2>
+              <p>Mayor densidad informativa, menor ceremonialidad y contraste ejecutivo para visión transversal.</p>
+              <div class="metric-grid">
+                <div class="surface-frame metric">
+                  <span class="field-label">Coverage</span>
+                  <strong>12</strong>
+                  <p>Repositorios sincronizados con contrato vigente.</p>
+                </div>
+                <div class="surface-frame metric">
+                  <span class="field-label">Signals</span>
+                  <strong>38</strong>
+                  <p>Eventos críticos consolidados en capa core.</p>
+                </div>
+                <div class="surface-frame metric">
+                  <span class="field-label">Drift</span>
+                  <strong>2</strong>
+                  <p>Divergencias visuales pendientes de normalización.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-anclora-talent tier-premium domain-human-capital archetype-workspace role-operator cluster-core surface-card contract-card stack">
+            <div class="hero-split">
+              <div class="stack">
+                <div class="eyebrow">Premium · human capital · workspace</div>
+                <h2>Talent</h2>
+                <p>Workspace operativo con tono premium, densidad de operador y componentes sobrios para flujo continuo.</p>
+                <label class="field-label" for="talent-search">Search</label>
+                <input id="talent-search" class="field-input" placeholder="Buscar candidatos, vacantes o notas" />
+              </div>
+              <div class="stack">
+                <div class="surface-panel hero-panel stack">
+                  <span class="theme-chip">Role operator</span>
+                  <span class="status-badge is-success">Active pipeline</span>
+                  <p>La taxonomía reduce ceremonialidad, compacta labels y ajusta radios sin perder identidad.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-anclora-portfolio tier-portfolio domain-real-estate archetype-landing role-guest cluster-entry surface-card contract-card stack">
+            <div class="hero-split">
+              <div class="stack">
+                <div class="eyebrow">Portfolio · real estate · landing</div>
+                <h2>Portfolio reference</h2>
+                <p>Editorial claro, accent dorado, contraste limpio y motion sobrio para captación y presentación.</p>
+                <div class="cluster">
+                  <button class="btn btn-primary">Ver propiedades</button>
+                  <button class="btn btn-secondary">Solicitar información</button>
+                </div>
+              </div>
+              <div class="surface-frame hero-panel stack">
+                <span class="theme-chip">Tier portfolio</span>
+                <span class="status-badge is-review">Lead capture</span>
+                <div class="token-row">
+                  <code>display: editorial serif</code>
+                  <code>canvas: light ivory</code>
+                  <code>sweep: off</code>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

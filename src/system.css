@@ -1,5 +1,10 @@
 @import url("./tokens/core.css");
 @import url("./tokens/semantic.css");
+@import url("./taxonomy/tier.css");
+@import url("./taxonomy/domain.css");
+@import url("./taxonomy/archetype.css");
+@import url("./taxonomy/role.css");
+@import url("./taxonomy/clusters.css");
 @import url("./themes/product.css");
 @import url("./foundations/typography.css");
 @import url("./foundations/primitives.css");

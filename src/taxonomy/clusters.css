@@ -1,0 +1,18 @@
+/* =========================================================
+   TAXONOMY: ECOSYSTEM CLUSTERS
+   ========================================================= */
+
+.cluster-entry {
+  --cluster-glow-strength: 0.14;
+  --cluster-surface-mix: 90%;
+}
+
+.cluster-core {
+  --cluster-glow-strength: 0.18;
+  --cluster-surface-mix: 94%;
+}
+
+.cluster-activation {
+  --cluster-glow-strength: 0.16;
+  --cluster-surface-mix: 88%;
+}

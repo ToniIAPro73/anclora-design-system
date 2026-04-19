@@ -1,0 +1,31 @@
+/* =========================================================
+   TAXONOMY: SYSTEM ROLE
+   ========================================================= */
+
+.role-guest {
+  --content-density: 1;
+  --label-size: 0.66rem;
+  --label-tracking: var(--track-eyebrow);
+  --metric-density-gap: var(--space-4);
+}
+
+.role-partner {
+  --content-density: 0.96;
+  --label-size: 0.65rem;
+  --label-tracking: 0.2em;
+  --metric-density-gap: var(--space-3);
+}
+
+.role-operator {
+  --content-density: 0.92;
+  --label-size: 0.62rem;
+  --label-tracking: 0.18em;
+  --metric-density-gap: var(--space-3);
+}
+
+.role-executive {
+  --content-density: 1.04;
+  --label-size: 0.68rem;
+  --label-tracking: 0.22em;
+  --metric-density-gap: var(--space-5);
+}

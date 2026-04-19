@@ -1,0 +1,39 @@
+/* =========================================================
+   TAXONOMY: DOMAIN
+   ========================================================= */
+
+.domain-real-estate {
+  --domain-glow: rgba(201, 169, 95, 0.18);
+  --domain-grid-line: rgba(201, 169, 95, 0.08);
+  --text-eyebrow: color-mix(in srgb, var(--accent) 84%, white 16%);
+}
+
+.domain-human-capital {
+  --domain-glow: rgba(108, 168, 224, 0.18);
+  --domain-grid-line: rgba(108, 168, 224, 0.08);
+  --text-eyebrow: color-mix(in srgb, var(--accent) 82%, white 18%);
+}
+
+.domain-fitness-wellness {
+  --domain-glow: rgba(224, 122, 60, 0.18);
+  --domain-grid-line: rgba(224, 122, 60, 0.08);
+  --text-eyebrow: color-mix(in srgb, var(--accent) 82%, white 18%);
+}
+
+.domain-cross-domain {
+  --domain-glow: rgba(194, 74, 74, 0.16);
+  --domain-grid-line: rgba(194, 74, 74, 0.08);
+  --text-eyebrow: color-mix(in srgb, var(--accent) 80%, white 20%);
+}
+
+.domain-corporate {
+  --domain-glow: rgba(168, 174, 184, 0.16);
+  --domain-grid-line: rgba(168, 174, 184, 0.08);
+  --text-eyebrow: color-mix(in srgb, var(--accent) 76%, white 24%);
+}
+
+.domain-content-operations {
+  --domain-glow: rgba(224, 104, 72, 0.18);
+  --domain-grid-line: rgba(224, 104, 72, 0.08);
+  --text-eyebrow: color-mix(in srgb, var(--accent) 80%, white 20%);
+}

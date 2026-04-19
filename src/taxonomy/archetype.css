@@ -1,0 +1,35 @@
+/* =========================================================
+   TAXONOMY: PRODUCT ARCHETYPE
+   ========================================================= */
+
+.archetype-landing {
+  --shell-max-width: 1280px;
+  --shell-section-gap: var(--space-16);
+  --hero-columns: minmax(0, 1.18fr) minmax(280px, 0.82fr);
+  --hero-panel-padding: clamp(28px, 4vw, 52px);
+  --topbar-blur: 18px;
+}
+
+.archetype-workspace {
+  --shell-max-width: 1440px;
+  --shell-section-gap: var(--space-10);
+  --hero-columns: minmax(0, 1fr) minmax(280px, 0.92fr);
+  --hero-panel-padding: clamp(24px, 3vw, 40px);
+  --topbar-blur: 16px;
+}
+
+.archetype-portal {
+  --shell-max-width: 1320px;
+  --shell-section-gap: var(--space-12);
+  --hero-columns: minmax(0, 1.05fr) minmax(260px, 0.95fr);
+  --hero-panel-padding: clamp(24px, 3vw, 44px);
+  --topbar-blur: 18px;
+}
+
+.archetype-command-center {
+  --shell-max-width: 1480px;
+  --shell-section-gap: var(--space-8);
+  --hero-columns: minmax(0, 1.22fr) minmax(320px, 0.78fr);
+  --hero-panel-padding: clamp(22px, 2.8vw, 36px);
+  --topbar-blur: 14px;
+}

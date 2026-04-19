@@ -2,6 +2,7 @@
    THEME SCOPES
    ========================================================= */
 
+.product-anclora-private-estates,
 .anclora-pe {
   --bg: #0d1b1a;
   --bg-raised: #102423;
@@ -16,6 +17,7 @@
   font-family: var(--font-sans);
 }
 
+.product-anclora-synergi,
 .anclora-synergi {
   --bg: #130d1c;
   --bg-raised: #1c142a;
@@ -30,6 +32,7 @@
   font-family: var(--font-internal);
 }
 
+.product-anclora-data-lab,
 .anclora-data-lab {
   --bg: #071411;
   --bg-raised: #0c1b17;
@@ -44,6 +47,7 @@
   font-family: var(--font-internal);
 }
 
+.product-anclora-nexus,
 .anclora-nexus {
   --bg: #0f1629;
   --bg-raised: #141c3a;
@@ -58,6 +62,7 @@
   font-family: var(--font-saas);
 }
 
+.product-anclora-portfolio,
 .anclora-portfolio {
   --bg: var(--portfolio-ivory);
   --bg-raised: var(--portfolio-cream);
@@ -104,6 +109,22 @@
   --motion-hero-emphasis: 420ms;
 }
 
+.product-anclora-group,
+.anclora-group {
+  --bg: var(--group-ink);
+  --bg-raised: var(--group-surface);
+  --bg-strong: var(--group-surface-2);
+  --fg1: var(--group-copy);
+  --fg2: var(--group-muted);
+  --fg3: var(--group-silver);
+  --accent: var(--coin-group);
+  --border: var(--group-border);
+  --line-soft: rgba(255, 255, 255, 0.06);
+  --line-strong: rgba(168, 174, 184, 0.34);
+  font-family: var(--font-sans);
+}
+
+.product-anclora-content-generator-ai,
 .anclora-internal,
 .anclora-content-generator-ai {
   --bg: var(--internal-base);
@@ -149,4 +170,46 @@
   --motion-hover-lift-card: -4px;
   --motion-hover-lift-button: -2px;
   --motion-hover-lift-frame: -2px;
+}
+
+.product-anclora-talent {
+  --bg: #121a27;
+  --bg-raised: #172133;
+  --bg-strong: #1d2a3f;
+  --fg1: #edf4fb;
+  --fg2: rgba(237, 244, 251, 0.72);
+  --fg3: #9cc7ef;
+  --accent: var(--coin-talent);
+  --border: rgba(108, 168, 224, 0.18);
+  --line-soft: rgba(237, 244, 251, 0.06);
+  --line-strong: rgba(108, 168, 224, 0.3);
+  font-family: var(--font-internal);
+}
+
+.product-anclora-impulso {
+  --bg: #1d130d;
+  --bg-raised: #281910;
+  --bg-strong: #342117;
+  --fg1: #fff2e9;
+  --fg2: rgba(255, 242, 233, 0.72);
+  --fg3: #f0ac7b;
+  --accent: var(--coin-impulso);
+  --border: rgba(224, 122, 60, 0.18);
+  --line-soft: rgba(255, 242, 233, 0.06);
+  --line-strong: rgba(224, 122, 60, 0.32);
+  font-family: var(--font-internal);
+}
+
+.product-anclora-command-center {
+  --bg: #110d12;
+  --bg-raised: #1a121a;
+  --bg-strong: #241722;
+  --fg1: #f6eef2;
+  --fg2: rgba(246, 238, 242, 0.72);
+  --fg3: #e58a94;
+  --accent: var(--coin-command);
+  --border: rgba(194, 74, 74, 0.2);
+  --line-soft: rgba(246, 238, 242, 0.06);
+  --line-strong: rgba(194, 74, 74, 0.34);
+  font-family: var(--font-internal);
 }

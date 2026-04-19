@@ -1,0 +1,55 @@
+/* =========================================================
+   TAXONOMY: TIER
+   ========================================================= */
+
+.tier-ultra-premium {
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --surface-radius-card: var(--radius-xl);
+  --surface-radius-frame: var(--radius-lg);
+  --surface-radius-panel: var(--radius-2xl);
+  --action-min-height: 46px;
+  --motion-hover-lift-card: -3px;
+  --motion-hover-lift-button: -2px;
+  --motion-hover-lift-frame: -2px;
+  --halo-sweep-opacity: 0.22;
+}
+
+.tier-premium {
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --surface-radius-card: 1.75rem;
+  --surface-radius-frame: 1.375rem;
+  --surface-radius-panel: 2rem;
+  --action-min-height: 44px;
+  --motion-hover-lift-card: -3px;
+  --motion-hover-lift-button: -2px;
+  --motion-hover-lift-frame: -2px;
+  --halo-sweep-opacity: 0.16;
+}
+
+.tier-internal {
+  --font-display: var(--font-sans);
+  --font-sans: var(--font-internal);
+  --surface-radius-card: 1.5rem;
+  --surface-radius-frame: 1.25rem;
+  --surface-radius-panel: 1.75rem;
+  --action-min-height: 42px;
+  --motion-hover-lift-card: -2px;
+  --motion-hover-lift-button: -1px;
+  --motion-hover-lift-frame: -1px;
+  --halo-sweep-opacity: 0;
+}
+
+.tier-portfolio {
+  --font-display: var(--font-portfolio-display);
+  --font-sans: var(--font-portfolio-sans);
+  --surface-radius-card: 1.625rem;
+  --surface-radius-frame: 1.25rem;
+  --surface-radius-panel: 1.875rem;
+  --action-min-height: 44px;
+  --motion-hover-lift-card: -2px;
+  --motion-hover-lift-button: -2px;
+  --motion-hover-lift-frame: -1px;
+  --halo-sweep-opacity: 0;
+}
