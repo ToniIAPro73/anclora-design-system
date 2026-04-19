@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio Example · Private Estates Editorial Landing</title>
+    <link rel="stylesheet" href="../../system.css" />
+    <style>
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at top right, rgba(201, 169, 95, 0.12), transparent 28%),
+          linear-gradient(180deg, #f7f3eb 0%, #efe6d6 100%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+
+      .page {
+        padding: 32px 0 56px;
+      }
+
+      .section,
+      .hero-panel {
+        padding: 24px;
+      }
+
+      .hero {
+        display: grid;
+        gap: 24px;
+      }
+
+      .notes {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      @media (max-width: 900px) {
+        .notes {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page product-anclora-private-estates tier-ultra-premium domain-real-estate archetype-landing role-guest cluster-entry">
+      <div class="shell-frame stack">
+        <section class="surface-card hero section stack brand-glow">
+          <div class="hero-split">
+            <div class="stack">
+              <span class="theme-chip">Portfolio example</span>
+              <h1 style="margin: 0; font-family: var(--font-display); font-size: clamp(2.4rem, 4vw, 4rem);">Private Estates Collection</h1>
+              <p style="margin: 0; color: var(--text-secondary);">
+                Esta composicion parte de `PremiumHeroSplit`, pero su storytelling, ritmo editorial y contenido son especificos de una experiencia de portfolio.
+              </p>
+              <div class="cluster">
+                <button class="btn btn-primary">Request curated access</button>
+                <button class="btn btn-secondary">View collection</button>
+              </div>
+            </div>
+
+            <div class="surface-frame hero-panel stack">
+              <span class="field-label">Curated intake</span>
+              <label class="field-label" for="portfolio-email">Email</label>
+              <input id="portfolio-email" class="field-input" placeholder="name@example.com" />
+              <label class="field-label" for="portfolio-brief">Brief</label>
+              <textarea id="portfolio-brief" class="field-textarea" placeholder="Location, range, timeline"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <section class="notes">
+          <article class="surface-panel section stack">
+            <span class="field-label">Pattern boundary</span>
+            <p style="margin: 0; color: var(--text-secondary);">
+              El split hero, el action cluster y el support panel pueden vivir como patron reusable.
+            </p>
+          </article>
+
+          <article class="surface-panel section stack">
+            <span class="field-label">Example boundary</span>
+            <p style="margin: 0; color: var(--text-secondary);">
+              La narrativa de acceso curado, el formulario y la promesa editorial pertenecen a una composicion de app o marca concreta.
+            </p>
+          </article>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

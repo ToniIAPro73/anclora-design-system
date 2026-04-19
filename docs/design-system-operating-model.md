@@ -119,6 +119,9 @@ src/
 `pattern`
 - Composicion reusable de varios componentes para una necesidad recurrente: hero premium, app grid, workspace shell, executive KPI strip.
 
+`example`
+- Referencia ejecutable por tipo de app que demuestra como consumir patterns, primitives y taxonomia sin convertir una composicion concreta en canon.
+
 `app-specific composition`
 - Pantalla o seccion que depende de copy, flujos o datos concretos de una app y no debe subir al canon.
 
@@ -219,6 +222,12 @@ La UI final debe poder componerse a partir de varias capas:
 - introducir componentes reales reutilizables con API estable
 - construir examples por tipo de app
 - añadir modal, drawer, navigation y data display
+
+### Fase 2.1
+
+- formalizar `src/patterns/` con contratos por anatomia, slots, variantes y restricciones
+- formalizar `src/examples/` con referencias Premium, Internal y Portfolio
+- usar examples para validar adopcion sin contaminar la capa canonica
 
 ### Fase 3
 

@@ -1,0 +1,103 @@
+/* Canonical content wrappers
+   .ac-surface-panel is the neutral panel shell.
+   .ac-card adds hover/elevation behavior for clickable or highlighted surfaces.
+*/
+
+.ac-surface-panel,
+.ac-card {
+  position: relative;
+  display: grid;
+  gap: var(--space-5);
+  padding: clamp(20px, 2.4vw, 28px);
+  border: 1px solid var(--border-default);
+  border-radius: var(--surface-radius-panel);
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--surface-panel) calc(var(--cluster-surface-mix) - 2%), transparent) 0%,
+      color-mix(in srgb, var(--surface-canvas) 94%, transparent) 100%);
+  box-shadow: var(--shadow-md), var(--shadow-inset);
+  color: var(--text-primary);
+}
+
+.ac-card {
+  transition:
+    transform var(--dur-base) var(--ease-spring),
+    border-color var(--dur-base) ease,
+    box-shadow var(--dur-base) ease;
+}
+
+.ac-card:hover,
+.ac-card:focus-within {
+  transform: translateY(var(--motion-hover-lift-card));
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-lg), var(--shadow-inset);
+}
+
+.ac-surface-panel--strong,
+.ac-card--strong {
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--surface-panel-strong) 92%, transparent) 0%,
+      color-mix(in srgb, var(--surface-panel) 88%, transparent) 100%);
+}
+
+.ac-surface-panel--subtle,
+.ac-card--subtle {
+  border-color: var(--border-subtle);
+  background: var(--surface-subtle);
+  box-shadow: none;
+}
+
+.ac-surface-panel__header,
+.ac-card__header {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.ac-surface-panel__meta,
+.ac-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.ac-surface-panel__title,
+.ac-card__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.3vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: var(--track-title);
+  color: var(--text-primary);
+}
+
+.ac-surface-panel__eyebrow,
+.ac-card__eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-eyebrow);
+}
+
+.ac-surface-panel__body,
+.ac-card__body {
+  display: grid;
+  gap: var(--space-4);
+  color: var(--text-secondary);
+}
+
+.ac-surface-panel__footer,
+.ac-card__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--border-subtle);
+}

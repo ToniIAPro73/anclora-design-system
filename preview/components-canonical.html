@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anclora Design System - Canonical Components</title>
+    <link rel="stylesheet" href="../src/system.css" />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--font-sans);
+        background:
+          radial-gradient(circle at top, color-mix(in srgb, var(--accent) 14%, transparent) 0%, transparent 34%),
+          linear-gradient(180deg, var(--surface-canvas) 0%, color-mix(in srgb, var(--surface-canvas) 90%, black 10%) 100%);
+        color: var(--text-primary);
+      }
+
+      .demo-shell {
+        width: min(1200px, calc(100% - 48px));
+        margin: 0 auto;
+        padding: 32px 0 80px;
+        display: grid;
+        gap: 28px;
+      }
+
+      .demo-grid {
+        display: grid;
+        gap: 24px;
+      }
+
+      .demo-grid--cards {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+
+      .demo-grid--metrics {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .demo-cluster {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .demo-note {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.82rem;
+      }
+    </style>
+  </head>
+  <body class="tier-premium domain-cross-domain archetype-command-center role-executive cluster-core product-anclora-command-center">
+    <main class="demo-shell">
+      <header class="ac-topbar">
+        <div class="ac-topbar__brand">
+          <div class="ac-topbar__mark">AC</div>
+          <div class="ac-topbar__titles">
+            <p class="ac-topbar__eyebrow">Canonical components</p>
+            <h1 class="ac-topbar__title">Anclora Design System</h1>
+          </div>
+        </div>
+        <div class="ac-topbar__meta">
+          <span class="theme-chip">Tier premium</span>
+          <span class="theme-chip">Cross-domain</span>
+          <span class="ac-topbar__divider" aria-hidden="true"></span>
+          <span>Command Center reference shell</span>
+        </div>
+        <div class="ac-topbar__actions">
+          <a class="ac-button ac-button--ghost ac-button--sm" href="#surfaces">
+            <span class="ac-button__label">Surfaces</span>
+          </a>
+          <a class="ac-button ac-button--primary" href="#apps">
+            <span class="ac-button__label">Open catalog</span>
+          </a>
+        </div>
+      </header>
+
+      <section class="ac-section-heading ac-section-heading--split">
+        <div class="ac-section-heading__content">
+          <p class="ac-section-heading__eyebrow">System layer</p>
+          <h2 class="ac-section-heading__title">Canonical UI blocks for the ecosystem</h2>
+          <p class="ac-section-heading__summary">
+            Esta capa se mantiene neutral y reusable: acciones, shells de contenido, launch tiles, metric cards,
+            section intros y topbar framing. Sin composiciones de dashboard específicas de una app.
+          </p>
+        </div>
+        <div class="ac-section-heading__actions">
+          <button class="ac-button ac-button--secondary" type="button">
+            <span class="ac-button__label">Secondary</span>
+          </button>
+          <button class="ac-button ac-button--primary" type="button">
+            <span class="ac-button__icon" aria-hidden="true">+</span>
+            <span class="ac-button__label">Primary action</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="demo-grid" id="actions">
+        <div class="ac-surface-panel">
+          <div class="ac-surface-panel__header">
+            <p class="ac-surface-panel__eyebrow">Button</p>
+            <h3 class="ac-surface-panel__title">Action variants and sizes</h3>
+          </div>
+          <div class="ac-surface-panel__body">
+            <div class="demo-cluster">
+              <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Primary</span></button>
+              <button class="ac-button ac-button--secondary" type="button"><span class="ac-button__label">Secondary</span></button>
+              <button class="ac-button ac-button--ghost" type="button"><span class="ac-button__label">Ghost</span></button>
+              <button class="ac-button ac-button--destructive" type="button"><span class="ac-button__label">Destructive</span></button>
+            </div>
+            <div class="demo-cluster">
+              <button class="ac-button ac-button--secondary ac-button--sm" type="button"><span class="ac-button__label">Small</span></button>
+              <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Default</span></button>
+              <button class="ac-button ac-button--ghost ac-button--lg" type="button"><span class="ac-button__label">Large</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-grid demo-grid--cards" id="surfaces">
+        <article class="ac-card">
+          <div class="ac-card__header">
+            <div class="ac-card__meta">
+              <p class="ac-card__eyebrow">Card</p>
+              <span class="status-badge is-review">Shared component</span>
+            </div>
+            <h3 class="ac-card__title">Interactive content surface</h3>
+          </div>
+          <div class="ac-card__body">
+              <p style="margin: 0;">
+                Canonical wrapper for highlightable blocks, result summaries or selectable resources.
+              </p>
+          </div>
+          <div class="ac-card__footer">
+            <span style="color: var(--text-muted); font-size: 0.82rem;">Hover lift + focus-within support</span>
+            <a class="ac-button ac-button--ghost ac-button--sm" href="#apps"><span class="ac-button__label">Inspect</span></a>
+          </div>
+        </article>
+
+        <article class="ac-surface-panel ac-surface-panel--strong">
+          <div class="ac-surface-panel__header">
+            <p class="ac-surface-panel__eyebrow">SurfacePanel</p>
+            <h3 class="ac-surface-panel__title">Neutral structural panel</h3>
+          </div>
+          <div class="ac-surface-panel__body">
+            <p style="margin: 0;">
+              Use as the default shell for grouped content, forms and framed sections that should not imply clickability.
+            </p>
+          </div>
+          <div class="ac-surface-panel__footer">
+            <span style="color: var(--text-muted); font-size: 0.82rem;">Stable frame for documentation and application scaffolds</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="demo-grid demo-grid--cards" id="apps">
+        <a class="ac-app-tile" href="#apps">
+          <div class="ac-app-tile__head">
+            <div class="ac-app-tile__mark">CC</div>
+            <span class="ac-app-tile__kicker">Operating system</span>
+          </div>
+          <div class="ac-app-tile__body">
+            <h3 class="ac-app-tile__title">Anclora Command Center</h3>
+            <p class="ac-app-tile__summary">
+              Shared launcher tile for products, hubs and internal systems that need brand presence without app-specific chrome.
+            </p>
+          </div>
+          <div class="ac-app-tile__footer">
+            <div class="ac-app-tile__meta">
+              <span class="theme-chip">Premium</span>
+              <span class="theme-chip">Core cluster</span>
+            </div>
+            <span class="ac-app-tile__chevron" aria-hidden="true">→</span>
+          </div>
+        </a>
+
+        <a class="ac-app-tile" href="#apps">
+          <div class="ac-app-tile__head">
+            <div class="ac-app-tile__mark">TL</div>
+            <span class="ac-app-tile__kicker">Human capital</span>
+          </div>
+          <div class="ac-app-tile__body">
+            <h3 class="ac-app-tile__title">Anclora Talent</h3>
+            <p class="ac-app-tile__summary">
+              The same tile contract can shift by taxonomy variables while keeping one reusable component API.
+            </p>
+          </div>
+          <div class="ac-app-tile__footer">
+            <div class="ac-app-tile__meta">
+              <span class="theme-chip">Premium</span>
+              <span class="theme-chip">Human capital</span>
+            </div>
+            <span class="ac-app-tile__chevron" aria-hidden="true">→</span>
+          </div>
+        </a>
+      </section>
+
+      <section class="demo-grid demo-grid--metrics">
+        <article class="ac-metric-card">
+          <p class="ac-metric-card__eyebrow">MetricCard</p>
+          <div class="ac-metric-card__header">
+            <p class="ac-metric-card__value">97%</p>
+            <span class="ac-metric-card__delta" data-tone="success">+12%</span>
+          </div>
+          <p class="ac-metric-card__summary">Contract compliance across reusable premium surfaces.</p>
+          <div class="ac-metric-card__footer">
+            <span class="ac-metric-card__trend">Stable trend</span>
+            <span class="ac-metric-card__caption">Updated 4m ago</span>
+          </div>
+        </article>
+
+        <article class="ac-metric-card">
+          <p class="ac-metric-card__eyebrow">Motion Health</p>
+          <div class="ac-metric-card__header">
+            <p class="ac-metric-card__value">12</p>
+            <span class="ac-metric-card__delta" data-tone="review">Review</span>
+          </div>
+          <p class="ac-metric-card__summary">Primitives still waiting for motion contract alignment in downstream apps.</p>
+          <div class="ac-metric-card__footer">
+            <span class="ac-metric-card__trend">Needs follow-up</span>
+            <span class="ac-metric-card__caption">Scope: ecosystem</span>
+          </div>
+        </article>
+
+        <article class="ac-metric-card">
+          <p class="ac-metric-card__eyebrow">Localization</p>
+          <div class="ac-metric-card__header">
+            <p class="ac-metric-card__value">4</p>
+            <span class="ac-metric-card__delta" data-tone="warning">Pending</span>
+          </div>
+          <p class="ac-metric-card__summary">Locales still missing semantic copy wrappers in app compositions.</p>
+          <div class="ac-metric-card__footer">
+            <span class="ac-metric-card__trend">Shared concern</span>
+            <span class="ac-metric-card__caption">Not component-specific</span>
+          </div>
+        </article>
+      </section>
+
+      <p class="demo-note">
+        Preview note: this file intentionally demonstrates only canonical reusable building blocks.
+      </p>
+    </main>
+  </body>
+</html>

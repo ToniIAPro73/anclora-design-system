@@ -1,0 +1,58 @@
+/* Section heading primitive for reusable section intros. */
+
+.ac-section-heading {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+}
+
+.ac-section-heading--split {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--space-5);
+}
+
+.ac-section-heading__eyebrow {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-eyebrow);
+}
+
+.ac-section-heading__title {
+  margin: 0;
+  max-width: 14ch;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: var(--track-title);
+  color: var(--text-primary);
+}
+
+.ac-section-heading__summary {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.ac-section-heading__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-3);
+}
+
+@media (max-width: 760px) {
+  .ac-section-heading--split {
+    grid-template-columns: 1fr;
+  }
+
+  .ac-section-heading__actions {
+    justify-content: flex-start;
+  }
+}

@@ -1,0 +1,85 @@
+/* Canonical topbar shell for navigation and context actions. */
+
+.ac-topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 14px 18px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-pill);
+  background: var(--surface-glass);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(var(--topbar-blur));
+  -webkit-backdrop-filter: blur(var(--topbar-blur));
+}
+
+.ac-topbar__brand,
+.ac-topbar__meta,
+.ac-topbar__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.ac-topbar__brand {
+  min-width: 0;
+}
+
+.ac-topbar__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--border-default));
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--surface-panel) 82%, transparent);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ac-topbar__titles {
+  display: grid;
+  gap: 3px;
+}
+
+.ac-topbar__eyebrow {
+  margin: 0;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-eyebrow);
+}
+
+.ac-topbar__title {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.ac-topbar__meta {
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+}
+
+.ac-topbar__divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border-subtle);
+}
+
+@media (max-width: 760px) {
+  .ac-topbar {
+    border-radius: var(--radius-lg);
+  }
+}

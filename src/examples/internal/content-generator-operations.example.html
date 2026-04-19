@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Internal Example · Content Generator Operations</title>
+    <link rel="stylesheet" href="../../system.css" />
+    <style>
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #eef3f6 0%, #e6ecef 100%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+
+      .page {
+        padding: 24px 0 40px;
+      }
+
+      .layout {
+        display: grid;
+        gap: 18px;
+      }
+
+      .toolbar,
+      .panel {
+        padding: 18px;
+      }
+
+      .jobs {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .job-card {
+        padding: 16px;
+      }
+
+      @media (max-width: 900px) {
+        .jobs {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page product-anclora-content-generator-ai tier-internal domain-content-operations archetype-workspace role-operator cluster-core">
+      <div class="shell-frame layout">
+        <header class="shell-topbar toolbar">
+          <div class="cluster">
+            <span class="theme-chip">Internal</span>
+            <span class="status-badge is-success">Queue healthy</span>
+          </div>
+          <div class="cluster">
+            <button class="btn btn-secondary">Filters</button>
+            <button class="btn btn-primary">New prompt set</button>
+          </div>
+        </header>
+
+        <section class="surface-panel panel stack">
+          <div class="stack" style="--stack-gap: 8px;">
+            <span class="field-label">Example</span>
+            <h1 style="margin: 0; font-size: 1.55rem;">Content Operations Console</h1>
+            <p style="margin: 0; color: var(--text-secondary);">
+              Este example usa el patron `WorkspaceShell`, pero la cola, labels y prioridades de contenido son especificas de una app interna.
+            </p>
+          </div>
+
+          <div class="jobs">
+            <article class="surface-frame job-card stack">
+              <span class="field-label">Draft generation</span>
+              <strong style="font-size: 1.1rem;">LinkedIn batch</strong>
+              <p style="margin: 0; color: var(--text-secondary);">14 items pendientes de revision editorial.</p>
+              <div class="cluster">
+                <span class="status-badge is-review">Review</span>
+                <button class="btn btn-ghost">Open queue</button>
+              </div>
+            </article>
+
+            <article class="surface-frame job-card stack">
+              <span class="field-label">Localization</span>
+              <strong style="font-size: 1.1rem;">EN variant sync</strong>
+              <p style="margin: 0; color: var(--text-secondary);">3 piezas bloqueadas por longitud de CTA.</p>
+              <div class="cluster">
+                <span class="status-badge is-warning">Attention</span>
+                <button class="btn btn-ghost">Inspect</button>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

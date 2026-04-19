@@ -21,6 +21,18 @@ Current layers:
   Text roles and hierarchy primitives.
 - `foundations/primitives.css`
   Surface, button, field, shell, layout and status primitives.
+- `components/`
+  Canonical reusable UI blocks built on semantic tokens and foundations:
+  - button
+  - surface panel / card
+  - app tile
+  - metric card
+  - section heading
+  - topbar
+- `patterns/`
+  Reusable compositions documented as contracts by anatomy, slots and restrictions.
+- `examples/`
+  Executable references by app type. These demonstrate adoption and may include app-specific composition without becoming canonical.
 - `system.css`
   Aggregate entrypoint for the extracted system.
 
@@ -34,3 +46,5 @@ Composition model:
 - apply taxonomy classes first: `tier-*`, `domain-*`, `archetype-*`, `role-*`, `cluster-*`
 - apply a `product-*` class only for product-specific overrides
 - build primitives and components on top of semantic tokens, not raw product colors
+- treat `patterns/` as reusable composition contracts, not as base components
+- treat `examples/` as consumption references, not as canonical API

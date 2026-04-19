@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anclora Design System · Repo Structure</title>
+    <link rel="stylesheet" href="../src/system.css" />
+    <style>
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #0b1219 0%, #111b25 100%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+
+      .page {
+        padding: 40px 0 64px;
+      }
+
+      .section,
+      .tree-card,
+      .rule-card {
+        padding: 24px;
+      }
+
+      .tree {
+        display: grid;
+        gap: 18px;
+      }
+
+      .tree-card code {
+        display: block;
+        white-space: pre-wrap;
+        font-size: 0.84rem;
+        line-height: 1.7;
+        color: var(--text-secondary);
+      }
+
+      .rules {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      @media (max-width: 980px) {
+        .rules {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="shell-frame stack">
+        <section class="surface-card section stack">
+          <span class="theme-chip">Repo structure</span>
+          <h1 style="margin: 0; font-family: var(--font-display); font-size: clamp(2.2rem, 3.5vw, 3.5rem);">Patterns y examples ya tienen frontera real.</h1>
+          <p style="margin: 0; color: var(--text-secondary);">
+            Esta preview explica la reorganizacion operativa sin tocar la capa de components. El objetivo es preparar un canon sobrio y una zona clara de consumo por tipo de app.
+          </p>
+        </section>
+
+        <section class="tree">
+          <article class="surface-panel tree-card stack">
+            <span class="field-label">Patterns</span>
+            <code>src/patterns/
+  entry/
+    ecosystem-app-grid.pattern.md
+    premium-hero-split.pattern.md
+  workspace/
+    workspace-shell.pattern.md
+  executive/
+    executive-summary-band.pattern.md</code>
+          </article>
+
+          <article class="surface-panel tree-card stack">
+            <span class="field-label">Examples</span>
+            <code>src/examples/
+  premium/
+    command-center-overview.example.html
+  internal/
+    content-generator-operations.example.html
+  portfolio/
+    private-estates-editorial-landing.example.html</code>
+          </article>
+        </section>
+
+        <section class="rules">
+          <article class="surface-frame rule-card stack">
+            <span class="field-label">Pattern</span>
+            <p style="margin: 0; color: var(--text-secondary);">Estructura reusable, slots claros, variantes y restricciones. No depende de una app unica.</p>
+          </article>
+
+          <article class="surface-frame rule-card stack">
+            <span class="field-label">Example</span>
+            <p style="margin: 0; color: var(--text-secondary);">Referencia ejecutable que demuestra adopcion por tipo de app. Puede tener copy y prioridades especificas.</p>
+          </article>
+
+          <article class="surface-frame rule-card stack">
+            <span class="field-label">App-specific composition</span>
+            <p style="margin: 0; color: var(--text-secondary);">Se conserva como example hasta que exista evidencia de generalizacion suficiente para promoverla a pattern.</p>
+          </article>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

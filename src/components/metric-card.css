@@ -1,0 +1,100 @@
+/* Metric card for small KPI snapshots and health indicators. */
+
+.ac-metric-card {
+  position: relative;
+  display: grid;
+  gap: var(--metric-density-gap);
+  padding: clamp(20px, 2vw, 26px);
+  border: 1px solid var(--border-default);
+  border-radius: var(--surface-radius-card);
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--surface-panel-strong) 86%, transparent) 0%,
+      color-mix(in srgb, var(--surface-panel) 92%, transparent) 100%);
+  box-shadow: var(--shadow-md), var(--shadow-inset);
+}
+
+.ac-metric-card__eyebrow {
+  margin: 0;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-eyebrow);
+}
+
+.ac-metric-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.ac-metric-card__value {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.4vw, 3.25rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+}
+
+.ac-metric-card__delta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.ac-metric-card__delta[data-tone="success"] {
+  background: var(--status-success-surface);
+  color: var(--status-success-text);
+}
+
+.ac-metric-card__delta[data-tone="review"] {
+  background: var(--status-review-surface);
+  color: var(--status-review-text);
+}
+
+.ac-metric-card__delta[data-tone="warning"] {
+  background: var(--status-warning-surface);
+  color: var(--status-warning-text);
+}
+
+.ac-metric-card__delta[data-tone="danger"] {
+  background: var(--status-danger-surface);
+  color: var(--status-danger-text);
+}
+
+.ac-metric-card__summary {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.ac-metric-card__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.ac-metric-card__trend {
+  color: var(--text-link);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.ac-metric-card__caption {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}

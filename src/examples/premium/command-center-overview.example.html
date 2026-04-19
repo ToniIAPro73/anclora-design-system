@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Premium Example · Command Center Overview</title>
+    <link rel="stylesheet" href="../../system.css" />
+    <style>
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #091018 0%, #111924 100%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+
+      .page {
+        padding: 24px 0 40px;
+      }
+
+      .workspace {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: 20px;
+      }
+
+      .sidebar {
+        padding: 20px;
+      }
+
+      .content {
+        display: grid;
+        gap: 20px;
+      }
+
+      .panel {
+        padding: 20px;
+      }
+
+      .metric-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .metric strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.5rem;
+      }
+
+      .muted {
+        color: var(--text-secondary);
+      }
+
+      @media (max-width: 980px) {
+        .workspace,
+        .metric-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page product-anclora-command-center tier-premium domain-cross-domain archetype-command-center role-executive cluster-core">
+      <div class="shell-frame workspace">
+        <aside class="shell-sidebar surface-panel sidebar stack">
+          <span class="theme-chip">Example</span>
+          <h1 style="margin: 0; font-size: 1.4rem;">Command Center</h1>
+          <p class="muted" style="margin: 0;">Composicion especifica de app sobre `WorkspaceShell` y `ExecutiveSummaryBand`.</p>
+          <div class="stack" style="--stack-gap: 10px;">
+            <button class="btn btn-secondary">Coverage</button>
+            <button class="btn btn-ghost">Contracts</button>
+            <button class="btn btn-ghost">Alerts</button>
+          </div>
+        </aside>
+
+        <main class="content">
+          <header class="shell-topbar">
+            <div class="cluster">
+              <span class="theme-chip">Premium</span>
+              <span class="status-badge is-review">2 drifts</span>
+            </div>
+            <div class="cluster">
+              <button class="btn btn-ghost">Export</button>
+              <button class="btn btn-primary">Open report</button>
+            </div>
+          </header>
+
+          <section class="surface-card panel stack">
+            <div class="stack" style="--stack-gap: 8px;">
+              <span class="field-label">Executive summary band</span>
+              <h2 style="margin: 0;">Estado transversal del ecosistema</h2>
+              <p class="muted" style="margin: 0;">Este bloque puede vivir como pattern. El contenido y la priorizacion de Command Center son especificos de esta app.</p>
+            </div>
+            <div class="metric-grid">
+              <div class="surface-frame panel metric">
+                <span class="field-label">Repos</span>
+                <strong>14</strong>
+                <div class="muted">Con contrato vigente</div>
+              </div>
+              <div class="surface-frame panel metric">
+                <span class="field-label">Motions</span>
+                <strong>5</strong>
+                <div class="muted">Pendientes de normalizar</div>
+              </div>
+              <div class="surface-frame panel metric">
+                <span class="field-label">Alerts</span>
+                <strong>2</strong>
+                <div class="muted">Con seguimiento abierto</div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
