@@ -1,0 +1,58 @@
+/* Canonical drawer shell for filters, context or assistant panels. */
+
+.ac-drawer-backdrop {
+  display: grid;
+  justify-items: end;
+  min-height: 100%;
+  padding: clamp(18px, 3vw, 28px);
+  background: color-mix(in srgb, var(--surface-overlay) 78%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.ac-drawer {
+  width: min(420px, 100%);
+  display: grid;
+  gap: var(--space-5);
+  min-height: calc(100vh - clamp(36px, 6vw, 56px));
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid var(--border-default);
+  border-radius: var(--surface-radius-panel);
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--surface-panel-strong) 94%, transparent) 0%,
+      color-mix(in srgb, var(--surface-panel) 90%, transparent) 100%);
+  box-shadow: var(--shadow-xl), var(--shadow-inset);
+}
+
+.ac-drawer__header,
+.ac-drawer__body,
+.ac-drawer__footer {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.ac-drawer__title {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  line-height: 1.08;
+  letter-spacing: var(--track-title);
+}
+
+.ac-drawer__summary {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.ac-drawer__footer {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border-subtle);
+}

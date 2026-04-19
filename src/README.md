@@ -28,6 +28,12 @@ Current layers:
   - app tile
   - metric card
   - section heading
+  - form field
+  - sidebar nav
+  - stat strip
+  - data table
+  - modal
+  - drawer
   - topbar
 - `patterns/`
   Reusable compositions documented as contracts by anatomy, slots and restrictions.

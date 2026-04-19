@@ -1,0 +1,60 @@
+/* Canonical horizontal KPI strip. */
+
+.ac-stat-strip {
+  display: grid;
+  grid-template-columns: repeat(var(--ac-stat-columns, 4), minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+  border-radius: var(--surface-radius-panel);
+  background: var(--border-subtle);
+  box-shadow: var(--shadow-md), var(--shadow-inset);
+}
+
+.ac-stat-strip__item {
+  display: grid;
+  gap: var(--space-2);
+  min-height: 132px;
+  padding: clamp(18px, 2vw, 24px);
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--surface-panel-strong) 92%, transparent) 0%,
+      color-mix(in srgb, var(--surface-panel) 90%, transparent) 100%);
+}
+
+.ac-stat-strip__label {
+  margin: 0;
+  color: var(--text-eyebrow);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+}
+
+.ac-stat-strip__value {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.ac-stat-strip__meta {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 980px) {
+  .ac-stat-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .ac-stat-strip {
+    grid-template-columns: 1fr;
+  }
+}

@@ -149,6 +149,7 @@ src/
 - `MetricCard`
 - `StatStrip`
 - `FormField`
+- `DataTable`
 - `LanguageSwitcher`
 - `Modal`
 - `Drawer`

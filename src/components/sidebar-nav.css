@@ -1,0 +1,96 @@
+/* Canonical sidebar navigation for workspaces and internal shells. */
+
+.ac-sidebar-nav {
+  display: grid;
+  gap: var(--space-5);
+  min-width: 240px;
+  padding: clamp(18px, 2vw, 24px);
+  border: 1px solid var(--border-default);
+  border-radius: var(--surface-radius-panel);
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--surface-panel) 94%, transparent) 0%,
+      color-mix(in srgb, var(--surface-canvas) 92%, transparent) 100%);
+  box-shadow: var(--shadow-md), var(--shadow-inset);
+}
+
+.ac-sidebar-nav__header,
+.ac-sidebar-nav__group {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.ac-sidebar-nav__eyebrow {
+  margin: 0;
+  color: var(--text-eyebrow);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+}
+
+.ac-sidebar-nav__title {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  line-height: 1.1;
+  letter-spacing: var(--track-title);
+}
+
+.ac-sidebar-nav__list {
+  display: grid;
+  gap: 10px;
+}
+
+.ac-sidebar-nav__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition:
+    transform var(--dur-base) var(--ease-spring),
+    border-color var(--dur-base) ease,
+    background-color var(--dur-base) ease,
+    color var(--dur-base) ease;
+}
+
+.ac-sidebar-nav__item:hover,
+.ac-sidebar-nav__item:focus-visible {
+  transform: translateY(var(--motion-hover-lift-frame));
+  border-color: var(--border-default);
+  background: color-mix(in srgb, var(--surface-panel-strong) 72%, transparent);
+  color: var(--text-primary);
+}
+
+.ac-sidebar-nav__item[aria-current="page"] {
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--border-default));
+  background: color-mix(in srgb, var(--surface-panel-strong) 84%, transparent);
+  color: var(--text-primary);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+.ac-sidebar-nav__item-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ac-sidebar-nav__badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 8px;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--text-primary);
+  font-size: 0.7rem;
+  font-weight: 700;
+}

@@ -44,10 +44,32 @@
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       }
 
+      .demo-grid--sidebar {
+        grid-template-columns: minmax(240px, 280px) minmax(0, 1fr);
+        align-items: start;
+      }
+
+      .demo-grid--overlays {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        align-items: start;
+      }
+
       .demo-cluster {
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
+      }
+
+      .demo-stack-tight {
+        display: grid;
+        gap: 14px;
+      }
+
+      .demo-table-note {
+        margin: 0;
+        padding-top: 12px;
+        color: var(--text-muted);
+        font-size: 0.82rem;
       }
 
       .demo-note {
@@ -242,6 +264,197 @@
             <span class="ac-metric-card__caption">Not component-specific</span>
           </div>
         </article>
+      </section>
+
+      <section class="demo-grid demo-grid--cards" id="forms">
+        <article class="ac-surface-panel">
+          <div class="ac-surface-panel__header">
+            <p class="ac-surface-panel__eyebrow">FormField</p>
+            <h3 class="ac-surface-panel__title">Canonical field wrapper</h3>
+          </div>
+          <div class="ac-surface-panel__body">
+            <div class="ac-form-field">
+              <div class="ac-form-field__head">
+                <label class="ac-form-field__label" for="example-name">Owner</label>
+                <p class="ac-form-field__hint">Used for clear label, helper and validation messaging.</p>
+              </div>
+              <div class="ac-form-field__control">
+                <input id="example-name" class="field-input" placeholder="Team or domain owner" />
+                <p class="ac-form-field__message">Helper text for content, format or expected scope.</p>
+              </div>
+            </div>
+            <div class="ac-form-field ac-form-field--inline">
+              <div class="ac-form-field__head">
+                <label class="ac-form-field__label" for="example-brief">Brief</label>
+              </div>
+              <div class="ac-form-field__control">
+                <textarea id="example-brief" class="field-textarea" placeholder="Summarize the intent and downstream impact"></textarea>
+                <p class="ac-form-field__message" data-tone="danger">This field demonstrates inline validation tone.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="ac-surface-panel ac-surface-panel--strong">
+          <div class="ac-surface-panel__header">
+            <p class="ac-surface-panel__eyebrow">StatStrip</p>
+            <h3 class="ac-surface-panel__title">Horizontal KPI band</h3>
+          </div>
+          <div class="ac-surface-panel__body">
+            <div class="ac-stat-strip" style="--ac-stat-columns: 3;">
+              <div class="ac-stat-strip__item">
+                <p class="ac-stat-strip__label">Coverage</p>
+                <p class="ac-stat-strip__value">14</p>
+                <p class="ac-stat-strip__meta">Repos with active contract alignment.</p>
+              </div>
+              <div class="ac-stat-strip__item">
+                <p class="ac-stat-strip__label">Components</p>
+                <p class="ac-stat-strip__value">12</p>
+                <p class="ac-stat-strip__meta">Canonical blocks available in `src/components`.</p>
+              </div>
+              <div class="ac-stat-strip__item">
+                <p class="ac-stat-strip__label">Drifts</p>
+                <p class="ac-stat-strip__value">2</p>
+                <p class="ac-stat-strip__meta">Pending visual normalization in downstream apps.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="demo-grid demo-grid--sidebar" id="navigation">
+        <nav class="ac-sidebar-nav">
+          <div class="ac-sidebar-nav__header">
+            <p class="ac-sidebar-nav__eyebrow">SidebarNav</p>
+            <h3 class="ac-sidebar-nav__title">Workspace navigation</h3>
+          </div>
+          <div class="ac-sidebar-nav__group">
+            <div class="ac-sidebar-nav__list">
+              <a class="ac-sidebar-nav__item" href="#navigation" aria-current="page">
+                <span class="ac-sidebar-nav__item-label">Overview</span>
+                <span class="ac-sidebar-nav__badge">4</span>
+              </a>
+              <a class="ac-sidebar-nav__item" href="#data-table">
+                <span class="ac-sidebar-nav__item-label">Contracts</span>
+                <span class="ac-sidebar-nav__badge">2</span>
+              </a>
+              <a class="ac-sidebar-nav__item" href="#overlays">
+                <span class="ac-sidebar-nav__item-label">Overlays</span>
+              </a>
+            </div>
+          </div>
+        </nav>
+
+        <article class="ac-surface-panel">
+          <div class="ac-surface-panel__header">
+            <p class="ac-surface-panel__eyebrow">Usage</p>
+            <h3 class="ac-surface-panel__title">Operational shells without app-specific chrome</h3>
+          </div>
+          <div class="ac-surface-panel__body">
+            <p style="margin: 0;">
+              `SidebarNav` stays at component level because its value is stable navigation anatomy, not a concrete IA for one app.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <section class="demo-grid" id="data-table">
+        <article class="ac-surface-panel">
+          <div class="ac-surface-panel__header">
+            <p class="ac-surface-panel__eyebrow">DataTable</p>
+            <h3 class="ac-surface-panel__title">Minimum operational data display</h3>
+          </div>
+          <div class="ac-data-table">
+            <div class="ac-data-table__scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Artifact</th>
+                    <th>Layer</th>
+                    <th>Status</th>
+                    <th>Scope</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="ac-data-table__primary">Button</div>
+                      <div class="ac-data-table__meta">Shared action API</div>
+                    </td>
+                    <td>Component</td>
+                    <td><span class="status-badge is-success">Live</span></td>
+                    <td>Ecosystem</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ac-data-table__primary">Modal</div>
+                      <div class="ac-data-table__meta">Overlay shell</div>
+                    </td>
+                    <td>Component</td>
+                    <td><span class="status-badge is-review">Review</span></td>
+                    <td>Premium / Internal</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="ac-data-table__primary">ExecutiveSummaryBand</div>
+                      <div class="ac-data-table__meta">Composed KPI pattern</div>
+                    </td>
+                    <td>Pattern</td>
+                    <td><span class="status-badge is-warning">Scoped</span></td>
+                    <td>Executive</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p class="demo-table-note">The component stays neutral; sorting, pagination and domain-specific columns stay above this layer.</p>
+        </article>
+      </section>
+
+      <section class="demo-grid demo-grid--overlays" id="overlays">
+        <div class="ac-modal-backdrop">
+          <article class="ac-modal">
+            <div class="ac-modal__header">
+              <p class="ac-modal__meta">Modal</p>
+              <h3 class="ac-modal__title">Contract alignment required</h3>
+              <p class="ac-modal__summary">Canonical overlay shell for confirmations, approvals or structured short tasks.</p>
+            </div>
+            <div class="ac-modal__body demo-stack-tight">
+              <span class="status-badge is-review">2 unresolved drifts</span>
+              <p style="margin: 0; color: var(--text-secondary);">Use modal for finite tasks that should keep focus inside a bounded context.</p>
+            </div>
+            <div class="ac-modal__footer">
+              <button class="ac-button ac-button--ghost" type="button"><span class="ac-button__label">Cancel</span></button>
+              <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Approve</span></button>
+            </div>
+          </article>
+        </div>
+
+        <div class="ac-drawer-backdrop">
+          <aside class="ac-drawer">
+            <div class="ac-drawer__header">
+              <p class="ac-modal__meta">Drawer</p>
+              <h3 class="ac-drawer__title">Context filters</h3>
+              <p class="ac-drawer__summary">Use drawer for side-scoped filters, inspector panels or assistant contexts that should not block the whole task.</p>
+            </div>
+            <div class="ac-drawer__body demo-stack-tight">
+              <div class="cluster">
+                <span class="theme-chip">Non-blocking</span>
+                <span class="theme-chip">Side context</span>
+              </div>
+              <div class="ac-form-field">
+                <label class="ac-form-field__label" for="drawer-filter">Filter</label>
+                <div class="ac-form-field__control">
+                  <input id="drawer-filter" class="field-input" placeholder="Domain, tier or artifact" />
+                </div>
+              </div>
+            </div>
+            <div class="ac-drawer__footer">
+              <button class="ac-button ac-button--ghost" type="button"><span class="ac-button__label">Reset</span></button>
+              <button class="ac-button ac-button--secondary" type="button"><span class="ac-button__label">Apply</span></button>
+            </div>
+          </aside>
+        </div>
       </section>
 
       <p class="demo-note">

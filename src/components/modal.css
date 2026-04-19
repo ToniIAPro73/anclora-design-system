@@ -1,0 +1,68 @@
+/* Canonical modal shell and backdrop. */
+
+.ac-modal-backdrop {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+  padding: clamp(24px, 4vw, 40px);
+  background:
+    radial-gradient(circle at top, color-mix(in srgb, var(--domain-glow) 82%, transparent) 0%, transparent 32%),
+    color-mix(in srgb, var(--surface-overlay) 88%, black 12%);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.ac-modal {
+  width: min(720px, 100%);
+  display: grid;
+  gap: var(--space-5);
+  padding: clamp(22px, 3vw, 32px);
+  border: 1px solid var(--border-default);
+  border-radius: var(--surface-radius-panel);
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--surface-panel-strong) 94%, transparent) 0%,
+      color-mix(in srgb, var(--surface-panel) 90%, transparent) 100%);
+  box-shadow: var(--shadow-xl), var(--shadow-inset);
+}
+
+.ac-modal__header,
+.ac-modal__body,
+.ac-modal__footer {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.ac-modal__meta {
+  margin: 0;
+  color: var(--text-eyebrow);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+}
+
+.ac-modal__title {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.2vw, 2.25rem);
+  line-height: 1.05;
+  letter-spacing: var(--track-title);
+}
+
+.ac-modal__summary {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.ac-modal__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--border-subtle);
+}
