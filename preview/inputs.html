@@ -1,0 +1,20 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css"><style>
+html,body{margin:0;padding:22px;font-family:var(--font-sans);background:linear-gradient(180deg,#0f1520,#151c28);color:var(--fg1)}
+.stack{display:grid;gap:12px}
+.eyebrow{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:#a8aeb8;font-weight:700}
+.input{width:100%;min-height:48px;padding:0 16px;border-radius:18px;border:1px solid rgba(168,174,184,0.25);background:rgba(255,255,255,0.04);color:#ecf0f5;font-family:inherit;font-size:0.95rem;outline:none;box-sizing:border-box}
+.input::placeholder{color:rgba(236,240,245,0.38)}
+.focus{border-color:rgba(229,201,255,0.7);box-shadow:0 0 0 1px rgba(229,201,255,0.34),0 14px 28px rgba(9,4,18,0.24)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.check{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:16px;border:1px solid rgba(168,174,184,0.22);background:rgba(255,255,255,0.03);font-size:0.85rem;color:rgba(236,240,245,0.8)}
+.box{width:16px;height:16px;border-radius:5px;border:1px solid rgba(212,175,55,0.6);background:linear-gradient(135deg,rgba(212,175,55,0.95),rgba(184,150,46,0.92));display:grid;place-items:center;color:#0f1629;font-size:0.7rem;font-weight:900}
+</style></head><body>
+<div class="stack">
+<div><div class="eyebrow">Email</div><input class="input" placeholder="operador@anclora.group"></div>
+<div><div class="eyebrow">Región</div><input class="input focus" value="Mallorca · Southwest"></div>
+<div class="row">
+  <div class="check"><span class="box">✓</span> Acepto términos</div>
+  <div class="check"><span class="box" style="background:transparent;color:transparent"></span> Recibir resumen</div>
+</div>
+</div>
+</body></html>

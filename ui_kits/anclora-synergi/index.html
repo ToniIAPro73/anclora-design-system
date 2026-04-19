@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Synergi — Partner Portal</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<style>
+html,body{margin:0;background:#130d1c;color:#f2ecf8;font-family:"DM Sans","Manrope",sans-serif;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(70% 50% at 10% 0%,rgba(140,90,180,0.18) 0%,transparent 55%),radial-gradient(60% 40% at 95% 6%,rgba(192,120,96,0.14) 0%,transparent 55%),linear-gradient(180deg,#130d1c 0%,#1a1226 50%,#130d1c 100%);pointer-events:none;z-index:0}
+.shell{position:relative;z-index:1;display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+.sidebar{padding:22px 18px;border-right:1px solid rgba(140,90,180,0.2);background:rgba(19,13,28,0.72);backdrop-filter:blur(14px);display:flex;flex-direction:column;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;padding:6px}
+.brand img{width:40px;height:40px;border-radius:999px}
+.brand .name{font-family:"Newsreader",serif;font-size:1.1rem;font-weight:600;letter-spacing:-0.005em}
+.side-group{display:flex;flex-direction:column;gap:4px}
+.side-group .heading{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(242,236,248,0.5);font-weight:700;padding:6px 12px;margin-top:8px}
+.nav-item{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:14px;font-size:0.86rem;font-weight:500;color:rgba(242,236,248,0.75);cursor:pointer;text-decoration:none;transition:all 160ms}
+.nav-item:hover{background:rgba(255,255,255,0.03);color:#f2ecf8}
+.nav-item.active{background:linear-gradient(90deg,rgba(140,90,180,0.2),rgba(192,120,96,0.08));color:#f2ecf8;border:1px solid rgba(140,90,180,0.35)}
+.nav-item .dot{width:8px;height:8px;border-radius:999px;background:rgba(242,236,248,0.3)}
+.nav-item.active .dot{background:linear-gradient(135deg,#8c5ab4,#c07860)}
+.main{padding:24px 32px;overflow-y:auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px}
+.crumbs{font-size:0.82rem;color:rgba(242,236,248,0.6)}
+.crumbs b{color:#f2ecf8;font-weight:600}
+.chip-user{display:flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border-radius:999px;border:1px solid rgba(140,90,180,0.3);background:rgba(255,255,255,0.03);font-size:0.82rem}
+.avatar{width:28px;height:28px;border-radius:999px;background:linear-gradient(135deg,#8c5ab4,#c07860);display:grid;place-items:center;font-size:0.72rem;font-weight:700;color:#fff}
+.hero-card{padding:36px 40px;border-radius:32px;border:1px solid rgba(140,90,180,0.25);background:linear-gradient(145deg,rgba(140,90,180,0.1) 0%,rgba(192,120,96,0.05) 100%),rgba(25,16,38,0.8);box-shadow:0 32px 80px rgba(0,0,0,0.45),inset 0 1px 0 rgba(255,255,255,0.06);margin-bottom:28px;display:grid;grid-template-columns:1.2fr 0.8fr;gap:40px;align-items:center}
+.eyebrow{font-size:0.72rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#c8a5e0;margin-bottom:14px}
+.display{font-family:"Newsreader",serif;font-size:2.2rem;line-height:1.08;letter-spacing:-0.018em;font-weight:500;margin:0 0 14px}
+.lede{font-size:0.96rem;line-height:1.7;color:rgba(242,236,248,0.78);margin:0 0 22px;max-width:42ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 22px;border-radius:999px;font-size:0.76rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;border:1px solid;font-family:inherit;transition:all 220ms cubic-bezier(0.22,1,0.36,1);margin-right:10px}
+.btn-amethyst{background:linear-gradient(135deg,#8c5ab4 0%,#c07860 100%);color:#fff;border-color:rgba(140,90,180,0.55);box-shadow:0 14px 32px rgba(140,90,180,0.25)}
+.btn-amethyst:hover{transform:translateY(-2px);box-shadow:0 22px 44px rgba(140,90,180,0.32)}
+.btn-ghost{background:rgba(255,255,255,0.04);color:#f2ecf8;border-color:rgba(140,90,180,0.3)}
+.btn-ghost:hover{transform:translateY(-2px);border-color:rgba(140,90,180,0.55);background:rgba(140,90,180,0.1)}
+.hero-progress{border-radius:24px;border:1px solid rgba(140,90,180,0.25);background:rgba(19,13,28,0.85);padding:22px;box-shadow:0 18px 38px rgba(0,0,0,0.34)}
+.step{display:flex;align-items:center;gap:12px;padding:10px 0;font-size:0.86rem}
+.step .num{width:26px;height:26px;border-radius:999px;display:grid;place-items:center;font-size:0.72rem;font-weight:800;border:1px solid rgba(140,90,180,0.35);color:rgba(242,236,248,0.5);flex-shrink:0}
+.step.done .num{background:linear-gradient(135deg,#8c5ab4,#c07860);color:#fff;border-color:transparent}
+.step.active .num{border-color:#c8a5e0;color:#c8a5e0;box-shadow:0 0 0 3px rgba(140,90,180,0.15)}
+.step.done{color:rgba(242,236,248,0.7)}
+.step .t{font-weight:500}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+.kpi{padding:20px;border-radius:22px;border:1px solid rgba(140,90,180,0.22);background:rgba(25,16,38,0.7);box-shadow:0 18px 38px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.04)}
+.kpi .k{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;font-weight:700;color:rgba(242,236,248,0.55);margin-bottom:8px}
+.kpi .v{font-family:"Newsreader",serif;font-size:1.8rem;font-weight:500;letter-spacing:-0.018em}
+.kpi .d{font-size:0.76rem;color:#c8a5e0;margin-top:4px}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.section-head h3{font-family:"Newsreader",serif;font-size:1.3rem;font-weight:500;letter-spacing:-0.01em;margin:0}
+.referrals{border-radius:24px;border:1px solid rgba(140,90,180,0.22);background:rgba(25,16,38,0.6);overflow:hidden}
+.ref-row{display:grid;grid-template-columns:1fr 1fr 120px 140px 100px;gap:16px;padding:16px 24px;font-size:0.86rem;align-items:center;border-bottom:1px solid rgba(140,90,180,0.15)}
+.ref-row.head{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;font-weight:700;color:rgba(242,236,248,0.5);padding:14px 24px;background:rgba(255,255,255,0.02)}
+.ref-row:last-child{border-bottom:none}
+.badge{display:inline-flex;align-items:center;min-height:26px;padding:0 12px;border-radius:999px;font-size:0.62rem;font-weight:800;letter-spacing:0.16em;text-transform:uppercase}
+.b-review{background:rgba(144,206,214,0.16);color:#8fc3c7}
+.b-accepted{background:rgba(82,190,128,0.18);color:#a9efb7}
+.b-submitted{background:rgba(212,175,55,0.16);color:#d8bf86}
+.ref-name{font-weight:600}
+.ref-sub{font-size:0.76rem;color:rgba(242,236,248,0.55);margin-top:2px}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><img src="../../assets/logos/anclora-synergi.png"><div class="name">Synergi</div></div>
+    <div class="side-group">
+      <div class="heading">Workspace</div>
+      <a class="nav-item active" href="#"><span class="dot"></span>Resumen</a>
+      <a class="nav-item" href="#"><span class="dot"></span>Admisión</a>
+      <a class="nav-item" href="#"><span class="dot"></span>Referrals</a>
+      <a class="nav-item" href="#"><span class="dot"></span>Proyectos</a>
+    </div>
+    <div class="side-group">
+      <div class="heading">Red</div>
+      <a class="nav-item" href="#"><span class="dot"></span>Partners</a>
+      <a class="nav-item" href="#"><span class="dot"></span>Mensajes</a>
+      <a class="nav-item" href="#"><span class="dot"></span>Ajustes</a>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div class="crumbs">Workspace / <b>Resumen</b></div>
+      <div class="chip-user"><span class="avatar">AL</span><span>Alex Linares · External</span></div>
+    </header>
+
+    <section class="hero-card">
+      <div>
+        <div class="eyebrow">PARTNER WORKSPACE</div>
+        <h1 class="display">Bienvenido a la red curada de Anclora.</h1>
+        <p class="lede">Tu admisión está activa. Gestiona referrals, consulta tus proyectos y comparte contexto con la red desde este workspace.</p>
+        <button class="btn btn-amethyst">Enviar referral</button><button class="btn btn-ghost">Ver admisión</button>
+      </div>
+      <div class="hero-progress">
+        <div class="eyebrow" style="font-size:0.62rem;margin-bottom:12px">PROCESO DE ADMISIÓN</div>
+        <div class="step done"><div class="num">✓</div><div class="t">Solicitud enviada</div></div>
+        <div class="step done"><div class="num">✓</div><div class="t">Vetting documental</div></div>
+        <div class="step active"><div class="num">3</div><div class="t">Entrevista cualificada</div></div>
+        <div class="step"><div class="num">4</div><div class="t">Firma de acuerdo</div></div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <div class="kpi"><div class="k">Referrals activos</div><div class="v">12</div><div class="d">+3 últimos 30 días</div></div>
+      <div class="kpi"><div class="k">En revisión</div><div class="v">4</div><div class="d">media 2,4 días</div></div>
+      <div class="kpi"><div class="k">Conversión red</div><div class="v">38<span style="font-size:1rem;color:rgba(242,236,248,0.45)">%</span></div><div class="d">vs 31% ecosistema</div></div>
+    </div>
+
+    <div class="section-head"><h3>Referrals recientes</h3><button class="btn btn-ghost" style="min-height:34px;padding:0 16px">Ver todos</button></div>
+    <div class="referrals">
+      <div class="ref-row head"><div>Contacto</div><div>Origen</div><div>Ticket</div><div>Estado</div><div>Fecha</div></div>
+      <div class="ref-row"><div><div class="ref-name">Isabel Cortés</div><div class="ref-sub">Villa · Southwest</div></div><div>Private Estates</div><div>€8,2M</div><div><span class="badge b-review">En revisión</span></div><div>Hoy</div></div>
+      <div class="ref-row"><div><div class="ref-name">Friedrich Müller</div><div class="ref-sub">Finca · Tramuntana</div></div><div>Red externa</div><div>€12,4M</div><div><span class="badge b-accepted">Aceptado</span></div><div>Ayer</div></div>
+      <div class="ref-row"><div><div class="ref-name">Studio Norman</div><div class="ref-sub">Proyecto · Palma</div></div><div>Data Lab</div><div>€2,1M</div><div><span class="badge b-submitted">Enviado</span></div><div>12 abr</div></div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

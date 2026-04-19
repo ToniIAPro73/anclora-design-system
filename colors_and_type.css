@@ -1,0 +1,288 @@
+/* =========================================================
+   Anclora Group — Unified Design Tokens
+   ---------------------------------------------------------
+   The ecosystem runs a SHARED motion & surface contract with
+   PER-PRODUCT color/typography reskins. This file exposes:
+
+   1. Base (Group) tokens — silver-on-navy, the umbrella.
+   2. Product scopes — .anclora-pe, .anclora-synergi,
+      .anclora-data-lab, .anclora-nexus — each re-declaring
+      the same semantic variables.
+   3. Semantic aliases — fg1/fg2, surface, accent, h1…p —
+      for agents that don't care which product they're in.
+   ========================================================= */
+
+/* Brand fonts — self-hosted from /fonts */
+@font-face{font-family:"Fraunces";src:url("fonts/Fraunces_72pt-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Fraunces";src:url("fonts/Fraunces_72pt-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Fraunces";src:url("fonts/Fraunces_72pt-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter";src:url("fonts/Inter_18pt-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter";src:url("fonts/Inter_18pt-Medium.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter";src:url("fonts/Inter_18pt-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Inter";src:url("fonts/Inter_18pt-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+
+/* Fallbacks for specimens that still reference older families */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ---- BRAND: Anclora Group (default / umbrella) ---- */
+  --group-ink:        #0f1520;
+  --group-slate:      #151c28;
+  --group-surface:    #1a2230;
+  --group-surface-2:  #202a38;
+  --group-copy:       #ecf0f5;
+  --group-muted:      rgba(236, 240, 245, 0.72);
+  --group-border:     rgba(168, 174, 184, 0.25);
+  --group-silver:     #a8aeb8;
+  --group-silver-2:   #8a909a;
+  --group-glow:       rgba(168, 174, 184, 0.08);
+
+  /* Product accent coins — each product's metallic signature */
+  --coin-group:       #a8aeb8;       /* brushed silver   */
+  --coin-pe:          #c9a95f;       /* premium gold     */
+  --coin-synergi:     #8c5ab4;       /* amethyst + rose  */
+  --coin-data-lab:    #2da078;       /* emerald          */
+  --coin-nexus:       #d4af37;       /* deep gold        */
+  --coin-content:     #c07860;       /* copper           */
+  --coin-advisor:     #7ec6c0;       /* teal             */
+  --coin-talent:      #6ca8e0;       /* steel blue       */
+  --coin-impulso:     #e07a3c;       /* orange           */
+  --coin-command:     #c24a4a;       /* signal red       */
+
+  /* ---- Universal scale: spacing ---- */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* ---- Radii: everything rounds generously ---- */
+  --radius-sm:   0.75rem;  /* inputs */
+  --radius-md:   1.125rem; /* fields, chips */
+  --radius-lg:   1.5rem;   /* panels */
+  --radius-xl:   2rem;     /* cards */
+  --radius-2xl:  2.125rem; /* hero panels */
+  --radius-pill: 999px;
+
+  /* ---- Elevation system (dark-first) ---- */
+  --shadow-xs:     0 6px 14px rgba(2, 6, 12, 0.22);
+  --shadow-sm:     0 14px 34px rgba(0, 0, 0, 0.30);
+  --shadow-md:     0 18px 38px rgba(0, 0, 0, 0.34);
+  --shadow-lg:     0 28px 70px rgba(0, 0, 0, 0.40);
+  --shadow-xl:     0 38px 90px rgba(0, 0, 0, 0.45);
+  --shadow-inset:  inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --shadow-focus:  0 0 0 1px rgba(229, 201, 255, 0.34), 0 18px 40px rgba(9, 4, 18, 0.24);
+
+  /* ---- Motion ---- */
+  --ease:          cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring:   cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:      160ms;
+  --dur-base:      220ms;
+  --dur-slow:      360ms;
+
+  /* ---- Typography families ---- */
+  --font-display:  "Fraunces", "Georgia", serif;              /* brand display (Fraunces 72pt) */
+  --font-sans:     "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;  /* brand body  (Inter 18pt) */
+  --font-internal: "Inter", system-ui, sans-serif;            /* internal tools body */
+  --font-saas:     "Inter", system-ui, sans-serif;            /* SaaS body  */
+  --font-mono:     "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+
+  /* ---- Type scale (fluid) ---- */
+  --fs-xs:  0.75rem;
+  --fs-sm:  0.875rem;
+  --fs-base:1rem;
+  --fs-md:  1.125rem;
+  --fs-lg:  1.25rem;
+  --fs-xl:  1.5rem;
+  --fs-2xl: 1.875rem;
+  --fs-3xl: 2.25rem;
+  --fs-4xl: 3rem;
+  --fs-5xl: 3.75rem;
+  --fs-6xl: 4.5rem;
+
+  /* ---- Semantic tokens (Group default scope) ---- */
+  --bg:          var(--group-ink);
+  --bg-raised:   var(--group-surface);
+  --bg-strong:   var(--group-surface-2);
+  --fg1:         var(--group-copy);      /* primary text  */
+  --fg2:         var(--group-muted);     /* secondary text*/
+  --fg3:         var(--group-silver);    /* eyebrow, meta */
+  --accent:      var(--coin-group);
+  --border:      var(--group-border);
+  --line-soft:   rgba(255, 255, 255, 0.06);
+  --line-strong: rgba(255, 255, 255, 0.14);
+
+  /* Letter-spacing tokens — a signature of the system */
+  --track-eyebrow: 0.22em;
+  --track-button:  0.18em;
+  --track-title:   -0.02em;
+}
+
+/* =========================================================
+   PRODUCT SCOPES — drop any of these classes on <body> or
+   a wrapper to reskin the whole tree.
+   ========================================================= */
+
+.anclora-pe {
+  /* Ultra-premium — dark-only editorial, gold accents  */
+  --bg:          #0d1b1a;
+  --bg-raised:   #102423;
+  --bg-strong:   #14302f;
+  --fg1:         #f7f4ee;
+  --fg2:         rgba(247, 244, 238, 0.82);
+  --fg3:         #c9a95f;
+  --accent:      var(--coin-pe);
+  --border:      rgba(212, 175, 55, 0.18);
+  --line-soft:   rgba(252, 246, 186, 0.06);
+  --line-strong: rgba(212, 175, 55, 0.32);
+  font-family:   var(--font-sans);
+}
+
+.anclora-synergi {
+  /* Premium — amethyst/rose, partner-facing  */
+  --bg:          #130d1c;
+  --bg-raised:   #1c142a;
+  --bg-strong:   #291b39;
+  --fg1:         #f7f1fb;
+  --fg2:         rgba(247, 241, 251, 0.72);
+  --fg3:         #c7a4e4;
+  --accent:      var(--coin-synergi);
+  --border:      rgba(191, 140, 255, 0.2);
+  --line-soft:   rgba(247, 241, 231, 0.06);
+  --line-strong: rgba(229, 201, 255, 0.34);
+  font-family:   var(--font-internal);
+}
+
+.anclora-data-lab {
+  /* Premium internal — emerald/copper, analytical */
+  --bg:          #071411;
+  --bg-raised:   #0c1b17;
+  --bg-strong:   #14302f;
+  --fg1:         #f7f4ef;
+  --fg2:         rgba(231, 221, 211, 0.78);
+  --fg3:         #2da078;
+  --accent:      var(--coin-data-lab);
+  --border:      rgba(192, 120, 96, 0.18);
+  --line-soft:   rgba(255, 255, 255, 0.04);
+  --line-strong: rgba(45, 160, 120, 0.32);
+  font-family:   var(--font-internal);
+}
+
+.anclora-nexus {
+  /* Internal SaaS — navy + gold, command-center density */
+  --bg:          #0F1629;
+  --bg-raised:   #141C3A;
+  --bg-strong:   #192350;
+  --fg1:         #F5F5F0;
+  --fg2:         rgba(245, 245, 240, 0.6);
+  --fg3:         #AFD2FA;
+  --accent:      var(--coin-nexus);
+  --border:      rgba(245, 245, 240, 0.08);
+  --line-soft:   rgba(245, 245, 240, 0.08);
+  --line-strong: rgba(212, 175, 55, 0.34);
+  font-family:   var(--font-saas);
+}
+
+/* =========================================================
+   SEMANTIC TEXT STYLES
+   Use these as classes OR consult the vars directly.
+   ========================================================= */
+
+.h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5vw, 4.7rem);
+  line-height: 1.02;
+  letter-spacing: var(--track-title);
+  font-weight: 600;
+  color: var(--fg1);
+}
+.h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  line-height: 1.08;
+  letter-spacing: var(--track-title);
+  font-weight: 600;
+  color: var(--fg1);
+}
+.h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  line-height: 1.15;
+  font-weight: 600;
+  color: var(--fg1);
+}
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg3);
+}
+.p {
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.72;
+  color: var(--fg2);
+}
+.p-lead {
+  font-size: 1.12rem;
+  line-height: 1.78;
+  color: var(--fg2);
+  max-width: 52rem;
+}
+.meta {
+  font-size: 0.82rem;
+  color: var(--fg2);
+}
+.code, code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+/* =========================================================
+   BASE SURFACES & INTERACTIONS
+   These encode the UI_MOTION_CONTRACT.md contract.
+   ========================================================= */
+
+.surface-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--bg-raised) 94%, transparent) 0%,
+    color-mix(in srgb, var(--bg) 92%, transparent) 100%);
+  box-shadow: var(--shadow-lg), var(--shadow-inset);
+  transition:
+    transform var(--dur-base) var(--ease-spring),
+    border-color var(--dur-base) ease,
+    box-shadow var(--dur-base) ease;
+}
+.surface-card:hover,
+.surface-card:focus-within {
+  transform: translateY(-3px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-xl), var(--shadow-inset);
+}
+
+.surface-frame {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--bg-raised) 88%, transparent);
+  transition: transform var(--dur-base) var(--ease-spring), border-color var(--dur-base) ease;
+}
+.surface-frame:hover { transform: translateY(-2px); border-color: var(--line-strong); }
+
+/* Respect prefers-reduced-motion per the contract */
+@media (prefers-reduced-motion: reduce) {
+  .surface-card, .surface-frame, .surface-card:hover, .surface-frame:hover {
+    transform: none;
+    transition: none;
+  }
+}
