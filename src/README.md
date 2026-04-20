@@ -62,3 +62,14 @@ Composition model:
 - build primitives and components on top of semantic tokens, not raw product colors
 - treat `patterns/` as reusable composition contracts, not as base components
 - treat `examples/` as consumption references, not as canonical API
+
+Validated promotion status:
+
+- `components/` contains the canonical reusable layer that apps should consume directly
+- `patterns/` may be canonical or candidate; canonical status depends on real consumer adoption
+- `examples/` never become canonical by themselves
+
+Current real-consumer validation:
+
+- `anclora-talent` validates the premium editorial workspace stack
+- this includes workflow shells, workspace stages, template catalogs, chapter rails, preview controls, export suites, editor shells and text editor surfaces

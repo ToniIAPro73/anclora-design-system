@@ -126,3 +126,88 @@ Hoy el sistema es:
 - todavia no empaquetado como libreria JS/React
 
 Ese paso debe venir despues, solo si varias apps necesitan wrappers tipados encima de esta capa.
+
+## 7. Piezas que ya no deben rehacerse en apps
+
+Cuando una app premium o internal necesite estas superficies, debe consumirlas desde este repo o componerlas directamente con estas clases base:
+
+- `ac-button`
+- `ac-card`
+- `ac-surface-panel`
+- `ac-form-field`, `field-input`, `field-select`, `field-textarea`
+- `ac-empty-state`
+- `ac-modal-backdrop`, `ac-modal`
+- `ac-theme-switcher`
+- `ac-language-switcher`
+- `ac-stepper`
+- `ac-workspace-stage`
+- `ac-workflow-shell`
+- `ac-template-catalog`
+- `ac-chapter-rail`
+- `ac-preview-controls`
+- `ac-export-suite`
+- `ac-editor-shell`
+- `ac-text-editor`
+
+Si una app necesita variaciones menores:
+
+- primero debe intentar resolverlas con taxonomia, semantic tokens o slots del patron
+- no debe clonar el componente y cambiar tres colores
+- si la variacion afecta anatomia, estados o motion, debe promoverse antes a `anclora-design-system`
+
+## 8. Validacion por consumidor real
+
+### `anclora-talent`
+
+Estado: validado como primer consumidor premium de dominio `human_capital`.
+
+Piezas adoptadas con consumo real:
+
+- shell taxonomico `tier + domain + archetype + role + cluster + product`
+- `button`
+- `card`
+- `surface panel`
+- `form fields`
+- `empty state`
+- `modal shell`
+- `theme toggle`
+- `locale toggle`
+- `stepper`
+- `workspace stage`
+- `workflow shell`
+- `template catalog`
+- `chapter rail`
+- `preview controls`
+- `export suite`
+- `editor shell`
+- `text editor`
+
+Superficies ya alineadas:
+
+- sign-in
+- sign-up
+- dashboard
+- create project
+- import document
+- add chapter
+- import chapter
+- collaboration
+- AI assistant
+- editor
+- preview
+- cover
+- back-cover
+
+## 9. Regla de promocion a canónico
+
+Una pieza pasa de “candidate pattern” a “canonical pattern” cuando cumple estas tres condiciones:
+
+1. existe como primitive, component o pattern documentado en este repo
+2. ya ha sido consumida por al menos una app real sin forks estructurales
+3. la app consumidora no necesita semantica de producto incrustada para que funcione
+
+Si no se cumplen esas tres condiciones:
+
+- puede seguir existiendo como `pattern` en observacion
+- puede vivir temporalmente como composicion local en la app
+- no debe venderse como API compartida estable
