@@ -53,6 +53,11 @@
     "./components/topbar.css": "./src/components/topbar.css"
   },
   "scripts": {
+    "verify:manifest": "node ./scripts/verify-manifest.mjs",
+    "verify:html": "node ./scripts/verify-html.mjs",
+    "verify:package": "npm pack --dry-run",
+    "verify": "npm run verify:manifest && npm run verify:html && npm run verify:package",
+    "quality": "npm run verify",
     "pack:check": "npm pack --dry-run"
   }
 }
