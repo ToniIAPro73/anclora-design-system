@@ -50,6 +50,8 @@
       "workspaceStage": "./src/components/workspace-stage.css",
       "workflowShell": "./src/components/workflow-shell.css",
       "editorStudio": "./src/components/editor-studio.css",
+      "editorShell": "./src/components/editor-shell.css",
+      "textEditor": "./src/components/text-editor.css",
       "exportSuite": "./src/components/export-suite.css",
       "topbar": "./src/components/topbar.css"
     }

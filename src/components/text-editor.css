@@ -1,0 +1,174 @@
+.ac-text-editor {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.5rem;
+  background: color-mix(in srgb, var(--surface-panel) 94%, transparent);
+}
+
+.ac-text-editor--fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  border-radius: 0;
+}
+
+.ac-text-editor__stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: color-mix(in srgb, var(--surface-soft) 92%, transparent);
+}
+
+.ac-text-editor__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: color-mix(in srgb, var(--surface-soft) 90%, transparent);
+  overflow-x: auto;
+}
+
+.ac-text-editor__toolbar-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  padding-right: 0.75rem;
+  border-right: 1px solid var(--border-subtle);
+}
+
+.ac-text-editor__toolbar-section:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.ac-text-editor__toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: auto;
+}
+
+.ac-text-editor__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  background: transparent;
+  color: var(--text-secondary);
+  transition:
+    border-color var(--dur-base) ease,
+    background-color var(--dur-base) ease,
+    color var(--dur-base) ease,
+    box-shadow var(--dur-base) ease;
+}
+
+.ac-text-editor__button:hover {
+  background: color-mix(in srgb, var(--surface-highlight) 92%, transparent);
+  color: var(--text-primary);
+}
+
+.ac-text-editor__button[data-active="true"] {
+  border-color: color-mix(in srgb, var(--accent-mint) 54%, transparent);
+  background: color-mix(in srgb, var(--accent-mint) 18%, transparent);
+  color: var(--text-primary);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent-mint) 18%, transparent);
+}
+
+.ac-text-editor__button:disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.ac-text-editor__split {
+  position: relative;
+}
+
+.ac-text-editor__split-shell {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.8rem;
+  background: color-mix(in srgb, var(--surface-panel) 92%, transparent);
+}
+
+.ac-text-editor__split-main,
+.ac-text-editor__split-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.ac-text-editor__split-main {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.ac-text-editor__split-toggle {
+  width: 1.6rem;
+  border-left: 1px solid var(--border-subtle);
+}
+
+.ac-text-editor__split-shell[data-active="true"] {
+  border-color: color-mix(in srgb, var(--accent-mint) 54%, transparent);
+  background: color-mix(in srgb, var(--accent-mint) 12%, transparent);
+}
+
+.ac-text-editor__popover {
+  position: absolute;
+  left: 0;
+  top: 2.8rem;
+  z-index: 110;
+  min-width: 220px;
+  border: 1px solid var(--border-strong);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--surface-panel-strong) 96%, black 4%);
+  padding: 0.6rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.ac-text-editor__search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: color-mix(in srgb, var(--surface-soft) 90%, transparent);
+}
+
+.ac-text-editor__content {
+  min-height: 0;
+}
+
+.ac-text-editor__content--scroll {
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
+
+.ac-text-editor__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--border-subtle);
+  background: color-mix(in srgb, var(--surface-soft) 92%, transparent);
+  color: var(--text-tertiary);
+  font-size: 0.78rem;
+}

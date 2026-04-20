@@ -1,0 +1,186 @@
+.ac-editor-shell {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-height: 100vh;
+  background: color-mix(in srgb, var(--surface-canvas) 92%, black 8%);
+  color: var(--text-primary);
+}
+
+.ac-editor-shell__header,
+.ac-editor-shell__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-color: var(--border-subtle);
+  background: color-mix(in srgb, var(--surface-panel) 88%, transparent);
+}
+
+.ac-editor-shell__header {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.ac-editor-shell__footer {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.ac-editor-shell__titles {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.ac-editor-shell__title {
+  margin: 0;
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.ac-editor-shell__summary {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.ac-editor-shell__controls,
+.ac-editor-shell__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ac-editor-shell__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0 0.6rem;
+  min-height: 2rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent-mint) 14%, transparent);
+  color: var(--text-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.ac-editor-shell__main {
+  display: grid;
+  gap: 0.75rem;
+  min-height: 0;
+  padding: 0.75rem;
+}
+
+.ac-editor-shell__surface {
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.25rem;
+  background: color-mix(in srgb, var(--surface-soft) 92%, transparent);
+}
+
+.ac-editor-panel {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-soft) 76%, transparent), color-mix(in srgb, var(--surface-panel) 92%, transparent)),
+    var(--surface-panel);
+  box-shadow: var(--shadow-soft);
+}
+
+.ac-editor-panel__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+}
+
+.ac-editor-panel__titles {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.ac-editor-panel__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent-mint) 16%, transparent);
+  color: var(--accent-mint);
+}
+
+.ac-editor-panel__eyebrow {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.ac-editor-panel__summary {
+  margin: 0.15rem 0 0;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.ac-editor-panel__body {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border-subtle);
+  background: color-mix(in srgb, var(--surface-soft) 92%, transparent);
+}
+
+.ac-editor-panel__group {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.ac-editor-panel__label {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.ac-editor-panel__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.ac-editor-panel__hint {
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+@media (max-width: 767px) {
+  .ac-editor-shell__header,
+  .ac-editor-shell__footer {
+    padding: 0.75rem;
+  }
+
+  .ac-editor-shell__main {
+    padding: 0.5rem;
+  }
+}

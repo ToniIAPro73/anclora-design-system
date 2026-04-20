@@ -24,5 +24,7 @@
 @import url("./workspace-stage.css");
 @import url("./workflow-shell.css");
 @import url("./editor-studio.css");
+@import url("./editor-shell.css");
+@import url("./text-editor.css");
 @import url("./export-suite.css");
 @import url("./topbar.css");

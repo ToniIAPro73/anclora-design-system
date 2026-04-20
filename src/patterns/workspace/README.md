@@ -15,6 +15,8 @@ Patrones para shells operativos, lectura contextual y flujo continuo de trabajo.
 - estudios editoriales avanzados con canvas e inspector
 - barras de control para preview editorial
 - suites de exportacion editorial
+- shells fullscreen para edicion de capitulos
+- superficies rich text editoriales
 
 ## No incluye
 
