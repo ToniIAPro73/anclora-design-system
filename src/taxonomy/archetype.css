@@ -18,6 +18,14 @@
   --topbar-blur: 16px;
 }
 
+.archetype-app {
+  --shell-max-width: 1440px;
+  --shell-section-gap: var(--space-10);
+  --hero-columns: minmax(0, 1fr) minmax(280px, 0.92fr);
+  --hero-panel-padding: clamp(24px, 3vw, 40px);
+  --topbar-blur: 16px;
+}
+
 .archetype-portal {
   --shell-max-width: 1320px;
   --shell-section-gap: var(--space-12);

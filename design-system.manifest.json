@@ -30,8 +30,10 @@
       "metricCard": "./src/components/metric-card.css",
       "sectionHeading": "./src/components/section-heading.css",
       "languageSwitcher": "./src/components/language-switcher.css",
+      "themeSwitcher": "./src/components/theme-switcher.css",
       "formField": "./src/components/form-field.css",
       "sidebarNav": "./src/components/sidebar-nav.css",
+      "stepper": "./src/components/stepper.css",
       "tabs": "./src/components/tabs.css",
       "breadcrumb": "./src/components/breadcrumb.css",
       "subnav": "./src/components/subnav.css",
@@ -41,6 +43,9 @@
       "toast": "./src/components/toast.css",
       "modal": "./src/components/modal.css",
       "drawer": "./src/components/drawer.css",
+      "previewOverlay": "./src/components/preview-overlay.css",
+      "workspaceStage": "./src/components/workspace-stage.css",
+      "workflowShell": "./src/components/workflow-shell.css",
       "topbar": "./src/components/topbar.css"
     }
   },

@@ -69,6 +69,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 ```
 
+Para una app consumidora Premium como `anclora-talent`:
+
+```tsx
+<body className="tier-premium domain-human-capital archetype-app role-consumer cluster-core product-anclora-talent">
+  {children}
+</body>
+```
+
 ### 3.2 Vite / React
 
 En `src/main.tsx` o `src/index.css`:

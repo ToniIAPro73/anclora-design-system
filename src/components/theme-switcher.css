@@ -1,0 +1,47 @@
+/* Canonical theme switcher for compact dark/light preference controls. */
+
+.ac-theme-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--surface-panel) 82%, transparent);
+  box-shadow: var(--shadow-sm);
+}
+
+.ac-theme-switcher__option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition:
+    transform var(--dur-base) var(--ease-spring),
+    border-color var(--dur-base) ease,
+    background-color var(--dur-base) ease,
+    color var(--dur-base) ease;
+}
+
+.ac-theme-switcher__option:hover,
+.ac-theme-switcher__option:focus-visible {
+  transform: translateY(var(--motion-hover-lift-frame));
+  border-color: var(--border-default);
+  color: var(--text-primary);
+}
+
+.ac-theme-switcher__option[aria-pressed="true"] {
+  border-color: color-mix(in srgb, var(--accent) 26%, var(--border-default));
+  background: color-mix(in srgb, var(--surface-panel-strong) 82%, transparent);
+  color: var(--text-primary);
+}

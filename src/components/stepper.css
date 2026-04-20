@@ -1,0 +1,107 @@
+/* Guided stepper for premium and internal multi-step workflows. */
+
+.ac-stepper {
+  width: 100%;
+}
+
+.ac-stepper__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.ac-stepper__item {
+  position: relative;
+  flex: 1 1 0;
+}
+
+.ac-stepper__group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ac-stepper__trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ac-stepper__connector {
+  position: absolute;
+  top: 50%;
+  left: calc(-50% + 1rem);
+  width: calc(100% - 2rem);
+  height: 2px;
+  transform: translateY(-50%);
+  background: var(--border-subtle);
+  transition: background-color var(--dur-base) ease;
+}
+
+.ac-stepper__connector[data-state="complete"] {
+  background: var(--accent);
+}
+
+.ac-stepper__dot {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--border-subtle);
+  border-radius: 999px;
+  background: var(--surface-subtle);
+  color: var(--text-muted);
+  transition:
+    border-color var(--dur-base) ease,
+    background-color var(--dur-base) ease,
+    color var(--dur-base) ease,
+    box-shadow var(--dur-base) ease;
+}
+
+.ac-stepper__dot[data-state="active"] {
+  border-color: var(--accent);
+  background: var(--surface-panel);
+  color: var(--accent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 12%, transparent), 0 0 18px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.ac-stepper__dot[data-state="complete"] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+
+.ac-stepper__label {
+  display: block;
+  margin-top: 8px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: color var(--dur-base) ease;
+}
+
+.ac-stepper__label[data-state="active"],
+.ac-stepper__label[data-state="complete"] {
+  color: var(--text-eyebrow);
+}
+
+@media (max-width: 768px) {
+  .ac-stepper__list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 2px;
+  }
+
+  .ac-stepper__item {
+    min-width: 72px;
+  }
+}

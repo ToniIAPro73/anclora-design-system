@@ -39,8 +39,10 @@
     "./components/metric-card.css": "./src/components/metric-card.css",
     "./components/section-heading.css": "./src/components/section-heading.css",
     "./components/language-switcher.css": "./src/components/language-switcher.css",
+    "./components/theme-switcher.css": "./src/components/theme-switcher.css",
     "./components/form-field.css": "./src/components/form-field.css",
     "./components/sidebar-nav.css": "./src/components/sidebar-nav.css",
+    "./components/stepper.css": "./src/components/stepper.css",
     "./components/tabs.css": "./src/components/tabs.css",
     "./components/breadcrumb.css": "./src/components/breadcrumb.css",
     "./components/subnav.css": "./src/components/subnav.css",
@@ -50,6 +52,9 @@
     "./components/toast.css": "./src/components/toast.css",
     "./components/modal.css": "./src/components/modal.css",
     "./components/drawer.css": "./src/components/drawer.css",
+    "./components/preview-overlay.css": "./src/components/preview-overlay.css",
+    "./components/workspace-stage.css": "./src/components/workspace-stage.css",
+    "./components/workflow-shell.css": "./src/components/workflow-shell.css",
     "./components/topbar.css": "./src/components/topbar.css"
   },
   "scripts": {

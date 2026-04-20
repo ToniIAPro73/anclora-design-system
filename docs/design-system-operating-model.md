@@ -145,6 +145,7 @@ src/
 - `SurfacePanel`
 - `Topbar`
 - `SidebarNav`
+- `Stepper`
 - `Tabs`
 - `Breadcrumb`
 - `Subnav`
@@ -156,8 +157,10 @@ src/
 - `EmptyState`
 - `Toast`
 - `LanguageSwitcher`
+- `ThemeSwitcher`
 - `Modal`
 - `Drawer`
+- `PreviewOverlay`
 - `Toast`
 - `EmptyState`
 - `SectionHeading`

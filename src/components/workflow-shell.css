@@ -1,0 +1,78 @@
+/* Workflow shell for guided multi-step editorial or operational experiences. */
+
+.ac-workflow-shell {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.ac-workflow-shell__progress {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.ac-workflow-shell__layout {
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+}
+
+.ac-workflow-shell__rail {
+  display: grid;
+  gap: var(--space-5);
+  align-content: start;
+}
+
+.ac-workflow-shell__panel {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.ac-workflow-shell__panel-meta {
+  margin: 0;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-eyebrow);
+}
+
+.ac-workflow-shell__panel-value {
+  display: flex;
+  align-items: end;
+  gap: var(--space-2);
+}
+
+.ac-workflow-shell__panel-value strong {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 0.95;
+}
+
+.ac-workflow-shell__panel-value span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.ac-workflow-shell__panel-summary {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.ac-workflow-shell__actions {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.ac-workflow-shell__content {
+  min-height: 600px;
+}
+
+@media (max-width: 1180px) {
+  .ac-workflow-shell__layout {
+    grid-template-columns: 1fr;
+  }
+}

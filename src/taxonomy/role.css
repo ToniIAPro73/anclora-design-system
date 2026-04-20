@@ -16,6 +16,13 @@
   --metric-density-gap: var(--space-3);
 }
 
+.role-consumer {
+  --content-density: 0.98;
+  --label-size: 0.64rem;
+  --label-tracking: 0.19em;
+  --metric-density-gap: var(--space-3);
+}
+
 .role-operator {
   --content-density: 0.92;
   --label-size: 0.62rem;
