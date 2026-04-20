@@ -55,9 +55,11 @@
     "./components/modal.css": "./src/components/modal.css",
     "./components/drawer.css": "./src/components/drawer.css",
     "./components/preview-overlay.css": "./src/components/preview-overlay.css",
+    "./components/preview-controls.css": "./src/components/preview-controls.css",
     "./components/workspace-stage.css": "./src/components/workspace-stage.css",
     "./components/workflow-shell.css": "./src/components/workflow-shell.css",
     "./components/editor-studio.css": "./src/components/editor-studio.css",
+    "./components/export-suite.css": "./src/components/export-suite.css",
     "./components/topbar.css": "./src/components/topbar.css"
   },
   "scripts": {

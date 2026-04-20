@@ -13,6 +13,8 @@ Patrones para shells operativos, lectura contextual y flujo continuo de trabajo.
 - catálogos editoriales de templates
 - rails editoriales de capítulos
 - estudios editoriales avanzados con canvas e inspector
+- barras de control para preview editorial
+- suites de exportacion editorial
 
 ## No incluye
 
