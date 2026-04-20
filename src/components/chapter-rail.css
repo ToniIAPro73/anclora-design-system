@@ -1,0 +1,129 @@
+/* Editorial chapter rail with compact actions and page-sync status. */
+
+.ac-chapter-rail {
+  display: grid;
+  gap: var(--space-3);
+  border: 1px solid var(--border-default);
+  border-radius: var(--surface-radius-panel);
+  background: var(--surface-panel);
+  box-shadow: var(--shadow-md), var(--shadow-inset);
+  padding: 1rem;
+}
+
+.ac-chapter-rail__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 0 0.5rem;
+}
+
+.ac-chapter-rail__titles {
+  display: grid;
+  gap: 4px;
+}
+
+.ac-chapter-rail__title {
+  margin: 0;
+  color: var(--text-eyebrow);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.ac-chapter-rail__summary {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.ac-chapter-rail__toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ac-chapter-rail__item {
+  display: grid;
+  gap: var(--space-2);
+  padding: 0.5rem;
+  border-radius: 1.125rem;
+  color: var(--text-secondary);
+  transition:
+    background-color var(--dur-base) ease,
+    color var(--dur-base) ease;
+}
+
+.ac-chapter-rail__item:hover {
+  background: var(--surface-subtle);
+  color: var(--text-primary);
+}
+
+.ac-chapter-rail__item[data-active="true"] {
+  background: var(--action-primary-bg);
+  color: var(--action-primary-fg);
+}
+
+.ac-chapter-rail__item-shell {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.ac-chapter-rail__trigger {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: 0.25rem;
+  border-radius: 0.875rem;
+  text-align: left;
+}
+
+.ac-chapter-rail__index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-panel-strong) 82%, transparent);
+  color: inherit;
+  font-size: 0.62rem;
+  font-weight: 900;
+}
+
+.ac-chapter-rail__item[data-active="true"] .ac-chapter-rail__index {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.ac-chapter-rail__body {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.ac-chapter-rail__chapter-title {
+  color: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.ac-chapter-rail__meta,
+.ac-chapter-rail__metrics {
+  font-size: 0.62rem;
+  line-height: 1.4;
+  opacity: 0.76;
+}
+
+.ac-chapter-rail__actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 4px;
+  padding-top: 0.25rem;
+}

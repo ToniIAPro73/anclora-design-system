@@ -33,6 +33,8 @@
       "themeSwitcher": "./src/components/theme-switcher.css",
       "formField": "./src/components/form-field.css",
       "sidebarNav": "./src/components/sidebar-nav.css",
+      "chapterRail": "./src/components/chapter-rail.css",
+      "templateCatalog": "./src/components/template-catalog.css",
       "stepper": "./src/components/stepper.css",
       "tabs": "./src/components/tabs.css",
       "breadcrumb": "./src/components/breadcrumb.css",
@@ -46,6 +48,7 @@
       "previewOverlay": "./src/components/preview-overlay.css",
       "workspaceStage": "./src/components/workspace-stage.css",
       "workflowShell": "./src/components/workflow-shell.css",
+      "editorStudio": "./src/components/editor-studio.css",
       "topbar": "./src/components/topbar.css"
     }
   },

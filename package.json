@@ -42,6 +42,8 @@
     "./components/theme-switcher.css": "./src/components/theme-switcher.css",
     "./components/form-field.css": "./src/components/form-field.css",
     "./components/sidebar-nav.css": "./src/components/sidebar-nav.css",
+    "./components/chapter-rail.css": "./src/components/chapter-rail.css",
+    "./components/template-catalog.css": "./src/components/template-catalog.css",
     "./components/stepper.css": "./src/components/stepper.css",
     "./components/tabs.css": "./src/components/tabs.css",
     "./components/breadcrumb.css": "./src/components/breadcrumb.css",
@@ -55,6 +57,7 @@
     "./components/preview-overlay.css": "./src/components/preview-overlay.css",
     "./components/workspace-stage.css": "./src/components/workspace-stage.css",
     "./components/workflow-shell.css": "./src/components/workflow-shell.css",
+    "./components/editor-studio.css": "./src/components/editor-studio.css",
     "./components/topbar.css": "./src/components/topbar.css"
   },
   "scripts": {

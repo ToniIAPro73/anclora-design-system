@@ -7,6 +7,8 @@
 @import url("./theme-switcher.css");
 @import url("./form-field.css");
 @import url("./sidebar-nav.css");
+@import url("./chapter-rail.css");
+@import url("./template-catalog.css");
 @import url("./stepper.css");
 @import url("./tabs.css");
 @import url("./breadcrumb.css");
@@ -20,4 +22,5 @@
 @import url("./preview-overlay.css");
 @import url("./workspace-stage.css");
 @import url("./workflow-shell.css");
+@import url("./editor-studio.css");
 @import url("./topbar.css");
