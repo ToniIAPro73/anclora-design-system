@@ -67,9 +67,17 @@
   "scripts": {
     "verify:manifest": "node ./scripts/verify-manifest.mjs",
     "verify:html": "node ./scripts/verify-html.mjs",
+    "verify:browser": "node ./scripts/verify-browser.mjs --mode=smoke",
+    "verify:a11y": "node ./scripts/verify-browser.mjs --mode=a11y",
+    "verify:snapshots": "node ./scripts/verify-browser.mjs --mode=snapshots",
     "verify:package": "npm pack --dry-run",
-    "verify": "npm run verify:manifest && npm run verify:html && npm run verify:package",
+    "verify": "npm run verify:manifest && npm run verify:html && npm run verify:browser && npm run verify:a11y && npm run verify:package",
     "quality": "npm run verify",
-    "pack:check": "npm pack --dry-run"
+    "pack:check": "npm pack --dry-run",
+    "snapshots:update": "npm run verify:snapshots"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.2",
+    "playwright": "^1.59.1"
   }
 }

@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anclora Design System Live Docs</title>
+    <link rel="stylesheet" href="../src/system.css" />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top left, rgba(201, 169, 95, 0.16), transparent 28%),
+          radial-gradient(circle at top right, rgba(158, 185, 255, 0.12), transparent 24%),
+          linear-gradient(180deg, #09111a 0%, #111925 100%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+
+      .docs-shell {
+        width: min(1320px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 40px 0 88px;
+        display: grid;
+        gap: 28px;
+      }
+
+      .hero {
+        padding: 34px;
+        display: grid;
+        gap: 18px;
+      }
+
+      .hero-grid,
+      .preview-grid,
+      .validation-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .preview-card,
+      .validation-card,
+      .status-card {
+        padding: 26px;
+      }
+
+      .preview-card {
+        display: grid;
+        gap: 16px;
+      }
+
+      .preview-card__meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .preview-card__actions,
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .preview-card__title,
+      .validation-card__title {
+        margin: 0;
+        font-size: 1.15rem;
+      }
+
+      .preview-card__body,
+      .validation-card__body,
+      .status-card__body {
+        margin: 0;
+        color: var(--text-secondary);
+        line-height: 1.65;
+      }
+
+      .inline-code {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.32rem 0.58rem;
+        border: 1px solid var(--border-default);
+        border-radius: var(--radius-pill);
+        background: color-mix(in srgb, var(--surface-panel) 86%, transparent);
+        color: var(--text-primary);
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+      }
+
+      .status-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .quick-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      a.docs-link {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a.docs-link:hover .preview-card,
+      a.docs-link:hover .validation-card {
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid,
+        .preview-grid,
+        .validation-grid,
+        .status-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="docs-shell" data-docs-home>
+      <section class="ac-surface-panel hero brand-glow">
+        <div class="eyebrow">Live docs and validation</div>
+        <h1 class="h1">La Fase 4 convierte el sistema en una superficie navegable y verificable.</h1>
+        <p class="p-lead">
+          Esta portada reúne las previews contractuales, los examples vivos y los gates de validación mínima para que el
+          repo ya no dependa de HTMLs aislados o revisión manual dispersa.
+        </p>
+        <div class="hero-actions">
+          <a class="ac-button ac-button--primary" href="./components-canonical.html"><span class="ac-button__label">Abrir componentes</span></a>
+          <a class="ac-button ac-button--ghost" href="./localization-fixtures.html"><span class="ac-button__label">Ver localización</span></a>
+          <a class="ac-button ac-button--ghost" href="../src/examples/premium/command-center-overview.example.html"><span class="ac-button__label">Abrir example premium</span></a>
+        </div>
+      </section>
+
+      <section class="hero-grid">
+        <article class="ac-card status-card">
+          <div class="ac-card__header">
+            <p class="ac-card__eyebrow">Coverage</p>
+            <h2 class="ac-card__title">Qué se valida ahora</h2>
+          </div>
+          <div class="ac-card__body stack">
+            <p class="status-card__body">
+              El repo ya tiene un punto de entrada único para recorrer tokens, taxonomía, componentes, themes,
+              patterns, examples y fixtures de localización.
+            </p>
+            <div class="quick-links">
+              <span class="inline-code">npm run verify</span>
+              <span class="inline-code">npm run verify:snapshots</span>
+              <span class="inline-code">artifacts/visual-baselines</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="ac-card status-card">
+          <div class="ac-card__header">
+            <p class="ac-card__eyebrow">Release gate</p>
+            <h2 class="ac-card__title">Qué no debería volver a romperse en silencio</h2>
+          </div>
+          <div class="ac-card__body stack">
+            <p class="status-card__body">
+              El gate mínimo combina integridad estructural, smoke browser-based, accesibilidad básica y snapshots para
+              previews críticas del sistema.
+            </p>
+            <div class="quick-links">
+              <span class="inline-code">docs-home</span>
+              <span class="inline-code">taxonomy-contracts</span>
+              <span class="inline-code">components-canonical</span>
+              <span class="inline-code">localization-fixtures</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="stack">
+        <div class="eyebrow">Docs surface</div>
+        <h2 class="h3">Previews y examples conectados a la capa canónica</h2>
+        <div class="preview-grid">
+          <a class="docs-link" href="./taxonomy-contracts.html">
+            <article class="ac-surface-panel preview-card">
+              <div class="preview-card__meta">
+                <span class="inline-code">preview</span>
+                <span class="inline-code">contract</span>
+              </div>
+              <h2 class="preview-card__title">Taxonomy contracts</h2>
+              <p class="preview-card__body">
+                Escalera visual de `internal`, `portfolio`, `premium` y `ultra premium` con criterios de transformación
+                visibles.
+              </p>
+            </article>
+          </a>
+
+          <a class="docs-link" href="./components-canonical.html">
+            <article class="ac-surface-panel preview-card">
+              <div class="preview-card__meta">
+                <span class="inline-code">preview</span>
+                <span class="inline-code">components</span>
+              </div>
+              <h2 class="preview-card__title">Canonical components</h2>
+              <p class="preview-card__body">
+                Button, topbar, surface panel, metric card y form field con variación por tier sin cambiar la gramática.
+              </p>
+            </article>
+          </a>
+
+          <a class="docs-link" href="./theme-families.html">
+            <article class="ac-surface-panel preview-card">
+              <div class="preview-card__meta">
+                <span class="inline-code">preview</span>
+                <span class="inline-code">themes</span>
+              </div>
+              <h2 class="preview-card__title">Theme families</h2>
+              <p class="preview-card__body">
+                Vista compacta de las familias visuales del ecosistema para revisar canvas, accent y chrome principal.
+              </p>
+            </article>
+          </a>
+
+          <a class="docs-link" href="./localization-fixtures.html">
+            <article class="ac-surface-panel preview-card">
+              <div class="preview-card__meta">
+                <span class="inline-code">preview</span>
+                <span class="inline-code">i18n</span>
+              </div>
+              <h2 class="preview-card__title">Localization fixtures</h2>
+              <p class="preview-card__body">
+                Stress test de copy en español, inglés y alemán para validar longitud, wrapping, labels y CTA.
+              </p>
+            </article>
+          </a>
+
+          <a class="docs-link" href="../src/examples/internal/content-generator-operations.example.html">
+            <article class="ac-surface-panel preview-card">
+              <div class="preview-card__meta">
+                <span class="inline-code">example</span>
+                <span class="inline-code">internal</span>
+              </div>
+              <h2 class="preview-card__title">Content generator operations</h2>
+              <p class="preview-card__body">
+                Reference implementation interna para validar adopción operativa sin contaminar la capa canónica.
+              </p>
+            </article>
+          </a>
+
+          <a class="docs-link" href="../src/examples/portfolio/private-estates-editorial-landing.example.html">
+            <article class="ac-surface-panel preview-card">
+              <div class="preview-card__meta">
+                <span class="inline-code">example</span>
+                <span class="inline-code">portfolio</span>
+              </div>
+              <h2 class="preview-card__title">Private estates editorial landing</h2>
+              <p class="preview-card__body">
+                Example público/editorial para revisar narrativa, jerarquía y conversión fuera de la capa de componentes.
+              </p>
+            </article>
+          </a>
+        </div>
+      </section>
+
+      <section class="stack">
+        <div class="eyebrow">Validation lanes</div>
+        <h2 class="h3">Gates ejecutables para navegar, revisar y cerrar cambios</h2>
+        <div class="validation-grid">
+          <article class="ac-card validation-card">
+            <h2 class="validation-card__title">Browser smoke</h2>
+            <p class="validation-card__body">
+              Abre previews críticas en desktop y mobile con Playwright para detectar roturas de carga, CSS o layout
+              antes de publicar cambios.
+            </p>
+            <div class="preview-card__actions">
+              <span class="inline-code">npm run verify:browser</span>
+            </div>
+          </article>
+
+          <article class="ac-card validation-card">
+            <h2 class="validation-card__title">Accessibility basic gate</h2>
+            <p class="validation-card__body">
+              Revisa estructura mínima: `lang`, `title`, `main`, regiones, labels y nombres accesibles en páginas clave.
+            </p>
+            <div class="preview-card__actions">
+              <span class="inline-code">npm run verify:a11y</span>
+            </div>
+          </article>
+
+          <article class="ac-card validation-card">
+            <h2 class="validation-card__title">Visual baselines</h2>
+            <p class="validation-card__body">
+              Regenera snapshots de desktop y mobile para comparar cambios en themes, taxonomía, componentes y
+              localización.
+            </p>
+            <div class="preview-card__actions">
+              <span class="inline-code">npm run verify:snapshots</span>
+            </div>
+          </article>
+
+          <article class="ac-card validation-card">
+            <h2 class="validation-card__title">Supporting docs</h2>
+            <p class="validation-card__body">
+              La capa de documentación contractual sigue viviendo en Markdown, pero ya queda conectada con la superficie
+              navegable y los gates ejecutables.
+            </p>
+            <div class="preview-card__actions">
+              <a class="ac-button ac-button--ghost ac-button--sm" href="../docs/quality-and-verification.md"><span class="ac-button__label">Quality guide</span></a>
+              <a class="ac-button ac-button--ghost ac-button--sm" href="../docs/consuming-from-apps.md"><span class="ac-button__label">Consumption guide</span></a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

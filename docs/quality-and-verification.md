@@ -28,12 +28,25 @@ La prioridad no es montar una infraestructura pesada, sino cubrir los riesgos re
 - comprueba imports esperados de CSS
 - comprueba referencias locales `href`/`src` rotas
 
+`npm run verify:browser`
+- abre previews críticas en un navegador real con Playwright
+- valida desktop y mobile
+- detecta roturas de carga, CSS o selectores principales
+
 `npm run verify:package`
 - ejecuta `npm pack --dry-run`
 - valida que el repo siga siendo consumible como paquete
 
+`npm run verify:a11y`
+- ejecuta una auditoría básica con Axe
+- comprueba `title`, `lang`, `main`, regiones, labels y nombres accesibles
+
+`npm run verify:snapshots`
+- genera snapshots ligeros de las previews cubiertas
+- deja artefactos en `artifacts/visual-baselines/`
+
 `npm run verify`
-- ejecuta todo lo anterior
+- ejecuta manifest, html, browser smoke, accesibilidad básica y package dry-run
 
 `npm run quality`
 - alias de `verify`
@@ -44,6 +57,9 @@ La prioridad no es montar una infraestructura pesada, sino cubrir los riesgos re
 - consumo desde apps
 - integridad de previews y examples
 - detección temprana de roturas de paths o entrypoints
+- carga real de previews críticas en navegador
+- accesibilidad estructural mínima
+- snapshots regenerables para inspección visual
 
 ## Señales de validacion funcional
 
@@ -61,19 +77,16 @@ Esto no sustituye al versionado ni a los checks del paquete, pero evita confundi
 ## Lo que todavía no cubre
 
 - visual diff automatizado
-- accesibilidad automatizada
-- screenshots de snapshots
-- verificación en navegador real
 - wrappers JS/TS
 
 ## Siguiente escalón recomendado
 
 Cuando esta base se estabilice, el siguiente paso natural es:
 
-1. generar un índice navegable de previews/examples
-2. añadir snapshots visuales ligeros
-3. introducir una verificación browser-based mínima sobre 3 o 4 previews críticas
-4. registrar una matriz de consumidores validados por primitive/pattern
+1. comparar snapshots contra baseline con diff automatizado
+2. ampliar la auditoría de accesibilidad a contrastes y navegación por teclado
+3. registrar una matriz de consumidores validados por primitive/pattern
+4. añadir consumo de apps reales a la verificación continua
 
 ## Gate visual obligatorio
 
@@ -88,8 +101,9 @@ La validación mínima obligatoria es:
 
 Previews mínimas para este gate:
 
+- `preview/index.html`
 - `preview/taxonomy-contracts.html`
-- `preview/buttons.html`
-- `preview/surfaces.html`
+- `preview/components-canonical.html`
+- `preview/localization-fixtures.html`
 
 Si una fase no pasa esta revisión visual, no debe darse por válida aunque `npm run verify` sea correcto.

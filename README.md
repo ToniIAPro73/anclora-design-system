@@ -235,6 +235,15 @@ The extraction is intentionally incremental:
 
 Adoption docs:
 - [docs/consuming-from-apps.md](/home/toni/projects/anclora-design-system/docs/consuming-from-apps.md)
+- [docs/quality-and-verification.md](/home/toni/projects/anclora-design-system/docs/quality-and-verification.md)
+- [docs/phase-4-live-docs-and-validation.md](/home/toni/projects/anclora-design-system/docs/phase-4-live-docs-and-validation.md)
+
+Live docs entry:
+- [preview/index.html](/home/toni/projects/anclora-design-system/preview/index.html)
+
+Validation commands:
+- `npm run verify`
+- `npm run verify:snapshots`
 
 ---
 

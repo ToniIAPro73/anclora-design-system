@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anclora Localization Fixtures</title>
+    <link rel="stylesheet" href="../src/system.css" />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at top left, rgba(201, 169, 95, 0.12), transparent 26%),
+          linear-gradient(180deg, #0a1119 0%, #101926 100%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+
+      .fixture-shell {
+        width: min(1320px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 38px 0 88px;
+        display: grid;
+        gap: 24px;
+      }
+
+      .locale-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .locale-card {
+        padding: 24px;
+        display: grid;
+        gap: 18px;
+      }
+
+      .locale-card__meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .locale-card__body {
+        margin: 0;
+        color: var(--text-secondary);
+        line-height: 1.65;
+      }
+
+      .locale-card__actions,
+      .fixture-topbar__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .fixture-topbar {
+        padding: 18px 22px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .fixture-topbar__brand {
+        display: grid;
+        gap: 6px;
+      }
+
+      .fixture-field {
+        width: 100%;
+      }
+
+      .fixture-checklist {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      @media (max-width: 1100px) {
+        .locale-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .fixture-topbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="fixture-shell" data-localization-fixtures>
+      <section class="ac-surface-panel stack">
+        <div class="eyebrow">Localization fixtures</div>
+        <h1 class="h1">El sistema debe absorber longitud, tono y jerarquía sin romper el layout.</h1>
+        <p class="p-lead">
+          Esta preview introduce fixtures de español, inglés y alemán para validar wrapping de titulares, labels,
+          botones y mensajes de soporte antes de dar una evolución visual por cerrada.
+        </p>
+      </section>
+
+      <section class="ac-surface-panel fixture-topbar">
+        <div class="fixture-topbar__brand">
+          <div class="eyebrow">Shared shell</div>
+          <h2 class="h3">Workspace localization stress test</h2>
+        </div>
+        <div class="fixture-topbar__actions" role="group" aria-label="Cambiar idioma de la preview">
+          <button class="ac-button ac-button--ghost ac-button--sm" type="button"><span class="ac-button__label">ES</span></button>
+          <button class="ac-button ac-button--ghost ac-button--sm" type="button"><span class="ac-button__label">EN</span></button>
+          <button class="ac-button ac-button--primary ac-button--sm" type="button"><span class="ac-button__label">DE</span></button>
+        </div>
+      </section>
+
+      <section class="locale-grid">
+        <article class="product-anclora-talent tier-premium ac-card locale-card" lang="es">
+          <div class="locale-card__meta">
+            <div>
+              <p class="ac-card__eyebrow">Español</p>
+              <h2 class="ac-card__title">Resumen de admisión y coordinación operativa</h2>
+            </div>
+            <span class="ac-metric-card__delta" data-tone="success">Base</span>
+          </div>
+          <p class="locale-card__body">
+            Mantiene el tono institucional del sistema, con copy relativamente compacto y claro para operaciones,
+            captación y seguimiento.
+          </p>
+          <section class="ac-form-field">
+            <div class="ac-form-field__head">
+              <label class="ac-form-field__label" for="fixture-es-contact">Contacto principal</label>
+              <p class="ac-form-field__hint">Etiqueta corta, soporte descriptivo y placeholder sin marketing.</p>
+            </div>
+            <div class="ac-form-field__control">
+              <input id="fixture-es-contact" class="field-input fixture-field" placeholder="Correo corporativo del responsable" />
+            </div>
+          </section>
+          <div class="locale-card__actions">
+            <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Solicitar revisión</span></button>
+            <button class="ac-button ac-button--ghost" type="button"><span class="ac-button__label">Guardar borrador</span></button>
+          </div>
+        </article>
+
+        <article class="product-anclora-command-center tier-premium ac-card locale-card" lang="en">
+          <div class="locale-card__meta">
+            <div>
+              <p class="ac-card__eyebrow">English</p>
+              <h2 class="ac-card__title">Cross-ecosystem executive visibility and decision follow-up</h2>
+            </div>
+            <span class="ac-metric-card__delta" data-tone="review">Longer</span>
+          </div>
+          <p class="locale-card__body">
+            English usually stretches CTA copy and descriptive labels, so this fixture checks whether premium cards keep
+            hierarchy, spacing, and action clarity under longer sentence structures.
+          </p>
+          <section class="ac-form-field">
+            <div class="ac-form-field__head">
+              <label class="ac-form-field__label" for="fixture-en-contact">Primary coordination owner</label>
+              <p class="ac-form-field__hint">Long-form label and helper copy should remain readable on mobile.</p>
+            </div>
+            <div class="ac-form-field__control">
+              <input id="fixture-en-contact" class="field-input fixture-field" placeholder="Work email for approvals and follow-up updates" />
+            </div>
+          </section>
+          <div class="locale-card__actions">
+            <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Request executive review</span></button>
+            <button class="ac-button ac-button--ghost" type="button"><span class="ac-button__label">Keep draft for later validation</span></button>
+          </div>
+        </article>
+
+        <article class="product-anclora-private-estates tier-ultra-premium ac-card locale-card brand-glow" lang="de">
+          <div class="locale-card__meta">
+            <div>
+              <p class="ac-card__eyebrow">Deutsch</p>
+              <h2 class="ac-card__title">Mehrsprachige Zugangsvoraussetzungen und Nachfragekoordination</h2>
+            </div>
+            <span class="ac-metric-card__delta" data-tone="warning">Stress</span>
+          </div>
+          <p class="locale-card__body">
+            Deutsche zusammengesetzte Begriffe drücken auf Buttons, Labels und Kartenbreiten. Dieses Fixture macht
+            Überläufe sichtbar, bevor eine Premium- oder Ultra-Premium-Änderung als stabil gilt.
+          </p>
+          <section class="ac-form-field">
+            <div class="ac-form-field__head">
+              <label class="ac-form-field__label" for="fixture-de-contact">Zuständige Kontaktperson für Zugangsfreigaben</label>
+              <p class="ac-form-field__hint">Die längste Variante dient als Layout-Stresstest für Desktop und Mobile.</p>
+            </div>
+            <div class="ac-form-field__control">
+              <input id="fixture-de-contact" class="field-input fixture-field" placeholder="Geschäftliche E-Mail-Adresse für Rückfragen und Freigabehinweise" />
+            </div>
+          </section>
+          <div class="locale-card__actions">
+            <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Zugangsprüfung anfordern</span></button>
+            <button class="ac-button ac-button--ghost" type="button"><span class="ac-button__label">Entwurf ohne Veröffentlichung speichern</span></button>
+          </div>
+        </article>
+      </section>
+
+      <section class="ac-surface-panel stack">
+        <div class="eyebrow">Review checklist</div>
+        <h2 class="h3">Criterios mínimos antes de cerrar cambios de copy o layout</h2>
+        <ul class="fixture-checklist">
+          <li>Desktop y mobile deben conservar jerarquía clara sin clipping en títulos, labels o CTAs.</li>
+          <li>Los campos necesitan seguir teniendo label visible aunque cambien el idioma y la longitud del helper text.</li>
+          <li>El idioma más largo debe seguir cabiendo en botones primarios sin romper el radio ni el padding del componente.</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
