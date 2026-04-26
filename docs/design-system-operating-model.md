@@ -235,6 +235,7 @@ Fuente contractual:
 Documento puente:
 
 - [docs/tier-taxonomy-and-transformations.md](/home/toni/projects/anclora-design-system/docs/tier-taxonomy-and-transformations.md)
+- [docs/vault-bridge-and-contract-coverage.md](/home/toni/projects/anclora-design-system/docs/vault-bridge-and-contract-coverage.md)
 
 ## 8. Plan por fases
 
@@ -269,3 +270,9 @@ Documento puente:
 - sincronizacion formal con contratos de la bóveda
 - matrices de cumplimiento por repo consumidor
 - versionado de breaking changes del sistema
+
+Artefactos operativos de alineación:
+
+- [docs/vault-bridge-and-contract-coverage.md](/home/toni/projects/anclora-design-system/docs/vault-bridge-and-contract-coverage.md)
+- [docs/validated-consumers-matrix.md](/home/toni/projects/anclora-design-system/docs/validated-consumers-matrix.md)
+- [docs/contract-redesign-backlog.md](/home/toni/projects/anclora-design-system/docs/contract-redesign-backlog.md)

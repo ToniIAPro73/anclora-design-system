@@ -237,6 +237,8 @@ Adoption docs:
 - [docs/consuming-from-apps.md](/home/toni/projects/anclora-design-system/docs/consuming-from-apps.md)
 - [docs/quality-and-verification.md](/home/toni/projects/anclora-design-system/docs/quality-and-verification.md)
 - [docs/phase-4-live-docs-and-validation.md](/home/toni/projects/anclora-design-system/docs/phase-4-live-docs-and-validation.md)
+- [docs/vault-bridge-and-contract-coverage.md](/home/toni/projects/anclora-design-system/docs/vault-bridge-and-contract-coverage.md)
+- [docs/contract-redesign-backlog.md](/home/toni/projects/anclora-design-system/docs/contract-redesign-backlog.md)
 
 Live docs entry:
 - [preview/index.html](/home/toni/projects/anclora-design-system/preview/index.html)
