@@ -6,9 +6,9 @@
   border: 1px solid var(--border-default);
   border-radius: var(--surface-radius-card);
   background: linear-gradient(180deg,
-    color-mix(in srgb, var(--surface-panel) var(--cluster-surface-mix), transparent) 0%,
-    color-mix(in srgb, var(--surface-canvas) 92%, transparent) 100%);
-  box-shadow: var(--shadow-lg), var(--shadow-inset);
+    color-mix(in srgb, var(--surface-panel) var(--surface-card-top-mix), transparent) 0%,
+    color-mix(in srgb, var(--surface-canvas) var(--surface-card-bottom-mix), transparent) 100%);
+  box-shadow: var(--surface-card-shadow-rest), var(--shadow-inset);
   transition:
     transform var(--dur-base) var(--ease-spring),
     border-color var(--dur-base) ease,
@@ -19,13 +19,13 @@
 .surface-card:focus-within {
   transform: translateY(var(--motion-hover-lift-card));
   border-color: var(--border-strong);
-  box-shadow: var(--shadow-xl), var(--shadow-inset);
+  box-shadow: var(--surface-card-shadow-hover), var(--shadow-inset);
 }
 
 .surface-frame {
   border: 1px solid var(--border-default);
   border-radius: var(--surface-radius-frame);
-  background: color-mix(in srgb, var(--surface-panel) 88%, transparent);
+  background: color-mix(in srgb, var(--surface-panel) var(--surface-frame-mix), transparent);
   transition: transform var(--dur-base) var(--ease-spring), border-color var(--dur-base) ease;
 }
 
@@ -37,8 +37,10 @@
 .surface-panel {
   border: 1px solid var(--border-default);
   border-radius: var(--surface-radius-panel);
-  background: var(--surface-panel);
-  box-shadow: var(--shadow-md), var(--shadow-inset);
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--surface-panel) var(--surface-panel-top-mix), transparent) 0%,
+    color-mix(in srgb, var(--surface-canvas) var(--surface-panel-bottom-mix), transparent) 100%);
+  box-shadow: var(--surface-panel-shadow), var(--shadow-inset);
 }
 
 .surface-panel-strong {
@@ -127,7 +129,7 @@
   display: block;
   margin-bottom: 6px;
   font-size: var(--label-size);
-  font-weight: 700;
+  font-weight: var(--type-eyebrow-weight);
   letter-spacing: var(--label-tracking);
   text-transform: uppercase;
   color: var(--text-eyebrow);
@@ -169,7 +171,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 14px 20px;
+  padding: var(--surface-topbar-padding-y) var(--surface-topbar-padding-x);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-pill);
   background: var(--surface-glass);

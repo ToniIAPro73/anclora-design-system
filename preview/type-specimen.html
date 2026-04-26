@@ -1,15 +1,79 @@
-<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css"><style>
-html,body{margin:0;padding:0;background:linear-gradient(180deg,#0f1520 0%,#151c28 100%);color:#f5f7fa;font-family:"Inter",sans-serif;min-height:100vh}
-.wrap{padding:28px 32px;display:flex;flex-direction:column;gap:16px;justify-content:center;min-height:100vh;box-sizing:border-box}
-.eyebrow{font-family:"Inter",sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.26em;text-transform:uppercase;color:#d8bf86}
-.display{font-family:"Fraunces",serif;font-size:2.6rem;line-height:1.02;letter-spacing:-0.022em;font-weight:600;color:#ffffff;margin:0;max-width:22ch;font-variation-settings:"opsz" 72,"SOFT" 40}
-.lede{font-family:"Inter",sans-serif;font-size:1.02rem;line-height:1.65;color:rgba(245,247,250,0.88);max-width:52ch;margin:0;font-weight:400}
-.meta{font-family:"Inter",sans-serif;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,247,250,0.55);font-weight:600;margin-top:4px}
-</style></head><body>
-<div class="wrap">
-  <div class="eyebrow">PORTAL CORPORATIVO</div>
-  <div class="display">Un punto único de acceso para todo el ecosistema.</div>
-  <div class="lede">Autenticación corporativa con control por rol. Desde aquí entras a las aplicaciones habilitadas para tu perfil.</div>
-  <div class="meta">Fraunces 72pt · Display &nbsp;·&nbsp; Inter 18pt · Body</div>
-</div>
-</body></html>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../src/system.css" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(180deg, #0f1520 0%, #151c28 100%);
+      }
+
+      .wrap {
+        display: grid;
+        gap: 18px;
+        padding: 28px 32px;
+        box-sizing: border-box;
+        min-height: 100vh;
+      }
+
+      .specimen-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .specimen {
+        padding: var(--panel-padding);
+      }
+
+      .specimen .meta {
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+      }
+
+      @media (max-width: 920px) {
+        .specimen-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap shell-frame">
+      <div class="eyebrow">Type foundations by tier</div>
+      <div class="specimen-grid">
+        <section class="product-anclora-nexus tier-internal surface-panel specimen stack">
+          <div class="eyebrow">Internal</div>
+          <h1 class="h1">Operación clara, densidad útil y lectura rápida.</h1>
+          <p class="p-lead">La tipografía interna reduce ceremonialidad y compacta el ritmo para favorecer decisiones y flujo continuo.</p>
+          <p class="meta">Display sans · leading compact · labels más densos</p>
+        </section>
+
+        <section class="product-anclora-portfolio tier-portfolio surface-panel specimen stack">
+          <div class="eyebrow">Portfolio</div>
+          <h1 class="h1">Narrativa editorial con claridad inmediata de conversión.</h1>
+          <p class="p-lead">El contraste y la respiración aumentan, pero la lectura sigue subordinada al CTA y a la credibilidad.</p>
+          <p class="meta">Editorial serif · body más aireado · tono showcase</p>
+        </section>
+
+        <section class="product-anclora-talent tier-premium surface-panel specimen stack">
+          <div class="eyebrow">Premium</div>
+          <h1 class="h1">Marca, profundidad y operación en el mismo sistema.</h1>
+          <p class="p-lead">La capa premium debe sentirse más intencional que una app interna sin perder claridad ni estabilidad visual.</p>
+          <p class="meta">Display premium · measure equilibrado · CTA legible</p>
+        </section>
+
+        <section class="product-anclora-private-estates tier-ultra-premium surface-panel specimen brand-glow stack">
+          <div class="eyebrow">Ultra premium</div>
+          <h1 class="h1">Composición más exclusiva, ritmo más ceremonioso.</h1>
+          <p class="p-lead">La firma ultra premium sube el valor percibido mediante tipografía, materiales y quietud, no mediante ruido.</p>
+          <p class="meta">Editorial serif · mayor amplitud · lectura más ceremonial</p>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

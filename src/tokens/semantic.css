@@ -68,6 +68,16 @@
   --surface-radius-frame: var(--radius-lg);
   --surface-radius-panel: var(--radius-xl);
   --action-min-height: 44px;
+  --surface-card-top-mix: 90%;
+  --surface-card-bottom-mix: 94%;
+  --surface-frame-mix: 88%;
+  --surface-panel-top-mix: calc(var(--cluster-surface-mix) - 2%);
+  --surface-panel-bottom-mix: 94%;
+  --surface-card-shadow-rest: var(--shadow-lg);
+  --surface-card-shadow-hover: var(--shadow-xl);
+  --surface-panel-shadow: var(--shadow-md);
+  --surface-topbar-padding-y: 14px;
+  --surface-topbar-padding-x: 20px;
 
   --shell-max-width: 1320px;
   --shell-gutter: clamp(20px, 4vw, 40px);
@@ -75,10 +85,31 @@
   --hero-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
   --hero-panel-padding: clamp(24px, 3vw, 40px);
   --topbar-blur: 18px;
+  --panel-padding: clamp(20px, 2.4vw, 28px);
+  --card-gap: var(--space-5);
+  --content-measure: 52rem;
+  --type-display-min: 2.6rem;
+  --type-display-fluid: 5vw;
+  --type-display-max: 4.7rem;
+  --type-h2-min: 1.8rem;
+  --type-h2-fluid: 3vw;
+  --type-h2-max: 2.4rem;
+  --type-h3-min: 1.25rem;
+  --type-h3-fluid: 2vw;
+  --type-h3-max: 1.55rem;
+  --type-body-size: 1rem;
+  --type-body-leading: 1.72;
+  --type-lead-size: 1.12rem;
+  --type-lead-leading: 1.78;
+  --type-eyebrow-size: 0.76rem;
+  --type-eyebrow-weight: 700;
+  --type-title-weight: 600;
+  --type-label-size: 0.66rem;
+  --type-label-tracking: var(--track-eyebrow);
 
   --content-density: 1;
-  --label-size: 0.66rem;
-  --label-tracking: var(--track-eyebrow);
+  --label-size: var(--type-label-size);
+  --label-tracking: var(--type-label-tracking);
   --metric-density-gap: var(--space-4);
 
   --domain-glow: color-mix(in srgb, var(--accent) 18%, transparent);

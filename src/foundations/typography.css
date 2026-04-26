@@ -4,34 +4,35 @@
 
 .h1 {
   font-family: var(--font-display);
-  font-size: clamp(2.6rem, 5vw, 4.7rem);
+  font-size: clamp(var(--type-display-min), var(--type-display-fluid), var(--type-display-max));
   line-height: 1.02;
   letter-spacing: var(--track-title);
-  font-weight: 600;
+  font-weight: var(--type-title-weight);
   color: var(--text-primary);
+  max-width: var(--content-measure);
 }
 
 .h2 {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-size: clamp(var(--type-h2-min), var(--type-h2-fluid), var(--type-h2-max));
   line-height: 1.08;
   letter-spacing: var(--track-title);
-  font-weight: 600;
+  font-weight: var(--type-title-weight);
   color: var(--text-primary);
 }
 
 .h3 {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  font-size: clamp(var(--type-h3-min), var(--type-h3-fluid), var(--type-h3-max));
   line-height: 1.15;
-  font-weight: 600;
+  font-weight: var(--type-title-weight);
   color: var(--text-primary);
 }
 
 .eyebrow {
   font-family: var(--font-sans);
-  font-size: 0.76rem;
-  font-weight: 700;
+  font-size: var(--type-eyebrow-size);
+  font-weight: var(--type-eyebrow-weight);
   letter-spacing: var(--track-eyebrow);
   text-transform: uppercase;
   color: var(--text-eyebrow);
@@ -39,16 +40,17 @@
 
 .p {
   font-family: inherit;
-  font-size: 1rem;
-  line-height: 1.72;
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-leading);
   color: var(--text-secondary);
+  max-width: var(--content-measure);
 }
 
 .p-lead {
-  font-size: 1.12rem;
-  line-height: 1.78;
+  font-size: var(--type-lead-size);
+  line-height: var(--type-lead-leading);
   color: var(--text-secondary);
-  max-width: 52rem;
+  max-width: var(--content-measure);
 }
 
 .meta {
