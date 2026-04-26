@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Anclora Design System - Canonical Components</title>
+    <title>Anclora Design System - Canonical Components by Tier</title>
     <link rel="stylesheet" href="../src/system.css" />
     <style>
       :root {
@@ -16,567 +16,257 @@
 
       body {
         margin: 0;
-        font-family: var(--font-sans);
         background:
-          radial-gradient(circle at top, color-mix(in srgb, var(--accent) 14%, transparent) 0%, transparent 34%),
-          linear-gradient(180deg, var(--surface-canvas) 0%, color-mix(in srgb, var(--surface-canvas) 90%, black 10%) 100%);
+          radial-gradient(circle at top, rgba(201, 169, 95, 0.08) 0%, transparent 32%),
+          linear-gradient(180deg, #0d1420 0%, #121a27 100%);
         color: var(--text-primary);
       }
 
       .demo-shell {
-        width: min(1200px, calc(100% - 48px));
+        width: min(1320px, calc(100% - 40px));
         margin: 0 auto;
         padding: 32px 0 80px;
-        display: grid;
-        gap: 28px;
-      }
-
-      .demo-grid {
         display: grid;
         gap: 24px;
       }
 
-      .demo-grid--cards {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      .tier-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
       }
 
-      .demo-grid--metrics {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      .tier-panel {
+        padding: var(--panel-padding);
+        display: grid;
+        gap: 18px;
       }
 
-      .demo-grid--sidebar {
-        grid-template-columns: minmax(240px, 280px) minmax(0, 1fr);
-        align-items: start;
+      .component-stack {
+        display: grid;
+        gap: 16px;
       }
 
-      .demo-grid--overlays {
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        align-items: start;
-      }
-
-      .demo-grid--navigation {
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        align-items: start;
-      }
-
-      .demo-cluster {
+      .component-cluster {
         display: flex;
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 10px;
       }
 
-      .demo-stack-tight {
+      .component-grid {
         display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 14px;
       }
 
-      .demo-table-note {
-        margin: 0;
-        padding-top: 12px;
-        color: var(--text-muted);
-        font-size: 0.82rem;
-      }
-
-      .demo-toast-wrap {
-        display: flex;
-        justify-content: flex-end;
-      }
-
-      .demo-note {
+      .component-note {
         margin: 0;
         color: var(--text-muted);
         font-size: 0.82rem;
+        line-height: 1.55;
+      }
+
+      .component-input {
+        width: 100%;
+      }
+
+      @media (max-width: 1100px) {
+        .tier-grid,
+        .component-grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
-  <body class="tier-premium domain-cross-domain archetype-command-center role-executive cluster-core product-anclora-command-center">
+  <body>
     <main class="demo-shell">
-      <header class="ac-topbar">
-        <div class="ac-topbar__brand">
-          <div class="ac-topbar__mark">AC</div>
-          <div class="ac-topbar__titles">
-            <p class="ac-topbar__eyebrow">Canonical components</p>
-            <h1 class="ac-topbar__title">Anclora Design System</h1>
-          </div>
-        </div>
-        <div class="ac-topbar__meta">
-          <span class="theme-chip">Tier premium</span>
-          <span class="theme-chip">Cross-domain</span>
-          <span class="ac-topbar__divider" aria-hidden="true"></span>
-          <span>Command Center reference shell</span>
-        </div>
-        <div class="ac-topbar__actions">
-          <div class="ac-language-switcher" aria-label="Language switcher">
-            <a class="ac-language-switcher__option" href="#" aria-current="true">ES</a>
-            <a class="ac-language-switcher__option" href="#">EN</a>
-            <a class="ac-language-switcher__option" href="#">DE</a>
-          </div>
-          <a class="ac-button ac-button--ghost ac-button--sm" href="#surfaces">
-            <span class="ac-button__label">Surfaces</span>
-          </a>
-          <a class="ac-button ac-button--primary" href="#apps">
-            <span class="ac-button__label">Open catalog</span>
-          </a>
-        </div>
-      </header>
-
-      <section class="ac-section-heading ac-section-heading--split">
-        <div class="ac-section-heading__content">
-          <p class="ac-section-heading__eyebrow">System layer</p>
-          <h2 class="ac-section-heading__title">Canonical UI blocks for the ecosystem</h2>
-          <p class="ac-section-heading__summary">
-            Esta capa se mantiene neutral y reusable: acciones, shells de contenido, launch tiles, metric cards,
-            section intros y topbar framing. Sin composiciones de dashboard específicas de una app.
-          </p>
-        </div>
-        <div class="ac-section-heading__actions">
-          <button class="ac-button ac-button--secondary" type="button">
-            <span class="ac-button__label">Secondary</span>
-          </button>
-          <button class="ac-button ac-button--primary" type="button">
-            <span class="ac-button__icon" aria-hidden="true">+</span>
-            <span class="ac-button__label">Primary action</span>
-          </button>
-        </div>
+      <section class="stack">
+        <div class="eyebrow">Canonical components by tier</div>
+        <h1 class="h1">La misma API visual debe cambiar de carácter sin romper el sistema.</h1>
+        <p class="p-lead">
+          Esta preview valida la Fase 3: `topbar`, `button`, `surface-panel`, `metric-card` y `form-field` ya deben
+          sentirse distintos entre `internal`, `portfolio`, `premium` y `ultra premium`, manteniendo una gramática
+          coherente y reusable.
+        </p>
       </section>
 
-      <section class="demo-grid" id="actions">
-        <div class="ac-surface-panel">
-          <div class="ac-surface-panel__header">
-            <p class="ac-surface-panel__eyebrow">Button</p>
-            <h3 class="ac-surface-panel__title">Action variants and sizes</h3>
-          </div>
-          <div class="ac-surface-panel__body">
-            <div class="demo-cluster">
-              <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Primary</span></button>
-              <button class="ac-button ac-button--secondary" type="button"><span class="ac-button__label">Secondary</span></button>
-              <button class="ac-button ac-button--ghost" type="button"><span class="ac-button__label">Ghost</span></button>
-              <button class="ac-button ac-button--destructive" type="button"><span class="ac-button__label">Destructive</span></button>
-            </div>
-            <div class="demo-cluster">
-              <button class="ac-button ac-button--secondary ac-button--sm" type="button"><span class="ac-button__label">Small</span></button>
-              <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Default</span></button>
-              <button class="ac-button ac-button--ghost ac-button--lg" type="button"><span class="ac-button__label">Large</span></button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="demo-grid demo-grid--cards" id="surfaces">
-        <article class="ac-card">
-          <div class="ac-card__header">
-            <div class="ac-card__meta">
-              <p class="ac-card__eyebrow">Card</p>
-              <span class="status-badge is-review">Shared component</span>
-            </div>
-            <h3 class="ac-card__title">Interactive content surface</h3>
-          </div>
-          <div class="ac-card__body">
-              <p style="margin: 0;">
-                Canonical wrapper for highlightable blocks, result summaries or selectable resources.
-              </p>
-          </div>
-          <div class="ac-card__footer">
-            <span style="color: var(--text-muted); font-size: 0.82rem;">Hover lift + focus-within support</span>
-            <a class="ac-button ac-button--ghost ac-button--sm" href="#apps"><span class="ac-button__label">Inspect</span></a>
-          </div>
-        </article>
-
-        <article class="ac-surface-panel ac-surface-panel--strong">
-          <div class="ac-surface-panel__header">
-            <p class="ac-surface-panel__eyebrow">SurfacePanel</p>
-            <h3 class="ac-surface-panel__title">Neutral structural panel</h3>
-          </div>
-          <div class="ac-surface-panel__body">
-            <p style="margin: 0;">
-              Use as the default shell for grouped content, forms and framed sections that should not imply clickability.
-            </p>
-          </div>
-          <div class="ac-surface-panel__footer">
-            <span style="color: var(--text-muted); font-size: 0.82rem;">Stable frame for documentation and application scaffolds</span>
-          </div>
-        </article>
-      </section>
-
-      <section class="demo-grid demo-grid--cards" id="apps">
-        <a class="ac-app-tile" href="#apps">
-          <div class="ac-app-tile__head">
-            <div class="ac-app-tile__mark">CC</div>
-            <span class="ac-app-tile__kicker">Operating system</span>
-          </div>
-          <div class="ac-app-tile__body">
-            <h3 class="ac-app-tile__title">Anclora Command Center</h3>
-            <p class="ac-app-tile__summary">
-              Shared launcher tile for products, hubs and internal systems that need brand presence without app-specific chrome.
-            </p>
-          </div>
-          <div class="ac-app-tile__footer">
-            <div class="ac-app-tile__meta">
-              <span class="theme-chip">Premium</span>
-              <span class="theme-chip">Core cluster</span>
-            </div>
-            <span class="ac-app-tile__chevron" aria-hidden="true">→</span>
-          </div>
-        </a>
-
-        <a class="ac-app-tile" href="#apps">
-          <div class="ac-app-tile__head">
-            <div class="ac-app-tile__mark">TL</div>
-            <span class="ac-app-tile__kicker">Human capital</span>
-          </div>
-          <div class="ac-app-tile__body">
-            <h3 class="ac-app-tile__title">Anclora Talent</h3>
-            <p class="ac-app-tile__summary">
-              The same tile contract can shift by taxonomy variables while keeping one reusable component API.
-            </p>
-          </div>
-          <div class="ac-app-tile__footer">
-            <div class="ac-app-tile__meta">
-              <span class="theme-chip">Premium</span>
-              <span class="theme-chip">Human capital</span>
-            </div>
-            <span class="ac-app-tile__chevron" aria-hidden="true">→</span>
-          </div>
-        </a>
-      </section>
-
-      <section class="demo-grid demo-grid--metrics">
-        <article class="ac-metric-card">
-          <p class="ac-metric-card__eyebrow">MetricCard</p>
-          <div class="ac-metric-card__header">
-            <p class="ac-metric-card__value">97%</p>
-            <span class="ac-metric-card__delta" data-tone="success">+12%</span>
-          </div>
-          <p class="ac-metric-card__summary">Contract compliance across reusable premium surfaces.</p>
-          <div class="ac-metric-card__footer">
-            <span class="ac-metric-card__trend">Stable trend</span>
-            <span class="ac-metric-card__caption">Updated 4m ago</span>
-          </div>
-        </article>
-
-        <article class="ac-metric-card">
-          <p class="ac-metric-card__eyebrow">Motion Health</p>
-          <div class="ac-metric-card__header">
-            <p class="ac-metric-card__value">12</p>
-            <span class="ac-metric-card__delta" data-tone="review">Review</span>
-          </div>
-          <p class="ac-metric-card__summary">Primitives still waiting for motion contract alignment in downstream apps.</p>
-          <div class="ac-metric-card__footer">
-            <span class="ac-metric-card__trend">Needs follow-up</span>
-            <span class="ac-metric-card__caption">Scope: ecosystem</span>
-          </div>
-        </article>
-
-        <article class="ac-metric-card">
-          <p class="ac-metric-card__eyebrow">Localization</p>
-          <div class="ac-metric-card__header">
-            <p class="ac-metric-card__value">4</p>
-            <span class="ac-metric-card__delta" data-tone="warning">Pending</span>
-          </div>
-          <p class="ac-metric-card__summary">Locales still missing semantic copy wrappers in app compositions.</p>
-          <div class="ac-metric-card__footer">
-            <span class="ac-metric-card__trend">Shared concern</span>
-            <span class="ac-metric-card__caption">Not component-specific</span>
-          </div>
-        </article>
-      </section>
-
-      <section class="demo-grid demo-grid--cards" id="forms">
-        <article class="ac-surface-panel">
-          <div class="ac-surface-panel__header">
-            <p class="ac-surface-panel__eyebrow">FormField</p>
-            <h3 class="ac-surface-panel__title">Canonical field wrapper</h3>
-          </div>
-          <div class="ac-surface-panel__body">
-            <div class="ac-form-field">
-              <div class="ac-form-field__head">
-                <label class="ac-form-field__label" for="example-name">Owner</label>
-                <p class="ac-form-field__hint">Used for clear label, helper and validation messaging.</p>
-              </div>
-              <div class="ac-form-field__control">
-                <input id="example-name" class="field-input" placeholder="Team or domain owner" />
-                <p class="ac-form-field__message">Helper text for content, format or expected scope.</p>
+      <section class="tier-grid">
+        <article class="product-anclora-nexus tier-internal ac-surface-panel tier-panel">
+          <header class="ac-topbar">
+            <div class="ac-topbar__brand">
+              <div class="ac-topbar__mark">NX</div>
+              <div class="ac-topbar__titles">
+                <p class="ac-topbar__eyebrow">Internal</p>
+                <h2 class="ac-topbar__title">Nexus operating shell</h2>
               </div>
             </div>
-            <div class="ac-form-field ac-form-field--inline">
-              <div class="ac-form-field__head">
-                <label class="ac-form-field__label" for="example-brief">Brief</label>
-              </div>
-              <div class="ac-form-field__control">
-                <textarea id="example-brief" class="field-textarea" placeholder="Summarize the intent and downstream impact"></textarea>
-                <p class="ac-form-field__message" data-tone="danger">This field demonstrates inline validation tone.</p>
-              </div>
+            <div class="ac-topbar__actions">
+              <button class="ac-button ac-button--ghost ac-button--sm" type="button"><span class="ac-button__label">Volver</span></button>
+              <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Crear</span></button>
             </div>
+          </header>
+          <div class="component-grid">
+            <section class="ac-card component-stack">
+              <div class="ac-card__header">
+                <p class="ac-card__eyebrow">Surface panel</p>
+                <h3 class="ac-card__title">Operación compacta</h3>
+              </div>
+              <div class="ac-card__body">
+                <p class="component-note">Radio más contenido, títulos sans y menor ceremonialidad visual.</p>
+              </div>
+            </section>
+            <section class="ac-metric-card">
+              <p class="ac-metric-card__eyebrow">Queue health</p>
+              <div class="ac-metric-card__header">
+                <p class="ac-metric-card__value">12</p>
+                <span class="ac-metric-card__delta" data-tone="success">+2</span>
+              </div>
+              <p class="ac-metric-card__summary">Decisiones pendientes con densidad operativa alta.</p>
+            </section>
           </div>
+          <section class="ac-form-field">
+            <div class="ac-form-field__head">
+              <label class="ac-form-field__label" for="internal-query">Búsqueda</label>
+              <p class="ac-form-field__hint">Primero claridad, luego acabado.</p>
+            </div>
+            <div class="ac-form-field__control">
+              <input id="internal-query" class="field-input component-input" placeholder="Buscar lote, contacto o tarea" />
+            </div>
+          </section>
         </article>
 
-        <article class="ac-surface-panel ac-surface-panel--strong">
-          <div class="ac-surface-panel__header">
-            <p class="ac-surface-panel__eyebrow">StatStrip</p>
-            <h3 class="ac-surface-panel__title">Horizontal KPI band</h3>
-          </div>
-          <div class="ac-surface-panel__body">
-            <div class="ac-stat-strip" style="--ac-stat-columns: 3;">
-              <div class="ac-stat-strip__item">
-                <p class="ac-stat-strip__label">Coverage</p>
-                <p class="ac-stat-strip__value">14</p>
-                <p class="ac-stat-strip__meta">Repos with active contract alignment.</p>
-              </div>
-              <div class="ac-stat-strip__item">
-                <p class="ac-stat-strip__label">Components</p>
-                <p class="ac-stat-strip__value">12</p>
-                <p class="ac-stat-strip__meta">Canonical blocks available in `src/components`.</p>
-              </div>
-              <div class="ac-stat-strip__item">
-                <p class="ac-stat-strip__label">Drifts</p>
-                <p class="ac-stat-strip__value">2</p>
-                <p class="ac-stat-strip__meta">Pending visual normalization in downstream apps.</p>
+        <article class="product-anclora-portfolio tier-portfolio ac-surface-panel tier-panel">
+          <header class="ac-topbar">
+            <div class="ac-topbar__brand">
+              <div class="ac-topbar__mark">PF</div>
+              <div class="ac-topbar__titles">
+                <p class="ac-topbar__eyebrow">Portfolio</p>
+                <h2 class="ac-topbar__title">Showcase editorial</h2>
               </div>
             </div>
+            <div class="ac-topbar__actions">
+              <button class="ac-button ac-button--secondary ac-button--sm" type="button"><span class="ac-button__label">Ver caso</span></button>
+              <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Solicitar dossier</span></button>
+            </div>
+          </header>
+          <div class="component-grid">
+            <section class="ac-card component-stack">
+              <div class="ac-card__header">
+                <p class="ac-card__eyebrow">Surface panel</p>
+                <h3 class="ac-card__title">Credibilidad y conversión</h3>
+              </div>
+              <div class="ac-card__body">
+                <p class="component-note">Más limpieza, serif editorial y peso ligero pensado para captación.</p>
+              </div>
+            </section>
+            <section class="ac-metric-card">
+              <p class="ac-metric-card__eyebrow">Lead intent</p>
+              <div class="ac-metric-card__header">
+                <p class="ac-metric-card__value">87%</p>
+                <span class="ac-metric-card__delta" data-tone="review">Warm</span>
+              </div>
+              <p class="ac-metric-card__summary">La pieza vende criterio sin parecer dashboard.</p>
+            </section>
           </div>
+          <section class="ac-form-field">
+            <div class="ac-form-field__head">
+              <label class="ac-form-field__label" for="portfolio-email">Contacto</label>
+              <p class="ac-form-field__hint">Copy más aireado y legible para captación.</p>
+            </div>
+            <div class="ac-form-field__control">
+              <input id="portfolio-email" class="field-input component-input" placeholder="Tu email corporativo" />
+            </div>
+          </section>
+        </article>
+
+        <article class="product-anclora-command-center tier-premium ac-surface-panel tier-panel brand-glow">
+          <header class="ac-topbar">
+            <div class="ac-topbar__brand">
+              <div class="ac-topbar__mark">CC</div>
+              <div class="ac-topbar__titles">
+                <p class="ac-topbar__eyebrow">Premium</p>
+                <h2 class="ac-topbar__title">Command Center reference</h2>
+              </div>
+            </div>
+            <div class="ac-topbar__actions">
+              <button class="ac-button ac-button--ghost ac-button--sm" type="button"><span class="ac-button__label">Timeline</span></button>
+              <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Abrir panel</span></button>
+            </div>
+          </header>
+          <div class="component-grid">
+            <section class="ac-card component-stack">
+              <div class="ac-card__header">
+                <p class="ac-card__eyebrow">Surface panel</p>
+                <h3 class="ac-card__title">Marca y operación equilibradas</h3>
+              </div>
+              <div class="ac-card__body">
+                <p class="component-note">Mayor profundidad, serif de marca y mejor presencia visual que en internal.</p>
+              </div>
+            </section>
+            <section class="ac-metric-card">
+              <p class="ac-metric-card__eyebrow">Coverage</p>
+              <div class="ac-metric-card__header">
+                <p class="ac-metric-card__value">97%</p>
+                <span class="ac-metric-card__delta" data-tone="success">+12%</span>
+              </div>
+              <p class="ac-metric-card__summary">Dashboard premium con lectura clara y acabados más ricos.</p>
+            </section>
+          </div>
+          <section class="ac-form-field">
+            <div class="ac-form-field__head">
+              <label class="ac-form-field__label" for="premium-alert">Nuevo seguimiento</label>
+              <p class="ac-form-field__hint">La capa premium debe inspirar más control y criterio.</p>
+            </div>
+            <div class="ac-form-field__control">
+              <input id="premium-alert" class="field-input component-input" placeholder="Nombre del seguimiento ejecutivo" />
+            </div>
+          </section>
+        </article>
+
+        <article class="product-anclora-private-estates tier-ultra-premium ac-surface-panel tier-panel brand-glow grid-noise">
+          <header class="ac-topbar">
+            <div class="ac-topbar__brand">
+              <div class="ac-topbar__mark">PE</div>
+              <div class="ac-topbar__titles">
+                <p class="ac-topbar__eyebrow">Ultra premium</p>
+                <h2 class="ac-topbar__title">Private Estates signature layer</h2>
+              </div>
+            </div>
+            <div class="ac-topbar__actions">
+              <button class="ac-button ac-button--secondary ac-button--sm" type="button"><span class="ac-button__label">Ver portfolio</span></button>
+              <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Solicitar acceso</span></button>
+            </div>
+          </header>
+          <div class="component-grid">
+            <section class="ac-card component-stack">
+              <div class="ac-card__header">
+                <p class="ac-card__eyebrow">Surface panel</p>
+                <h3 class="ac-card__title">Materialidad más exclusiva</h3>
+              </div>
+              <div class="ac-card__body">
+                <p class="component-note">La misma pieza gana amplitud, quietud y valor percibido sin caer en exceso.</p>
+              </div>
+            </section>
+            <section class="ac-metric-card">
+              <p class="ac-metric-card__eyebrow">Curated access</p>
+              <div class="ac-metric-card__header">
+                <p class="ac-metric-card__value">24</p>
+                <span class="ac-metric-card__delta" data-tone="warning">Private</span>
+              </div>
+              <p class="ac-metric-card__summary">Las cifras se leen como parte de una experiencia de alto valor, no como back office.</p>
+            </section>
+          </div>
+          <section class="ac-form-field">
+            <div class="ac-form-field__head">
+              <label class="ac-form-field__label" for="ultra-request">Solicitud privada</label>
+              <p class="ac-form-field__hint">Más ceremonia visual, misma disciplina operativa del formulario.</p>
+            </div>
+            <div class="ac-form-field__control">
+              <input id="ultra-request" class="field-input component-input" placeholder="Motivo de interés o propiedad de referencia" />
+            </div>
+          </section>
         </article>
       </section>
-
-      <section class="demo-grid demo-grid--sidebar" id="navigation">
-        <nav class="ac-sidebar-nav">
-          <div class="ac-sidebar-nav__header">
-            <p class="ac-sidebar-nav__eyebrow">SidebarNav</p>
-            <h3 class="ac-sidebar-nav__title">Workspace navigation</h3>
-          </div>
-          <div class="ac-sidebar-nav__group">
-            <div class="ac-sidebar-nav__list">
-              <a class="ac-sidebar-nav__item" href="#navigation" aria-current="page">
-                <span class="ac-sidebar-nav__item-label">Overview</span>
-                <span class="ac-sidebar-nav__badge">4</span>
-              </a>
-              <a class="ac-sidebar-nav__item" href="#data-table">
-                <span class="ac-sidebar-nav__item-label">Contracts</span>
-                <span class="ac-sidebar-nav__badge">2</span>
-              </a>
-              <a class="ac-sidebar-nav__item" href="#overlays">
-                <span class="ac-sidebar-nav__item-label">Overlays</span>
-              </a>
-            </div>
-          </div>
-        </nav>
-
-        <article class="ac-surface-panel">
-          <div class="ac-surface-panel__header">
-            <p class="ac-surface-panel__eyebrow">Usage</p>
-            <h3 class="ac-surface-panel__title">Operational shells without app-specific chrome</h3>
-          </div>
-          <div class="ac-surface-panel__body">
-            <p style="margin: 0;">
-              `SidebarNav` stays at component level because its value is stable navigation anatomy, not a concrete IA for one app.
-            </p>
-          </div>
-        </article>
-      </section>
-
-      <section class="demo-grid demo-grid--navigation" id="local-navigation">
-        <article class="ac-surface-panel">
-          <div class="ac-surface-panel__header">
-            <p class="ac-surface-panel__eyebrow">Breadcrumb</p>
-            <h3 class="ac-surface-panel__title">Hierarchical context</h3>
-          </div>
-          <div class="ac-surface-panel__body">
-            <nav class="ac-breadcrumb" aria-label="Breadcrumb">
-              <span class="ac-breadcrumb__item">
-                <a class="ac-breadcrumb__link" href="#">Ecosystem</a>
-                <span class="ac-breadcrumb__separator">/</span>
-              </span>
-              <span class="ac-breadcrumb__item">
-                <a class="ac-breadcrumb__link" href="#">Command Center</a>
-                <span class="ac-breadcrumb__separator">/</span>
-              </span>
-              <span class="ac-breadcrumb__item">
-                <span class="ac-breadcrumb__current">Contracts</span>
-              </span>
-            </nav>
-            <p style="margin: 0;">Breadcrumb communicates location and ancestry, but not app-specific routing logic.</p>
-          </div>
-        </article>
-
-        <article class="ac-surface-panel">
-          <div class="ac-surface-panel__header">
-            <p class="ac-surface-panel__eyebrow">Tabs</p>
-            <h3 class="ac-surface-panel__title">Local view switching</h3>
-          </div>
-          <div class="ac-tabs">
-            <div class="ac-tabs__list" role="tablist" aria-label="View switcher">
-              <a class="ac-tabs__tab" href="#" aria-current="page">Overview</a>
-              <a class="ac-tabs__tab" href="#">Signals</a>
-              <a class="ac-tabs__tab" href="#">Motion</a>
-            </div>
-            <div class="ac-tabs__panel">
-              <p style="margin: 0;">Tabs remain neutral at component level; the meaning of each view belongs to the consuming app.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="ac-surface-panel">
-          <div class="ac-surface-panel__header">
-            <p class="ac-surface-panel__eyebrow">Subnav</p>
-            <h3 class="ac-surface-panel__title">Section-level navigation</h3>
-          </div>
-          <div class="ac-surface-panel__body">
-            <nav class="ac-subnav" aria-label="Section navigation">
-              <a class="ac-subnav__link" href="#" aria-current="page">Summary</a>
-              <a class="ac-subnav__link" href="#">Coverage</a>
-              <a class="ac-subnav__link" href="#">Exceptions</a>
-            </nav>
-            <p style="margin: 0;">Use subnav for contextual sections, not for primary product navigation.</p>
-          </div>
-        </article>
-      </section>
-
-      <section class="demo-grid" id="data-table">
-        <article class="ac-surface-panel">
-          <div class="ac-surface-panel__header">
-            <p class="ac-surface-panel__eyebrow">DataTable</p>
-            <h3 class="ac-surface-panel__title">Minimum operational data display</h3>
-          </div>
-          <div class="ac-data-table">
-            <div class="ac-data-table__scroll">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Artifact</th>
-                    <th>Layer</th>
-                    <th>Status</th>
-                    <th>Scope</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <div class="ac-data-table__primary">Button</div>
-                      <div class="ac-data-table__meta">Shared action API</div>
-                    </td>
-                    <td>Component</td>
-                    <td><span class="status-badge is-success">Live</span></td>
-                    <td>Ecosystem</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="ac-data-table__primary">Modal</div>
-                      <div class="ac-data-table__meta">Overlay shell</div>
-                    </td>
-                    <td>Component</td>
-                    <td><span class="status-badge is-review">Review</span></td>
-                    <td>Premium / Internal</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="ac-data-table__primary">ExecutiveSummaryBand</div>
-                      <div class="ac-data-table__meta">Composed KPI pattern</div>
-                    </td>
-                    <td>Pattern</td>
-                    <td><span class="status-badge is-warning">Scoped</span></td>
-                    <td>Executive</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <p class="demo-table-note">The component stays neutral; sorting, pagination and domain-specific columns stay above this layer.</p>
-        </article>
-      </section>
-
-      <section class="demo-grid demo-grid--overlays" id="overlays">
-        <div class="ac-modal-backdrop">
-          <article class="ac-modal">
-            <div class="ac-modal__header">
-              <p class="ac-modal__meta">Modal</p>
-              <h3 class="ac-modal__title">Contract alignment required</h3>
-              <p class="ac-modal__summary">Canonical overlay shell for confirmations, approvals or structured short tasks.</p>
-            </div>
-            <div class="ac-modal__body demo-stack-tight">
-              <span class="status-badge is-review">2 unresolved drifts</span>
-              <p style="margin: 0; color: var(--text-secondary);">Use modal for finite tasks that should keep focus inside a bounded context.</p>
-            </div>
-            <div class="ac-modal__footer">
-              <button class="ac-button ac-button--ghost" type="button"><span class="ac-button__label">Cancel</span></button>
-              <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Approve</span></button>
-            </div>
-          </article>
-        </div>
-
-        <div class="ac-drawer-backdrop">
-          <aside class="ac-drawer">
-            <div class="ac-drawer__header">
-              <p class="ac-modal__meta">Drawer</p>
-              <h3 class="ac-drawer__title">Context filters</h3>
-              <p class="ac-drawer__summary">Use drawer for side-scoped filters, inspector panels or assistant contexts that should not block the whole task.</p>
-            </div>
-            <div class="ac-drawer__body demo-stack-tight">
-              <div class="cluster">
-                <span class="theme-chip">Non-blocking</span>
-                <span class="theme-chip">Side context</span>
-              </div>
-              <div class="ac-form-field">
-                <label class="ac-form-field__label" for="drawer-filter">Filter</label>
-                <div class="ac-form-field__control">
-                  <input id="drawer-filter" class="field-input" placeholder="Domain, tier or artifact" />
-                </div>
-              </div>
-            </div>
-            <div class="ac-drawer__footer">
-              <button class="ac-button ac-button--ghost" type="button"><span class="ac-button__label">Reset</span></button>
-              <button class="ac-button ac-button--secondary" type="button"><span class="ac-button__label">Apply</span></button>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section class="demo-grid demo-grid--cards" id="feedback">
-        <article class="ac-surface-panel">
-          <div class="ac-surface-panel__header">
-            <p class="ac-surface-panel__eyebrow">EmptyState</p>
-            <h3 class="ac-surface-panel__title">No-data and no-results shell</h3>
-          </div>
-          <div class="ac-empty-state">
-            <div class="ac-empty-state__mark">0</div>
-            <h3 class="ac-empty-state__title">No contracts pending review</h3>
-            <p class="ac-empty-state__summary">
-              The component provides neutral structure for absence states. Copy, recovery actions and thresholds belong to the consumer.
-            </p>
-            <div class="ac-empty-state__actions">
-              <button class="ac-button ac-button--ghost" type="button"><span class="ac-button__label">Refresh</span></button>
-              <button class="ac-button ac-button--secondary" type="button"><span class="ac-button__label">View archive</span></button>
-            </div>
-          </div>
-        </article>
-
-        <article class="ac-surface-panel ac-surface-panel--strong">
-          <div class="ac-surface-panel__header">
-            <p class="ac-surface-panel__eyebrow">Toast</p>
-            <h3 class="ac-surface-panel__title">Transient feedback surface</h3>
-          </div>
-          <div class="demo-toast-wrap">
-            <div class="ac-toast-stack">
-              <article class="ac-toast" data-tone="success">
-                <div class="ac-toast__header">
-                  <p class="ac-toast__title">Contract synchronized</p>
-                  <span class="status-badge is-success">Success</span>
-                </div>
-                <p class="ac-toast__summary">The latest design system primitives were applied to the target workspace.</p>
-              </article>
-              <article class="ac-toast" data-tone="review">
-                <div class="ac-toast__header">
-                  <p class="ac-toast__title">Review still required</p>
-                  <span class="status-badge is-review">Review</span>
-                </div>
-                <p class="ac-toast__summary">Two modal variants still need approval before they can be promoted to shared patterns.</p>
-              </article>
-            </div>
-          </div>
-        </article>
-      </section>
-
-      <p class="demo-note">
-        Preview note: this file intentionally demonstrates only canonical reusable building blocks.
-      </p>
     </main>
   </body>
 </html>

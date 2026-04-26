@@ -7,8 +7,8 @@
 .ac-card {
   position: relative;
   display: grid;
-  gap: var(--space-5);
-  padding: clamp(20px, 2.4vw, 28px);
+  gap: var(--component-card-gap);
+  padding: var(--component-card-padding);
   border: 1px solid var(--border-default);
   border-radius: var(--surface-radius-panel);
   background:
@@ -66,9 +66,9 @@
 .ac-surface-panel__title,
 .ac-card__title {
   margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.2rem, 1.3vw, 1.5rem);
-  font-weight: 600;
+  font-family: var(--component-title-family);
+  font-size: clamp(var(--component-card-title-min), var(--component-card-title-fluid), var(--component-card-title-max));
+  font-weight: var(--component-title-weight);
   line-height: 1.15;
   letter-spacing: var(--track-title);
   color: var(--text-primary);
@@ -77,8 +77,8 @@
 .ac-surface-panel__eyebrow,
 .ac-card__eyebrow {
   margin: 0;
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-size: var(--component-eyebrow-size);
+  font-weight: var(--component-eyebrow-weight);
   letter-spacing: var(--track-eyebrow);
   text-transform: uppercase;
   color: var(--text-eyebrow);
@@ -89,6 +89,8 @@
   display: grid;
   gap: var(--space-4);
   color: var(--text-secondary);
+  font-size: var(--component-body-size);
+  line-height: var(--component-body-leading);
 }
 
 .ac-surface-panel__footer,

@@ -6,9 +6,9 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
-  padding: 14px 18px;
+  padding: var(--surface-topbar-padding-y) var(--surface-topbar-padding-x);
   border: 1px solid var(--border-default);
-  border-radius: var(--radius-pill);
+  border-radius: var(--component-topbar-radius);
   background: var(--surface-glass);
   box-shadow: var(--shadow-sm);
   backdrop-filter: blur(var(--topbar-blur));
@@ -32,13 +32,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: var(--component-topbar-mark-size);
+  height: var(--component-topbar-mark-size);
   border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--border-default));
   border-radius: 50%;
   background: color-mix(in srgb, var(--surface-panel) 82%, transparent);
   color: var(--accent);
-  font-family: var(--font-display);
+  font-family: var(--component-title-family);
   font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -52,8 +52,8 @@
 
 .ac-topbar__eyebrow {
   margin: 0;
-  font-size: 0.66rem;
-  font-weight: 700;
+  font-size: var(--component-eyebrow-size);
+  font-weight: var(--component-eyebrow-weight);
   letter-spacing: var(--track-eyebrow);
   text-transform: uppercase;
   color: var(--text-eyebrow);
@@ -63,8 +63,8 @@
   margin: 0;
   color: var(--text-primary);
   font-family: var(--font-sans);
-  font-size: 0.98rem;
-  font-weight: 600;
+  font-size: var(--component-topbar-title-size);
+  font-weight: var(--component-title-weight);
 }
 
 .ac-topbar__meta {

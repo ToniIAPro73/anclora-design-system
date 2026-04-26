@@ -63,19 +63,21 @@
   --ac-button-bg: var(--action-primary-bg);
   --ac-button-fg: var(--action-primary-fg);
   --ac-button-border: var(--action-primary-border);
-  --ac-button-shadow: 0 14px 28px color-mix(in srgb, var(--accent) 18%, transparent);
+  --ac-button-shadow: var(--component-button-shadow-primary);
 }
 
 .ac-button--secondary {
   --ac-button-bg: var(--action-secondary-bg);
   --ac-button-fg: var(--action-secondary-fg);
   --ac-button-border: var(--action-secondary-border);
+  --ac-button-shadow: var(--component-button-shadow-secondary);
 }
 
 .ac-button--ghost {
   --ac-button-bg: var(--action-ghost-bg);
   --ac-button-fg: var(--action-ghost-fg);
   --ac-button-border: var(--action-ghost-border);
+  --ac-button-shadow: var(--component-button-shadow-ghost);
 }
 
 .ac-button--destructive {

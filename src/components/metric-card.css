@@ -16,8 +16,8 @@
 
 .ac-metric-card__eyebrow {
   margin: 0;
-  font-size: 0.66rem;
-  font-weight: 700;
+  font-size: var(--component-eyebrow-size);
+  font-weight: var(--component-eyebrow-weight);
   letter-spacing: var(--track-eyebrow);
   text-transform: uppercase;
   color: var(--text-eyebrow);
@@ -32,8 +32,8 @@
 
 .ac-metric-card__value {
   margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.4vw, 3.25rem);
+  font-family: var(--component-title-family);
+  font-size: clamp(var(--component-metric-value-min), var(--component-metric-value-fluid), var(--component-metric-value-max));
   line-height: 0.95;
   letter-spacing: -0.04em;
   color: var(--text-primary);
@@ -75,7 +75,8 @@
 .ac-metric-card__summary {
   margin: 0;
   color: var(--text-secondary);
-  line-height: 1.65;
+  font-size: var(--component-body-size);
+  line-height: var(--component-body-leading);
 }
 
 .ac-metric-card__footer {

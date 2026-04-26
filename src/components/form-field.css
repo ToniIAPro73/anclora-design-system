@@ -15,13 +15,13 @@
 
 .ac-form-field__head {
   display: grid;
-  gap: 6px;
+  gap: var(--component-field-head-gap);
 }
 
 .ac-form-field__label {
   margin: 0;
-  font-size: var(--label-size);
-  font-weight: 700;
+  font-size: var(--component-eyebrow-size);
+  font-weight: var(--component-eyebrow-weight);
   letter-spacing: var(--label-tracking);
   text-transform: uppercase;
   color: var(--text-eyebrow);
@@ -30,7 +30,7 @@
 .ac-form-field__hint {
   margin: 0;
   color: var(--text-muted);
-  font-size: 0.82rem;
+  font-size: var(--component-field-hint-size);
   line-height: 1.5;
 }
 
@@ -41,7 +41,7 @@
 
 .ac-form-field__message {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: var(--component-field-message-size);
   line-height: 1.5;
   color: var(--text-muted);
 }
