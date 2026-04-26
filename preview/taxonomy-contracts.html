@@ -8,6 +8,7 @@
     <style>
       body {
         margin: 0;
+        overflow-x: clip;
         background:
           radial-gradient(circle at top left, rgba(201, 169, 95, 0.12), transparent 30%),
           linear-gradient(180deg, #091018 0%, #0f1720 100%);
@@ -56,8 +57,21 @@
         gap: 24px;
       }
 
+      .tier-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
       .contract-card {
         padding: 28px;
+      }
+
+      .contract-card ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--text-secondary);
+        line-height: 1.6;
       }
 
       .sample-grid {
@@ -96,7 +110,25 @@
         font-size: 1.5rem;
       }
 
+      .transform-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .transform-step {
+        padding: 22px;
+      }
+
+      .transform-step strong {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--text-primary);
+      }
+
       @media (max-width: 900px) {
+        .tier-grid,
+        .transform-grid,
         .metric-grid {
           grid-template-columns: 1fr;
         }
@@ -108,42 +140,85 @@
       <div class="shell-frame stack" style="--stack-gap: 32px;">
         <section class="stack">
           <div class="eyebrow">Taxonomy contracts preview</div>
-          <h1>La taxonomía ya puede expresarse como superficie ejecutable.</h1>
+          <h1>La taxonomía contractual ya puede leerse como sistema visual.</h1>
           <p>
-            Esta preview no representa una app concreta. Valida que el design system puede componerse por tier, domain,
-            archetype, role, cluster y product sin colapsar en demos cerradas.
+            Esta preview valida la primera fase contractual del repo: diferenciar con claridad `internal`, `portfolio`,
+            `premium` y `ultra premium`, y dejar visible la lógica de transformación entre familias sin rehacer la marca
+            desde cero.
           </p>
         </section>
 
-        <section class="matrix">
-          <article class="product-anclora-private-estates tier-ultra-premium domain-real-estate archetype-landing role-guest cluster-entry surface-card brand-glow grid-noise contract-card stack">
-            <div class="hero-split">
-              <div class="stack">
-                <div class="eyebrow">Ultra premium · real estate · landing</div>
-                <h2>Private Estates</h2>
-                <p>Superficie ceremonial, serif display, panel amplio y glow contenido para experiencia editorial.</p>
-                <div class="cluster">
-                  <button class="btn btn-primary btn-sweep">Solicitar acceso</button>
-                  <button class="btn btn-ghost">Ver portfolio</button>
-                </div>
+        <section class="surface-panel stack">
+          <div class="eyebrow">Tier map</div>
+          <div class="tier-grid">
+            <article class="product-anclora-nexus tier-internal domain-cross-domain archetype-workspace role-operator cluster-core surface-card contract-card stack">
+              <div class="eyebrow">Internal</div>
+              <h2>Nexus operating shell</h2>
+              <p>Jerarquía clara, densidad funcional alta y motion corto. La prioridad es operar, no ceremonializar.</p>
+              <ul>
+                <li>Shell persistente y lectura rápida</li>
+                <li>Formularios, tablas y colas como primitives críticas</li>
+                <li>Hover sobrio, sin sweep</li>
+              </ul>
+              <div class="token-row">
+                <code>radius: compact</code>
+                <code>motion: functional</code>
+                <code>theme: stable semantics</code>
               </div>
-              <div class="surface-frame hero-panel stack">
-                <span class="theme-chip">Tier ultra premium</span>
-                <span class="status-badge is-warning">Curated</span>
-                <div class="token-row">
-                  <code>radius-card: 2rem</code>
-                  <code>halo sweep: on</code>
-                  <code>role: guest</code>
-                </div>
-              </div>
-            </div>
-          </article>
+            </article>
 
+            <article class="product-anclora-portfolio tier-portfolio domain-real-estate archetype-landing role-guest cluster-entry surface-card contract-card stack">
+              <div class="eyebrow">Portfolio / showcase</div>
+              <h2>Portfolio reference</h2>
+              <p>Dirección editorial, CTA visible desde el primer viewport y captación clara sin comportarse como dashboard.</p>
+              <ul>
+                <li>Navegación ligera orientada a scroll</li>
+                <li>Lead form y credibilidad como bloques de primera clase</li>
+                <li>Tema editorial único y muy cuidado</li>
+              </ul>
+              <div class="token-row">
+                <code>canvas: light editorial</code>
+                <code>motion: restrained</code>
+                <code>cta: immediate</code>
+              </div>
+            </article>
+
+            <article class="product-anclora-talent tier-premium domain-human-capital archetype-workspace role-operator cluster-core surface-card contract-card stack">
+              <div class="eyebrow">Premium</div>
+              <h2>Talent workspace</h2>
+              <p>Acabado de marca, profundidad media y claridad operativa. No es un dashboard interno decorado encima.</p>
+              <label class="field-label" for="talent-search">Búsqueda operativa</label>
+              <input id="talent-search" class="field-input" placeholder="Buscar candidatos, vacantes o notas" />
+              <div class="token-row">
+                <code>dark-first or editorial</code>
+                <code>lift: measured</code>
+                <code>sweep: selective</code>
+              </div>
+            </article>
+
+            <article class="product-anclora-private-estates tier-ultra-premium domain-real-estate archetype-landing role-guest cluster-entry surface-card brand-glow grid-noise contract-card stack">
+              <div class="eyebrow">Ultra premium</div>
+              <h2>Private Estates</h2>
+              <p>Ritmo ceremonial, composición media-led y firma visual más exclusiva sin sacrificar claridad ni precisión.</p>
+              <div class="cluster">
+                <button class="btn btn-primary btn-sweep">Solicitar acceso</button>
+                <button class="btn btn-ghost">Ver portfolio</button>
+              </div>
+              <div class="token-row">
+                <code>serif display</code>
+                <code>depth: exclusive</code>
+                <code>signature motion</code>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="matrix">
           <article class="product-anclora-command-center tier-premium domain-cross-domain archetype-command-center role-executive cluster-core surface-card brand-glow contract-card stack">
             <div class="stack">
-              <div class="eyebrow">Premium · cross_domain · command center</div>
+              <div class="eyebrow">Premium benchmark</div>
               <h2>Command Center</h2>
-              <p>Mayor densidad informativa, menor ceremonialidad y contraste ejecutivo para visión transversal.</p>
+              <p>Referencia ejecutiva para dashboards premium: más profundidad y marca que `internal`, menos ceremonialidad que `ultra premium`.</p>
               <div class="metric-grid">
                 <div class="surface-frame metric">
                   <span class="field-label">Coverage</span>
@@ -164,44 +239,25 @@
             </div>
           </article>
 
-          <article class="product-anclora-talent tier-premium domain-human-capital archetype-workspace role-operator cluster-core surface-card contract-card stack">
-            <div class="hero-split">
-              <div class="stack">
-                <div class="eyebrow">Premium · human capital · workspace</div>
-                <h2>Talent</h2>
-                <p>Workspace operativo con tono premium, densidad de operador y componentes sobrios para flujo continuo.</p>
-                <label class="field-label" for="talent-search">Search</label>
-                <input id="talent-search" class="field-input" placeholder="Buscar candidatos, vacantes o notas" />
+          <article class="surface-panel stack">
+            <div class="eyebrow">Transformation ladder</div>
+            <h2>Las migraciones cambian el lenguaje visual, no la disciplina del sistema.</h2>
+            <div class="transform-grid">
+              <div class="surface-frame transform-step">
+                <strong>`internal -> premium`</strong>
+                <p>Más intención editorial, mejor depth y CTA principal más visible sin romper shell, tablas o formularios.</p>
               </div>
-              <div class="stack">
-                <div class="surface-panel hero-panel stack">
-                  <span class="theme-chip">Role operator</span>
-                  <span class="status-badge is-success">Active pipeline</span>
-                  <p>La taxonomía reduce ceremonialidad, compacta labels y ajusta radios sin perder identidad.</p>
-                </div>
+              <div class="surface-frame transform-step">
+                <strong>`portfolio -> premium`</strong>
+                <p>La narrativa pierde protagonismo frente al uso recurrente y aparecen shells, estados y controles premium.</p>
               </div>
-            </div>
-          </article>
-
-          <article class="product-anclora-portfolio tier-portfolio domain-real-estate archetype-landing role-guest cluster-entry surface-card contract-card stack">
-            <div class="hero-split">
-              <div class="stack">
-                <div class="eyebrow">Portfolio · real estate · landing</div>
-                <h2>Portfolio reference</h2>
-                <p>Editorial claro, accent dorado, contraste limpio y motion sobrio para captación y presentación.</p>
-                <div class="cluster">
-                  <button class="btn btn-primary">Ver propiedades</button>
-                  <button class="btn btn-secondary">Solicitar información</button>
-                </div>
+              <div class="surface-frame transform-step">
+                <strong>`premium -> ultra premium`</strong>
+                <p>Sube el valor percibido a través de ritmo, tipografía, materiales y media, no por exceso de efectos.</p>
               </div>
-              <div class="surface-frame hero-panel stack">
-                <span class="theme-chip">Tier portfolio</span>
-                <span class="status-badge is-review">Lead capture</span>
-                <div class="token-row">
-                  <code>display: editorial serif</code>
-                  <code>canvas: light ivory</code>
-                  <code>sweep: off</code>
-                </div>
+              <div class="surface-frame transform-step">
+                <strong>`external utility -> tiered app`</strong>
+                <p>Una app externa no recibe solo una skin: se clasifica, se reencuadra y se adapta a la taxonomía Anclora.</p>
               </div>
             </div>
           </article>

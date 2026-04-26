@@ -205,17 +205,36 @@ La UI final debe poder componerse a partir de varias capas:
 
 ## 7. Relacion con tipos de apps
 
-`Premium`
-- usa accent fuerte, dark-first, hero split, lift moderado y sweep selectivo
+La taxonomía de `tier` no se infiere visualmente ad hoc. Debe obedecer los contratos de la bóveda y materializarse en capas CSS, patterns y examples consumibles.
 
-`Ultra Premium`
-- usa serif display, superficies mas ceremoniales, contrastes mas cuidados y motion mas contenido pero distintivo
+Fuente contractual:
+
+- `ANCLORA_INTERNAL_APP_CONTRACT.md`
+- `ANCLORA_PORTFOLIO_SHOWCASE_CONTRACT.md`
+- `ANCLORA_PREMIUM_APP_CONTRACT.md`
+- `ANCLORA_ULTRA_PREMIUM_APP_CONTRACT.md`
+- `UI_MOTION_CONTRACT.md`
 
 `Internal`
-- prioriza densidad operativa, legibilidad, menor ceremonialidad, jerarquia mas utilitaria
+- prioriza densidad operativa, legibilidad, shell persistente y menor ceremonialidad
+- usa motion corto y funcional
+- debe expresarse con `tier-internal` y patterns operativos
 
 `Portfolio`
-- conserva identidad editorial, fondos claros o marfil, contraste alto, motion sobrio, conversion clara
+- conserva identidad editorial, fondos claros o marfil cuando proceda, contraste alto, CTA visible y motion sobrio
+- debe expresarse con `tier-portfolio` y patterns de landing, gallery y lead capture
+
+`Premium`
+- usa accent fuerte, dark-first o tema editorial diseñado, hero split, lift moderado y sweep selectivo
+- debe expresarse con `tier-premium` y patterns de shell premium, dashboards editoriales y funnels
+
+`Ultra Premium`
+- usa serif display, superficies más ceremoniales, contrastes más cuidados y motion distintivo pero disciplinado
+- debe expresarse con `tier-ultra-premium` y patterns inmersivos de alto valor
+
+Documento puente:
+
+- [docs/tier-taxonomy-and-transformations.md](/home/toni/projects/anclora-design-system/docs/tier-taxonomy-and-transformations.md)
 
 ## 8. Plan por fases
 

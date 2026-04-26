@@ -74,3 +74,22 @@ Cuando esta base se estabilice, el siguiente paso natural es:
 2. añadir snapshots visuales ligeros
 3. introducir una verificación browser-based mínima sobre 3 o 4 previews críticas
 4. registrar una matriz de consumidores validados por primitive/pattern
+
+## Gate visual obligatorio
+
+Mientras no exista infraestructura de visual diff automatizado, cualquier fase que cambie taxonomía, motion, cards, buttons, frames, shells o patterns críticos debe validarse visualmente antes de darse por cerrada.
+
+La validación mínima obligatoria es:
+
+1. abrir la preview o example afectado en navegador real
+2. comprobar escritorio
+3. comprobar móvil
+4. verificar hover, focus, active, clipping, contraste y jerarquía
+
+Previews mínimas para este gate:
+
+- `preview/taxonomy-contracts.html`
+- `preview/buttons.html`
+- `preview/surfaces.html`
+
+Si una fase no pasa esta revisión visual, no debe darse por válida aunque `npm run verify` sea correcto.
