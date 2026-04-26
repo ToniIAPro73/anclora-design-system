@@ -30,6 +30,7 @@ Do not use this skill for:
    - repo-local gap
    - final polish gap
 4. Only after that, propose or apply UI/UX refinements.
+5. Before closing, visually verify scroll behavior, overlays, dropdowns, and both themes.
 
 ## Decision model
 
@@ -41,6 +42,10 @@ Then load only one relevant family file:
 
 - `references/real-estate-profiles.md`
 - `references/internal-profiles.md`
+
+For external repo transformations or stress-tests, also read:
+
+- `references/adoption-stress-test-lessons.md`
 
 If you already know the exact target profile, prefer the dedicated variant file instead:
 
@@ -61,6 +66,9 @@ If you already know the exact target profile, prefer the dedicated variant file 
 - Prefer fixing navigation focus, hierarchy, spacing, density, CTA tone, and copy before introducing new ornamental ideas.
 - If the problem repeats across apps, treat it as a design-system candidate.
 - If the structure is already correct and only the finish is weak, treat it as polish.
+- Never approve an external adoption if one theme or expanded state becomes hard to read.
+- Theme switching only counts as successful when the resulting surface is still legible and premium in both modes.
+- If theme output looks inconsistent, inspect computed design tokens before tweaking colors by eye.
 
 ## Outputs this skill should produce
 

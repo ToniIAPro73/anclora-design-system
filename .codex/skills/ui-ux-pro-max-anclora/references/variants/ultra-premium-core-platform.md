@@ -26,3 +26,7 @@ Reference:
 - luxury achieved only through gold, blur, or oversized media
 - premium look without structural refinement
 - weak modals, forms, mobile breakpoints, or language expansion
+- sticky headers that fade into content during scroll
+- dropdowns, popovers, or calendars that lose contrast in one theme
+- support cards that explain adoption mechanics instead of product value
+- theme toggles that change state without sustaining readability across all visible text

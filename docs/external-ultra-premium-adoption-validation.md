@@ -118,12 +118,16 @@ La adopción debe aguantar:
 - overlays
 - navegación
 - CTA
+- dropdowns
+- scroll
 
 Preguntas:
 
 - la experiencia se mantiene consistente bajo uso real
 - los modales y formularios están a la altura del rango prometido
 - la jerarquía visual está controlada de principio a fin
+- cada tema mantiene contraste suficiente en labels, textos secundarios, dropdowns y overlays
+- el cambio de tema no rompe legibilidad ni jerarquía
 
 ## Plano 4. Coherencia de marca Anclora
 
@@ -188,6 +192,7 @@ Una adopción externa hacia `ultra premium` debería aprobar esto:
 - la navegación y los estados críticos se sienten de alto rango
 - los formularios, modales y CTA sostienen percepción `ultra premium`
 - i18n y tema no rompen el nivel visual
+- cada estado expandido sigue siendo legible en todos los temas
 - los gaps restantes son menores o claramente clasificables
 
 ## Anti-patrones
@@ -198,6 +203,8 @@ La adopción no debe darse por buena si:
 - la app original sigue siendo reconocible como gramática dominante
 - se fuerza una capa premium superficial encima de una estructura incompatible
 - el refinado intenta esconder una mala absorción
+- el modo claro u oscuro existe, pero aparecen textos, labels o dropdowns con contraste débil
+- los controles o toggles se perciben como tooling y no como producto premium
 
 ## Secuencia recomendada
 
