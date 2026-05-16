@@ -138,6 +138,32 @@ Qué no debe parecer:
 - portal administrativo interno
 - marketplace abierto sin curación
 
+## 4 bis. `Anclora EnergyScan`
+
+Rol:
+
+- producto Premium especializado de apoyo al vertical Real Estate
+- prediagnóstico energético orientativo, documentación, scoring y activación de oportunidades sobre viviendas
+
+Tipo de superficie:
+
+- `premium analytical / premium utility`
+
+Qué debe representar:
+
+- utilidad clara
+- confianza técnica sin prometer certificación oficial
+- lectura energética comprensible
+- puente hacia proveedores, inteligencia agregada y enriquecimiento de activos
+
+Qué no debe parecer:
+
+- Certificado de Eficiencia Energética oficial
+- sustituto de técnico certificador
+- plataforma principal del vertical
+
+EnergyScan no sustituye a Private Estates como plataforma principal del vertical. Funciona como producto Premium especializado que aporta inteligencia energética, documentación, scoring y activación de oportunidades sobre viviendas.
+
 ## 5. `Anclora Nexus`
 
 Rol:

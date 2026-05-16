@@ -43,6 +43,7 @@ También aparece una diferencia importante dentro del grupo:
 | Repo | Tier declarado | Tier observado | Estado | Lectura corta |
 | --- | --- | --- | --- | --- |
 | `anclora-talent` | premium | premium | `fit` | referencia premium más sólida: shell, i18n, theme, components y patterns canónicos |
+| `anclora-energyscan` | premium | premium | `candidate` | MVP funcional de prediagnóstico energético; pendiente auditar landing, wizard, results, pricing, PDF premium y proveedores |
 | `anclora-synergi` | premium | premium | `partial-fit` | identidad premium clara, pero apoyada en tokens y componentes locales |
 | `anclora-data-lab` | premium | premium | `partial-fit` | dashboard premium analítico bien enfocado, pero aún sin absorción real del design system |
 
@@ -120,6 +121,33 @@ Interpretación:
 - sí pertenece a `premium`
 - no está desalineado en identidad
 - sí está desalineado en estrategia de adopción del sistema
+
+## `anclora-energyscan`
+
+Estado:
+
+- candidato Premium en fase MVP.
+
+Perfil recomendado:
+
+- `premium analytical / premium utility`.
+
+Superficies a auditar:
+
+- landing
+- wizard
+- results
+- pricing
+- PDF premium
+- provider lead section
+
+Riesgo principal:
+
+- mezclar utilidad pública con promesa de certificación oficial o perder consistencia visual por crecimiento rápido del wizard.
+
+Próximo paso:
+
+- auditoría visual y contractual contra tokens Premium y patrones de entrada/workspace.
 
 ## `anclora-data-lab`
 

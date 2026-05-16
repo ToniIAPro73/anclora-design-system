@@ -31,6 +31,19 @@ Estado:
 
 - primer consumidor real del stack premium editorial
 
+### `anclora-energyscan`
+
+Taxonomia:
+
+- `tier = premium`
+- `domain = real_estate_energy`
+- `product_archetype = app`
+- `system_role = consumer`
+
+Estado:
+
+- candidato Premium pendiente de auditoria visual y contractual
+
 ## Matriz actual
 
 | Layer | Piece | Status | Contract families | Consumer evidence | Notes |
@@ -54,6 +67,7 @@ Estado:
 | patterns/workspace | editorial-chapter-editor-shell | canonical | workspace, shell, hierarchy | `anclora-talent` | adoptado en editor avanzado |
 | patterns/workspace | editorial-rich-text-editor | canonical | workspace, forms, hierarchy | `anclora-talent` | adoptado en editor avanzado |
 | patterns/entry | premium-hero-split | candidate | premium, portfolio, ultra premium entry | none | existe como patron, pero falta consumo real validado |
+| consumer candidate | anclora-energyscan | candidate / pending audit | premium, localization, motion, branding | `anclora-energyscan` | landing, wizard, results, pricing, PDF premium y provider lead section pendientes de auditoria contra el sistema |
 | patterns/entry | ecosystem-app-grid | candidate | entry, ecosystem navigation | none | existe como patron, pero falta consumo real validado |
 | patterns/executive | executive-summary-band | candidate | executive, premium app contract | none | pendiente de validacion por command center o similar |
 
