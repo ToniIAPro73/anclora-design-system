@@ -43,7 +43,7 @@ También aparece una diferencia importante dentro del grupo:
 | Repo | Tier declarado | Tier observado | Estado | Lectura corta |
 | --- | --- | --- | --- | --- |
 | `anclora-talent` | premium | premium | `fit` | referencia premium más sólida: shell, i18n, theme, components y patterns canónicos |
-| `anclora-energyscan` | premium | premium | `candidate` | MVP funcional de prediagnóstico energético; pendiente auditar landing, wizard, results, pricing, PDF premium y proveedores |
+| `anclora-energyscan` | premium | premium | `candidate / partial / pending visual QA` | MVP funcional de prediagnóstico energético; auditoría documental creada, pendiente QA visual de landing, wizard, results, pricing, PDF premium y proveedores |
 | `anclora-synergi` | premium | premium | `partial-fit` | identidad premium clara, pero apoyada en tokens y componentes locales |
 | `anclora-data-lab` | premium | premium | `partial-fit` | dashboard premium analítico bien enfocado, pero aún sin absorción real del design system |
 
@@ -126,7 +126,7 @@ Interpretación:
 
 Estado:
 
-- candidato Premium en fase MVP.
+- candidato Premium en fase MVP, con auditoria documental PARTIAL y pendiente de QA visual completa.
 
 Perfil recomendado:
 

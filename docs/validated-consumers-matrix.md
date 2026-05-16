@@ -67,7 +67,7 @@ Estado:
 | patterns/workspace | editorial-chapter-editor-shell | canonical | workspace, shell, hierarchy | `anclora-talent` | adoptado en editor avanzado |
 | patterns/workspace | editorial-rich-text-editor | canonical | workspace, forms, hierarchy | `anclora-talent` | adoptado en editor avanzado |
 | patterns/entry | premium-hero-split | candidate | premium, portfolio, ultra premium entry | none | existe como patron, pero falta consumo real validado |
-| consumer candidate | anclora-energyscan | candidate / pending audit | premium, localization, motion, branding | `anclora-energyscan` | landing, wizard, results, pricing, PDF premium y provider lead section pendientes de auditoria contra el sistema |
+| consumer candidate | anclora-energyscan | candidate / partial / pending visual QA | premium, localization, motion, branding | `anclora-energyscan` | auditoria documental creada; landing, wizard, results, pricing, PDF premium y provider lead section siguen pendientes de QA visual completa |
 | patterns/entry | ecosystem-app-grid | candidate | entry, ecosystem navigation | none | existe como patron, pero falta consumo real validado |
 | patterns/executive | executive-summary-band | candidate | executive, premium app contract | none | pendiente de validacion por command center o similar |
 

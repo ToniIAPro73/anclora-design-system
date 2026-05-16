@@ -164,6 +164,8 @@ Qué no debe parecer:
 
 EnergyScan no sustituye a Private Estates como plataforma principal del vertical. Funciona como producto Premium especializado que aporta inteligencia energética, documentación, scoring y activación de oportunidades sobre viviendas.
 
+Estado Design System: candidate / partial / pending visual QA. La auditoría documental existe en `anclora-energyscan`, pero aún no valida cumplimiento completo por superficie.
+
 ## 5. `Anclora Nexus`
 
 Rol:
