@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Matrix Example · Group Ecosystem Gateway</title>
+    <link rel="stylesheet" href="../../system.css" />
+    <style>
+      body {
+        margin: 0;
+        background: radial-gradient(circle at top center, rgba(168,174,184,0.08), transparent 28%), linear-gradient(180deg, #0f1520 0%, #151c28 48%, #0f1520 100%);
+        color: var(--text-primary);
+        font-family: Georgia, serif;
+      }
+      .page { padding: 24px 0 40px; }
+      .layout { display: grid; gap: 22px; }
+      .toolbar, .panel { padding: 18px; }
+      .layer { margin-bottom: 8px; }
+      .apps { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+      .app-chip { padding: 8px 14px; border-radius: 10px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); font-size: 0.82rem; font-family: var(--font-sans); }
+    </style>
+  </head>
+  <body>
+    <div class="page product-anclora-group tier-internal domain-corporate archetype-workspace role-operator cluster-core">
+      <div class="shell-frame layout">
+        <header class="shell-topbar toolbar">
+          <div class="cluster">
+            <span class="theme-chip">Entidad Matriz</span>
+          </div>
+          <div class="cluster">
+            <button class="btn btn-ghost">Cerrar sesión</button>
+          </div>
+        </header>
+
+        <section class="surface-panel panel stack">
+          <div class="stack" style="--stack-gap: 8px;">
+            <span class="field-label" style="font-family: var(--font-sans);">ANCLORA GROUP</span>
+            <h1 style="margin: 0; font-size: 1.6rem;">Entidad matriz y portal corporativo con control por rol</h1>
+            <p style="margin: 0; color: var(--text-secondary); font-family: var(--font-sans);">
+              Copy y arquitectura extraídos literalmente de `GroupWorkspaceShell.tsx` — las tres capas y las apps asignadas a cada una son reales, no ilustrativas.
+            </p>
+          </div>
+        </section>
+
+        <div class="layer">
+          <span class="field-label" style="font-family: var(--font-sans);">Capa de entrada — Relación y puerta de acceso</span>
+          <p style="margin: 4px 0 0; color: var(--text-secondary); font-size: 0.85rem; font-family: var(--font-sans);">Las superficies que definen la entrada premium al ecosistema, la activación de partners y el marco corporativo de visibilidad.</p>
+          <div class="apps">
+            <span class="app-chip">Private Estates</span>
+            <span class="app-chip">Private Estates Landing</span>
+            <span class="app-chip">Synergi</span>
+            <span class="app-chip">Linguo Cam</span>
+          </div>
+        </div>
+
+        <div class="layer">
+          <span class="field-label" style="font-family: var(--font-sans);">Capa operativa — Inteligencia y coordinación</span>
+          <p style="margin: 4px 0 0; color: var(--text-secondary); font-size: 0.85rem; font-family: var(--font-sans);">El núcleo que combina señales de mercado, coordinación interna y lectura ejecutiva del ecosistema en tiempo real.</p>
+          <div class="apps">
+            <span class="app-chip">Data Lab</span>
+            <span class="app-chip">Nexus</span>
+            <span class="app-chip">Command Center</span>
+            <span class="app-chip">VisionFlow</span>
+            <span class="app-chip">FileStudio</span>
+          </div>
+        </div>
+
+        <div class="layer">
+          <span class="field-label" style="font-family: var(--font-sans);">Capa de activación — Contenido, cumplimiento y crecimiento</span>
+          <p style="margin: 4px 0 0; color: var(--text-secondary); font-size: 0.85rem; font-family: var(--font-sans);">Las aplicaciones que convierten inteligencia en ejecución editorial, orientación experta, control operativo y tracción comercial sostenida.</p>
+          <div class="apps">
+            <span class="app-chip">Content Generator AI</span>
+            <span class="app-chip">Advisor AI</span>
+            <span class="app-chip">Fiscal</span>
+            <span class="app-chip">SyncXML</span>
+            <span class="app-chip">EnergyScan</span>
+            <span class="app-chip">Impulso</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -2,6 +2,23 @@
 
 Todas las versiones del design system se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
+## [0.3.0] — 2026-08
+
+### ⚠️ Breaking — `anclora-group-landing` cambia de identidad completa
+Verificado contra su repo real (`src/styles/tokens.css`, comentario explícito "Color (brand book v2.0 — sección 6)"): la landing pública **no** usa el tema genérico Portfolio (`--portfolio-gold`) como tenía asignado — usa la paleta completa del brand book. `body { background: var(--anchor-navy) }` confirmado en `globals.css` real.
+
+- Sacado del grupo de selectores compartido con `anclora-portfolio`/`-showcase`/`azure-bay-landing-page`/`fiscal-showcase`
+- Nuevo bloque propio: `--bg: var(--anchor-navy)` (`#0A1F3D`), `--accent: var(--signal-blue)` (`#5FA8FF`, acento interactivo dominante confirmado por uso real en enlaces/highlights), `--action-primary-bg: var(--command-purple)` (`#6C63FF`, restringido a botón primario, igual que en el repo)
+- Nuevos tokens añadidos a `core.css`: `--anchor-navy`, `--deep-ocean`, `--harbor-mist` (los de `--command-purple`/`--signal-blue` ya existían desde v0.2.0)
+
+### Verificado sin corrección — 3 apps más con coincidencia exacta
+- `anclora-synergi`: `--coin-synergi` (`#8c5ab4`) y todo el bloque de tema ya coincidían exactamente con `--synergi-champagne` y el resto de variables reales (`globals.css`)
+- `anclora-group`: coincidencia total — `--group-ink`, `--group-surface`, `--group-surface-2`, `--group-copy`, `--group-silver` (=`--coin-group`) exactos. Tipografía real confirmada como `Georgia, serif`, validando la regla "Entidad Matriz = serif" ya documentada
+- Hallazgo adicional: el código real de `anclora-group` (`GroupWorkspaceShell.tsx`) declara la arquitectura de 3 capas del ecosistema (entrada/operativa/activación) con apps asignadas — usado para construir el ejemplo de referencia con datos reales, no ilustrativos
+
+### Añadido — 3 ejemplos nuevos en `src/examples/`
+`synergi-partner-workspace` (premium), `group-ecosystem-gateway` (internal), `group-landing-corporate` (portfolio) — con esto, cobertura de ejemplos completa para las 22 apps activas (directa o vía tema compartido con su app madre).
+
 ## [0.2.0] — 2026-08
 
 ### ⚠️ Breaking / requiere revisión visual

@@ -79,7 +79,6 @@
 .product-anclora-portfolio-showcase,
 .product-anclora-azure-bay-landing-page,
 .product-anclora-fiscal-showcase,
-.product-anclora-group-landing,
 .anclora-portfolio {
   --bg: var(--portfolio-ivory);
   --bg-raised: var(--portfolio-cream);
@@ -145,6 +144,33 @@
   --action-primary-fg: #f8fafc;
   --action-primary-border: rgba(108, 99, 255, 0.32);
   --text-link: var(--signal-blue);
+  --focus-ring: rgba(95, 168, 255, 0.5);
+  font-family: var(--font-sans);
+}
+
+/* NUEVO 2026-08: anclora-group-landing verificado contra su repo real
+   (src/styles/tokens.css, comentario explícito "brand book v2.0 — sección 6").
+   A diferencia de anclora-group (identidad plata), la landing pública SÍ
+   usa el navy + signal-blue del brand book como identidad de tema completa,
+   confirmado por `body { background: var(--anchor-navy) }` en globals.css
+   real y uso extensivo de signal-blue en enlaces/highlights. command-purple
+   queda restringido a fondo de botón primario, igual que en el repo real. */
+.product-anclora-group-landing {
+  --bg: var(--anchor-navy);
+  --bg-raised: var(--deep-ocean);
+  --bg-strong: #12294e;
+  --fg1: #f8fafc;
+  --fg2: rgba(248, 250, 252, 0.72);
+  --fg3: var(--harbor-mist);
+  --accent: var(--signal-blue);
+  --border: rgba(95, 168, 255, 0.2);
+  --line-soft: rgba(95, 168, 255, 0.12);
+  --line-strong: rgba(95, 168, 255, 0.32);
+  --action-primary-bg: var(--command-purple);
+  --action-primary-fg: #f8fafc;
+  --action-primary-border: rgba(108, 99, 255, 0.32);
+  --text-link: var(--signal-blue);
+  --text-eyebrow: var(--portfolio-gold);
   --focus-ring: rgba(95, 168, 255, 0.5);
   font-family: var(--font-sans);
 }

@@ -56,6 +56,9 @@
      "Entidad Matriz = plata monocromática" ya documentada en el ecosistema. */
   --command-purple: #6c63ff;
   --signal-blue: #5fa8ff;
+  --anchor-navy: #0a1f3d;
+  --deep-ocean: #111827;
+  --harbor-mist: #cbd5e1;
   --coin-pe: #d4af37; /* CORRECTED 2026-08: era #c9a95f (oro de modo claro); el real de página (data-theme="dark") es #D4AF37 */
   --coin-synergi: #8c5ab4;
   --coin-data-lab: #2da078;

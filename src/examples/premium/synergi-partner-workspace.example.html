@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Premium Example · Synergi Partner Workspace</title>
+    <link rel="stylesheet" href="../../system.css" />
+    <style>
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #130d1c 0%, #1c162a 100%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+      .page { padding: 24px 0 40px; }
+      .layout { display: grid; gap: 18px; }
+      .toolbar, .panel { padding: 18px; }
+      .tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+      .tab { padding: 8px 14px; border-radius: 999px; font-size: 0.8rem; background: rgba(255,255,255,0.05); }
+      .tab.active { background: var(--coin-synergi); color: #130d1c; font-weight: 700; }
+      .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      @media (max-width: 900px) { .cards { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <div class="page product-anclora-synergi tier-premium domain-real-estate archetype-portal role-partner cluster-activation">
+      <div class="shell-frame layout">
+        <header class="shell-topbar toolbar">
+          <div class="cluster">
+            <span class="theme-chip">Premium</span>
+            <span class="status-badge is-success">Cuenta activa</span>
+          </div>
+        </header>
+
+        <section class="surface-panel panel stack">
+          <div class="stack" style="--stack-gap: 8px;">
+            <span class="field-label">Example</span>
+            <h1 style="margin: 0; font-size: 1.55rem;">Workspace de Partner</h1>
+            <p style="margin: 0; color: var(--text-secondary);">
+              "Una única puerta para admisión y acceso partner" (copy real, `portalTitle`, `src/lib/i18n.tsx`). 7 pestañas reales del workspace: Overview, Partner Profile, Assets & Documents, Referrals, Reporting, Opportunities, Activity.
+            </p>
+          </div>
+
+          <div class="tabs">
+            <span class="tab active">Overview</span>
+            <span class="tab">Partner Profile</span>
+            <span class="tab">Assets &amp; Documents</span>
+            <span class="tab">Referrals</span>
+            <span class="tab">Reporting</span>
+            <span class="tab">Opportunities</span>
+            <span class="tab">Activity</span>
+          </div>
+
+          <div class="cards">
+            <article class="surface-frame stack">
+              <span class="field-label">Reporting</span>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.88rem;">Panel 360 con señales, notificaciones y métricas de salud del workspace.</p>
+            </article>
+            <article class="surface-frame stack">
+              <span class="field-label">Referrals</span>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.88rem;">Referrals aportados por el partner y trazabilidad comercial inicial dentro de Synergi.</p>
+            </article>
+            <article class="surface-frame stack">
+              <span class="field-label">Opportunities</span>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.88rem;">Oportunidades iniciales, referrals o líneas de proyecto activas dentro del ecosistema.</p>
+            </article>
+            <article class="surface-frame stack">
+              <span class="field-label">Assets &amp; Documents</span>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.88rem;">Activos curatoriales, playbooks y documentos privados publicados para este partner.</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Corporate Landing Example · Anclora Group</title>
+    <link rel="stylesheet" href="../../system.css" />
+    <style>
+      body {
+        margin: 0;
+        background: radial-gradient(120% 90% at 50% -10%, #12294e 0%, var(--bg) 55%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+      .page { padding: 24px 0 40px; }
+      .layout { display: grid; gap: 22px; }
+      .toolbar, .panel { padding: 18px; }
+      .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+      @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <div class="page product-anclora-group-landing tier-portfolio domain-corporate archetype-landing role-guest cluster-entry">
+      <div class="shell-frame layout">
+        <header class="shell-topbar toolbar">
+          <div class="cluster">
+            <span class="theme-chip">Corporate Landing</span>
+          </div>
+          <div class="cluster">
+            <button class="btn btn-secondary">Contactar con Antonio</button>
+            <button class="btn btn-primary">Explorar el ecosistema</button>
+          </div>
+        </header>
+
+        <section class="surface-panel panel stack">
+          <span class="field-label" style="color: var(--text-eyebrow, var(--fg3));">Grupo tecnológico liderado por su founder</span>
+          <h1 style="margin: 0; font-size: 1.8rem;">Anclora Group</h1>
+          <p style="margin: 8px 0 0; font-size: 1.1rem; color: var(--fg3);">Tecnología aplicada para operar con más claridad, control e inteligencia.</p>
+          <p style="margin: 8px 0 0; color: var(--text-secondary); max-width: 60ch;">
+            Convertimos procesos complejos en sistemas claros: productos digitales propios, construidos para operar. Copy real de `src/i18n/es.ts`; paleta real de `src/styles/tokens.css` (comentario explícito: "Color (brand book v2.0 — sección 6)").
+          </p>
+          <p style="margin: 12px 0 0; color: var(--text-muted); font-size: 0.8rem;">Grupo tecnológico founder-led · Construido desde Mallorca · Diseñado para inteligencia práctica</p>
+        </section>
+
+        <div class="grid">
+          <article class="surface-frame stack">
+            <span class="field-label">Anchor Navy</span>
+            <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">Fondo principal — confirmado por <code>body {'{'} background: var(--anchor-navy) {'}'}</code> en el CSS real.</p>
+          </article>
+          <article class="surface-frame stack">
+            <span class="field-label">Signal Blue</span>
+            <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">Acento interactivo dominante: enlaces, highlights, focus ring.</p>
+          </article>
+          <article class="surface-frame stack">
+            <span class="field-label">Command Purple</span>
+            <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">Restringido a fondo de botón primario, como en el repo real.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
