@@ -18,6 +18,8 @@ Repos auditados o revisados:
 - `Anclora Group`
 - `Anclora Command Center` a través de `Boveda-Anclora/dashboard`
 
+> **Hueco de cobertura (2026-08):** `anclora-fiscal`, `anclora-visionflow` y `anclora-filestudio` se incorporaron a la familia `internal` después de esta auditoría y no están cubiertos por su análisis. Sus tokens de tema ya están verificados contra código real (ver `CHANGELOG.md` v0.2.0), pero no han pasado por el mismo ejercicio de auditoría cualitativa que las 5 apps de arriba.
+
 ## Resumen ejecutivo
 
 La familia `internal` ya muestra suficiente madurez como para dividirse con claridad en subperfiles distintos.

@@ -14,6 +14,8 @@ Analizar la familia `premium` sobre repos reales para extraer:
 
 Repos auditados en esta primera pasada:
 
+> **Hueco de cobertura (2026-08):** `anclora-energyscan` y `anclora-syncxml` se incorporaron a la familia `premium` después de esta auditoría (`anclora-impulso` y `anclora-command-center` ya existían como apps pero tampoco aparecen en la lista de abajo — confirmar si quedaron fuera intencionalmente de esta primera pasada o es otro hueco). Ninguna de las 4 ha pasado por este mismo ejercicio de auditoría cualitativa.
+
 - `anclora-talent`
 - `anclora-synergi`
 - `anclora-data-lab`

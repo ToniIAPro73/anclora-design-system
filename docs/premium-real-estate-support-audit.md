@@ -10,6 +10,8 @@ Aplicar la matriz del vertical `Real Estate` al bloque de soporte `premium`:
 - `Anclora Data Lab`
 - `Anclora Synergi`
 
+> **Hueco de cobertura (2026-08):** `anclora-energyscan` (evaluación energética, directamente real-estate-adjacent) no está incluido en este bloque de soporte pese a encajar temáticamente. Pendiente de decidir si debe incorporarse a esta matriz o si tiene un vertical propio.
+
 Documento base:
 
 - [docs/real-estate-profile-criteria-matrix.md](/home/toni/projects/anclora-design-system/docs/real-estate-profile-criteria-matrix.md:1)
