@@ -31,6 +31,9 @@ Resultado general:
 - `Anclora Advisor AI` encaja como `internal expert assistant workspace`
 - `Anclora Group` encaja como `internal ecosystem gateway`
 - `Anclora Command Center` encaja como `internal executive orchestration`
+- `Anclora Fiscal` encaja como `internal operational vertical` *(añadido 2026-08)*
+- `Anclora VisionFlow` encaja como `internal production studio` *(añadido 2026-08)*
+- `Anclora FileStudio` **no encaja limpiamente en ningún subperfil existente** — candidato a nuevo subperfil `internal utility tool` *(añadido 2026-08)*
 
 Patrón transversal:
 
@@ -48,6 +51,9 @@ Patrón transversal:
 | `Anclora Advisor AI` | `internal expert assistant workspace` | `internal expert assistant workspace` | `fit` | asistencia experta bien perfilada, con consulta, contexto y módulos especializados |
 | `Anclora Command Center` | `internal executive orchestration` | `internal executive orchestration` | `fit` | capa ejecutiva de KPIs, coste, alertas y tendencia integrada hoy en `Anclora Nexus` |
 | `Anclora Group` | `internal ecosystem gateway` | `internal ecosystem gateway` | `fit` | puerta corporativa coherente, más institucional que un simple launcher |
+| `Anclora Fiscal` | `internal operational vertical` | `internal operational vertical` | `fit` | operación de cumplimiento (VERI\*FACTU) con navegación agrupada y alertas de integridad |
+| `Anclora VisionFlow` | `internal production studio` | `internal production studio` | `fit` | estudio que produce briefs/vision maps/SDD exports mediante pipeline de aprobación |
+| `Anclora FileStudio` | — (sin perfil objetivo previo) | `internal utility tool` *(propuesto)* | `emerging profile` | herramienta de conversión de un solo propósito, sin identidad de marca propia — no encaja en ningún perfil existente |
 
 ## `Anclora Nexus`
 
@@ -355,6 +361,115 @@ La base actual es sólida, pero el perfil exige vigilar que:
 - la densidad no crezca sin síntesis
 - la pantalla no se convierta en agregador de métricas sin foco ejecutivo
 
+## `Anclora Fiscal` *(añadido 2026-08)*
+
+## Veredicto
+
+- `fit`
+
+## Por qué encaja en `internal operational vertical`
+
+Señales fuertes:
+
+- monorepo (`apps/web`, `apps/api`) con navegación agrupada en tres bloques de trabajo declarados en código (`app/lib/navigation.ts`, fuente única confirmada por comentario propio del archivo):
+  - `Operaciones` (Importaciones, Ventas Shopify, Conciliación, Facturación)
+  - `Cumplimiento` (VERI\*FACTU, Eventos SIF, Reglas fiscales, Periodos fiscales)
+  - `Gestión` (Asesoría, Gastos, Liquidaciones KDP)
+- panel de salud fiscal (`fiscal-health-panel.tsx`) con métricas operativas reales: cola VERI\*FACTU, facturas sin huella, bloqueos y rechazos, conciliación incompleta
+- alerta de integridad explícita citando normativa real (Orden HAC/1177/2024, art. 13)
+
+Lectura UX/UI:
+
+- la superficie prioriza estado operativo y bloqueos accionables, no narrativa de marca
+- el patrón de alerta + métrica + CTA ("resolver bloqueos") es idéntico en estructura al de `Nexus`, aunque el dominio sea fiscal en vez de inmobiliario
+- no hay teatralidad visual: la identidad (navy `#070c13` + dorado `#d7a957`) es funcional, no decorativa
+
+## Riesgos o gaps
+
+### 1. Superficie de cumplimiento con coste de error alto
+
+A diferencia de otras verticales operativas, un fallo de UX aquí no es solo fricción — puede traducirse en incumplimiento normativo real (facturas sin huella conforme a VERI\*FACTU). Cualquier futuro rediseño debe tratar las alertas de integridad como prioridad de jerarquía, no como una tarjeta más.
+
+### 2. Absorción sistémica baja
+
+- no consume `@anclora/design-system`
+- gramática local propia (`--fiscal-*`), aunque coherente internamente
+
+## Lectura operativa
+
+`Fiscal` funciona como una segunda referencia de `internal operational vertical`, complementaria a `Nexus`: confirma que el perfil no es exclusivo de operación inmobiliaria, sino que se sostiene igual de bien en cumplimiento fiscal.
+
+## `Anclora VisionFlow` *(añadido 2026-08)*
+
+## Veredicto
+
+- `fit`
+
+## Por qué encaja en `internal production studio`
+
+Señales fuertes:
+
+- modelo de datos (`prisma/schema.prisma`) centrado en producción de artefactos: `Case`, `VisionMapVersion`, `EvidenceReference`, `SddExport`, `HandoffDraft`
+- pipeline de estados explícito y secuencial: `draft` → `review` → `approved` → `handed_off` → `archived`
+- tipos de caso que cubren múltiples verticales del ecosistema (`captacion_premium`, `comercializacion_activo`, `contexto_energetico`, `campana_territorial`, `propuesta_partner`) — el estudio no produce para sí mismo, produce insumos para otras apps
+
+Lectura UX/UI:
+
+- la lista de casos organiza por tipo + estado, igual que `Content Generator AI` organiza por cola editorial + severidad de cumplimiento
+- el pipeline con aprobación (`review` → `approved` → `handed_off`) es el mismo patrón HITL que ya vimos en Content Generator, aplicado a un dominio distinto (briefs visuales en vez de contenido editorial)
+
+## Riesgos o gaps
+
+### 1. Dependencia cruzada no documentada formalmente
+
+Si `VisionFlow` produce insumos que otras apps consumen (evidencia: tipos de caso que mapean directamente a verticales de Nexus/Private Estates/EnergyScan), esa relación debería estar declarada como contrato explícito, no solo inferida por el nombre de los `CaseType`.
+
+### 2. Absorción sistémica baja
+
+- no consume `@anclora/design-system`
+- acento de marca (`#5c70d8`) ya verificado contra código real, pero shell y componentes siguen en gramática local `avf-*`
+
+## Lectura operativa
+
+`VisionFlow` confirma que `internal production studio` no es un perfil exclusivo de contenido editorial — se sostiene igual de bien cuando el producto son artefactos visuales/estratégicos para consumo de otras apps del ecosistema.
+
+## `Anclora FileStudio` *(añadido 2026-08 — perfil emergente, no `fit` forzado)*
+
+## Veredicto
+
+- `emerging profile` — no fuerzo un encaje en los 5 subperfiles existentes porque ninguno describe bien lo que este repo es
+
+## Por qué no encaja limpiamente en los perfiles existentes
+
+- no gestiona una vertical de negocio con leads/propiedades/tareas (no es `operational vertical`)
+- no produce contenido editorial ni artefactos estratégicos reusables (no es `production studio`)
+- no hay consulta ni respuesta experta (no es `expert assistant workspace`)
+- no sintetiza KPIs ni ofrece visión ejecutiva (no es `executive orchestration`)
+- no enruta ni presenta el ecosistema (no es `ecosystem gateway`)
+
+Lo que sí es, con evidencia real (`desktop-pro-shell.tsx`, 562 líneas — el shell real; `page.tsx` es solo un router de 18 líneas hacia él):
+
+- herramienta de un solo propósito: conversión de archivos, con flujo fuente → formato → pasos → progreso → resultado
+- arquitectura desktop-first (`apps/local-agent`, `apps/worker`, scripts de empaquetado para Windows/Linux) — el navegador es un modo secundario (`WebModeConverter`), no el principal
+
+Hallazgo adicional relevante para el sistema de marca:
+
+- es la única app auditada en todo el ecosistema (10 repos verificados contra código fuente real en esta sesión) **sin matiz de marca propio** — su `globals.css` usa la paleta gris de shadcn sin ninguna personalización de color. Esto no es necesariamente un error: puede ser una decisión deliberada de herramienta neutra, pero no está documentada como tal en ningún contrato de la Bóveda.
+
+## Riesgos o gaps
+
+### 1. Sin perfil = sin criterio de evaluación futura
+
+Mientras `FileStudio` no tenga un subperfil propio (`internal utility tool` o similar), cualquier auditoría futura corre el riesgo de juzgarlo con la vara equivocada — por ejemplo, penalizarlo por "falta de narrativa de marca" cuando esa ausencia puede ser intencional para una herramienta utilitaria.
+
+### 2. Ambigüedad sobre si la falta de color es deliberada o pendiente
+
+No hay forma de saberlo sin preguntar directamente — el propio código no lo aclara.
+
+## Lectura operativa
+
+`FileStudio` es el primer caso en toda la familia `internal` que no encaja en la taxonomía de 5 subperfiles ya establecida. Recomendación: no forzar el encaje — proponer `internal utility tool` como sexto subperfil si aparecen más apps con este patrón (propósito único, sin narrativa de marca, arquitectura desktop-first), o confirmar que es un caso aislado.
+
 ## Conclusiones globales de la familia `internal`
 
 ## 1. La segmentación propuesta se sostiene bien
@@ -393,6 +508,8 @@ Se repite el patrón visto en otras familias:
 - `internal expert assistant workspace`
 - `internal executive orchestration`
 - `internal ecosystem gateway`
+
+*(2026-08)* Además, evaluar si `internal utility tool` merece confirmarse como sexto subperfil — `Anclora FileStudio` es hoy el único caso, pero el patrón (propósito único, sin narrativa de marca, arquitectura desktop-first) podría repetirse en futuras herramientas del ecosistema.
 
 ## Siguiente paso recomendado
 

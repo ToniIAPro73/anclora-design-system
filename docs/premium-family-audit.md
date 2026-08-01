@@ -14,7 +14,7 @@ Analizar la familia `premium` sobre repos reales para extraer:
 
 Repos auditados en esta primera pasada:
 
-> **Hueco de cobertura (2026-08):** `anclora-energyscan` y `anclora-syncxml` se incorporaron a la familia `premium` después de esta auditoría (`anclora-impulso` y `anclora-command-center` ya existían como apps pero tampoco aparecen en la lista de abajo — confirmar si quedaron fuera intencionalmente de esta primera pasada o es otro hueco). Ninguna de las 4 ha pasado por este mismo ejercicio de auditoría cualitativa.
+> **Hueco de cobertura — corregido 2026-08:** la nota anterior decía que ninguna de `energyscan`/`syncxml`/`impulso`/`command-center` tenía cobertura. Impreciso: `anclora-energyscan` sí tenía una entrada preliminar (`candidate / partial / pending visual QA`, ver más abajo), solo `syncxml`, `impulso` y `command-center` carecían de cualquier entrada. Las tres se añaden ahora con auditoría completa; la entrada de `energyscan` se actualiza a `fit` tras verificación de código real (acento, fondo y contenido de la pantalla de resultados confirmados contra el repo fuente).
 
 - `anclora-talent`
 - `anclora-synergi`
@@ -39,15 +39,19 @@ También aparece una diferencia importante dentro del grupo:
 
 - `anclora-talent` ya actúa como consumidor real del design system y representa el caso más consolidado
 - `anclora-synergi` y `anclora-data-lab` expresan bien la intención premium, pero todavía lo hacen con gramáticas locales y no con adopción canónica del sistema
+- *(2026-08)* `anclora-energyscan`, `anclora-syncxml`, `anclora-impulso` y `anclora-command-center` confirman el patrón: identidad premium clara por producto, cero adopción sistémica todavía
 
 ## Matriz de evaluación
 
 | Repo | Tier declarado | Tier observado | Estado | Lectura corta |
 | --- | --- | --- | --- | --- |
 | `anclora-talent` | premium | premium | `fit` | referencia premium más sólida: shell, i18n, theme, components y patterns canónicos |
-| `anclora-energyscan` | premium | premium | `candidate / partial / pending visual QA` | MVP funcional de prediagnóstico energético; auditoría documental creada, pendiente QA visual de landing, wizard, results, pricing, PDF premium y proveedores |
+| `anclora-energyscan` | premium | premium | `fit` *(actualizado 2026-08, era candidate/partial)* | MVP funcional de prediagnóstico energético; pantalla de resultados (letra energética, veredicto de viabilidad) verificada contra código real |
 | `anclora-synergi` | premium | premium | `partial-fit` | identidad premium clara, pero apoyada en tokens y componentes locales |
 | `anclora-data-lab` | premium | premium | `partial-fit` | dashboard premium analítico bien enfocado, pero aún sin absorción real del design system |
+| `anclora-syncxml` | premium | premium | `partial-fit` *(añadido 2026-08)* | herramienta de cumplimiento (RD 933/2021) con identidad premium propia, pre-mvp |
+| `anclora-impulso` | premium | premium | `fit` *(añadido 2026-08)* | coach de fitness con IA, copy real de producto bien resuelto, mvp-functional |
+| `anclora-command-center` | premium | premium | `partial-fit` *(añadido 2026-08)* | panel ejecutivo consolidado; ver nota de conflicto de tier más abajo |
 
 ## Evidencia por repo
 
@@ -124,32 +128,93 @@ Interpretación:
 - no está desalineado en identidad
 - sí está desalineado en estrategia de adopción del sistema
 
-## `anclora-energyscan`
+## `anclora-energyscan` *(actualizado 2026-08 — de stub a evidencia completa)*
 
-Estado:
+Señales fuertes:
 
-- candidato Premium en fase MVP, con auditoria documental PARTIAL y pendiente de QA visual completa.
+- pantalla real de resultados (`assessment/[id]`, 974 líneas) con calificación energética A–G, veredicto de viabilidad de reforma (`feasible`/`feasible_costly`/`infeasible_gap`) y trazabilidad de datos usados en el cálculo
+- separación clara entre prediagnóstico gratuito y informe Premium desbloqueable (escenarios, costes, ayudas, PDF)
+- identidad de marca verde vívido (`#00DC82`) sobre fondo casi negro, confirmada en `globals.css` con 625 apariciones — no es un acento tímido, es la firma visual dominante de toda la app
 
-Perfil recomendado:
+Lectura UX/UI:
 
-- `premium analytical / premium utility`.
+- fortalezas/debilidades presentadas como listas cortas y accionables, no como informe denso
+- el CTA hacia Premium aparece después de entregar valor real gratuito (la calificación), no antes — patrón de confianza, no de bloqueo prematuro
+- feasibility verdicts (viable/viable con coste/brecha inviable) evitan la ambigüedad de "puede que funcione"
 
-Superficies a auditar:
+Gap principal:
 
-- landing
-- wizard
-- results
-- pricing
-- PDF premium
-- provider lead section
+- no consume `@anclora/design-system`
+- superficies adicionales (wizard, pricing, provider lead section) no auditadas todavía — este veredicto cubre solo la pantalla de resultados, la más representativa del valor del producto
 
-Riesgo principal:
+Veredicto:
 
-- mezclar utilidad pública con promesa de certificación oficial o perder consistencia visual por crecimiento rápido del wizard.
+- `fit`
 
-Próximo paso:
+Papel dentro del estudio:
 
-- auditoría visual y contractual contra tokens Premium y patrones de entrada/workspace.
+- confirma que `premium analítico` (perfil ya definido más abajo con `anclora-data-lab` como referencia) también se sostiene en productos de cara al consumidor final, no solo en dashboards internos de inteligencia
+
+## `anclora-syncxml` *(añadido 2026-08)*
+
+Señales fuertes:
+
+- dashboard de reservas real (`ReservationDashboard.tsx`) con estado de validación por reserva (`valid`/`warning`/`error`) y tabla de validación de campos a nivel de detalle
+- cumplimiento normativo explícito (RD 933/2021, SES.HOSPEDAJES) con aviso de privacidad sobre datos personales de huéspedes visible en el propio dashboard, no oculto en términos legales
+- identidad dorado apagado (`#BFA46A`) sobre navy casi negro, confirmada en variables CSS nombradas (`--accent`, no un valor genérico)
+
+Lectura UX/UI:
+
+- la superficie prioriza estado de cumplimiento por reserva, patrón consistente con otras apps de compliance del ecosistema (`Fiscal`)
+- el aviso de privacidad integrado en el flujo (no como modal separado) es una señal de madurez UX poco común en herramientas de compliance, que suelen tratar la privacidad como trámite legal aparte
+
+Gap principal:
+
+- no consume `@anclora/design-system`
+- estado `pre-mvp` según el registro de la Bóveda — superficie todavía en construcción, evaluar de nuevo cuando alcance `mvp-functional`
+
+Veredicto:
+
+- `partial-fit` (identidad y patrón de compliance ya resueltos; madurez de producto aún no alcanza el nivel de `talent`/`energyscan`)
+
+## `anclora-impulso` *(añadido 2026-08)*
+
+Señales fuertes:
+
+- copy de producto real y específico, no genérico: "Tu siguiente mejor acción ya está preparada", "Adherencia semanal", "Completa tu base para activar la personalización real"
+- patrón de "next best action" (retomar entrenamiento guardado) como CTA principal del dashboard, antes que cualquier métrica
+- identidad naranja vívido (`#FF6A00`) confirmada por comentario explícito en el propio código fuente (`/* Accent Orange #FF6A00 */`) — señal de intencionalidad de marca poco ambigua
+
+Lectura UX/UI:
+
+- el dashboard resuelve la tensión típica de apps de fitness (métricas vs. acción) priorizando claramente la acción — la adherencia semanal se muestra, pero no domina la pantalla
+- onboarding tratado como nudge secundario, no como bloqueo — coherente con no forzar fricción antes de entregar valor
+
+Gap principal:
+
+- no consume `@anclora/design-system`
+- estado `mvp-functional` según el registro de la Bóveda
+
+Veredicto:
+
+- `fit`
+
+Papel dentro del estudio:
+
+- primera referencia premium de la familia orientada a consumidor final recurrente diario (a diferencia de `talent`, uso profesional intermitente) — vale la pena distinguir "premium de uso diario" como posible variación adicional dentro del tier
+
+## `anclora-command-center` *(añadido 2026-08 — nota de conflicto de tier)*
+
+Señales fuertes:
+
+- panel ejecutivo consolidado: KPIs, coste, alertas y tendencia en una sola superficie de síntesis
+- identidad púrpura-navy (`#6C63FF` + secundario `#5FA8FF`) confirmada por variables CSS nombradas (`--accent`, `--secondary`) en `src/index.css`
+
+**Conflicto de tier detectado, no resuelto aquí:** este mismo repo aparece más arriba en `internal-family-audit.md` clasificado como `internal executive orchestration` (tier `internal`), citando una implementación en `Boveda-Anclora/dashboard`. Pero el ejemplo de referencia del propio design system (`docs/consuming-from-apps.md`) declara `tier-premium` en su body class (`archetype-command-center role-executive cluster-core`), y el repo real auditado en esta sesión (`anclora-command-center`, independiente) también se comporta como Premium por identidad y contenido. **No decido aquí cuál de las dos clasificaciones es la vigente** — puede que ambas descripciones se refieran a superficies distintas (la implementación embebida en Nexus vs. el repo independiente), o puede que sea una inconsistencia real de taxonomía pendiente de resolver en la Bóveda.
+
+Veredicto:
+
+- `partial-fit` — identidad premium resuelta; pendiente de decisión externa sobre a qué tier pertenece realmente
 
 ## `anclora-data-lab`
 
@@ -231,6 +296,7 @@ Firma:
 Referencia:
 
 - `anclora-data-lab`
+- `anclora-energyscan` *(añadido 2026-08 — analítico de cara a consumidor final, no solo dashboard interno)*
 
 Firma:
 
@@ -239,6 +305,19 @@ Firma:
 - precisión
 - dashboard de alto valor
 - riqueza visual subordinada a comprensión
+
+### premium consumidor-diario *(nueva, propuesta 2026-08)*
+
+Referencia:
+
+- `anclora-impulso`
+
+Firma:
+
+- uso recurrente diario (no intermitente/profesional como `talent`)
+- patrón "next best action" como CTA dominante, antes que métricas
+- onboarding tratado como nudge, no como bloqueo
+- copy de producto específico y no genérico
 
 ## Anti-patrones detectables para `premium`
 

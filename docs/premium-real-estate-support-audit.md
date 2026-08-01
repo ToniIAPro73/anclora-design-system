@@ -10,7 +10,7 @@ Aplicar la matriz del vertical `Real Estate` al bloque de soporte `premium`:
 - `Anclora Data Lab`
 - `Anclora Synergi`
 
-> **Hueco de cobertura (2026-08):** `anclora-energyscan` (evaluación energética, directamente real-estate-adjacent) no está incluido en este bloque de soporte pese a encajar temáticamente. Pendiente de decidir si debe incorporarse a esta matriz o si tiene un vertical propio.
+> **Hueco de cobertura — resuelto 2026-08:** `anclora-energyscan` se incorpora a este bloque. Su valor de producto (prediagnóstico energético con zona climática, año de construcción, sistema de calefacción, aislamiento) es funcionalmente equivalente al de `Data Lab`/`Synergi` como soporte al vertical Real Estate — no es una app independiente con vertical propio, es una herramienta de evaluación de propiedades. Confirmado por auditoría completa en `docs/premium-family-audit.md` (verdict `fit`).
 
 Documento base:
 
