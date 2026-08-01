@@ -69,7 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 ```
 
-Para una app consumidora Premium como `anclora-talent`:
+Para una app consumidora Premium como `anclora-talent` *(ejemplo histórico de patrón de integración — `anclora-talent` está pausado desde 2026-08; el patrón de clases sigue siendo válido, usa `anclora-command-center` o `anclora-impulso` como referencia activa de tier Premium)*:
 
 ```tsx
 <body className="tier-premium domain-human-capital archetype-app role-consumer cluster-core product-anclora-talent">

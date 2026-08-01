@@ -3,6 +3,8 @@
 Fecha: 2026-04-20
 Repositorio: `anclora-design-system`
 
+> **Nota de estado (2026-08):** `anclora-talent` — el consumidor descrito en este documento como referencia principal — pasó a **pausado, fuera del alcance activo del ecosistema**. Las piezas marcadas aquí como `validated`/`canonical` siguen siéndolo (el consumo real que las valida ya ocurrió y no se deshace por la pausa), pero `anclora-talent` ya no debe tratarse como el consumidor de referencia para nuevo trabajo. Command Center, Content Generator AI y Portfolio (marcados más abajo como "próxima ola") son ahora los candidatos activos de validación. Ver `src/themes/product.css` para el estado de pausa reflejado en el propio tema.
+
 ## Objetivo
 
 Evitar dos errores frecuentes:
@@ -18,7 +20,7 @@ Esta matriz separa tres estados:
 
 ## Consumidores registrados
 
-### `anclora-talent`
+### `anclora-talent` (pausado — ver nota de estado arriba)
 
 Taxonomia:
 
