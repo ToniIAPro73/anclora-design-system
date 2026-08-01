@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Internal Example · FileStudio Conversion Flow</title>
+    <link rel="stylesheet" href="../../system.css" />
+    <style>
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #0d0f12 0%, #1a1e25 100%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+      .page { padding: 24px 0 40px; }
+      .layout { display: grid; gap: 18px; }
+      .toolbar, .panel { padding: 18px; }
+      .steps { display: grid; gap: 8px; }
+      .step-row { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 10px; background: var(--surface-panel, rgba(255,255,255,0.03)); }
+    </style>
+  </head>
+  <body>
+    <div class="page product-anclora-filestudio tier-internal domain-cross-domain archetype-workspace role-operator cluster-core">
+      <div class="shell-frame layout">
+        <header class="shell-topbar toolbar">
+          <div class="cluster">
+            <span class="theme-chip">Internal</span>
+            <span class="status-badge is-warning">Procesando</span>
+          </div>
+          <div class="cluster">
+            <button class="btn btn-primary">Nueva conversión</button>
+          </div>
+        </header>
+
+        <section class="surface-panel panel stack">
+          <div class="stack" style="--stack-gap: 8px;">
+            <span class="field-label">Example</span>
+            <h1 style="margin: 0; font-size: 1.55rem;">documento.docx → PDF</h1>
+            <p style="margin: 0; color: var(--text-secondary);">
+              Replica el shell real (`desktop-pro-shell.tsx`): Análisis, Diagnóstico, Formato, Fuente, Historial, Pasos de conversión. Nota: el repo real no define un matiz de marca propio (paleta neutra shadcn) — este acento existe solo para wayfinding.
+            </p>
+          </div>
+
+          <div class="steps">
+            <div class="step-row">
+              <span class="status-badge is-success">Hecho</span>
+              <span style="font-size: 0.9rem;">Fuente cargada</span>
+            </div>
+            <div class="step-row">
+              <span class="status-badge is-success">Hecho</span>
+              <span style="font-size: 0.9rem;">Formato de destino seleccionado</span>
+            </div>
+            <div class="step-row">
+              <span class="status-badge is-warning">Procesando...</span>
+              <span style="font-size: 0.9rem;">Procesando conversión</span>
+            </div>
+            <div class="step-row">
+              <span class="status-badge is-review">Pendiente</span>
+              <span style="font-size: 0.9rem;">Resultado disponible</span>
+            </div>
+          </div>
+
+          <div class="cluster">
+            <button class="btn btn-ghost">Cancelar</button>
+            <button class="btn btn-primary">Ver resultado</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

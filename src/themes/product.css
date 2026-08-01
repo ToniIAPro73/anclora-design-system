@@ -138,6 +138,14 @@
   --border: var(--group-border);
   --line-soft: rgba(255, 255, 255, 0.06);
   --line-strong: rgba(168, 174, 184, 0.34);
+  /* Brand book 2026-08: command-purple/signal-blue solo en la capa de
+     acción (botones, enlaces) — el acento de identidad del tema sigue
+     siendo plata (--coin-group), no se sustituye. */
+  --action-primary-bg: var(--command-purple);
+  --action-primary-fg: #f8fafc;
+  --action-primary-border: rgba(108, 99, 255, 0.32);
+  --text-link: var(--signal-blue);
+  --focus-ring: rgba(95, 168, 255, 0.5);
   font-family: var(--font-sans);
 }
 

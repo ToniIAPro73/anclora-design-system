@@ -48,6 +48,14 @@
   --internal-border-strong: rgba(242, 238, 233, 0.16);
 
   --coin-group: #a8aeb8;
+
+  /* NUEVO 2026-08: tokens de acción del brand book oficial de Anclora Group
+     (anclora-group-brand-book.md, sección 5). Uso restringido a botones/
+     enlaces interactivos — NO al acento de identidad del tema, que se
+     mantiene en --coin-group (plata) para preservar la escalera visual
+     "Entidad Matriz = plata monocromática" ya documentada en el ecosistema. */
+  --command-purple: #6c63ff;
+  --signal-blue: #5fa8ff;
   --coin-pe: #d4af37; /* CORRECTED 2026-08: era #c9a95f (oro de modo claro); el real de página (data-theme="dark") es #D4AF37 */
   --coin-synergi: #8c5ab4;
   --coin-data-lab: #2da078;

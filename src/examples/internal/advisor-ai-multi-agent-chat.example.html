@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Internal Example · Advisor AI Multi-Agent Chat</title>
+    <link rel="stylesheet" href="../../system.css" />
+    <style>
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #162944 0%, #1c2b3c 100%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+      .page { padding: 24px 0 40px; }
+      .layout { display: grid; gap: 18px; }
+      .toolbar, .panel { padding: 18px; }
+      .thread { display: flex; flex-direction: column; gap: 10px; }
+      .bubble { max-width: 78%; padding: 12px 14px; border-radius: 14px; font-size: 0.88rem; line-height: 1.5; }
+      .bubble.user { align-self: flex-end; background: var(--coin-advisor); color: #0f172a; }
+      .bubble.agent { align-self: flex-start; background: var(--surface-panel, rgba(255,255,255,0.04)); border: 1px solid var(--border); }
+    </style>
+  </head>
+  <body>
+    <div class="page product-anclora-advisor-ai tier-internal domain-cross-domain archetype-workspace role-operator cluster-core">
+      <div class="shell-frame layout">
+        <header class="shell-topbar toolbar">
+          <div class="cluster">
+            <span class="theme-chip">Internal</span>
+            <span class="status-badge is-success">RAG activo</span>
+          </div>
+          <div class="cluster">
+            <button class="btn btn-ghost">Historial</button>
+            <button class="btn btn-ghost">Fuentes</button>
+            <button class="btn btn-ghost">Alertas</button>
+          </div>
+        </header>
+
+        <section class="surface-panel panel stack">
+          <div class="stack" style="--stack-gap: 8px;">
+            <span class="field-label">Example</span>
+            <h1 style="margin: 0; font-size: 1.55rem;">Chat multi-agente — Fiscal / Laboral</h1>
+            <p style="margin: 0; color: var(--text-secondary);">
+              Nav real de 6 items (Chat/Fiscal/Laboral/Facturación/Alertas/Admin, ver `DashboardNav.tsx`). La conversación demuestra el enrutado a `FiscalSpecialistTool`, arquitectura documentada en la Bóveda.
+            </p>
+          </div>
+
+          <div class="thread">
+            <div class="bubble user">¿Qué retenciones de IRPF aplican a un autónomo en módulos con actividad mixta este trimestre?</div>
+            <div class="bubble agent">Consultando al especialista Fiscal... Para actividad mixta en estimación por módulos, la retención estándar es del 15% en factura, salvo el primer año de actividad y los dos siguientes, donde se aplica el 7%. ¿Confirmamos el epígrafe IAE concreto?</div>
+            <div class="bubble user">Sí, es el 691.9</div>
+            <div class="bubble agent">Confirmado. Con ese epígrafe la retención estándar del 15% aplica sin reducción.</div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

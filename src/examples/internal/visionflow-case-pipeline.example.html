@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Internal Example · VisionFlow Case Pipeline</title>
+    <link rel="stylesheet" href="../../system.css" />
+    <style>
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #0f1520 0%, #192640 100%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+      .page { padding: 24px 0 40px; }
+      .layout { display: grid; gap: 18px; }
+      .toolbar, .panel { padding: 18px; }
+      .cases { display: grid; gap: 12px; }
+    </style>
+  </head>
+  <body>
+    <div class="page product-anclora-visionflow tier-internal domain-cross-domain archetype-workspace role-operator cluster-core">
+      <div class="shell-frame layout">
+        <header class="shell-topbar toolbar">
+          <div class="cluster">
+            <span class="theme-chip">Internal</span>
+            <span class="status-badge is-review">5 casos activos</span>
+          </div>
+          <div class="cluster">
+            <button class="btn btn-primary">Crear caso</button>
+          </div>
+        </header>
+
+        <section class="surface-panel panel stack">
+          <div class="stack" style="--stack-gap: 8px;">
+            <span class="field-label">Example</span>
+            <h1 style="margin: 0; font-size: 1.55rem;">Vision Map Pipeline — Casos</h1>
+            <p style="margin: 0; color: var(--text-secondary);">
+              Cada caso recorre brief → vision map → SDD export → handoff (modelo `Case`/`CaseType`/`CaseStatus` real de Prisma). Tipos y estados coinciden con el repo fuente; los títulos son ilustrativos.
+            </p>
+          </div>
+
+          <div class="cases">
+            <article class="surface-frame job-card stack">
+              <span class="field-label">Captación premium</span>
+              <strong style="font-size: 1.05rem;">Villa Son Caliu — Ficha de captación</strong>
+              <div class="cluster">
+                <span class="status-badge is-warning">En revisión</span>
+                <button class="btn btn-ghost">Abrir vision map</button>
+              </div>
+            </article>
+            <article class="surface-frame job-card stack">
+              <span class="field-label">Contexto energético</span>
+              <strong style="font-size: 1.05rem;">Port d'Andratx — Diagnóstico energético</strong>
+              <div class="cluster">
+                <span class="status-badge is-success">Aprobado</span>
+                <button class="btn btn-ghost">Ver evidencias</button>
+              </div>
+            </article>
+            <article class="surface-frame job-card stack">
+              <span class="field-label">Campaña territorial</span>
+              <strong style="font-size: 1.05rem;">Costa Sur — Campaña territorial verano</strong>
+              <div class="cluster">
+                <span class="status-badge is-success">Entregado</span>
+                <button class="btn btn-ghost">Ver evidencias</button>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

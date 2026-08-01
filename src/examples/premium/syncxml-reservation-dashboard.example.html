@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Premium Example · SyncXML Reservation Dashboard</title>
+    <link rel="stylesheet" href="../../system.css" />
+    <style>
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #070a12 0%, #101827 100%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+      .page { padding: 24px 0 40px; }
+      .layout { display: grid; gap: 18px; }
+      .toolbar, .panel { padding: 18px; }
+      .list { display: flex; flex-direction: column; gap: 4px; }
+      .row { display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; border-radius: 10px; }
+      .row:hover { background: var(--surface-panel, rgba(255,255,255,0.03)); }
+    </style>
+  </head>
+  <body>
+    <div class="page product-anclora-syncxml tier-premium domain-cross-domain archetype-app role-operator cluster-activation">
+      <div class="shell-frame layout">
+        <header class="shell-topbar toolbar">
+          <div class="cluster">
+            <span class="theme-chip">Premium</span>
+            <span class="status-badge is-warning">4 reservas</span>
+          </div>
+          <div class="cluster">
+            <button class="btn btn-primary">Nueva reserva</button>
+          </div>
+        </header>
+
+        <section class="surface-panel panel stack">
+          <div class="stack" style="--stack-gap: 8px;">
+            <span class="field-label">Example</span>
+            <h1 style="margin: 0; font-size: 1.55rem;">Dashboard de reservas — SES.HOSPEDAJES</h1>
+            <p style="margin: 0; color: var(--text-secondary);">
+              Cumplimiento RD 933/2021. Estados de validación reales (`valid`/`warning`/`error`) extraídos de `ReservationDashboard.tsx` y su diccionario i18n.
+            </p>
+          </div>
+
+          <div class="list">
+            <div class="row">
+              <div>
+                <strong style="font-size: 0.92rem;">SXR-2026-0417</strong>
+                <div style="font-size: 0.8rem; color: var(--text-secondary);">Hostal Es Trenc</div>
+              </div>
+              <span class="status-badge is-success">Válido</span>
+            </div>
+            <div class="row">
+              <div>
+                <strong style="font-size: 0.92rem;">SXR-2026-0418</strong>
+                <div style="font-size: 0.8rem; color: var(--text-secondary);">Apartamentos Cala Ratjada</div>
+              </div>
+              <span class="status-badge is-warning">Aviso</span>
+            </div>
+            <div class="row">
+              <div>
+                <strong style="font-size: 0.92rem;">SXR-2026-0419</strong>
+                <div style="font-size: 0.8rem; color: var(--text-secondary);">Villa Formentor</div>
+              </div>
+              <span class="status-badge is-review">Error</span>
+            </div>
+          </div>
+
+          <article class="surface-frame job-card stack">
+            <span class="field-label">Aviso de privacidad</span>
+            <p style="margin: 0; color: var(--text-secondary); font-size: 0.88rem;">
+              Los datos importados contienen información personal de huéspedes, usada únicamente para validar la reserva y generar el XML correspondiente.
+            </p>
+            <div class="cluster">
+              <button class="btn btn-primary">Generar XML SES.HOSPEDAJES</button>
+            </div>
+          </article>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
