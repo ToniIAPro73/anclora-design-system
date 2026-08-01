@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Premium Example · Impulso Action Hub</title>
+    <link rel="stylesheet" href="../../system.css" />
+    <style>
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #1d130d 0%, #281910 100%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+      .page { padding: 24px 0 40px; }
+      .layout { display: grid; gap: 18px; }
+      .toolbar, .panel { padding: 18px; }
+      .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+      .stat-card { padding: 16px; }
+      .split { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; }
+      @media (max-width: 900px) {
+        .stats { grid-template-columns: 1fr; }
+        .split { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page product-anclora-impulso tier-premium domain-fitness-wellness archetype-app role-consumer cluster-activation">
+      <div class="shell-frame layout">
+        <header class="shell-topbar toolbar">
+          <div class="cluster">
+            <span class="theme-chip">Premium</span>
+          </div>
+          <div class="cluster">
+            <button class="btn btn-primary">Generar entrenamiento</button>
+          </div>
+        </header>
+
+        <section class="surface-panel panel stack">
+          <div class="stack" style="--stack-gap: 8px;">
+            <span class="field-label">Example</span>
+            <h1 style="margin: 0; font-size: 1.55rem;">Centro de acción</h1>
+            <p style="margin: 0; color: var(--text-secondary);">
+              Copy real (`dashboard-content.tsx`): "Tu siguiente mejor acción ya está preparada". Coach de fitness con IA, patrón next-best-action antes que métricas.
+            </p>
+          </div>
+
+          <div class="stats">
+            <article class="surface-frame stat-card stack">
+              <span class="field-label">Adherencia semanal</span>
+              <strong style="font-size: 1.4rem;">82%</strong>
+            </article>
+            <article class="surface-frame stat-card stack">
+              <span class="field-label">Días con registros</span>
+              <strong style="font-size: 1.4rem;">5/7</strong>
+            </article>
+            <article class="surface-frame stat-card stack">
+              <span class="field-label">Registro nutricional</span>
+              <strong style="font-size: 1.1rem;">Activo</strong>
+            </article>
+          </div>
+
+          <div class="split">
+            <article class="surface-frame stack">
+              <span class="field-label">Tu siguiente mejor acción ya está preparada</span>
+              <strong style="font-size: 1.05rem;">Reanudar entrenamiento</strong>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.88rem;">Tienes una sesión guardada parcialmente y lista para continuar.</p>
+              <div class="cluster">
+                <button class="btn btn-primary">Reanudar entrenamiento</button>
+                <button class="btn btn-ghost">Generar entrenamiento</button>
+              </div>
+            </article>
+            <article class="surface-frame stack">
+              <span class="field-label">Onboarding</span>
+              <strong style="font-size: 1.05rem;">Completa tu base para activar la personalización real</strong>
+              <button class="btn btn-ghost">Completar onboarding</button>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

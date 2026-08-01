@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio Example · Brand Blueprint (real Portfolio content)</title>
+    <link rel="stylesheet" href="../../system.css" />
+    <style>
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+      .page { padding: 24px 0 40px; }
+      .layout { display: grid; gap: 22px; }
+      .toolbar, .panel { padding: 18px; }
+      .pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+      .residences { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+      @media (max-width: 900px) {
+        .pillars, .residences { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page product-anclora-portfolio tier-portfolio domain-real-estate archetype-landing role-guest cluster-entry">
+      <div class="shell-frame layout">
+        <header class="shell-topbar toolbar">
+          <div class="cluster">
+            <span class="theme-chip">Portfolio</span>
+          </div>
+          <div class="cluster">
+            <button class="btn btn-secondary">Explorar Residencias</button>
+            <button class="btn btn-primary">Abrir Consulta</button>
+          </div>
+        </header>
+
+        <section class="surface-panel panel stack">
+          <span class="field-label">Brand Blueprint</span>
+          <h1 style="margin: 0; font-size: 1.7rem; max-width: 16ch;">La Cúspide del Mediterráneo</h1>
+          <p style="margin: 0; color: var(--text-secondary); max-width: 60ch;">
+            Un proyecto blueprint que articula lenguaje de marca, arquitectura digital y criterios de ejecución para Anclora Private Estates. Copy real extraído de `translations.ts` — este es el contenido genuino de <code>anclora-portfolio</code>, no prestado de otra app: es una pieza de portfolio que usa Private Estates como demo, no el producto en sí.
+          </p>
+        </section>
+
+        <section class="stack">
+          <span class="field-label">Blueprint de Marca — Tecnología con Intención</span>
+          <div class="pillars">
+            <article class="surface-frame stack">
+              <strong style="font-size: 1rem;">Arquitectura Modular</strong>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.88rem;">Estructura por secciones y separación clara de contenido, lógica y presentación.</p>
+            </article>
+            <article class="surface-frame stack">
+              <strong style="font-size: 1rem;">Rendimiento Premium</strong>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.88rem;">Carga optimizada y animaciones fluidas para desktop y mobile.</p>
+            </article>
+            <article class="surface-frame stack">
+              <strong style="font-size: 1rem;">Calidad Verificable</strong>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.88rem;">Lint, type-check, tests y build integrados como estándar mínimo.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="stack">
+          <span class="field-label">Tipologías Residenciales — Tres hogares, tres historias</span>
+          <div class="residences">
+            <article class="surface-frame stack">
+              <span class="field-label">Vista al Mar</span>
+              <strong style="font-size: 1rem;">Penthouse Azure</strong>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">380 m² · 4 dorm. · terraza 120 m²</p>
+              <p style="margin: 0; font-family: var(--font-display); font-size: 1.2rem; color: var(--accent);">€12,500,000</p>
+            </article>
+            <article class="surface-frame stack">
+              <span class="field-label">Vista a la Montaña</span>
+              <strong style="font-size: 1rem;">Garden Villa</strong>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">320 m² · 3 dorm. · terraza 85 m²</p>
+              <p style="margin: 0; font-family: var(--font-display); font-size: 1.2rem; color: var(--accent);">€8,900,000</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Internal Example · Nexus CRM Dashboard</title>
+    <link rel="stylesheet" href="../../system.css" />
+    <style>
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #0f1629 0%, #141c3a 100%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+      .page { padding: 24px 0 40px; }
+      .layout { display: grid; gap: 18px; }
+      .toolbar, .panel { padding: 18px; }
+      .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+      .stat-card { padding: 16px; }
+      .split { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; }
+      @media (max-width: 900px) {
+        .stats { grid-template-columns: repeat(2, 1fr); }
+        .split { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page product-anclora-nexus tier-internal domain-real-estate archetype-workspace role-operator cluster-core">
+      <div class="shell-frame layout">
+        <header class="shell-topbar toolbar">
+          <div class="cluster">
+            <span class="theme-chip">Internal</span>
+            <span class="status-badge is-review">312 leads activos</span>
+          </div>
+          <div class="cluster">
+            <button class="btn btn-primary">Nuevo lead</button>
+          </div>
+        </header>
+
+        <section class="surface-panel panel stack">
+          <div class="stack" style="--stack-gap: 8px;">
+            <span class="field-label">Example</span>
+            <h1 style="margin: 0; font-size: 1.55rem;">CRM — Dashboard</h1>
+            <p style="margin: 0; color: var(--text-secondary);">
+              Estructura real de sidebar en dos secciones (`Sidebar.tsx`): Core (Dashboard, Leads, Solicitudes de acceso, Pipeline de vendedores, Propiedades, DMS, Tareas) e Intelligence (Prospección operativa, Intelligence).
+            </p>
+          </div>
+
+          <div class="stats">
+            <article class="surface-frame stat-card stack">
+              <span class="field-label">Leads activos</span>
+              <strong style="font-size: 1.4rem;">312</strong>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">Últimos 30 días</p>
+            </article>
+            <article class="surface-frame stat-card stack">
+              <span class="field-label">Pipeline vendedores</span>
+              <strong style="font-size: 1.4rem;">48</strong>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">En seguimiento</p>
+            </article>
+            <article class="surface-frame stat-card stack">
+              <span class="field-label">Propiedades</span>
+              <strong style="font-size: 1.4rem;">124</strong>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">Portfolio activo</p>
+            </article>
+            <article class="surface-frame stat-card stack">
+              <span class="field-label">Tareas pendientes</span>
+              <strong style="font-size: 1.4rem;">17</strong>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">Requieren acción</p>
+            </article>
+          </div>
+
+          <div class="split">
+            <article class="surface-frame stack">
+              <span class="field-label">Leads recientes</span>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">
+                Marcus Weber — Son Vida · Villa 8 dorm. — Caliente<br/>
+                Isabelle Laurent — Puerto Andratx · Ático — Templado<br/>
+                Chen Wei — Palma Old Town · Palacio — Nuevo
+              </p>
+            </article>
+            <article class="surface-frame stack">
+              <span class="field-label">Seller pipeline</span>
+              <div class="cluster" style="justify-content: space-between;"><span style="font-size: 0.85rem;">Contacto inicial</span><span class="status-badge is-review">14</span></div>
+              <div class="cluster" style="justify-content: space-between;"><span style="font-size: 0.85rem;">Valoración enviada</span><span class="status-badge is-warning">9</span></div>
+              <div class="cluster" style="justify-content: space-between;"><span style="font-size: 0.85rem;">Mandato firmado</span><span class="status-badge is-success">6</span></div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

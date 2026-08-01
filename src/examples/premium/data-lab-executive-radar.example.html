@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Premium Example · Data Lab Executive Radar</title>
+    <link rel="stylesheet" href="../../system.css" />
+    <style>
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #071411 0%, #0c1b17 100%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+      .page { padding: 24px 0 40px; }
+      .layout { display: grid; gap: 18px; }
+      .toolbar, .panel { padding: 18px; }
+      .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+      .stat-card { padding: 16px; }
+      .docs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      @media (max-width: 900px) {
+        .stats { grid-template-columns: repeat(2, 1fr); }
+        .docs { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page product-anclora-data-lab tier-premium domain-real-estate archetype-portal role-executive cluster-activation">
+      <div class="shell-frame layout">
+        <header class="shell-topbar toolbar">
+          <div class="cluster">
+            <span class="theme-chip">Premium</span>
+            <span class="status-badge is-success">Acceso privado activo</span>
+          </div>
+        </header>
+
+        <section class="surface-panel panel stack">
+          <div class="stack" style="--stack-gap: 8px;">
+            <span class="field-label">Example</span>
+            <h1 style="margin: 0; font-size: 1.55rem;">Radar ejecutivo</h1>
+            <p style="margin: 0; color: var(--text-secondary);">
+              Copy real (`DataLabWorkspaceShell.tsx`): "Radar y activos listos para decisión". Marca comercial operada bajo licencia exclusiva por Anclora Group.
+            </p>
+          </div>
+
+          <div class="stats">
+            <article class="surface-frame stat-card stack">
+              <span class="field-label">Señales</span>
+              <strong style="font-size: 1.4rem;">12</strong>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">Seguimiento inmediato</p>
+            </article>
+            <article class="surface-frame stat-card stack">
+              <span class="field-label">Packs activos</span>
+              <strong style="font-size: 1.4rem;">4</strong>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">Entregables premium</p>
+            </article>
+            <article class="surface-frame stat-card stack">
+              <span class="field-label">Activos documentales</span>
+              <strong style="font-size: 1.4rem;">9</strong>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">Biblioteca premium</p>
+            </article>
+            <article class="surface-frame stat-card stack">
+              <span class="field-label">Foco territorial</span>
+              <strong style="font-size: 1.1rem;">SW Mallorca</strong>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">Señal precede al pricing</p>
+            </article>
+          </div>
+
+          <div class="docs">
+            <article class="surface-frame stack">
+              <span class="field-label">Arquitectura de acceso</span>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.88rem;">Documentación de producto y acceso.</p>
+              <button class="btn btn-ghost">Abrir documento</button>
+            </article>
+            <article class="surface-frame stack">
+              <span class="field-label">Roadmap Data Lab v1</span>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.88rem;">Documentación de producto y acceso.</p>
+              <button class="btn btn-ghost">Abrir documento</button>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
