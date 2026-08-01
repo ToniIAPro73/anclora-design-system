@@ -51,7 +51,7 @@ También aparece una diferencia importante dentro del grupo:
 | `anclora-data-lab` | premium | premium | `partial-fit` | dashboard premium analítico bien enfocado, pero aún sin absorción real del design system |
 | `anclora-syncxml` | premium | premium | `partial-fit` *(añadido 2026-08)* | herramienta de cumplimiento (RD 933/2021) con identidad premium propia, pre-mvp |
 | `anclora-impulso` | premium | premium | `fit` *(añadido 2026-08)* | coach de fitness con IA, copy real de producto bien resuelto, mvp-functional |
-| `anclora-command-center` | premium | premium | `partial-fit` *(añadido 2026-08)* | panel ejecutivo consolidado; ver nota de conflicto de tier más abajo |
+| `anclora-command-center` | premium | premium | `fit` *(tier confirmado 2026-08)* | panel ejecutivo consolidado; identidad y tier ya verificados sin ambigüedad |
 
 ## Evidencia por repo
 
@@ -203,18 +203,18 @@ Papel dentro del estudio:
 
 - primera referencia premium de la familia orientada a consumidor final recurrente diario (a diferencia de `talent`, uso profesional intermitente) — vale la pena distinguir "premium de uso diario" como posible variación adicional dentro del tier
 
-## `anclora-command-center` *(añadido 2026-08 — nota de conflicto de tier)*
+## `anclora-command-center` *(añadido 2026-08 — conflicto de tier resuelto)*
 
 Señales fuertes:
 
 - panel ejecutivo consolidado: KPIs, coste, alertas y tendencia en una sola superficie de síntesis
 - identidad púrpura-navy (`#6C63FF` + secundario `#5FA8FF`) confirmada por variables CSS nombradas (`--accent`, `--secondary`) en `src/index.css`
 
-**Conflicto de tier detectado, no resuelto aquí:** este mismo repo aparece más arriba en `internal-family-audit.md` clasificado como `internal executive orchestration` (tier `internal`), citando una implementación en `Boveda-Anclora/dashboard`. Pero el ejemplo de referencia del propio design system (`docs/consuming-from-apps.md`) declara `tier-premium` en su body class (`archetype-command-center role-executive cluster-core`), y el repo real auditado en esta sesión (`anclora-command-center`, independiente) también se comporta como Premium por identidad y contenido. **No decido aquí cuál de las dos clasificaciones es la vigente** — puede que ambas descripciones se refieran a superficies distintas (la implementación embebida en Nexus vs. el repo independiente), o puede que sea una inconsistencia real de taxonomía pendiente de resolver en la Bóveda.
+**Conflicto de tier — resuelto 2026-08:** este mismo repo aparecía en `internal-family-audit.md` clasificado como `internal executive orchestration`, citando una implementación embebida en `Boveda-Anclora/dashboard` / `Nexus`. Confirmado con el cliente: **Premium es el tier vigente** para `anclora-command-center` como repo independiente — coincide con la clasificación original del ecosistema (previa a cualquier documento de auditoría) y con `docs/consuming-from-apps.md`, que ya declaraba `tier-premium` explícitamente. La entrada en `internal-family-audit.md` se marcó como `superseded`: probablemente describía la superficie embebida en Nexus, una vista legítimamente `internal` dentro de esa app, distinta del producto independiente aquí auditado.
 
 Veredicto:
 
-- `partial-fit` — identidad premium resuelta; pendiente de decisión externa sobre a qué tier pertenece realmente
+- `fit` — identidad y tier ya confirmados sin ambigüedad; Premium es el tier vigente
 
 ## `anclora-data-lab`
 
