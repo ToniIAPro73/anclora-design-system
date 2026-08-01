@@ -48,15 +48,23 @@
   --internal-border-strong: rgba(242, 238, 233, 0.16);
 
   --coin-group: #a8aeb8;
-  --coin-pe: #c9a95f;
+  --coin-pe: #d4af37; /* CORRECTED 2026-08: era #c9a95f (oro de modo claro); el real de página (data-theme="dark") es #D4AF37 */
   --coin-synergi: #8c5ab4;
   --coin-data-lab: #2da078;
   --coin-nexus: #d4af37;
   --coin-content: #c07860;
-  --coin-advisor: #7ec6c0;
-  --coin-talent: #6ca8e0;
-  --coin-impulso: #e07a3c;
-  --coin-command: #c24a4a;
+  --coin-advisor: #1dab89; /* CORRECTED 2026-08: era #7ec6c0, verificado #1DAB89 en globals.css real */
+  --coin-talent: #6ca8e0; /* PAUSED — ver nota en src/themes/product.css */
+  --coin-impulso: #ff6a00; /* CORRECTED 2026-08: era #e07a3c, confirmado por comentario en código real */
+  --coin-command: #6c63ff; /* CORRECTED 2026-08: era #c24a4a (rojo, sin relación con el repo real). Verificado #6C63FF en src/index.css:--accent */
+  --coin-command-2: #5fa8ff; /* NUEVO 2026-08: --secondary real del repo, usado como acento complementario */
+
+  /* NUEVO 2026-08: apps añadidas tras verificación contra sus repos reales */
+  --coin-fiscal: #d7a957;
+  --coin-visionflow: #5c70d8;
+  --coin-energyscan: #00dc82;
+  --coin-syncxml: #bfa46a;
+  --coin-filestudio: #4fb3bf; /* sin matiz de marca propio en el repo real — elegido solo para diferenciación de wayfinding */
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;

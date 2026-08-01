@@ -2,18 +2,24 @@
    THEME SCOPES
    ========================================================= */
 
+/* CORRECTED 2026-08: los valores anteriores (#0d1b1a/#102423/#c9a95f) correspondían
+   a --pe-deep-*, una variante secundaria para gradientes de sección en el repo real
+   (anclora-private-estates), no al fondo de página. body{background:var(--pe-bg)}
+   confirma el esquema real: teal-navy con oro de modo oscuro (#D4AF37, no #C9A95F,
+   que es el oro de modo claro — la app fuerza data-theme="dark" por defecto). */
 .product-anclora-private-estates,
+.product-anclora-private-estates-landing,
 .anclora-pe {
-  --bg: #0d1b1a;
-  --bg-raised: #102423;
-  --bg-strong: #14302f;
-  --fg1: #f7f4ee;
-  --fg2: rgba(247, 244, 238, 0.82);
-  --fg3: #c9a95f;
+  --bg: #07252f;
+  --bg-raised: #0b313f;
+  --bg-strong: #124a50;
+  --fg1: #f5f5f0;
+  --fg2: rgba(245, 245, 240, 0.72);
+  --fg3: #d4af37;
   --accent: var(--coin-pe);
   --border: rgba(212, 175, 55, 0.18);
-  --line-soft: rgba(252, 246, 186, 0.06);
-  --line-strong: rgba(212, 175, 55, 0.32);
+  --line-soft: rgba(212, 175, 55, 0.12);
+  --line-strong: rgba(212, 175, 55, 0.3);
   font-family: var(--font-sans);
 }
 
@@ -62,7 +68,18 @@
   font-family: var(--font-saas);
 }
 
+/* NOTA 2026-08: anclora-azure-bay-landing-page usa el lockup de Private
+   Estates en su navbar (marca corporativa que firma el sitio) pero tiene
+   su propio logo de proyecto ("Azure Bay", bronce/caqui #A29060) en el
+   hero — confirmado en su código real. Decisión del cliente: el icono del
+   design system se queda como el lockup de Private Estates (representa
+   correctamente el navbar), el acento se queda en el genérico de
+   portfolio (es una pieza de portfolio/demo, no el producto en sí). */
 .product-anclora-portfolio,
+.product-anclora-portfolio-showcase,
+.product-anclora-azure-bay-landing-page,
+.product-anclora-fiscal-showcase,
+.product-anclora-group-landing,
 .anclora-portfolio {
   --bg: var(--portfolio-ivory);
   --bg-raised: var(--portfolio-cream);
@@ -172,6 +189,10 @@
   --motion-hover-lift-frame: -2px;
 }
 
+/* STATUS: paused — fuera del alcance activo del ecosistema desde 2026-08.
+   Se conserva el tema para no romper el único consumidor histórico validado
+   (ver docs/validated-consumers-matrix.md), pero no recibe nuevas correcciones
+   ni se incluye en el roadmap de tokens hasta reactivación. */
 .product-anclora-talent {
   --bg: #121a27;
   --bg-raised: #172133;
@@ -186,6 +207,8 @@
   font-family: var(--font-internal);
 }
 
+/* CORRECTED 2026-08: #FF6A00 confirmado por comentario explícito en el código
+   fuente real (app/globals.css, comentario "Accent Orange #FF6A00"). */
 .product-anclora-impulso {
   --bg: #1d130d;
   --bg-raised: #281910;
@@ -200,16 +223,125 @@
   font-family: var(--font-internal);
 }
 
+/* CORRECTED 2026-08: era #110d12/#1a121a/#241722 con acento rojo #c24a4a,
+   sin relación con el repo real. Verificado en src/index.css: fondo
+   púrpura-navy, acento violeta #6C63FF + secundario azul #5FA8FF. */
 .product-anclora-command-center {
-  --bg: #110d12;
-  --bg-raised: #1a121a;
-  --bg-strong: #241722;
-  --fg1: #f6eef2;
-  --fg2: rgba(246, 238, 242, 0.72);
-  --fg3: #e58a94;
+  --bg: #121021;
+  --bg-raised: #1e1a2e;
+  --bg-strong: #29244a;
+  --fg1: #eae8f5;
+  --fg2: rgba(199, 194, 234, 0.82);
+  --fg3: #8a7cff;
   --accent: var(--coin-command);
-  --border: rgba(194, 74, 74, 0.2);
-  --line-soft: rgba(246, 238, 242, 0.06);
-  --line-strong: rgba(194, 74, 74, 0.34);
+  --border: rgba(138, 124, 255, 0.2);
+  --line-soft: rgba(138, 124, 255, 0.12);
+  --line-strong: rgba(138, 124, 255, 0.34);
+  font-family: var(--font-internal);
+}
+
+/* =========================================================
+   NUEVAS APPS 2026-08 — verificadas contra su repo real
+   (código fuente, no supuestos) durante la sesión de
+   auditoría de fidelidad de tokens.
+   ========================================================= */
+
+.product-anclora-advisor-ai,
+.anclora-advisor-ai {
+  --bg: #162944;
+  --bg-raised: #1c2b3c;
+  --bg-strong: #132133;
+  --fg1: #ecf2fb;
+  --fg2: rgba(191, 208, 231, 0.82);
+  --fg3: #a1dbc6;
+  --accent: var(--coin-advisor);
+  --border: rgba(161, 219, 198, 0.18);
+  --line-soft: rgba(161, 219, 198, 0.12);
+  --line-strong: rgba(161, 219, 198, 0.3);
+  font-family: var(--font-internal);
+}
+
+.product-anclora-fiscal,
+.anclora-fiscal {
+  --bg: #070c13;
+  --bg-raised: #0c1624;
+  --bg-strong: #152437;
+  --fg1: #f5efe3;
+  --fg2: rgba(245, 239, 227, 0.62);
+  --fg3: #d7a957;
+  --accent: var(--coin-fiscal);
+  --border: rgba(215, 169, 87, 0.18);
+  --line-soft: rgba(215, 169, 87, 0.12);
+  --line-strong: rgba(215, 169, 87, 0.3);
+  font-family: var(--font-internal);
+}
+
+.product-anclora-visionflow,
+.anclora-visionflow {
+  --bg: #0f1520;
+  --bg-raised: #192640;
+  --bg-strong: #1f2e4c;
+  --fg1: #edf1fb;
+  --fg2: rgba(237, 241, 251, 0.72);
+  --fg3: #a0aaec;
+  --accent: var(--coin-visionflow);
+  --border: rgba(92, 112, 216, 0.2);
+  --line-soft: rgba(92, 112, 216, 0.12);
+  --line-strong: rgba(92, 112, 216, 0.32);
+  font-family: var(--font-internal);
+}
+
+.product-anclora-filestudio,
+.anclora-filestudio {
+  /* El repo real no define matiz de marca propio (paleta shadcn gris,
+     zero chroma) — fondo/texto tomados de los tonos neutros reales;
+     el acento existe solo para diferenciación de wayfinding. */
+  --bg: #0d0f12;
+  --bg-raised: #1a1e25;
+  --bg-strong: #22272f;
+  --fg1: #f4f1ea;
+  --fg2: rgba(244, 241, 234, 0.72);
+  --fg3: #79c6cf;
+  --accent: var(--coin-filestudio);
+  --border: rgba(79, 179, 191, 0.2);
+  --line-soft: rgba(79, 179, 191, 0.12);
+  --line-strong: rgba(79, 179, 191, 0.32);
+  font-family: var(--font-internal);
+}
+
+.product-anclora-energyscan,
+.product-anclora-energyscan-showcase,
+.anclora-energyscan {
+  /* energyscan-showcase comparte el tema completo (no solo el logo):
+     es el propio producto en fase mvp-functional mostrándose, no una
+     pieza de portfolio — decisión explícita del cliente 2026-08. */
+  --bg: #0a0a0a;
+  --bg-raised: #131313;
+  --bg-strong: #262626;
+  --fg1: #f0ede8;
+  --fg2: rgba(240, 237, 232, 0.72);
+  --fg3: #00dc82;
+  --accent: var(--coin-energyscan);
+  --border: rgba(0, 220, 130, 0.2);
+  --line-soft: rgba(0, 220, 130, 0.12);
+  --line-strong: rgba(0, 220, 130, 0.32);
+  font-family: var(--font-internal);
+}
+
+.product-anclora-syncxml,
+.product-anclora-syncxml-showcase,
+.anclora-syncxml {
+  /* syncxml-showcase comparte el tema completo por el mismo motivo:
+     producto real en fase pre-mvp, no pieza de portfolio. */
+  --bg: #070a12;
+  --bg-raised: #101827;
+  --bg-strong: #151f32;
+  --fg1: #f8fafc;
+  --fg2: rgba(248, 250, 252, 0.72);
+  --fg3: #bfa46a;
+  --accent: var(--coin-syncxml);
+  --border: rgba(191, 164, 106, 0.2);
+  --line-soft: rgba(191, 164, 106, 0.12);
+  --line-strong: rgba(191, 164, 106, 0.3);
   font-family: var(--font-internal);
 }
