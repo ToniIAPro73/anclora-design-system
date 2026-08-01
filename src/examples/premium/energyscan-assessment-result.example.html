@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Premium Example · EnergyScan Assessment Result</title>
+    <link rel="stylesheet" href="../../system.css" />
+    <style>
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #0a0a0a 0%, #131313 100%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+
+      .page {
+        padding: 24px 0 40px;
+      }
+
+      .layout {
+        display: grid;
+        gap: 18px;
+      }
+
+      .toolbar,
+      .panel {
+        padding: 18px;
+      }
+
+      .result-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.4fr;
+        gap: 18px;
+      }
+
+      .letter-badge {
+        width: 84px;
+        height: 84px;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.2rem;
+        font-weight: 800;
+        background: rgba(255, 176, 32, 0.14);
+        color: #ffb020;
+        border: 1px solid rgba(255, 176, 32, 0.3);
+      }
+
+      .findings {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      @media (max-width: 900px) {
+        .result-grid,
+        .findings {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page product-anclora-energyscan tier-premium domain-real-estate archetype-app role-consumer cluster-activation">
+      <div class="shell-frame layout">
+        <header class="shell-topbar toolbar">
+          <div class="cluster">
+            <span class="theme-chip">Premium</span>
+            <span class="status-badge is-success">Prediagnóstico gratuito listo</span>
+          </div>
+          <div class="cluster">
+            <button class="btn btn-ghost">Volver al dashboard</button>
+          </div>
+        </header>
+
+        <section class="surface-panel panel stack">
+          <div class="stack" style="--stack-gap: 8px;">
+            <span class="field-label">Example</span>
+            <h1 style="margin: 0; font-size: 1.55rem;">Resultado del prediagnóstico energético</h1>
+            <p style="margin: 0; color: var(--text-secondary);">
+              Este example replica la pantalla real de resultados (`assessment/[id]`, 974 líneas en el repo fuente): letra energética, veredicto de viabilidad de reforma y trazabilidad de datos. Los valores concretos son ilustrativos.
+            </p>
+          </div>
+
+          <div class="result-grid">
+            <article class="surface-frame stack" style="align-items: center; flex-direction: row; display: flex; gap: 16px;">
+              <div class="letter-badge">D</div>
+              <div class="stack" style="--stack-gap: 4px;">
+                <span style="font-size: 0.85rem; color: var(--text-secondary);">Score: 58 / 100</span>
+                <span style="font-size: 0.85rem; color: var(--text-secondary);">Zona climática: C2 · Confianza: Media</span>
+              </div>
+            </article>
+            <article class="surface-frame stack">
+              <span class="field-label">Trazabilidad</span>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">
+                Superficie 142 m² · Año construcción 1998 · Sistema calefacción gas natural · Aislamiento bajo
+              </p>
+            </article>
+          </div>
+
+          <div class="findings">
+            <article class="surface-frame stack">
+              <div class="cluster" style="justify-content: space-between;">
+                <span class="field-label">Fortalezas</span>
+                <span class="status-badge is-success">2</span>
+              </div>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">
+                Ventanas de alta eficiencia (triple vidrio) · Sistema de calefacción reciente con buen rendimiento
+              </p>
+            </article>
+            <article class="surface-frame stack">
+              <div class="cluster" style="justify-content: space-between;">
+                <span class="field-label">Debilidades</span>
+                <span class="status-badge is-warning">2</span>
+              </div>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.9rem;">
+                Aislamiento de cubierta insuficiente · Sin sistema de energía renovable instalado
+              </p>
+            </article>
+          </div>
+
+          <article class="surface-frame job-card stack">
+            <span class="field-label">Siguiente paso</span>
+            <strong style="font-size: 1.1rem;">Desbloquea el informe Premium</strong>
+            <p style="margin: 0; color: var(--text-secondary);">
+              Escenarios de mejora, costes estimados, ayudas disponibles y PDF descargable.
+            </p>
+            <div class="cluster">
+              <button class="btn btn-primary">Ver informe Premium</button>
+              <button class="btn btn-ghost">Revisar presupuesto</button>
+            </div>
+          </article>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Internal Example · Fiscal Compliance Console</title>
+    <link rel="stylesheet" href="../../system.css" />
+    <style>
+      body {
+        margin: 0;
+        background: linear-gradient(180deg, #070c13 0%, #0c1624 100%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+
+      .page {
+        padding: 24px 0 40px;
+      }
+
+      .layout {
+        display: grid;
+        gap: 18px;
+      }
+
+      .toolbar,
+      .panel {
+        padding: 18px;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .stat-card {
+        padding: 16px;
+      }
+
+      @media (max-width: 900px) {
+        .stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page product-anclora-fiscal tier-internal domain-cross-domain archetype-workspace role-operator cluster-core">
+      <div class="shell-frame layout">
+        <header class="shell-topbar toolbar">
+          <div class="cluster">
+            <span class="theme-chip">Internal</span>
+            <span class="status-badge is-warning">Integrity alert</span>
+          </div>
+          <div class="cluster">
+            <button class="btn btn-secondary">Ver conciliación</button>
+            <button class="btn btn-primary">Nueva importación</button>
+          </div>
+        </header>
+
+        <section class="surface-panel panel stack">
+          <div class="stack" style="--stack-gap: 8px;">
+            <span class="field-label">Example</span>
+            <h1 style="margin: 0; font-size: 1.55rem;">Centro de control — VERI*FACTU</h1>
+            <p style="margin: 0; color: var(--text-secondary);">
+              Este example usa el patron `WorkspaceShell` con navegación agrupada real (Operaciones / Cumplimiento / Gestión, ver `app/lib/navigation.ts` del repo fuente), pero la cola de submissions y las cifras de salud fiscal son ilustrativas.
+            </p>
+          </div>
+
+          <div class="stats">
+            <article class="surface-frame stat-card stack">
+              <span class="field-label">Cola VERI*FACTU</span>
+              <strong style="font-size: 1.4rem;">14</strong>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">Submissions pendientes</p>
+            </article>
+            <article class="surface-frame stat-card stack">
+              <span class="field-label">Facturas sin huella</span>
+              <strong style="font-size: 1.4rem;">6</strong>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">Requieren intervención</p>
+            </article>
+            <article class="surface-frame stat-card stack">
+              <span class="field-label">Bloqueos y rechazos</span>
+              <strong style="font-size: 1.4rem;">2</strong>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">Operaciones bloqueadas</p>
+            </article>
+            <article class="surface-frame stat-card stack">
+              <span class="field-label">Conciliación incompleta</span>
+              <strong style="font-size: 1.4rem;">9</strong>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem;">Pendiente de cruce</p>
+            </article>
+          </div>
+
+          <article class="surface-frame job-card stack">
+            <span class="field-label">Alerta de integridad</span>
+            <strong style="font-size: 1.1rem;">6 facturas sin huella de encadenamiento</strong>
+            <p style="margin: 0; color: var(--text-secondary);">
+              Conforme al artículo 13 de la Orden HAC/1177/2024. Revisa la cola VERI*FACTU antes del próximo cierre.
+            </p>
+            <div class="cluster">
+              <span class="status-badge is-warning">Requiere revisión</span>
+              <button class="btn btn-ghost">Abrir VERI*FACTU</button>
+            </div>
+          </article>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
