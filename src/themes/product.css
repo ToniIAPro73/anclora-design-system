@@ -379,3 +379,23 @@
   --line-strong: rgba(191, 164, 106, 0.3);
   font-family: var(--font-internal);
 }
+
+.product-anclora-linguocam,
+.anclora-linguo-cam {
+  /* Incorporada al ecosistema gobernado 2026-08-02 (antes "Independent
+     Product"). Acento lima #59B635 (hue 103°) asignado en esa fecha —
+     resuelve la colisión exacta con advisor-ai (#1DAB89, hue 162°):
+     coincidencia no deliberada confirmada por el cliente; advisor
+     conserva el teal. Fondos/textos = valores reales de index.css. */
+  --bg: #101e30;
+  --bg-raised: #152438;
+  --bg-strong: #1a2c42;
+  --fg1: #ecf2fb;
+  --fg2: rgba(191, 208, 231, 0.82);
+  --fg3: #59b635;
+  --accent: var(--coin-linguocam);
+  --border: rgba(89, 182, 53, 0.18);
+  --line-soft: rgba(89, 182, 53, 0.12);
+  --line-strong: rgba(89, 182, 53, 0.3);
+  font-family: var(--font-internal);
+}

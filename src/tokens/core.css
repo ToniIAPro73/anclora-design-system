@@ -76,6 +76,7 @@
   --coin-energyscan: #00dc82;
   --coin-syncxml: #bfa46a;
   --coin-filestudio: #4fb3bf; /* sin matiz de marca propio en el repo real — elegido solo para diferenciación de wayfinding */
+  --coin-linguocam: #59b635; /* NUEVO 2026-08-02: acento asignado al incorporar la app al ecosistema gobernado. Hue 103° (lima), derivado de las ondas del icono canónico; sustituye al #1DAB89 que colisionaba byte a byte con advisor-ai (coincidencia no deliberada, confirmada por el cliente — advisor conserva el teal) */
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
