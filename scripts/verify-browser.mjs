@@ -10,7 +10,9 @@ const modeArg = process.argv.find((arg) => arg.startsWith("--mode="));
 const mode = modeArg ? modeArg.slice("--mode=".length) : "smoke";
 
 const viewports = [
-  { name: "desktop", width: 1440, height: 1200 },
+  { name: "desktop-1440", width: 1440, height: 1200 },
+  { name: "desktop-1360", width: 1360, height: 1100 },
+  { name: "tablet-834", width: 834, height: 1112 },
   { name: "mobile", width: 430, height: 932, isMobile: true },
 ];
 
@@ -40,11 +42,24 @@ const pages = [
     route: "/preview/localization-fixtures.html",
     readySelector: "[data-localization-fixtures]",
   },
+  {
+    id: "detail-modal",
+    route: "/preview/detail-modal.html",
+    readySelector: "[data-detail-modal-fixtures]",
+  },
 ];
 
 const a11yPages = pages.filter((page) =>
-  new Set(["docs-home", "taxonomy-contracts", "components-canonical", "localization-fixtures"]).has(page.id)
+  new Set([
+    "docs-home",
+    "taxonomy-contracts",
+    "components-canonical",
+    "localization-fixtures",
+    "detail-modal",
+  ]).has(page.id)
 );
+
+const modalSlots = ["fixture-compact", "fixture-medium", "fixture-wide", "fixture-large", "fixture-confirmation"];
 
 const a11yRules = [
   "document-title",
@@ -141,7 +156,49 @@ async function openPreview(page, origin, preview, viewport) {
   await page.waitForSelector(preview.readySelector);
 }
 
+async function checkModalViewportSafety(page, viewport) {
+  const failures = [];
+
+  for (const slotId of modalSlots) {
+    const result = await page.evaluate(
+      ({ slotId, viewportWidth }) => {
+        const slot = document.getElementById(slotId);
+        const modal = slot?.querySelector(".ac-modal");
+        if (!modal) return { missing: true };
+
+        const box = modal.getBoundingClientRect();
+        const backdropBox = slot.querySelector(".ac-modal-backdrop").getBoundingClientRect();
+        const centerDelta = Math.abs(
+          box.left + box.width / 2 - (backdropBox.left + backdropBox.width / 2)
+        );
+
+        return {
+          missing: false,
+          clipsHorizontally: document.documentElement.scrollWidth > viewportWidth + 1,
+          offCenter: centerDelta > 2,
+          exceedsMaxHeight: modal.classList.contains("ac-modal--detail")
+            ? box.height > window.innerHeight - 64 + 1
+            : false,
+        };
+      },
+      { slotId, viewportWidth: viewport.width }
+    );
+
+    if (result.missing) {
+      failures.push(`${slotId}: modal element not found`);
+      continue;
+    }
+    if (result.clipsHorizontally) failures.push(`${slotId}: horizontal clipping at ${viewport.name}`);
+    if (result.offCenter) failures.push(`${slotId}: not horizontally centered at ${viewport.name}`);
+    if (result.exceedsMaxHeight) failures.push(`${slotId}: exceeds viewport-safe max-height at ${viewport.name}`);
+  }
+
+  return failures;
+}
+
 async function runSmoke(browser, origin) {
+  const modalFailures = [];
+
   for (const viewport of viewports) {
     const context = await browser.newContext({
       viewport: { width: viewport.width, height: viewport.height },
@@ -153,9 +210,19 @@ async function runSmoke(browser, origin) {
     for (const preview of pages) {
       await openPreview(page, origin, preview, viewport);
       console.log(`Smoke ok: ${preview.id} (${viewport.name})`);
+
+      if (preview.id === "detail-modal") {
+        modalFailures.push(...(await checkModalViewportSafety(page, viewport)));
+      }
     }
 
     await context.close();
+  }
+
+  if (modalFailures.length > 0) {
+    console.error("Detail modal viewport-safety verification failed:");
+    for (const failure of modalFailures) console.error(`- ${failure}`);
+    process.exit(1);
   }
 }
 

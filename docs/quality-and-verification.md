@@ -30,8 +30,9 @@ La prioridad no es montar una infraestructura pesada, sino cubrir los riesgos re
 
 `npm run verify:browser`
 - abre previews críticas en un navegador real con Playwright
-- valida desktop y mobile
+- valida desktop (1440, 1360), tablet (834) y mobile (430)
 - detecta roturas de carga, CSS o selectores principales
+- valida `preview/detail-modal.html`: centrado, ausencia de scroll horizontal y respeto del max-height viewport-safe en las 4 escalas de tamaño más el diálogo de confirmación
 
 `npm run verify:package`
 - ejecuta `npm pack --dry-run`
@@ -107,3 +108,26 @@ Previews mínimas para este gate:
 - `preview/localization-fixtures.html`
 
 Si una fase no pasa esta revisión visual, no debe darse por válida aunque `npm run verify` sea correcto.
+
+## CI (GitHub Actions)
+
+`npm run verify` corre en `.github/workflows/ci.yml` en cada push/PR sobre `development` y `main`.
+
+El runner instala `npx playwright install --with-deps chromium` (solo Chromium, no la matriz completa de browsers) antes de `verify:browser`/`verify:a11y`, porque ambos scripts dependen de un Chromium real.
+
+## Detail modal — MODAL vs DRAWER vs CONFIRMATION DIALOG
+
+- **MODAL** (`.ac-modal.ac-modal--detail`): detalle de entidad centrado y enfocado. Usa una de las 4 clases de tamaño.
+- **DRAWER**: UI lateral persistente y contextual (componente separado, no comparte el shell centrado del modal).
+- **CONFIRMATION DIALOG** (`.ac-modal` sin `--detail` ni clase de tamaño): shell base, decisión pequeña (ver slot `fixture-confirmation` en `preview/detail-modal.html`).
+
+Escala determinista de tamaño (`.ac-modal--compact|medium|wide|large`), nunca px arbitrarios por entidad:
+
+- `COMPACT` — decisiones de una sola entidad, contenido mínimo
+- `MEDIUM` — detalle estándar, 2–3 bloques de contenido
+- `WIDE` — metadatos adicionales o comparación lateral de campos
+- `LARGE` — expedientes/casos con historial largo; ejercita el scroll interno del body (ver slot `fixture-large`)
+
+Política de scroll: **sin scroll innecesario**, no **sin scroll a cualquier costo**. `.ac-modal--detail` fija header y footer y deja `.ac-modal__body` como única región con `overflow-y: auto`, activada solo cuando el contenido excede `max-height: calc(100vh - 64px)`.
+
+Fixtures deterministas para las 4 escalas más el confirmation dialog viven en `preview/detail-modal.html` y se validan en `verify:browser` (viewport-safety) y `verify:a11y` (semántica `role="dialog"`/`aria-modal`, labels accesibles).

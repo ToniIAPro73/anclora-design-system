@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anclora Detail Modal Fixtures</title>
+    <link rel="stylesheet" href="../src/system.css" />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at top left, rgba(201, 169, 95, 0.12), transparent 26%),
+          linear-gradient(180deg, #0a1119 0%, #101926 100%);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+      }
+
+      .fixture-shell {
+        width: min(1320px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 38px 0 88px;
+        display: grid;
+        gap: 32px;
+      }
+
+      .fixture-slot {
+        display: grid;
+        gap: 12px;
+      }
+
+      .fixture-slot__label {
+        color: var(--text-eyebrow);
+        font-size: 0.66rem;
+        font-weight: 700;
+        letter-spacing: var(--track-eyebrow);
+        text-transform: uppercase;
+      }
+
+      .ac-modal-backdrop {
+        min-height: 0;
+        padding: 24px;
+      }
+
+      .fixture-long-body p {
+        margin: 0 0 var(--space-3);
+        color: var(--text-secondary);
+        line-height: 1.65;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="fixture-shell" data-detail-modal-fixtures>
+      <section class="ac-surface-panel stack">
+        <div class="eyebrow">Detail modal fixtures</div>
+        <h1 class="h1">Escala determinista COMPACT / MEDIUM / WIDE / LARGE, más el diálogo de confirmación base.</h1>
+        <p class="p-lead">
+          Cada bloque renderiza un estado abierto y estático del modal para validar centrado, viewport-safety,
+          ausencia de scroll horizontal y máxima altura sin depender de interacción JS.
+        </p>
+      </section>
+
+      <div class="fixture-slot" id="fixture-compact">
+        <p class="fixture-slot__label">Compact</p>
+        <div class="ac-modal-backdrop">
+          <div class="ac-modal ac-modal--detail ac-modal--compact" role="dialog" aria-modal="true" aria-labelledby="compact-title">
+            <header class="ac-modal__header">
+              <p class="ac-modal__meta">Confirmación de tarea</p>
+              <h2 class="ac-modal__title" id="compact-title">Aprobar solicitud de acceso</h2>
+            </header>
+            <div class="ac-modal__body">
+              <p class="ac-modal__summary">Vista compacta para decisiones rápidas de una sola entidad, sin tabla ni detalle extendido.</p>
+            </div>
+            <footer class="ac-modal__footer">
+              <button class="ac-button ac-button--ghost" type="button"><span class="ac-button__label">Cancelar</span></button>
+              <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Aprobar</span></button>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <div class="fixture-slot" id="fixture-medium">
+        <p class="fixture-slot__label">Medium</p>
+        <div class="ac-modal-backdrop">
+          <div class="ac-modal ac-modal--detail ac-modal--medium" role="dialog" aria-modal="true" aria-labelledby="medium-title">
+            <header class="ac-modal__header">
+              <p class="ac-modal__meta">Detalle de entidad</p>
+              <h2 class="ac-modal__title" id="medium-title">Cliente — Anclora Filestudio</h2>
+            </header>
+            <div class="ac-modal__body">
+              <p class="ac-modal__summary">Detalle centrado estándar: resumen, estado y campos principales de una entidad sin anexos extensos.</p>
+              <p class="ac-modal__summary">Suficiente espacio para dos o tres bloques de contenido antes de requerir scroll.</p>
+            </div>
+            <footer class="ac-modal__footer">
+              <button class="ac-button ac-button--ghost" type="button"><span class="ac-button__label">Cerrar</span></button>
+              <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Guardar cambios</span></button>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <div class="fixture-slot" id="fixture-wide">
+        <p class="fixture-slot__label">Wide</p>
+        <div class="ac-modal-backdrop">
+          <div class="ac-modal ac-modal--detail ac-modal--wide" role="dialog" aria-modal="true" aria-labelledby="wide-title">
+            <header class="ac-modal__header">
+              <p class="ac-modal__meta">Detalle de entidad</p>
+              <h2 class="ac-modal__title" id="wide-title">Expediente — Anclora Impulso</h2>
+            </header>
+            <div class="ac-modal__body">
+              <p class="ac-modal__summary">Vista ancha para entidades con más columnas de metadatos o comparación lateral de campos.</p>
+              <p class="ac-modal__summary">Debe seguir centrada y sin clipping horizontal en desktop 1360/1440 y en tablet 834.</p>
+            </div>
+            <footer class="ac-modal__footer">
+              <button class="ac-button ac-button--ghost" type="button"><span class="ac-button__label">Cerrar</span></button>
+              <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Continuar</span></button>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <div class="fixture-slot" id="fixture-large">
+        <p class="fixture-slot__label">Large</p>
+        <div class="ac-modal-backdrop">
+          <div class="ac-modal ac-modal--detail ac-modal--large" role="dialog" aria-modal="true" aria-labelledby="large-title">
+            <header class="ac-modal__header">
+              <p class="ac-modal__meta">Detalle de entidad extenso</p>
+              <h2 class="ac-modal__title" id="large-title">Caso — Anclora Nexus (registro con historial largo)</h2>
+            </header>
+            <div class="ac-modal__body fixture-long-body">
+              <p>Bloque de contenido 1: resumen ejecutivo del caso, participantes y estado actual del flujo.</p>
+              <p>Bloque de contenido 2: historial de interacciones, notas de seguimiento y próximos pasos acordados.</p>
+              <p>Bloque de contenido 3: métricas asociadas y comparación contra el periodo anterior.</p>
+              <p>Bloque de contenido 4: documentos y referencias vinculadas al expediente.</p>
+              <p>Bloque de contenido 5: contenido adicional para forzar scroll interno del body cuando el viewport es limitado, sin desplazar el header ni el footer.</p>
+              <p>Bloque de contenido 6: cierre y validaciones pendientes antes de avanzar el caso.</p>
+            </div>
+            <footer class="ac-modal__footer">
+              <button class="ac-button ac-button--ghost" type="button"><span class="ac-button__label">Cerrar</span></button>
+              <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Marcar como resuelto</span></button>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <div class="fixture-slot" id="fixture-confirmation">
+        <p class="fixture-slot__label">Confirmation dialog (base shell)</p>
+        <div class="ac-modal-backdrop">
+          <div class="ac-modal" role="alertdialog" aria-modal="true" aria-labelledby="confirmation-title">
+            <header class="ac-modal__header">
+              <p class="ac-modal__meta">Acción irreversible</p>
+              <h2 class="ac-modal__title" id="confirmation-title">Eliminar integración</h2>
+            </header>
+            <div class="ac-modal__body">
+              <p class="ac-modal__summary">Diálogo de decisión pequeño: shell base sin clase de tamaño, sin arquitectura de scroll interno.</p>
+            </div>
+            <footer class="ac-modal__footer">
+              <button class="ac-button ac-button--ghost" type="button"><span class="ac-button__label">Cancelar</span></button>
+              <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Eliminar</span></button>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
