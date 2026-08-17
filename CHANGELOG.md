@@ -2,6 +2,16 @@
 
 Todas las versiones del design system se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
+## [0.4.0] — 2026-08
+
+### Añadido — modal de detalle adaptativo (`modal.css`)
+
+`ac-modal` gana un sistema determinista de tamaño y arquitectura de scroll para overlays de detalle centrados (COMMAND_CENTER_ADAPTIVE_DETAIL_MODALS):
+
+- Variante `--detail`: shell grid `auto / minmax(0,1fr) / auto`, `max-height: calc(100vh - 64px)`, `overflow: hidden` en el shell y `overflow-y: auto` + `overscroll-behavior: contain` en el body — header/body/footer con scroll solo en el body. Animación sutil de entrada (fade + scale) con `prefers-reduced-motion: reduce` respetado.
+- Clases de tamaño `--compact | --medium | --wide | --large`: `clamp()` con preferencia en vw y máximos por clase; breakpoint `max-width: 1100px` que entrega la mayor parte del viewport al modal en tablet/pequeño. Viewport-safe siempre (el ancho nunca excede `calc(100vw - 48px)` vía `width: min(...)`).
+- La base `ac-modal` (720px) queda intacta: los diálogos de confirmación existentes no cambian. El patrón es opt-in, solo para detail overlays.
+
 ## [0.3.1] — 2026-08
 
 ### Añadido — `components/status-badge.css` (`.ac-status-badge`)
