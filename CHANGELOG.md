@@ -2,6 +2,11 @@
 
 Todas las versiones del design system se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
+## [0.3.1] — 2026-08
+
+### Añadido — `components/status-badge.css` (`.ac-status-badge`)
+Promovido desde `anclora-command-center` (era `src/ui/status-badge.css` local, sin variante canónica `ac-*` disponible — el `.status-badge` de `foundations/primitives.css` pertenece a la capa legacy pre-`ac-` y colisiona con `.btn`/`.ac-button`, no es reutilizable). Seis tonos semánticos genéricos (`success | warning | danger | info | neutral | muted`), compuesto solo con tokens de `tokens/semantic.css` — sin paleta nueva. Registrado en `package.json#exports`, `design-system.manifest.json` y `components/index.css`.
+
 ## [0.3.0] — 2026-08
 
 ### ⚠️ Breaking — `anclora-group-landing` cambia de identidad completa

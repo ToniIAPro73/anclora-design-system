@@ -1,6 +1,6 @@
 {
   "name": "@anclora/design-system",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
   "description": "Executable brand and UI system for the Anclora ecosystem.",
   "license": "UNLICENSED",
@@ -50,6 +50,7 @@
     "./components/subnav.css": "./src/components/subnav.css",
     "./components/stat-strip.css": "./src/components/stat-strip.css",
     "./components/data-table.css": "./src/components/data-table.css",
+    "./components/status-badge.css": "./src/components/status-badge.css",
     "./components/empty-state.css": "./src/components/empty-state.css",
     "./components/toast.css": "./src/components/toast.css",
     "./components/modal.css": "./src/components/modal.css",

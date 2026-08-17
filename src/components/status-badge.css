@@ -1,0 +1,49 @@
+/* Canonical status badge: generic semantic tone, never domain vocabulary in
+   the class name. Consumers map their own state enums to one of these tones
+   (success | warning | danger | info | neutral | muted) — never invent a
+   parallel color per domain state (e.g. no --color-<app>-running). */
+
+.ac-status-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: var(--track-button, 0.05em);
+  padding: 0.15rem 0.6rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ac-status-badge--success {
+  color: var(--status-success-text);
+  background: var(--status-success-surface);
+}
+
+.ac-status-badge--warning {
+  color: var(--status-warning-text);
+  background: var(--status-warning-surface);
+}
+
+.ac-status-badge--danger {
+  color: var(--status-danger-text);
+  background: var(--status-danger-surface);
+}
+
+.ac-status-badge--info {
+  color: var(--status-review-text);
+  background: var(--status-review-surface);
+}
+
+.ac-status-badge--neutral {
+  color: var(--text-secondary);
+  background: transparent;
+  border-color: var(--border-default);
+}
+
+.ac-status-badge--muted {
+  color: var(--text-muted);
+  background: transparent;
+  border-color: var(--border-subtle);
+}

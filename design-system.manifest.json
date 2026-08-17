@@ -1,6 +1,6 @@
 {
   "name": "@anclora/design-system",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "entrypoints": {
     "system": "./src/system.css",
     "legacy": "./colors_and_type.css",
@@ -41,6 +41,7 @@
       "subnav": "./src/components/subnav.css",
       "statStrip": "./src/components/stat-strip.css",
       "dataTable": "./src/components/data-table.css",
+      "statusBadge": "./src/components/status-badge.css",
       "emptyState": "./src/components/empty-state.css",
       "toast": "./src/components/toast.css",
       "modal": "./src/components/modal.css",
