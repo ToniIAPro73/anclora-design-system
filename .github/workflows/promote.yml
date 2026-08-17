@@ -32,6 +32,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: actions/setup-node@v4
+        if: inputs.target == 'main'
+        with:
+          node-version: 22
+          cache: npm
+
       - name: Resolve source branch
         id: source
         run: |
@@ -71,3 +77,13 @@ jobs:
 
       - name: Fast-forward target ref
         run: git push origin "$source:refs/heads/${{ inputs.target }}"
+
+      # A GITHUB_TOKEN push does not re-trigger other workflows' `push`
+      # events (GitHub's own loop prevention), so main's lightweight
+      # integrity gate (main-baseline.yml) would otherwise never run.
+      - name: Main baseline integrity (only when promoting to main)
+        if: inputs.target == 'main'
+        run: |
+          npm ci
+          npm run verify:manifest
+          npm run verify:package
