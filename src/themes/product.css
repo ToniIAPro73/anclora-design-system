@@ -362,18 +362,21 @@
   font-family: var(--font-internal);
 }
 
-.product-anclora-syncxml,
+.product-anclora-guesthub,
+.product-anclora-syncxml, /* DEPRECATED legacy alias — removal pending consumer cutover */
 .product-anclora-syncxml-showcase,
 .anclora-syncxml {
   /* syncxml-showcase comparte el tema completo por el mismo motivo:
-     producto real en fase pre-mvp, no pieza de portfolio. */
+     producto real en fase pre-mvp, no pieza de portfolio.
+     RENAMED 2026-09-01: Anclora SyncXML → Anclora GuestHub; los selectores
+     legacy `*-syncxml` se mantienen como alias durante una release. */
   --bg: #070a12;
   --bg-raised: #101827;
   --bg-strong: #151f32;
   --fg1: #f8fafc;
   --fg2: rgba(248, 250, 252, 0.72);
   --fg3: #bfa46a;
-  --accent: var(--coin-syncxml);
+  --accent: var(--coin-guesthub);
   --border: rgba(191, 164, 106, 0.2);
   --line-soft: rgba(191, 164, 106, 0.12);
   --line-strong: rgba(191, 164, 106, 0.3);

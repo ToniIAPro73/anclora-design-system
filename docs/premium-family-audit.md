@@ -1,5 +1,7 @@
 # Premium Family Audit
 
+> **Supersedido 2026-09-01:** `anclora-syncxml` pasa a llamarse `anclora-guesthub` (Anclora SyncXML → Anclora GuestHub). Las menciones a `syncxml` en este documento son históricas (auditoría fechada) y se conservan sin reescribir; el estado vigente del producto/tokens está en `src/tokens/core.css` (`--coin-guesthub`) y `src/themes/product.css` (`.product-anclora-guesthub`).
+
 Fecha: 2026-04-26
 Repositorio coordinador: `anclora-design-system`
 
