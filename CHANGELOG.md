@@ -2,6 +2,18 @@
 
 Todas las versiones del design system se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
+## [0.4.1] — 2026-09-01
+
+### Renombrado — Anclora SyncXML → Anclora GuestHub
+
+El producto `anclora-syncxml` pasa a llamarse `anclora-guesthub`. Identidad visual sin cambios: se conserva el acento `#bfa46a` y el emblema de ondas (no hay rediseño; el artwork dedicado GuestHub sigue pendiente — gap documentado).
+
+- `tokens/core.css`: `--coin-syncxml` → `--coin-guesthub` (valor `#bfa46a` intacto). Se mantiene `--coin-syncxml: var(--coin-guesthub)` como **alias legacy deprecado** hasta que los consumidores migren.
+- `themes/product.css`: nuevo selector `.product-anclora-guesthub`; `.product-anclora-syncxml` se conserva como **selector alias deprecado** (mismas declaraciones, una release). Los selectores `*-syncxml-showcase` quedan fuera de alcance, sin cambios.
+- Ejemplo premium renombrado: `src/examples/premium/syncxml-reservation-dashboard.example.html` → `guesthub-reservation-dashboard.example.html` (título, clase de producto y nombre actualizados; las menciones a SES.HOSPEDAJES / RD 933/2021 se conservan por seguir siendo capacidades válidas).
+- Logos renombrados: `assets/logos/anclora-syncxml.{png,webp}` → `anclora-guesthub.{png,webp}` y `anclora-syncxml-reducido.png` → `anclora-guesthub-reducido.png` (renombrado nominal; el contenido de la imagen aún muestra la marca SyncXML — pendiente re-export por brand/design). Los assets `anclora-syncxml-showcase*` no se tocan.
+- Actualizados `preview/product-accents.html`, `preview/logos-grid.html`, `src/examples/internal/group-ecosystem-gateway.example.html` y `docs/consumer-status-map.md`.
+
 ## [0.4.0] — 2026-08
 
 ### Añadido — modal de detalle adaptativo (`modal.css`)
