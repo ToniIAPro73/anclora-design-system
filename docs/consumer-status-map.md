@@ -25,7 +25,7 @@ Contexto: `ECOSYSTEM_CORE_ONBOARDING` — mapa de consumidores por **repo** (com
 | `anclora-linguo-cam` | `UNKNOWN` | Sin auditoría de consumo real ejecutada. |
 | `anclora-private-estates` | `UNKNOWN` | Sin auditoría de consumo real ejecutada. |
 | `anclora-private-estates-landing` | `UNKNOWN` | Sin auditoría de consumo real ejecutada. |
-| `anclora-syncxml` | `UNKNOWN` | Sin auditoría de consumo real ejecutada. |
+| `anclora-guesthub` | `UNKNOWN` | Sin auditoría de consumo real ejecutada. *(Renombrado de `anclora-syncxml` — 2026-09-01.)* |
 | `anclora-vault`, `anclora-governance`, `anclora-infrastructure`, `boveda-anclora` | `NO_USAGE` (estructural) | Repos de documentación/infraestructura, sin superficie UI propia — no aplica consumo de design system por naturaleza del repo, no por auditoría de código. |
 | `anclora-design-system` | — | Es la fuente, no un consumidor. |
 
