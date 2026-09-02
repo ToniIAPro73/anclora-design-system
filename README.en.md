@@ -2,8 +2,6 @@
 
 <div align="center">
 
-<img src="./public/brand/anclora-design-system-medal.png" alt="Anclora Design System" width="120" />
-
 # Anclora Design System
 
 ### Executable brand and UI system for the Anclora ecosystem
@@ -21,54 +19,41 @@
 ---
 
 > [!IMPORTANT]
-> Reduced public repository. It describes the product and conceptual architecture; it does not expose operational logic, secrets or real data.
+> Reduced public repository. Describes the product and its conceptual architecture; it does not expose operational logic, secrets or real data.
 
-## At a glance
+## What this is
 
-| Product challenge | Product response |
+Anclora Group's shared design system: design tokens, foundations and executable (not just documented) components consumed by the ecosystem's products to keep a consistent visual identity without duplicating CSS or brand decisions across repositories.
+
+## What it contains
+
+| Folder | Content |
 | --- | --- |
-| Fragmented context | Guided and traceable experience |
-| Sensitive data | Privacy by design and minimisation |
-| Complex decision | Clear and reviewable conceptual flow |
-| Professional operation | Modular architecture and quality controls |
-
-## Conceptual workflow
-
-```text
-User input / evidence
-        ↓
-Validation and normalisation
-        ↓
-Product workflow
-        ↓
-Review or explainable result
-        ↓
-Professional output / next action
-```
-
-## What this repository shows
-
-Executable brand and UI system for the Anclora ecosystem.
-
-This README documents the public scope of the product, its position in the Anclora ecosystem
-and the right exposure limits for an open repository.
+| `src/tokens/` | Design tokens (`core.css`, `semantic.css`) — the source of truth for color, spacing and scales |
+| `src/foundations/` | Base primitives and typography |
+| `src/themes/` | Per-product themes |
+| `src/components/` | Executable UI components |
+| `src/patterns/` | Reusable composition patterns |
+| `ui_kits/` | Product-specific UI kits (`anclora-group`, `anclora-synergi`, `anclora-private-estates`) |
+| `assets/logos/` | Official logo library for every product in the ecosystem |
+| `docs/` | System documentation |
 
 ## Technology
 
 | Area | Detail |
 | --- | --- |
-| Node.js | Present in repository |
+| Node.js | Yes |
+| CSS | Tokens and foundations in plain CSS (custom properties) |
 
 ## Documentation
 
-- [Documentacion](./docs)
+- [Documentation](./docs)
 
 ## Brand
 
 - Canonical product: `anclora-design-system`
 - Family: `shared`
 - Target visibility: `public`
-- Brand asset: `pending`
 
 ---
 
