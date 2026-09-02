@@ -2,11 +2,9 @@
 
 <div align="center">
 
-<img src="./public/brand/anclora-design-system-medal.png" alt="Anclora Design System" width="120" />
-
 # Anclora Design System
 
-### Executable brand and UI system for the Anclora ecosystem
+### Sistema de marca y UI ejecutable para el ecosistema Anclora
 
 **Español** · [English](./README.en.md)
 
@@ -21,54 +19,41 @@
 ---
 
 > [!IMPORTANT]
-> Repositorio publico reducido. Describe el producto y su arquitectura conceptual; no expone logica operativa, secretos ni datos reales.
+> Repositorio público reducido. Describe el producto y su arquitectura conceptual; no expone lógica operativa, secretos ni datos reales.
 
-## Vista rapida
+## Qué es
 
-| Problema | Respuesta de producto |
+El sistema de diseño compartido de Anclora Group: tokens, fundamentos y componentes ejecutables (no solo documentados) que consumen los productos del ecosistema para mantener una identidad visual coherente sin duplicar CSS ni decisiones de marca en cada repositorio.
+
+## Qué contiene
+
+| Carpeta | Contenido |
 | --- | --- |
-| Contexto disperso | Experiencia guiada y trazable |
-| Datos sensibles | Privacidad por diseno y minimizacion |
-| Decision compleja | Flujo conceptual claro y revisable |
-| Operacion profesional | Arquitectura modular y controles de calidad |
+| `src/tokens/` | Tokens de diseño (`core.css`, `semantic.css`) — la fuente de verdad de color, espaciado y escalas |
+| `src/foundations/` | Primitivas y tipografía base |
+| `src/themes/` | Temas por producto |
+| `src/components/` | Componentes de UI ejecutables |
+| `src/patterns/` | Patrones de composición reutilizables |
+| `ui_kits/` | Kits de UI específicos por producto (`anclora-group`, `anclora-synergi`, `anclora-private-estates`) |
+| `assets/logos/` | Biblioteca de logotipos oficiales de todos los productos del ecosistema |
+| `docs/` | Documentación del sistema |
 
-## Flujo conceptual
+## Tecnología
 
-```text
-Entrada de usuario / evidencia
-        ↓
-Validacion y normalizacion
-        ↓
-Flujo de producto
-        ↓
-Revision o resultado explicable
-        ↓
-Salida profesional / siguiente accion
-```
-
-## Que muestra este repositorio
-
-Executable brand and UI system for the Anclora ecosystem.
-
-El README presenta el alcance publico del producto, su posicionamiento dentro del ecosistema
-Anclora y los limites de exposicion adecuados para un repositorio abierto.
-
-## Tecnologia
-
-| Area | Detalle |
+| Área | Detalle |
 | --- | --- |
-| Node.js | Presente en el repositorio |
+| Node.js | Sí |
+| CSS | Tokens y fundamentos en CSS puro (custom properties) |
 
-## Documentacion
+## Documentación
 
-- [Documentacion](./docs)
+- [Documentación](./docs)
 
 ## Marca
 
-- Producto canonico: `anclora-design-system`
+- Producto canónico: `anclora-design-system`
 - Familia: `shared`
 - Visibilidad objetivo: `public`
-- Asset de marca: `pendiente`
 
 ---
 
@@ -76,6 +61,6 @@ Anclora y los limites de exposicion adecuados para un repositorio abierto.
 
 ### Antonio Ballesteros · Anclora Group
 
-Software, IA generativa y automatizacion para productos digitales trazables.
+Software, IA generativa y automatización para productos digitales trazables.
 
 </div>
