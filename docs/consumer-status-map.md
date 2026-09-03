@@ -17,7 +17,7 @@ Contexto: `ECOSYSTEM_CORE_ONBOARDING` — mapa de consumidores por **repo** (com
 | --- | --- | --- |
 | `anclora-talent` | `DIRECT_CONSUMER` | [`validated-consumers-matrix.md`](./validated-consumers-matrix.md) — button, card, surface panel, form field, empty state, modal, theme/language switcher, stepper y 7 patterns/workspace en estado `canonical`, consumo real sin fork estructural. Repo en pausa desde 2026-08, pero el consumo ya validado se mantiene. |
 | `anclora-energyscan` | `PARTIAL_ALIGNMENT` | [`validated-consumers-matrix.md`](./validated-consumers-matrix.md) — auditoría documental creada; landing, wizard, results, pricing, PDF premium y provider lead section pendientes de QA visual completa. |
-| `anclora-command-center` | `UNKNOWN` | Sin auditoría de consumo real ejecutada. Declarado como "próxima ola" recomendada en `validated-consumers-matrix.md` (patrones ejecutivos), pero sin evidencia registrada todavía. |
+| `anclora-command-center` | `DIRECT_CONSUMER` | Verificado 2026-09-03: `package.json` fija `@anclora/design-system` al SHA `c3a4229555827d1e82c1468cf3f8e7be0c215261` (1 commit detrás de HEAD); `src/main.tsx` importa `tokens/core.css`, `tokens/semantic.css` y los componentes `button.css`, `data-table.css`, `status-badge.css`, `modal.css`, `empty-state.css` (7 módulos); wrappers React locales en `src/ui/` sin CSS propio. No se ha realizado QA visual/a11y dedicada — consumo de código confirmado, no validación visual completa. |
 | `anclora-content-generator-ai` | `UNKNOWN` | Declarado como "próxima ola" recomendada, sin auditoría de consumo real ejecutada. |
 | `anclora-filestudio` | `UNKNOWN` | Sin auditoría de consumo real ejecutada. |
 | `anclora-fiscal` | `UNKNOWN` | Sin auditoría de consumo real ejecutada. |
@@ -45,4 +45,4 @@ Este mapa alimenta las relaciones `USES` desde `Product` hacia `Standard` (`std:
 
 ## Próxima ola recomendada (sin ejecutar auditoría en esta fase)
 
-Ver `validated-consumers-matrix.md` § "Siguiente ola recomendada": `anclora-command-center`, `anclora-content-generator-ai`, `anclora-portfolio`. Promoverlos de `UNKNOWN` requiere una auditoría de consumo real dedicada (fuera de alcance de `ECOSYSTEM_CORE_ONBOARDING`).
+Ver `validated-consumers-matrix.md` § "Siguiente ola recomendada": `anclora-content-generator-ai`, `anclora-portfolio`. Promoverlos de `UNKNOWN` requiere una auditoría de consumo real dedicada (fuera de alcance de `ECOSYSTEM_CORE_ONBOARDING`). `anclora-command-center` fue promovido a `DIRECT_CONSUMER` el 2026-09-03 (ver tabla arriba); pendiente aún QA visual/a11y dedicada (`PARTIAL_ALIGNMENT`-level evidence not yet collected for that axis).

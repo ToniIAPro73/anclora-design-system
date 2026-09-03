@@ -1,6 +1,6 @@
 {
   "name": "@anclora/design-system",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "entrypoints": {
     "system": "./src/system.css",
     "legacy": "./colors_and_type.css",
