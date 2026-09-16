@@ -24,6 +24,12 @@ const pkg = readJson("package.json");
 const manifest = readJson("design-system.manifest.json");
 const missing = [];
 
+if (pkg.version !== manifest.version) {
+  missing.push(
+    `version drift: package.json is ${pkg.version}, design-system.manifest.json is ${manifest.version}`,
+  );
+}
+
 if (pkg.style) {
   assertExists(pkg.style, missing, "package.style");
 }
