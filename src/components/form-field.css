@@ -27,6 +27,11 @@
   color: var(--text-eyebrow);
 }
 
+.ac-form-field__label abbr[title="required"] {
+  color: var(--status-danger-text);
+  text-decoration: none;
+}
+
 .ac-form-field__hint {
   margin: 0;
   color: var(--text-muted);
@@ -52,6 +57,93 @@
 
 .ac-form-field__message[data-tone="success"] {
   color: var(--status-success-text);
+}
+
+.ac-form-field[data-invalid="true"] .ac-form-field__label,
+.ac-form-field:has([aria-invalid="true"]) .ac-form-field__label {
+  color: var(--status-danger-text);
+}
+
+/* Choice controls keep native semantics while providing a consistent target. */
+.ac-choice-control {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding-block: 10px;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.ac-choice-control__input {
+  inline-size: 20px;
+  block-size: 20px;
+  flex: 0 0 auto;
+  margin: 1px 0 0;
+  accent-color: var(--accent);
+}
+
+.ac-choice-control__label {
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.ac-choice-control:has(:disabled) {
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+.ac-choice-control:has(:focus-visible) {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.ac-choice-control--switch .ac-choice-control__input {
+  appearance: none;
+  inline-size: 42px;
+  block-size: 24px;
+  margin-top: 0;
+  border: 1px solid var(--border-control);
+  border-radius: var(--radius-pill);
+  background: var(--surface-subtle);
+  position: relative;
+  transition: background-color var(--dur-fast) ease, border-color var(--dur-fast) ease;
+}
+
+.ac-choice-control--switch .ac-choice-control__input::after {
+  content: "";
+  position: absolute;
+  inset: 3px auto 3px 3px;
+  inline-size: 16px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  transition: transform var(--dur-fast) ease;
+}
+
+.ac-choice-control--switch .ac-choice-control__input:checked {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.ac-choice-control--switch .ac-choice-control__input:checked::after {
+  transform: translateX(18px);
+  background: var(--text-on-accent);
+}
+
+.ac-form-field--choice {
+  gap: var(--space-1);
+}
+
+.ac-form-field--choice .ac-form-field__hint,
+.ac-form-field--choice .ac-form-field__message {
+  margin-inline-start: 28px;
+}
+
+.ac-form-field--choice .ac-choice-control--switch + .ac-form-field__message,
+.ac-form-field--choice .ac-choice-control--switch ~ .ac-form-field__hint {
+  margin-inline-start: 50px;
 }
 
 @media (max-width: 760px) {

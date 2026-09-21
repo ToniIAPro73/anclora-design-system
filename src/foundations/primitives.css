@@ -93,6 +93,7 @@
 
 .btn:focus-visible,
 .field-input:focus-visible,
+.field-search:focus-visible,
 .field-select:focus-visible,
 .field-textarea:focus-visible {
   outline: 2px solid var(--focus-ring);
@@ -136,6 +137,7 @@
 }
 
 .field-input,
+.field-search,
 .field-select,
 .field-textarea {
   width: 100%;
@@ -163,6 +165,46 @@
     background-color var(--dur-fast) ease;
 }
 
+.field-input,
+.field-search,
+.field-select {
+  min-height: 48px;
+}
+
+.field-input:disabled,
+.field-search:disabled,
+.field-select:disabled,
+.field-textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+  background: color-mix(in srgb, var(--surface-subtle) 88%, transparent);
+}
+
+.field-input[readonly],
+.field-search[readonly],
+.field-textarea[readonly] {
+  background: color-mix(in srgb, var(--surface-subtle) 72%, transparent);
+  border-color: var(--border-default);
+}
+
+.field-input[aria-invalid="true"],
+.field-search[aria-invalid="true"],
+.field-select[aria-invalid="true"],
+.field-textarea[aria-invalid="true"],
+.field-input.is-invalid,
+.field-search.is-invalid,
+.field-select.is-invalid,
+.field-textarea.is-invalid {
+  border-color: var(--status-danger-border);
+}
+
+.field-input:focus-visible,
+.field-search:focus-visible,
+.field-select:focus-visible,
+.field-textarea:focus-visible {
+  border-color: var(--border-strong);
+}
+
 .field-textarea {
   min-height: 120px;
   padding-top: 14px;
@@ -171,6 +213,7 @@
 }
 
 .field-input::placeholder,
+.field-search::placeholder,
 .field-textarea::placeholder {
   color: var(--text-muted);
 }

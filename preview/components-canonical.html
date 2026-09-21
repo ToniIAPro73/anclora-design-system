@@ -94,13 +94,33 @@
         line-height: 1.55;
       }
 
+      .forms-fixture-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .forms-fixture-grid > .ac-form-field,
+      .forms-fixture-grid > fieldset {
+        min-width: 0;
+      }
+
+      .forms-choice-list {
+        display: grid;
+        gap: 2px;
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+
       .component-input {
         width: 100%;
       }
 
       @media (max-width: 1100px) {
         .tier-grid,
-        .component-grid {
+        .component-grid,
+        .forms-fixture-grid {
           grid-template-columns: 1fr;
         }
       }
@@ -368,6 +388,97 @@
             <div class="ac-empty-state" style="margin-top: 14px;">
               <p class="ac-empty-state__title">Sin resultados</p>
               <p class="ac-empty-state__summary">No hay elementos que coincidan con el filtro actual.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stack" id="forms-contract">
+        <h2 class="h3">Forms &amp; Inputs contract (Wave 3)</h2>
+        <p class="component-note">
+          Field owns context (label, hint and message); Control owns interaction (value, focus and state).
+          This fixture intentionally exercises light/dark, long localized copy, required semantics, invalid feedback,
+          disabled, readonly, search and native select without inventing a shared Combobox.
+        </p>
+        <div class="ac-surface-panel tier-panel forms-fixture-grid">
+          <div class="ac-form-field">
+            <div class="ac-form-field__head">
+              <label class="ac-form-field__label" for="forms-search">Búsqueda operativa</label>
+              <p class="ac-form-field__hint" id="forms-search-hint">Etiqueta explícita; el placeholder es solo una ayuda.</p>
+            </div>
+            <div class="ac-form-field__control">
+              <input id="forms-search" class="field-search" type="search" aria-describedby="forms-search-hint" placeholder="Buscar candidato, turno o expediente" />
+            </div>
+          </div>
+
+          <div class="ac-form-field">
+            <div class="ac-form-field__head">
+              <label class="ac-form-field__label" for="forms-select">Perfil de importación</label>
+              <p class="ac-form-field__hint">Select nativo para un conjunto corto y estable.</p>
+            </div>
+            <div class="ac-form-field__control">
+              <select id="forms-select" class="field-select">
+                <option>Calendario operativo</option>
+                <option>Equipo y permisos</option>
+                <option>Histórico de incidencias</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="ac-form-field" data-invalid="true">
+            <div class="ac-form-field__head">
+              <label class="ac-form-field__label" for="forms-email">Correo de coordinación <abbr title="required" aria-hidden="true">*</abbr></label>
+              <p class="ac-form-field__hint" id="forms-email-hint">Obligatorio para avisos de aprobación.</p>
+            </div>
+            <div class="ac-form-field__control">
+              <input id="forms-email" class="field-input" type="email" required aria-describedby="forms-email-hint forms-email-error" aria-invalid="true" value="coordinacion" />
+              <p class="ac-form-field__message" id="forms-email-error" data-tone="danger">Introduce un correo válido antes de continuar.</p>
+            </div>
+          </div>
+
+          <div class="ac-form-field">
+            <div class="ac-form-field__head">
+              <label class="ac-form-field__label" for="forms-notes">Notas de contexto</label>
+              <p class="ac-form-field__hint">Textarea con copia larga para estresar el ancho móvil.</p>
+            </div>
+            <div class="ac-form-field__control">
+              <textarea id="forms-notes" class="field-textarea" placeholder="Describe la excepción, el equipo afectado y la siguiente acción."></textarea>
+            </div>
+          </div>
+
+          <div class="ac-form-field ac-form-field--choice">
+            <fieldset class="forms-choice-list">
+              <legend class="ac-form-field__label">Canales de aviso</legend>
+              <label class="ac-choice-control"><input class="ac-choice-control__input" type="checkbox" checked /><span class="ac-choice-control__label">Correo de resumen semanal</span></label>
+              <label class="ac-choice-control"><input class="ac-choice-control__input" type="checkbox" /><span class="ac-choice-control__label">Aviso inmediato ante error</span></label>
+            </fieldset>
+            <p class="ac-form-field__message">Cada opción conserva semántica nativa y un target cómodo.</p>
+          </div>
+
+          <div class="ac-form-field ac-form-field--choice">
+            <fieldset class="forms-choice-list">
+              <legend class="ac-form-field__label">Modo de revisión</legend>
+              <label class="ac-choice-control"><input class="ac-choice-control__input" type="radio" name="forms-review-mode" checked /><span class="ac-choice-control__label">Revisión asistida</span></label>
+              <label class="ac-choice-control"><input class="ac-choice-control__input" type="radio" name="forms-review-mode" /><span class="ac-choice-control__label">Revisión manual</span></label>
+            </fieldset>
+          </div>
+
+          <div class="ac-form-field ac-form-field--choice">
+            <label class="ac-choice-control ac-choice-control--switch">
+              <input class="ac-choice-control__input" type="checkbox" role="switch" checked />
+              <span class="ac-choice-control__label">Sincronización automática</span>
+            </label>
+            <p class="ac-form-field__hint">Switch para una preferencia binaria que se aplica de inmediato.</p>
+          </div>
+
+          <div class="ac-form-field">
+            <div class="ac-form-field__head">
+              <label class="ac-form-field__label" for="forms-readonly">Identidad importada</label>
+              <p class="ac-form-field__hint">Readonly sigue siendo legible y forma parte del envío.</p>
+            </div>
+            <div class="ac-form-field__control">
+              <input id="forms-readonly" class="field-input" value="Equipo de operaciones · ID 0042" readonly />
+              <input class="field-input" value="Control bloqueado" disabled aria-label="Control bloqueado" />
             </div>
           </div>
         </div>

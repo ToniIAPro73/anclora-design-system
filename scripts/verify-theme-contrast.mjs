@@ -104,6 +104,15 @@ const lightStatusPairs = [
 for (const [tone, border, surface] of lightStatusPairs) {
   assertContrast(`status-${tone}-border on its light badge surface`, border, surface, 3, { onCanvas: coreLightCanvas });
 }
+
+// 0.9.0 (Wave 3): form validation uses the existing danger semantic family.
+// Check the visible error border against the actual Core surfaces; the input
+// border itself is covered by border-control above and placeholder text is not
+// a required content channel.
+assertContrast("form invalid border on Core dark panel", "rgb(225,87,89)", coreDarkPanel, 3, { onCanvas: coreDarkPanel });
+assertContrast("form invalid border on Core light canvas", "#b42318", coreLightCanvas, 3, { onCanvas: coreLightCanvas });
+assertLiteralPresent(semanticCss, "form invalid dark semantic", "--status-danger-border: rgb(225, 87, 89);");
+assertLiteralPresent(semanticCss, "form invalid light semantic", "--status-danger-border: #b42318;");
 for (const token of ["status-success-border", "status-warning-border", "status-danger-border", "status-review-border"]) {
   assertLiteralPresent(semanticCss, token, `--${token}:`);
 }
@@ -143,4 +152,4 @@ if (failures.length > 0) {
 }
 
 console.log("Theme contrast verification passed.");
-console.log("Checked 8 WCAG 2.2 AA pairs (0.7.0) + border-control, dark text-link, 8 status-border pairs on badge surfaces, all status-badge mappings, and a product-theme fixture (0.8.0).");
+console.log("Checked 8 WCAG 2.2 AA pairs (0.7.0) + border-control, dark text-link, 8 status-border pairs, Wave 3 form-invalid borders, all status-badge mappings, and a product-theme fixture.");

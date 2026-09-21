@@ -1,6 +1,6 @@
 {
   "name": "@anclora/design-system",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "private": true,
   "description": "Executable brand and UI system for the Anclora ecosystem.",
   "license": "UNLICENSED",
@@ -69,12 +69,13 @@
     "verify:manifest": "node ./scripts/verify-manifest.mjs",
     "verify:html": "node ./scripts/verify-html.mjs",
     "verify:button-contract": "node ./scripts/verify-button-contract.mjs",
+    "verify:forms-contract": "node ./scripts/verify-forms-contract.mjs",
     "verify:theme-contrast": "node ./scripts/verify-theme-contrast.mjs",
     "verify:browser": "node ./scripts/verify-browser.mjs --mode=smoke",
     "verify:a11y": "node ./scripts/verify-browser.mjs --mode=a11y",
     "verify:snapshots": "node ./scripts/verify-browser.mjs --mode=snapshots",
     "verify:package": "npm pack --dry-run",
-    "verify": "npm run verify:manifest && npm run verify:html && npm run verify:button-contract && npm run verify:theme-contrast && npm run verify:browser && npm run verify:a11y && npm run verify:package",
+    "verify": "npm run verify:manifest && npm run verify:html && npm run verify:button-contract && npm run verify:forms-contract && npm run verify:theme-contrast && npm run verify:browser && npm run verify:a11y && npm run verify:package",
     "quality": "npm run verify",
     "pack:check": "npm pack --dry-run",
     "snapshots:update": "npm run verify:snapshots"

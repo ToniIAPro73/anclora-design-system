@@ -1,6 +1,6 @@
 {
   "name": "@anclora/design-system",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "_agentReadme": "This manifest is the machine-readable contract for coding agents working in any Anclora repo. Read componentStatus before adding a component (canonical = consume it, do not rebuild it; candidate = usable but not yet a hard requirement; needsConsumerEvidence = ships but has no confirmed real usage, verify before relying on it). Read profiles before choosing shell/density defaults for a new app. Read extensionPoints before overriding anything — if the property you need to change is not listed as a component's extension point, add a variant here instead of overriding the base selector. Read prohibitedPatterns before writing CSS that touches an .ac-* selector directly. Read theme before implementing light/dark in any new app — as of 0.7.0 the package ships a real canonical light theme, do not invent a local one. Read borders before deciding which border token to use — not every border needs 3:1, but a control/status border does, and there's a specific token for that. Full architecture: ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md. Full theme contract: docs/themes/light-dark-theme-contract.md. Full border/status/link contract: docs/tokens/semantic-borders-and-status.md. Full evidence: docs/ecosystem-audit/.",
   "borders": {
     "roles": {
@@ -31,6 +31,17 @@
       "I need light/dark theme for a new Anclora app. Should I create my own palette?": "No. Set data-theme=\"dark\"|\"light\" on <html> and consume the canonical semantic tokens from tokens/semantic.css — do not copy a token block from anclora-talent or anclora-command-center, and do not invent your own selector/class/attribute for theme.",
       "Can I set a custom brand accent while still using the canonical themes?": "Yes — that's what themes/product.css's .product-anclora-* layer is for. Override --accent (and, only if your brand identity genuinely requires it, --bg/--fg*) there; do not touch the semantic role definitions in tokens/semantic.css itself."
     }
+  },
+  "forms": {
+    "contractDoc": "./docs/components/forms-and-inputs.md",
+    "architecture": "Field owns label/hint/message relationships; Control owns value/focus/disabled/readonly/invalid state.",
+    "canonicalControls": ["field-input", "field-search", "field-select", "field-textarea", "ac-choice-control", "ac-choice-control--switch"],
+    "requiredSemantics": "Use required or aria-required on the actual control; visible asterisk is supplemental only.",
+    "errorSemantics": "Use aria-invalid=true and aria-describedby for the visible error message; never rely on color alone.",
+    "disabledVsReadonly": "disabled is unavailable and not submitted; readonly text remains focusable, readable and submitted.",
+    "combobox": { "status": "evidence-required", "rule": "Do not promote a shared combobox until two materially different consumers validate the API and keyboard model." },
+    "extensionPoints": ["layout wrapper", "field density only where a sanctioned variant exists", "product copy and option data"],
+    "prohibitedPatterns": ["placeholder-only labels", "color-only errors", "clickable div controls without native semantics", "consumer-local focus rings or control borders", "premature shared combobox abstraction"]
   },
   "componentStatus": {
     "canonical": [

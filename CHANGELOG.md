@@ -2,6 +2,12 @@
 
 Todas las versiones del design system se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
+## [0.9.0] — 2026-09-21
+
+### Añadido — contrato canónico de Forms & Inputs (Wave 3)
+
+Se formaliza la separación Field/Control y se endurecen los estados de `.field-input`, `.field-search`, `.field-select` y `.field-textarea` para foco, invalidación, disabled y readonly. Se añade una anatomía accesible para checkbox, radio y switch basada en inputs nativos y targets de al menos 44px. El catálogo incorpora fixtures de búsqueda, selección, textarea, elección, errores y responsive/localización; la documentación registra la evidencia de consumidores, el gap de Combobox y la recomendación de Pilot 3. No se modifican consumidores.
+
 ## [0.8.0] — 2026-09-21
 
 ### Añadido — contrato semántico de bordes, estados y enlaces (Wave 2.1)
