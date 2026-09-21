@@ -268,6 +268,70 @@
           </section>
         </article>
       </section>
+
+      <section class="stack" id="button-matrix">
+        <h2 class="h3">Button dimensions (added 0.6.0 — Wave 1.5)</h2>
+        <p class="component-note">
+          Dark only: `anclora-design-system` does not yet ship a light-theme override for its own semantic tokens
+          (each consumer currently defines its own `[data-theme='light']` block locally — see
+          `ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md` §4). This matrix shows every real combination the package
+          exports; it does not fabricate a light rendering the package cannot itself produce yet.
+        </p>
+
+        <div class="ac-surface-panel tier-panel" style="display: grid; gap: 20px;">
+          <div>
+            <p class="component-note" style="margin-bottom: 8px;">Standard (default density)</p>
+            <div class="component-cluster">
+              <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Primary</span></button>
+              <button class="ac-button ac-button--secondary" type="button"><span class="ac-button__label">Secondary</span></button>
+              <button class="ac-button ac-button--ghost" type="button"><span class="ac-button__label">Ghost</span></button>
+              <button class="ac-button ac-button--destructive" type="button"><span class="ac-button__label">Destructive</span></button>
+            </div>
+          </div>
+
+          <div>
+            <p class="component-note" style="margin-bottom: 8px;">Compact (P-WKS density — added 0.5.0)</p>
+            <div class="component-cluster">
+              <button class="ac-button ac-button--compact ac-button--primary" type="button"><span class="ac-button__label">Primary compact</span></button>
+              <button class="ac-button ac-button--compact ac-button--secondary" type="button"><span class="ac-button__label">Secondary compact</span></button>
+            </div>
+          </div>
+
+          <div>
+            <p class="component-note" style="margin-bottom: 8px;">Icon-only, default density — square, 44px (added 0.6.0)</p>
+            <div class="component-cluster">
+              <button class="ac-button ac-button--ghost ac-button--icon" type="button" aria-label="Cerrar">
+                <span class="ac-button__icon" aria-hidden="true">✕</span>
+              </button>
+              <button class="ac-button ac-button--secondary ac-button--icon" type="button" aria-label="Más acciones" aria-haspopup="menu" aria-expanded="false">
+                <span class="ac-button__icon" aria-hidden="true">⋮</span>
+              </button>
+              <button class="ac-button ac-button--destructive ac-button--icon" type="button" aria-label="Eliminar">
+                <span class="ac-button__icon" aria-hidden="true">🗑</span>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <p class="component-note" style="margin-bottom: 8px;">Icon-only, compact density — square, 36px (added 0.6.0)</p>
+            <div class="component-cluster">
+              <button class="ac-button ac-button--secondary ac-button--compact ac-button--icon" type="button" aria-label="Más acciones" aria-haspopup="menu" aria-expanded="false">
+                <span class="ac-button__icon" aria-hidden="true">⋮</span>
+              </button>
+              <button class="ac-button ac-button--ghost ac-button--compact ac-button--icon" type="button" aria-label="Cerrar">
+                <span class="ac-button__icon" aria-hidden="true">✕</span>
+              </button>
+            </div>
+          </div>
+
+          <p class="component-note">
+            DO — use icon-only for universally understood actions where space matters; always provide an accessible
+            name via `aria-label`; compose canonical modifiers (`ac-button ac-button--{variant} [ac-button--compact]
+            ac-button--icon`). DON'T — create a local `.table-action-button`/`.dashboard-icon-button` family; override
+            width/padding locally to fake a square control; rely on a tooltip (`title`) as the accessible name.
+          </p>
+        </div>
+      </section>
     </main>
   </body>
 </html>

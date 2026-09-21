@@ -2,6 +2,30 @@
 
 Todas las versiones del design system se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
+## [0.6.0] — 2026-09-21
+
+### Añadido — variante `.ac-button--icon` (`components/button.css`)
+
+Wave 1.5 del rollout del ecosistema: cierra el gap de "botón cuadrado de solo icono" identificado en el Wave 1 Pilot 1 (`anclora-talent`, kebab menu de `ProjectCardMenu.tsx`) y confirmado con evidencia real en `anclora-command-center` (`src/ui/Modal.tsx`, cuyo botón de cerrar es hoy un glyph "✕" dentro de un `.ac-button--sm` no cuadrado). Composición ortogonal: `ac-button ac-button--<variant> [ac-button--compact] ac-button--icon` — el tamaño cuadrado se deriva de `--ac-button-min-height` ya en cascada, así que funciona en cualquier densidad existente (44/38/50/36px) sin una clase separada por combinación. Ningún repo consumidor se modifica en esta release.
+
+Contrato de accesibilidad documentado explícitamente en el propio CSS: un botón de solo icono requiere `aria-label`/`aria-labelledby` — el icono nunca es el nombre accesible, y un `title`/tooltip no lo sustituye.
+
+### Endurecido — precedencia de modificadores (hardening, no breaking)
+
+El Wave 1 Pilot 1 encontró que el override local de `.ac-button` de `anclora-talent` (misma especificidad, declarado después en la cascada) anulaba silenciosamente `.ac-button--compact`. `.ac-button--icon` se define con el selector compuesto `.ac-button.ac-button--icon` específicamente para ser inmune a esta clase de fallo. `.ac-button--compact` y los demás modificadores existentes NO cambian de especificidad en este release (sería un cambio de mayor riesgo para consumidores reales existentes) — el contrato de precedencia queda documentado en `components/button.css` y en `docs/ecosystem-audit/05-button-contract-hardening.md`, con una mejora mayor (Cascade Layers) propuesta para una versión futura, no ejecutada aquí.
+
+### Añadido — verificación de contrato de botón (`scripts/verify-button-contract.mjs`)
+
+Nuevo script, incorporado a `npm run verify`: confirma mecánicamente que `.ac-button--icon` sigue usando el selector compuesto endurecido, que su tamaño sigue derivándose de `--ac-button-min-height` (ortogonal a la densidad), y que la documentación del contrato de precedencia y accesibilidad sigue presente en el archivo.
+
+### Añadido — matriz de botones en el catálogo (`preview/components-canonical.html`)
+
+Nueva sección con las combinaciones reales soportadas (estándar, compact, icon-only en ambas densidades, incluyendo variantes secondary/ghost/destructive). Solo modo oscuro: el paquete todavía no shipea un override de tema claro para sus propios tokens semánticos (cada consumidor define el suyo localmente) — documentado explícitamente en el catálogo en vez de fabricar una vista clara que el paquete no puede producir todavía.
+
+### Documentación — revisión de los overrides de `anclora-talent`
+
+`docs/ecosystem-audit/05-button-contract-hardening.md` clasifica cada propiedad que `anclora-talent` sigue sobreescribiendo en `.ac-button` (radius: ya migrado a `--ac-button-radius`; font-size/font-weight/letter-spacing: sin extension point sancionado, drift documentado y tolerado como identidad de marca, no legitimado como parte del contrato Core; padding-inline: drift menor, migrable trivialmente; text-transform: requisito de producto legítimo). No se modifica Talent.
+
 ## [0.5.0] — 2026-09-21
 
 ### Añadido — variante de densidad `.ac-button--compact` (`components/button.css`)

@@ -1,6 +1,6 @@
 {
   "name": "@anclora/design-system",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "_agentReadme": "This manifest is the machine-readable contract for coding agents working in any Anclora repo. Read componentStatus before adding a component (canonical = consume it, do not rebuild it; candidate = usable but not yet a hard requirement; needsConsumerEvidence = ships but has no confirmed real usage, verify before relying on it). Read profiles before choosing shell/density defaults for a new app. Read extensionPoints before overriding anything — if the property you need to change is not listed as a component's extension point, add a variant here instead of overriding the base selector. Read prohibitedPatterns before writing CSS that touches an .ac-* selector directly. Full architecture: ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md. Full evidence: docs/ecosystem-audit/.",
   "componentStatus": {
     "canonical": [
@@ -36,12 +36,19 @@
         "--ac-button-bg", "--ac-button-fg", "--ac-button-border", "--ac-button-shadow",
         "--ac-button-padding-x", "--ac-button-min-height", "--ac-button-radius"
       ],
-      "sanctionedVariants": ["--primary", "--secondary", "--ghost", "--destructive", "--sm", "--lg", "--compact"],
-      "note": "--compact (added 0.5.0) is the canonical answer to 'I need a smaller/denser button for a workspace surface' — do not create a parallel class family like a local '*-button'/'*-btn' convention for this; that is exactly the drift this variant exists to stop. See docs/ecosystem-audit/00-frontend-inventory-and-drift-audit.md §A2.5.4."
+      "sanctionedVariants": ["--primary", "--secondary", "--ghost", "--destructive", "--sm", "--lg", "--compact", "--icon"],
+      "note": "--compact (0.5.0) is the canonical 'smaller/denser button for a workspace surface'. --icon (0.6.0) is the canonical square icon-only shape — composes with ANY variant and ANY density (e.g. `ac-button ac-button--ghost ac-button--icon` or `ac-button ac-button--secondary ac-button--compact ac-button--icon`); it is NOT a separate component, do not build '.icon-button'/'.table-action-button'/'.dashboard-icon-button' locally. An icon-only button MUST have an aria-label (or aria-labelledby) — the icon itself is never an accessible name, and a title/tooltip does not substitute for one. Do not use --icon for a toggle control that needs aria-pressed, or for a control that needs a specialized primitive (segmented toggle, etc.) — see prohibitedPatterns.",
+      "answersForAgents": {
+        "I need a square icon-only button": "Use `ac-button ac-button--<variant> ac-button--icon` (add `ac-button--compact` for the dense/36px version). Do not create a local class.",
+        "Is .ac-button--icon safe against a local .ac-button anatomy override in this consumer app?": "Yes as of 0.6.0 — --icon uses a compound selector (.ac-button.ac-button--icon) specifically hardened against the cascade bug found in the anclora-talent Wave 1 pilot. --compact and the color variants are NOT hardened the same way yet; if this consumer has a local `.ac-button { ... }` override, scope it with :not(.ac-button--compact) etc. — see docs/ecosystem-audit/05-button-contract-hardening.md."
+      }
     }
   },
   "prohibitedPatterns": [
-    "Overriding border-radius, font-size, font-weight, or text-transform directly on the bare .ac-button selector in a consumer app instead of using a --compact/--sm/--lg variant or an --ac-button-* custom property.",
+    "Overriding border-radius, font-size, font-weight, or text-transform directly on the bare .ac-button selector in a consumer app instead of using a --compact/--sm/--lg/--icon variant or an --ac-button-* custom property.",
+    "Building a local icon-only button class ('.icon-button', '.table-action-button', '.dashboard-icon-button', or similar) instead of composing `ac-button ac-button--<variant> ac-button--icon`.",
+    "Shipping an .ac-button--icon (or any icon-only control) without an aria-label/aria-labelledby, or relying on a tooltip/title as the accessible name.",
+    "Repurposing .ac-button as a toggle/pressed-state control (needs aria-pressed) or a menu/segmented-control primitive it wasn't designed for.",
     "Creating a new parallel button/card/modal class family in a consumer app (e.g. '.app-button', '.dashboard-button') when a canonical .ac-* component with a suitable variant already exists or could exist as one — propose a variant here instead.",
     "Redefining semantic tokens (--status-*, --danger, --success, --warning, --focus-ring) with app-local hex values instead of consuming the semantic layer.",
     "Inventing a new theme-toggle mechanism (a fourth alternative to the data-theme attribute contract) in a new app.",

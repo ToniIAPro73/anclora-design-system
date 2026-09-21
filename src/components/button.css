@@ -3,7 +3,40 @@
    Variants: .ac-button--primary | --secondary | --ghost | --destructive
    Sizes: .ac-button--sm | --md | --lg
    Density: .ac-button--compact (see note below)
+   Shape: .ac-button--icon (see note below) — composes with any variant and
+     any size/density, e.g. `ac-button ac-button--ghost ac-button--icon` or
+     `ac-button ac-button--ghost ac-button--compact ac-button--icon`.
    Slots: .ac-button__icon | .ac-button__label
+
+   Accessibility contract: an icon-only button (.ac-button--icon with no
+   visible text child) MUST carry an accessible name via `aria-label` (or
+   `aria-labelledby`) — the icon/glyph itself is never an accessible name.
+   A `title` attribute may add a hover tooltip for discoverability but does
+   NOT substitute for aria-label. If the control toggles a pressed/expanded
+   state (e.g. a menu trigger), also set `aria-haspopup`/`aria-expanded` or
+   `aria-pressed` as appropriate — .ac-button has no built-in toggle
+   semantics; do not repurpose it as a toggle primitive.
+
+   Modifier precedence contract (hardening note, added in 0.6.0 after the
+   Talent Wave 1 pilot found a real cascade bug — see button.css history):
+   every modifier class here (--primary/--secondary/--ghost/--destructive,
+   --sm/--lg/--compact) is a BARE single-class selector, same specificity as
+   `.ac-button` itself. If a consumer app defines its own later `.ac-button
+   { ... }` rule to customize base anatomy (e.g. a house radius/typeface),
+   that rule — by source order — silently overrides any bare modifier for
+   the properties it sets, on any element that carries both classes. This
+   is inherent to a base+bare-modifier architecture, not fixable by
+   reordering this file. Consumers who override base `.ac-button` anatomy
+   MUST scope that override to exclude modifiers they still want to work,
+   e.g. `.ac-button:not(.ac-button--compact):not(.ac-button--icon) { ... }`
+   — see anclora-talent's globals.css for a real example of this pattern in
+   production. `.ac-button--icon` (added 0.6.0) is deliberately written as
+   a compound selector instead, so it is NOT subject to this failure mode —
+   see its own comment below. Retrofitting the other modifiers the same way
+   is a breaking-risk change (raises their specificity ecosystem-wide) and
+   is deliberately NOT done in this release; it is tracked as a proposed
+   larger improvement (candidate: CSS cascade layers) in
+   docs/ecosystem-audit/05-button-contract-hardening.md.
 */
 
 .ac-button {
@@ -122,6 +155,47 @@
   font-weight: 600;
   letter-spacing: normal;
   text-transform: none;
+}
+
+/* .ac-button--icon — canonical square icon-only shape. Orthogonal to variant
+   and density: it does not set its own height, it reads whatever
+   --ac-button-min-height is already cascaded (44px default / 38px --sm /
+   50px --lg / 36px --compact) and uses that as both width and height, so
+   the same modifier produces a correctly-square control at every existing
+   density without a separate "compact icon" class.
+
+   Written as a compound selector (.ac-button.ac-button--icon, not a bare
+   .ac-button--icon) deliberately: the Talent Wave 1 pilot found that a
+   consumer's own later, unscoped `.ac-button { ... }` override has equal
+   specificity to a bare single-class modifier and — being later in the
+   cascade — silently wins, cancelling the modifier out (see "Modifier
+   precedence contract" below). The compound form gives this new modifier
+   higher specificity than any bare `.ac-button` rule, so it survives that
+   class of consumer override without requiring the consumer to know to
+   scope it defensively. --compact and the color variants are NOT changed
+   the same way in this release — see the contract note.
+
+   Real evidence this solves: anclora-talent's ProjectCardMenu kebab-menu
+   trigger (a real .dashboard-button--icon usage the audit flagged as an
+   unmigrated gap) and anclora-command-center's Modal close control
+   (currently a "✕" text glyph inside a non-square .ac-button--sm pill,
+   src/ui/Modal.tsx). Neither consumer is modified by this change.
+
+   Touch target note: the default and --sm/--lg square sizes (44/38/50px)
+   meet or exceed the WCAG 2.5.5 (AAA) 44px target-size guidance.
+   --compact's 36px square is below that AAA guidance but still clears the
+   WCAG 2.2 2.5.8 (AA) 24px minimum with real margin. --compact--icon is
+   intended for dense, low-risk, secondary actions in already-dense
+   surfaces (row menus, table toolbars) where the surrounding row already
+   provides spacing between adjacent targets — it is not intended for a
+   page's primary or destructive action. Consumers needing an AAA-compliant
+   icon target in a dense surface should use the default (non-compact)
+   density instead of forcing --compact everywhere. */
+.ac-button.ac-button--icon {
+  --ac-button-padding-x: 0;
+  width: var(--ac-button-min-height);
+  padding: 0;
+  gap: 0;
 }
 
 .ac-button__icon {
