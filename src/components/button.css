@@ -2,6 +2,7 @@
    Base: .ac-button
    Variants: .ac-button--primary | --secondary | --ghost | --destructive
    Sizes: .ac-button--sm | --md | --lg
+   Density: .ac-button--compact (see note below)
    Slots: .ac-button__icon | .ac-button__label
 */
 
@@ -12,6 +13,7 @@
   --ac-button-shadow: none;
   --ac-button-padding-x: 20px;
   --ac-button-min-height: var(--action-min-height);
+  --ac-button-radius: var(--radius-pill);
 
   display: inline-flex;
   align-items: center;
@@ -20,7 +22,7 @@
   min-height: var(--ac-button-min-height);
   padding: 0 var(--ac-button-padding-x);
   border: 1px solid var(--ac-button-border);
-  border-radius: var(--radius-pill);
+  border-radius: var(--ac-button-radius);
   background: var(--ac-button-bg);
   box-shadow: var(--ac-button-shadow);
   color: var(--ac-button-fg);
@@ -95,6 +97,31 @@
 .ac-button--lg {
   --ac-button-padding-x: 24px;
   --ac-button-min-height: 50px;
+}
+
+/* .ac-button--compact — sanctioned density variant for P-WKS (workspace/
+   operational) surfaces: entity-row actions, card menus, table toolbars,
+   modal footers — contexts where the default pill CTA anatomy (uppercase,
+   0.76rem/700, --radius-pill) reads as too heavy for a frequent, in-context
+   action. Combine with a color variant, e.g. `ac-button ac-button--compact
+   ac-button--primary`.
+
+   Added because at least one real consumer (anclora-talent) had already
+   built its own parallel button family for exactly this need
+   (`.dashboard-button`, never derived from `.ac-button`) rather than
+   requesting a variant — see docs/ecosystem-audit/
+   00-frontend-inventory-and-drift-audit.md §A2.5.4 and
+   ANCLORA-DESIGN-SYSTEM-COMPONENT-INVENTORY.md. Migrating that local class
+   onto this variant is left to anclora-talent's own roadmap; this only adds
+   the canonical option. */
+.ac-button--compact {
+  --ac-button-padding-x: 14px;
+  --ac-button-min-height: 36px;
+  --ac-button-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
 }
 
 .ac-button__icon {

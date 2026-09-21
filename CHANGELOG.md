@@ -2,6 +2,16 @@
 
 Todas las versiones del design system se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
+## [0.5.0] — 2026-09-21
+
+### Añadido — variante de densidad `.ac-button--compact` (`components/button.css`)
+
+Resultado directo del audit de ecosistema (`docs/ecosystem-audit/`, Fases 0-5): `anclora-talent` había construido su propia familia paralela de botones (`.dashboard-button`, nunca derivada de `.ac-button`) porque el DS no ofrecía ninguna anatomía más pequeña/densa que la pill de marketing por defecto para superficies de workspace (filas de entidad, menús de tarjeta, barras de herramientas). `--compact` es la vía canónica sancionada para esa necesidad: `border-radius` pasa a ser un punto de extensión (`--ac-button-radius`, antes fijo a `--radius-pill`), y la variante usa `--radius-sm`, `font-size: 0.7rem`, `font-weight: 600`, sin mayúsculas forzadas. Cambio aditivo, sin ruptura — `.ac-button` sin la variante se comporta exactamente igual que antes. No se migra ningún consumidor en esta release; ver `ANCLORA-DESIGN-SYSTEM-MIGRATION-ROADMAP.md`.
+
+### Añadido — gobernanza legible por agentes en `design-system.manifest.json`
+
+Nuevas claves de nivel superior: `componentStatus` (canonical vs. needsConsumerEvidence, para que un agente no asuma que los 31 componentes shipeados tienen el mismo nivel de validación real), `profiles` (P-MKT/P-WKS, qué puede y no puede sobreescribir cada uno), `extensionPoints` (qué custom properties de cada componente son el mecanismo sancionado de variación), `prohibitedPatterns` (patrones de drift ya observados en el ecosistema real, listados explícitamente para que un agente no los repita) y `deprecated`. No cambia ningún entrypoint existente — `scripts/verify-manifest.mjs` solo valida `entrypoints`, `version` y `recommendedImport`, así que esta ampliación no interfiere con la verificación existente.
+
 ## [0.4.1] — 2026-09-01
 
 ### Renombrado — Anclora SyncXML → Anclora GuestHub

@@ -1,6 +1,56 @@
 {
   "name": "@anclora/design-system",
-  "version": "0.4.1",
+  "version": "0.5.0",
+  "_agentReadme": "This manifest is the machine-readable contract for coding agents working in any Anclora repo. Read componentStatus before adding a component (canonical = consume it, do not rebuild it; candidate = usable but not yet a hard requirement; needsConsumerEvidence = ships but has no confirmed real usage, verify before relying on it). Read profiles before choosing shell/density defaults for a new app. Read extensionPoints before overriding anything — if the property you need to change is not listed as a component's extension point, add a variant here instead of overriding the base selector. Read prohibitedPatterns before writing CSS that touches an .ac-* selector directly. Full architecture: ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md. Full evidence: docs/ecosystem-audit/.",
+  "componentStatus": {
+    "canonical": [
+      "button", "surfacePanel", "formField", "dataTable", "statusBadge", "emptyState", "modal",
+      "themeSwitcher", "languageSwitcher", "stepper", "chapterRail", "templateCatalog",
+      "previewOverlay", "previewControls", "workspaceStage", "workflowShell", "editorShell",
+      "textEditor", "exportSuite"
+    ],
+    "needsConsumerEvidence": [
+      "appTile", "metricCard", "sectionHeading", "sidebarNav", "tabs", "breadcrumb", "subnav",
+      "statStrip", "toast", "drawer", "editorStudio", "topbar"
+    ],
+    "_note": "canonical = at least one real consumer verified in code (see ANCLORA-DESIGN-SYSTEM-COMPONENT-INVENTORY.md). needsConsumerEvidence = shipped as CSS, no confirmed real usage found as of 2026-09-21 — usable as a candidate, do not describe it to a user as battle-tested."
+  },
+  "profiles": {
+    "P-MKT": {
+      "name": "Marketing / Landing",
+      "description": "Public, unauthenticated, single-scroll narrative page. No persistent nav shell.",
+      "mayOverride": ["spacing density (looser)", "hero/CTA emphasis", "headline typography family"],
+      "mustNotOverride": ["semantic color meaning", "base radii", "focus/disabled behavior", "light/dark theme contract"]
+    },
+    "P-WKS": {
+      "name": "Workspace / Operational",
+      "description": "Authenticated, persistent sidebar/topbar shell, high information density: tables, entity lists, forms, modals, status badges.",
+      "mayOverride": ["component density/size defaults (use .ac-button--compact, not a new class)", "navigation shell defaults", "contextual emphasis of status"],
+      "mustNotOverride": ["semantic color meaning", "base radii", "focus/disabled behavior", "component base anatomy (see prohibitedPatterns)", "light/dark theme contract"]
+    },
+    "_note": "Full app-to-profile assignment: ANCLORA-DESIGN-SYSTEM-PRODUCT-MATRIX.md. An app with no strong shell/density need needs no profile ('Core / default' is valid) — do not force one."
+  },
+  "extensionPoints": {
+    "button": {
+      "sanctioned": [
+        "--ac-button-bg", "--ac-button-fg", "--ac-button-border", "--ac-button-shadow",
+        "--ac-button-padding-x", "--ac-button-min-height", "--ac-button-radius"
+      ],
+      "sanctionedVariants": ["--primary", "--secondary", "--ghost", "--destructive", "--sm", "--lg", "--compact"],
+      "note": "--compact (added 0.5.0) is the canonical answer to 'I need a smaller/denser button for a workspace surface' — do not create a parallel class family like a local '*-button'/'*-btn' convention for this; that is exactly the drift this variant exists to stop. See docs/ecosystem-audit/00-frontend-inventory-and-drift-audit.md §A2.5.4."
+    }
+  },
+  "prohibitedPatterns": [
+    "Overriding border-radius, font-size, font-weight, or text-transform directly on the bare .ac-button selector in a consumer app instead of using a --compact/--sm/--lg variant or an --ac-button-* custom property.",
+    "Creating a new parallel button/card/modal class family in a consumer app (e.g. '.app-button', '.dashboard-button') when a canonical .ac-* component with a suitable variant already exists or could exist as one — propose a variant here instead.",
+    "Redefining semantic tokens (--status-*, --danger, --success, --warning, --focus-ring) with app-local hex values instead of consuming the semantic layer.",
+    "Inventing a new theme-toggle mechanism (a fourth alternative to the data-theme attribute contract) in a new app.",
+    "Treating a shadcn/ui-generated component's default HSL/OKLCH palette as final without wiring it to Anclora's semantic/component tokens."
+  ],
+  "deprecated": [
+    { "api": "--coin-syncxml", "replacement": "--coin-guesthub", "since": "0.4.1", "reason": "product rename, alias kept for one release" },
+    { "api": ".product-anclora-syncxml", "replacement": ".product-anclora-guesthub", "since": "0.4.1", "reason": "product rename, alias kept for one release" }
+  ],
   "entrypoints": {
     "system": "./src/system.css",
     "legacy": "./colors_and_type.css",
