@@ -1,5 +1,7 @@
 # Consumer Status Map
 
+> **SUPERSEDED (2026-09-21):** este documento cubre 16 repos de un ecosistema que en realidad tiene 24 apps de producto con frontend real (36 repos en alcance total). Dos de sus clasificaciones fueron verificadas como incorrectas contra el código real: `anclora-energyscan` aparece aquí como `PARTIAL_ALIGNMENT` pero no tiene ninguna dependencia `@anclora/*` en su `package.json`; `anclora-talent` aparece con nota de "pausado" pese a tener desarrollo activo confirmado hasta 2026-09-21. La respuesta canónica y verificada a "qué apps consumen el DS y en qué nivel" es ahora **[`ANCLORA-DESIGN-SYSTEM-PRODUCT-MATRIX.md`](../ANCLORA-DESIGN-SYSTEM-PRODUCT-MATRIX.md)** (evidencia completa: [`ecosystem-audit/00-frontend-inventory-and-drift-audit.md`](./ecosystem-audit/00-frontend-inventory-and-drift-audit.md) y [`02-contract-reconciliation.md`](./ecosystem-audit/02-contract-reconciliation.md), hallazgos R3-R5). Este documento se conserva sin editar como registro histórico de la auditoría 2026-08; no se actualiza más.
+
 Fecha: 2026-08-17
 Repositorio: `anclora-design-system`
 Contexto: `ECOSYSTEM_CORE_ONBOARDING` — mapa de consumidores por **repo** (complementa el mapa por **pieza** en [`validated-consumers-matrix.md`](./validated-consumers-matrix.md)).
