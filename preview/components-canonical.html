@@ -321,14 +321,24 @@
               <button class="ac-button ac-button--ghost ac-button--compact ac-button--icon" type="button" aria-label="Cerrar">
                 <span class="ac-button__icon" aria-hidden="true">✕</span>
               </button>
+              <button class="ac-button ac-button--destructive ac-button--compact ac-button--icon" type="button" aria-label="Quitar filtro">
+                <span class="ac-button__icon" aria-hidden="true">✕</span>
+              </button>
             </div>
+            <p class="component-note" style="margin-top: 6px;">
+              `--destructive --compact --icon` (rightmost above) is technically supported, not blocked — shown here as
+              a low-consequence example ("remove filter chip"). For a high-consequence/irreversible destructive
+              action, prefer the default 44px density instead of compact, or require a confirmation step — a small
+              unlabeled icon target is an easy mis-tap for something irreversible. Guidance, not a restriction.
+            </p>
           </div>
 
           <p class="component-note">
             DO — use icon-only for universally understood actions where space matters; always provide an accessible
             name via `aria-label`; compose canonical modifiers (`ac-button ac-button--{variant} [ac-button--compact]
             ac-button--icon`). DON'T — create a local `.table-action-button`/`.dashboard-icon-button` family; override
-            width/padding locally to fake a square control; rely on a tooltip (`title`) as the accessible name.
+            width/padding locally to fake a square control; rely on a tooltip (`title`) as the accessible name; pair
+            `--destructive` with `--compact --icon` for a high-consequence action without a confirmation step.
           </p>
         </div>
       </section>

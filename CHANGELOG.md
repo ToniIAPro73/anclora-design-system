@@ -2,6 +2,16 @@
 
 Todas las versiones del design system se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
+## [0.6.1] — 2026-09-21
+
+### Corregido — contradicción en las combinaciones válidas de `.ac-button--icon`
+
+`components/button.css` decía que `--compact--icon` "no está pensado para una acción primaria o destructiva", mientras `design-system.manifest.json` decía que `--icon` "compone con CUALQUIER variante y CUALQUIER densidad" — la misma capacidad, dos reglas distintas. Reconciliado: las 16 combinaciones (4 variantes × 4 densidades) son técnicamente soportadas sin excepción; evitar `--destructive --compact --icon` en una acción de alta consecuencia es guía de diseño, no una combinación bloqueada, y ya no se agrupa con `--primary` (un botón primario compacto de icono no tiene el mismo problema de seguridad). El catálogo (`preview/components-canonical.html`) ahora muestra la combinación explícitamente en vez de omitirla en silencio, y `scripts/verify-button-contract.mjs` verifica mecánicamente que `button.css` y el manifest sigan diciendo lo mismo. Detalle completo: `docs/ecosystem-audit/06-icon-only-and-theme-reconciliation.md`.
+
+### Corregido — afirmación incorrecta sobre tokens de tema claro
+
+`ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md` §4 afirmaba que `src/tokens/semantic.css` ya tenía "bloques por tema" para modo claro. Verificado por inspección exhaustiva: no existe ningún `[data-theme='light']`, `.light`, `prefers-color-scheme` o `color-scheme: light` en ningún archivo de `src/tokens/`, `src/foundations/` ni `src/themes/` — el paquete ejecutable es hoy solo modo oscuro. Corregido en el propio documento de arquitectura, con la clasificación del gap (arquitectura genuina, no hueco de catálogo) y un seguimiento acotado propuesto ("Wave 1.6 — Light Theme Foundation"), no ejecutado en este release. Ningún consumidor real se ve afectado por esta corrección documental — no cambia ningún valor ejecutable.
+
 ## [0.6.0] — 2026-09-21
 
 ### Añadido — variante `.ac-button--icon` (`components/button.css`)

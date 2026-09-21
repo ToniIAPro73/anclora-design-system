@@ -181,16 +181,31 @@
    (currently a "✕" text glyph inside a non-square .ac-button--sm pill,
    src/ui/Modal.tsx). Neither consumer is modified by this change.
 
+   Supported combinations (updated 0.6.1 to remove an internal
+   contradiction — see docs/ecosystem-audit/06-icon-only-and-theme-
+   reconciliation.md): --icon composes with EVERY variant
+   (--primary/--secondary/--ghost/--destructive) and EVERY density
+   (default/--sm/--lg/--compact). All 16 combinations are implemented and
+   supported — there is no technically blocked combination.
+
    Touch target note: the default and --sm/--lg square sizes (44/38/50px)
    meet or exceed the WCAG 2.5.5 (AAA) 44px target-size guidance.
    --compact's 36px square is below that AAA guidance but still clears the
-   WCAG 2.2 2.5.8 (AA) 24px minimum with real margin. --compact--icon is
-   intended for dense, low-risk, secondary actions in already-dense
-   surfaces (row menus, table toolbars) where the surrounding row already
-   provides spacing between adjacent targets — it is not intended for a
-   page's primary or destructive action. Consumers needing an AAA-compliant
-   icon target in a dense surface should use the default (non-compact)
-   density instead of forcing --compact everywhere. */
+   WCAG 2.2 2.5.8 (AA) 24px minimum with real margin.
+
+   Design guidance, NOT a technical restriction: avoid pairing
+   --destructive with --compact--icon for a page's primary or
+   high-consequence action — a small (36px), unlabeled icon button is an
+   easy mis-tap target for an irreversible action. Prefer the default
+   (44px, non-compact) density for a destructive icon action, or require a
+   confirmation step, when the action is high-consequence. This guidance
+   does not apply to --primary --compact --icon (a small primary icon
+   action carries no equivalent safety concern) or to a low-consequence
+   --destructive --compact --icon action inside an already-confirmed flow
+   (e.g. a "remove filter chip" control) — use judgment, the combination
+   itself is never blocked. Consumers needing an AAA-compliant icon target
+   in a dense surface should use the default (non-compact) density instead
+   of forcing --compact everywhere. */
 .ac-button.ac-button--icon {
   --ac-button-padding-x: 0;
   width: var(--ac-button-min-height);
