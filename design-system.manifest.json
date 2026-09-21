@@ -1,7 +1,23 @@
 {
   "name": "@anclora/design-system",
-  "version": "0.7.0",
-  "_agentReadme": "This manifest is the machine-readable contract for coding agents working in any Anclora repo. Read componentStatus before adding a component (canonical = consume it, do not rebuild it; candidate = usable but not yet a hard requirement; needsConsumerEvidence = ships but has no confirmed real usage, verify before relying on it). Read profiles before choosing shell/density defaults for a new app. Read extensionPoints before overriding anything — if the property you need to change is not listed as a component's extension point, add a variant here instead of overriding the base selector. Read prohibitedPatterns before writing CSS that touches an .ac-* selector directly. Read theme before implementing light/dark in any new app — as of 0.7.0 the package ships a real canonical light theme, do not invent a local one. Full architecture: ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md. Full theme contract: docs/themes/light-dark-theme-contract.md. Full evidence: docs/ecosystem-audit/.",
+  "version": "0.8.0",
+  "_agentReadme": "This manifest is the machine-readable contract for coding agents working in any Anclora repo. Read componentStatus before adding a component (canonical = consume it, do not rebuild it; candidate = usable but not yet a hard requirement; needsConsumerEvidence = ships but has no confirmed real usage, verify before relying on it). Read profiles before choosing shell/density defaults for a new app. Read extensionPoints before overriding anything — if the property you need to change is not listed as a component's extension point, add a variant here instead of overriding the base selector. Read prohibitedPatterns before writing CSS that touches an .ac-* selector directly. Read theme before implementing light/dark in any new app — as of 0.7.0 the package ships a real canonical light theme, do not invent a local one. Read borders before deciding which border token to use — not every border needs 3:1, but a control/status border does, and there's a specific token for that. Full architecture: ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md. Full theme contract: docs/themes/light-dark-theme-contract.md. Full border/status/link contract: docs/tokens/semantic-borders-and-status.md. Full evidence: docs/ecosystem-audit/.",
+  "borders": {
+    "roles": {
+      "subtle": { "token": "--border-subtle", "guarantee": "none — may be low contrast, decorative only", "use": "row dividers, section rules, anywhere the surface stays identifiable without the border" },
+      "control": { "token": "--border-control", "guarantee": "WCAG 2.2 non-text >=3:1 against the surface it's painted on, verified against Core's own surfaces AND a real product surface fixture", "use": "form inputs/selects/textareas, and any future component where the border is the primary/only cue that something is a control or panel boundary", "since": "0.8.0" },
+      "strong": { "token": "--border-strong", "guarantee": ">=3:1 by construction (derives from --line-strong)", "use": "emphasis, selected/focused structure, high-hierarchy separation" },
+      "status": { "token": "--status-{success,warning,danger,review}-border", "publicToneMapping": "success→success, warning→warning, danger→danger, info→review", "guarantee": ">=3:1 against the badge's own surface, verified per tone per theme", "use": "ONLY .ac-status-badge — do not invent a local status border color; if a tone the DS doesn't cover is needed, that's Design System feedback, not a local addition", "since": "0.8.0" }
+    },
+    "rule": "WCAG 2.2 non-text contrast (1.4.11) applies when a border is necessary to perceive the component or its state — not to every visible line. A Modal's border, where elevation/shadow/backdrop already define the boundary, can stay on --border-default (unguaranteed). An input field's border, with no other strong boundary cue, needs --border-control. When genuinely unsure, prefer --border-control over silently relying on --border-default's unguaranteed contrast.",
+    "note": "--border-default/--border are unchanged in 0.8.0 (still decorative-strength, not retroactively strengthened) — --border-control is additive specifically so ~30 existing consumers that never asked for a stronger default aren't visually changed. Full rationale, evidence, and the exact contrast numbers: docs/tokens/semantic-borders-and-status.md."
+  },
+  "linkText": {
+    "rule": "A product accent valid for fills/icons/decoration is not automatically valid as normal-size text — 3:1 (non-text) and 4.5:1 (text) are different requirements, and an accent's contrast against its own canvas varies by product and by theme.",
+    "darkFormula": "color-mix(in srgb, var(--accent) 80%, white 20%) — fixed in 0.8.0, was var(--accent) raw (Command Center's real accent measured 4.34:1 there, below the 4.5:1 AA text minimum)",
+    "lightFormula": "color-mix(in srgb, var(--accent) 45%, black 55%) — unchanged since 0.7.0",
+    "prohibited": "Using --accent (or any raw product accent) directly as --text-link, or as any normal-size text color, without verifying contrast against the actual canvas it will render on."
+  },
   "theme": {
     "publicSelector": "data-theme",
     "supportedValues": ["dark", "light"],
@@ -60,6 +76,10 @@
     }
   },
   "prohibitedPatterns": [
+    "Inventing a local status border color (e.g. a consumer-specific --status-danger-border) instead of using the canonical --status-*-border tier — added 0.8.0 specifically so consumers stop needing to do this.",
+    "Using --accent (or any raw product accent) as normal-size text (including --text-link) without verifying contrast — a fill/icon-safe accent is not automatically text-safe. See linkText.",
+    "Using --border-subtle or --border-default where recognizing the component genuinely depends on the border being visible (e.g. a form input) — use --border-control instead.",
+    "Globally strengthening --border-subtle or --border-default to fix one component's contrast problem instead of using --border-control on that component — this changes every consumer that never asked for a stronger default.",
     "Overriding border-radius, font-size, font-weight, or text-transform directly on the bare .ac-button selector in a consumer app instead of using a --compact/--sm/--lg/--icon variant or an --ac-button-* custom property.",
     "Building a local icon-only button class ('.icon-button', '.table-action-button', '.dashboard-icon-button', or similar) instead of composing `ac-button ac-button--<variant> ac-button--icon`.",
     "Shipping an .ac-button--icon (or any icon-only control) without an aria-label/aria-labelledby, or relying on a tooltip/title as the accessible name.",

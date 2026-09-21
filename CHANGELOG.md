@@ -2,6 +2,16 @@
 
 Todas las versiones del design system se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
+## [0.8.0] — 2026-09-21
+
+### Añadido — contrato semántico de bordes, estados y enlaces (Wave 2.1)
+
+Se añade `--border-control` para límites estructurales cuyo reconocimiento depende del borde, manteniendo `--border-subtle`/`--border-default` como roles decorativos sin una garantía universal de 3:1. Los campos `.field-input`, `.field-select` y `.field-textarea` consumen el nuevo rol; `--border-strong` conserva su función de mayor énfasis.
+
+Se añaden bordes canónicos para `success`, `warning`, `danger` y el tono público `info` (mapeado al vocabulario semántico existente `review`) y se conectan a `.ac-status-badge` en ambos temas. `--text-link` deja de resolver al acento de producto crudo en oscuro y usa una derivación contrastada para texto normal; el acento sigue siendo válido para marca, fondos e iconos, sujeto a validación si se usa como texto.
+
+La release incluye verificación semántica de contraste con superficies de badge y fixture de producto, catálogo de ambos temas, documentación, manifest legible por agentes y actualización arquitectónica. No modifica Command Center ni Talent; la migración de consumidores queda para una ola posterior.
+
 ## [0.7.0] — 2026-09-21
 
 ### Añadido — tema claro canónico (Wave 1.6)

@@ -141,7 +141,16 @@
   width: 100%;
   min-height: 48px;
   padding: 0 16px;
-  border: 1px solid var(--border-default);
+  /* border-control, not border-default (migrated 0.8.0): an input's
+     border is its only boundary cue besides a subtle background tint —
+     recognizing it as a control genuinely depends on that border being
+     visible, unlike e.g. Modal's border where elevation/shadow already
+     carries that job. --border-default measured as low as 1.63:1/1.29:1
+     against a real product surface (Command Center) — not safe for a
+     control that needs to read as a control. See
+     docs/tokens/semantic-borders-and-status.md §Component boundary
+     decisions. */
+  border: 1px solid var(--border-control);
   border-radius: var(--radius-md);
   background: color-mix(in srgb, var(--surface-panel) 92%, transparent);
   color: var(--text-primary);

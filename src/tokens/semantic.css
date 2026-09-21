@@ -49,7 +49,16 @@
   --text-tertiary: color-mix(in srgb, var(--fg2) 88%, transparent);
   --text-muted: color-mix(in srgb, var(--fg2) 78%, transparent);
   --text-eyebrow: var(--fg3);
-  --text-link: var(--accent);
+  /* --text-link (fixed 0.8.0 — was var(--accent) directly): a raw product
+     accent is not automatically safe as normal-size text. Core's own
+     Group silver accent happens to pass here (8.20:1), which is why this
+     was invisible until two independent real consumers hit it: Talent's
+     dark accent (#4A9FD8) barely passes at 4.75:1, and Command Center's
+     dark accent (#6C63FF) FAILS at 4.34:1 — below the 4.5:1 AA text
+     minimum (see docs/tokens/semantic-borders-and-status.md §Link text).
+     Lightened toward white instead of used raw — verified >=5.97:1 across
+     Core's own accent and both real product accents tested. */
+  --text-link: color-mix(in srgb, var(--accent) 80%, white 20%);
   --text-on-accent: #0f1720;
   --text-inverse: #ffffff;
 
@@ -69,16 +78,50 @@
   --border-subtle: color-mix(in srgb, var(--border) 76%, transparent);
   --border-default: var(--border);
   --border-strong: var(--line-strong);
+  /* --border-control (added 0.8.0): a NEW, additive semantic role — see
+     docs/tokens/semantic-borders-and-status.md for the full border model
+     (decorative/structural/strong/status). --border-default/--border are
+     NOT strengthened by this change and keep their existing decorative
+     values; apps relying on their current (low) contrast are unaffected.
+     --border-control exists for the case Command Center's Pilot 2 found:
+     a boundary that is actually necessary to identify a control, panel or
+     interactive element needs a contrast guarantee --border couldn't give
+     (--border measured 1.63:1 dark / 1.29:1 light against a real product
+     surface — both fail the 3:1 WCAG 2.2 non-text minimum). Derived from
+     --text-primary rather than a fixed neutral gray so it stays >=3:1
+     against Core's own surfaces and the sanctioned product fixture — a
+     fixed-alpha neutral border fails exactly when a product surface is
+     saturated/dark enough that the alpha blend can't separate from it;
+     deriving from the foreground that already has to be readable on that
+     surface sidesteps the problem structurally. Verified >=3.41:1 against
+     Core's own surfaces AND Command Center's real product surface, both
+     themes. */
+  --border-control: color-mix(in srgb, var(--text-primary) 50%, transparent);
   --focus-ring: color-mix(in srgb, var(--accent) 52%, white 20%);
   --focus-ring-offset: color-mix(in srgb, var(--bg) 66%, black 34%);
   --status-success-surface: rgba(82, 190, 128, 0.18);
   --status-success-text: #a9efb7;
+  /* --status-*-border (added 0.8.0): the base .ac-status-badge rule in
+     components/status-badge.css already reserves a 1px border slot
+     (`border: 1px solid transparent`) on every tone — success/warning/
+     danger/info left it transparent while neutral/muted already filled
+     it. This isn't new anatomy, it's finishing what was already there.
+     Dark values reuse each status's own -surface tint at full opacity
+     (no new color decisions); light values reuse each status's own
+     -text color, which was already tuned for AA contrast. Every pair
+     verified >=3:1 (non-text minimum) against both Core's own panel
+     surface and Command Center's real product surface — see
+     docs/tokens/semantic-borders-and-status.md §Status model. */
+  --status-success-border: rgb(82, 190, 128);
   --status-review-surface: rgba(144, 206, 214, 0.16);
   --status-review-text: #8fc3c7;
+  --status-review-border: rgb(144, 206, 214);
   --status-warning-surface: rgba(212, 175, 55, 0.16);
   --status-warning-text: #d8bf86;
+  --status-warning-border: rgb(212, 175, 55);
   --status-danger-surface: rgba(225, 87, 89, 0.18);
   --status-danger-text: #ffb8b9;
+  --status-danger-border: rgb(225, 87, 89);
 
   --motion-hover-lift-card: -3px;
   --motion-hover-lift-button: -2px;
@@ -235,6 +278,11 @@
   --border-subtle: color-mix(in srgb, var(--border) 76%, transparent);
   --border-default: var(--border);
   --border-strong: var(--line-strong);
+  /* --border-control (added 0.8.0): see the dark block's comment for the
+     full rationale. Same derivation, --text-primary already differs per
+     theme so one formula covers both. Verified >=3.41:1 against Core's
+     own panel and Command Center's real product surface. */
+  --border-control: color-mix(in srgb, var(--text-primary) 50%, transparent);
   /* Focus ring darkens (not lightens, unlike dark theme) the accent for
      3:1 non-text contrast against a light canvas — verified 4.48:1. */
   --focus-ring: color-mix(in srgb, var(--accent) 65%, black 35%);
@@ -243,13 +291,21 @@
   /* Status surface/text pairs keep the same hue family as dark theme
      (danger=red, success=green, warning=amber, review=teal) — only
      lightness/saturation change for the light canvas. Each pair verified
-     >=4.5:1 by scripts/verify-theme-contrast.mjs. */
+     >=4.5:1 by scripts/verify-theme-contrast.mjs. --status-*-border
+     (added 0.8.0) reuses each tone's own -text color — already tuned for
+     AA text contrast, and verified >=6.2:1 as a border against a white
+     panel, comfortably clearing the 3:1 non-text minimum. See the dark
+     block's comment for why this tier exists. */
   --status-success-surface: rgba(56, 161, 105, 0.14);
   --status-success-text: #145c31;
+  --status-success-border: #145c31;
   --status-review-surface: rgba(94, 197, 209, 0.16);
   --status-review-text: #0e6b73;
+  --status-review-border: #0e6b73;
   --status-warning-surface: rgba(214, 158, 46, 0.16);
   --status-warning-text: #7a5100;
+  --status-warning-border: #7a5100;
   --status-danger-surface: rgba(229, 62, 62, 0.12);
   --status-danger-text: #b42318;
+  --status-danger-border: #b42318;
 }

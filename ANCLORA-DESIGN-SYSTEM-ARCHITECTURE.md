@@ -55,6 +55,8 @@ Product Accent/Extension    (--accent app-específico, ya existente en `src/toke
 
 No se sobre-tokeniza cada declaración CSS — se prioriza la estabilidad semántica sobre la cobertura exhaustiva (instrucción explícita del propietario).
 
+**Actualización 0.8.0 (Wave 2.1):** la capa semántica de color gana un modelo explícito de roles de borde (decorativo/estructural-control/fuerte/estado) en vez de un único `border-default` implícitamente decorativo — evidencia real de Command Center Pilot 2 demostró que un borde neutro de alfa fija puede caer por debajo de 3:1 contra una superficie de producto legítima (1.63:1 oscuro / 1.29:1 claro medido). `--text-link` también se corrigió en tema oscuro: ya no resuelve al acento crudo (`var(--accent)`), que dos consumidores reales midieron por debajo del mínimo AA de texto en al menos un tema cada uno. Detalle completo, evidencia y contrato de uso: `docs/tokens/semantic-borders-and-status.md`.
+
 ---
 
 ## 4. Temas (Light/Dark) — contrato público único

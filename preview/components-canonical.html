@@ -315,11 +315,32 @@
           <p style="color: var(--text-muted); margin: 0;">text-muted on surface-canvas (decorative use only)</p>
           <p style="margin: 0;"><a href="#" style="color: var(--text-link);">text-link on surface-canvas</a></p>
           <div class="component-cluster">
-            <span style="padding: 4px 10px; border-radius: var(--radius-sm); background: var(--status-success-surface); color: var(--status-success-text); font-size: 0.78rem;">success</span>
-            <span style="padding: 4px 10px; border-radius: var(--radius-sm); background: var(--status-warning-surface); color: var(--status-warning-text); font-size: 0.78rem;">warning</span>
-            <span style="padding: 4px 10px; border-radius: var(--radius-sm); background: var(--status-danger-surface); color: var(--status-danger-text); font-size: 0.78rem;">danger</span>
-            <span style="padding: 4px 10px; border-radius: var(--radius-sm); background: var(--status-review-surface); color: var(--status-review-text); font-size: 0.78rem;">review</span>
+            <span class="ac-status-badge ac-status-badge--success">success</span>
+            <span class="ac-status-badge ac-status-badge--warning">warning</span>
+            <span class="ac-status-badge ac-status-badge--danger">danger</span>
+            <span class="ac-status-badge ac-status-badge--info">info (review)</span>
           </div>
+        </div>
+      </section>
+
+      <section class="stack" id="border-model">
+        <h2 class="h3">Border model, both themes (added 0.8.0 — Wave 2.1)</h2>
+        <p class="component-note">
+          Three roles, not one generic "border": <strong>subtle</strong> — decorative separation only, the surface
+          stays identifiable without it (used for row dividers, section rules). <strong>structural/control</strong>
+          (<code>--border-control</code>, new) — necessary to recognize a control or panel boundary; derived from
+          <code>--text-primary</code> rather than a fixed neutral so it remains &ge;3:1 in Core and the sanctioned product
+          surface fixture (used by form inputs). <strong>strong</strong> — emphasis/high-hierarchy
+          separation, already &ge;3:1 by construction. Not every border needs the same guarantee — see
+          <code>docs/tokens/semantic-borders-and-status.md</code>.
+        </p>
+        <div class="component-cluster">
+          <div style="padding: 14px 18px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); color: var(--text-secondary); font-size: 0.82rem;">subtle</div>
+          <div style="padding: 14px 18px; border: 1px solid var(--border-control); border-radius: var(--radius-md); color: var(--text-secondary); font-size: 0.82rem;">structural / control</div>
+          <div style="padding: 14px 18px; border: 1px solid var(--border-strong); border-radius: var(--radius-md); color: var(--text-secondary); font-size: 0.82rem;">strong</div>
+        </div>
+        <div class="component-cluster" style="margin-top: 4px;">
+          <input class="field-input" placeholder="Form input — uses border-control" style="max-width: 260px;" />
         </div>
       </section>
 
