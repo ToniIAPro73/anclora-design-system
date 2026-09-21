@@ -274,6 +274,27 @@ async function runA11y(browser, origin) {
     console.log(`A11y ok: ${preview.id}`);
   }
 
+  // Wave 1.6: the a11y pass above only ever exercises each page's default
+  // (dark) state — a dark-only axe pass does not validate the new light
+  // theme (0.7.0). Re-run axe against components-canonical.html specifically
+  // switched to data-theme="light", since that page carries the real
+  // Core light/dark semantic contract (the "Semantic foundations, both
+  // themes" section) plus the Button matrix and Modal/StatusBadge/
+  // EmptyState samples added for it.
+  const lightThemePreview = pages.find((p) => p.id === "components-canonical");
+  await openPreview(page, origin, lightThemePreview, viewports[0]);
+  await page.evaluate(() => document.documentElement.setAttribute("data-theme", "light"));
+  const lightResults = await new AxeBuilder({ page }).withRules(a11yRules).analyze();
+  if (lightResults.violations.length > 0) {
+    const detail = lightResults.violations.map((violation) => {
+      const targets = violation.nodes.flatMap((node) => node.target).slice(0, 3).join(", ");
+      return `${violation.id} (${targets || "no target"})`;
+    });
+    failures.push(`components-canonical [data-theme=light]: ${detail.join("; ")}`);
+  } else {
+    console.log("A11y ok: components-canonical [data-theme=light]");
+  }
+
   await context.close();
 
   if (failures.length > 0) {

@@ -22,6 +22,23 @@
   --group-silver-2: #8a909a;
   --group-glow: rgba(168, 174, 184, 0.08);
 
+  /* NUEVO 0.7.0 (Wave 1.6): primitivos de canvas/texto para el tema claro
+     canónico de Core. Valores elegidos por evidencia (patrón cool
+     slate/navy convergente entre los dos consumidores reales de luz,
+     anclora-talent y anclora-command-center — ver docs/themes/
+     light-dark-theme-contract.md §Evidence) y verificados por contraste
+     con scripts/verify-theme-contrast.mjs, no por inspección visual. El
+     acento (--coin-group) NO tiene variante "-light": es un valor de marca
+     invariante por tema; solo sus USOS derivados (enlace, focus-ring,
+     texto-sobre-acento) cambian por tema — ver semantic.css. */
+  --group-canvas-light: #f3f5f8;
+  --group-surface-light: #ffffff;
+  --group-surface-2-light: #e7ebf0;
+  --group-copy-light: #10141c;
+  --group-muted-light: rgba(16, 20, 28, 0.72);
+  --group-border-light: rgba(16, 20, 28, 0.12);
+  --group-border-strong-light: rgba(16, 20, 28, 0.55);
+
   --portfolio-navy: #0f172a;
   --portfolio-azure: #1e293b;
   --portfolio-ivory: #f8f5f2;
@@ -106,6 +123,17 @@
   --shadow-xl: 0 38px 90px rgba(0, 0, 0, 0.45);
   --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.05);
   --shadow-focus: 0 0 0 1px rgba(229, 201, 255, 0.34), 0 18px 40px rgba(9, 4, 18, 0.24);
+  /* --shadow-soft/--shadow-strong (added 0.7.0): aliases closing the same
+     kind of gap as --text-tertiary/--surface-soft above — referenced by
+     editorShell/editorStudio/textEditor/exportSuite with no prior
+     definition. Kept as plain aliases of the existing scale rather than
+     new shadow shapes. Shadow color intentionally stays black-based and
+     theme-invariant in both themes (a black shadow reads correctly on a
+     light canvas too) — not redefined per data-theme in this release; see
+     docs/themes/light-dark-theme-contract.md §Scoped out for the reasoning
+     and the follow-up this leaves open. */
+  --shadow-soft: var(--shadow-sm);
+  --shadow-strong: var(--shadow-lg);
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);

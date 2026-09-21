@@ -2,7 +2,14 @@
    SEMANTIC TOKENS
    ========================================================= */
 
-:root {
+/* :root carries the existing (pre-0.7.0) values unscoped, so any consumer
+   that never sets data-theme keeps today's exact behavior — dark by
+   default, unchanged. [data-theme="dark"] is added explicitly (same
+   selector block, not a duplicate) so dark is also a real, addressable
+   value of the public data-theme contract, not just an accidental default.
+   See docs/themes/light-dark-theme-contract.md for the full contract. */
+:root,
+[data-theme="dark"] {
   --bg: var(--group-ink);
   --bg-raised: var(--group-surface);
   --bg-strong: var(--group-surface-2);
@@ -22,9 +29,24 @@
   --surface-overlay: color-mix(in srgb, var(--bg) 82%, black 18%);
   --surface-glass: color-mix(in srgb, var(--bg-raised) 84%, transparent);
   --surface-hero-protection: linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--bg) 78%, transparent) 100%);
+  /* --surface-soft/--surface-highlight (added 0.7.0): same gap as
+     --text-tertiary above — referenced by editorShell/editorStudio/
+     textEditor/exportSuite with no prior definition. --surface-soft
+     aliases the existing --surface-subtle role rather than introducing a
+     new meaning; --surface-highlight is a genuinely new role (an
+     accent-tinted emphasis surface, e.g. an active toolbar segment). */
+  --surface-soft: var(--surface-subtle);
+  --surface-highlight: color-mix(in srgb, var(--accent) 12%, var(--surface-panel));
 
   --text-primary: var(--fg1);
   --text-secondary: var(--fg2);
+  /* --text-tertiary (added 0.7.0): a third de-emphasis step between
+     secondary and muted. Added because editorShell/textEditor (both
+     canonical, real-consumer-validated components) already referenced
+     var(--text-tertiary) with no definition anywhere in the package —
+     discovered during the 0.7.0 theme audit, see
+     docs/themes/light-dark-theme-contract.md §Component audit. */
+  --text-tertiary: color-mix(in srgb, var(--fg2) 88%, transparent);
   --text-muted: color-mix(in srgb, var(--fg2) 78%, transparent);
   --text-eyebrow: var(--fg3);
   --text-link: var(--accent);
@@ -141,4 +163,93 @@
   --cluster-glow-strength: 0.16;
   --cluster-surface-mix: 92%;
   --halo-sweep-opacity: 0.14;
+}
+
+/* =========================================================
+   LIGHT THEME (added 0.7.0 — Wave 1.6)
+   =========================================================
+   Only the color-bearing semantic tokens are redefined here — spacing,
+   radius, motion, shadow shape, type scale and shell layout are theme-
+   invariant and stay inherited from the block above (see
+   docs/themes/light-dark-theme-contract.md §"What each token layer owns").
+
+   Values are Core's own canonical light identity (Group's cool slate/navy
+   family, kept the same brand family as Group's dark identity — light is
+   not a different brand, it's the same brand under different ambient
+   light). --accent keeps its dark-theme value unchanged (--coin-group,
+   the same primitive in both themes: accent is brand, not theme) — only
+   its DERIVED usages (link text, focus ring, text-on-accent) are
+   recomputed for light backgrounds, because the raw accent fails text
+   contrast on a light canvas (verified: 2.04:1, see
+   scripts/verify-theme-contrast.mjs). Every text/surface pair below is
+   checked against WCAG 2.2 AA by that script, not by eye. */
+[data-theme="light"] {
+  --bg: var(--group-canvas-light);
+  --bg-raised: var(--group-surface-light);
+  --bg-strong: var(--group-surface-2-light);
+  --fg1: var(--group-copy-light);
+  --fg2: var(--group-muted-light);
+  /* fg3 (eyebrow/tertiary) and text-link both need a *darkened* derivative
+     of --accent, not the raw brand value — raw accent only reaches 2.04:1
+     against the light canvas. color-mix(...45%, black 55%) verified at
+     7.62:1. */
+  --fg3: color-mix(in srgb, var(--accent) 45%, black 55%);
+  --border: var(--group-border-light);
+  --line-soft: rgba(16, 20, 28, 0.06);
+  --line-strong: var(--group-border-strong-light);
+
+  --surface-canvas: var(--bg);
+  --surface-subtle: color-mix(in srgb, var(--bg-raised) 88%, transparent);
+  --surface-panel: var(--bg-raised);
+  --surface-panel-strong: var(--bg-strong);
+  --surface-elevated: color-mix(in srgb, var(--bg-strong) 92%, white 8%);
+  /* Overlay/backdrop stays a dark scrim in light theme too (modals darken
+     the page behind them regardless of app theme — confirmed in both real
+     consumers' light CSS) — NOT derived from --bg the way dark theme's
+     overlay is, that formula would only produce a washed-out pale tone. */
+  --surface-overlay: rgba(16, 20, 28, 0.7);
+  --surface-glass: color-mix(in srgb, var(--bg-raised) 84%, transparent);
+  --surface-hero-protection: linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--bg) 78%, transparent) 100%);
+
+  --text-primary: var(--fg1);
+  --text-secondary: var(--fg2);
+  --text-muted: color-mix(in srgb, var(--fg2) 78%, transparent);
+  --text-eyebrow: var(--fg3);
+  --text-link: var(--fg3);
+  --text-on-accent: var(--group-copy-light);
+  --text-inverse: #0f1720;
+
+  --action-primary-bg: var(--accent);
+  --action-primary-fg: var(--text-on-accent);
+  --action-primary-border: color-mix(in srgb, var(--accent) 60%, black 12%);
+  --action-secondary-bg: color-mix(in srgb, var(--surface-panel) 88%, transparent);
+  --action-secondary-fg: var(--text-primary);
+  --action-secondary-border: var(--border);
+  --action-ghost-bg: rgba(16, 20, 28, 0.04);
+  --action-ghost-fg: var(--text-primary);
+  --action-ghost-border: color-mix(in srgb, var(--border) 92%, transparent);
+  --action-destructive-bg: rgba(229, 62, 62, 0.12);
+  --action-destructive-fg: #b42318;
+  --action-destructive-border: rgba(229, 62, 62, 0.32);
+
+  --border-subtle: color-mix(in srgb, var(--border) 76%, transparent);
+  --border-default: var(--border);
+  --border-strong: var(--line-strong);
+  /* Focus ring darkens (not lightens, unlike dark theme) the accent for
+     3:1 non-text contrast against a light canvas — verified 4.48:1. */
+  --focus-ring: color-mix(in srgb, var(--accent) 65%, black 35%);
+  --focus-ring-offset: var(--bg);
+
+  /* Status surface/text pairs keep the same hue family as dark theme
+     (danger=red, success=green, warning=amber, review=teal) — only
+     lightness/saturation change for the light canvas. Each pair verified
+     >=4.5:1 by scripts/verify-theme-contrast.mjs. */
+  --status-success-surface: rgba(56, 161, 105, 0.14);
+  --status-success-text: #145c31;
+  --status-review-surface: rgba(94, 197, 209, 0.16);
+  --status-review-text: #0e6b73;
+  --status-warning-surface: rgba(214, 158, 46, 0.16);
+  --status-warning-text: #7a5100;
+  --status-danger-surface: rgba(229, 62, 62, 0.12);
+  --status-danger-text: #b42318;
 }

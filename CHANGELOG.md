@@ -2,6 +2,40 @@
 
 Todas las versiones del design system se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
+## [0.7.0] — 2026-09-21
+
+### Añadido — tema claro canónico (Wave 1.6)
+
+`src/tokens/semantic.css` gana un bloque `[data-theme="light"]` real, diseñado desde los roles semánticos existentes (no desde una paleta inventada) y con cada par texto/superficie crítico verificado contra WCAG 2.2 AA por un script real (`scripts/verify-theme-contrast.mjs`, matemática de luminancia relativa pura, sin dependencias). `:root`/`[data-theme="dark"]` conservan exactamente los valores previos a 0.7.0 — compatibilidad retroactiva total, ningún consumidor existente ve un cambio de comportamiento por defecto. Nuevos primitivos "Group Light" en `src/tokens/core.css` (`--group-canvas-light`, `--group-surface-light`, etc.). `--accent` permanece invariante por tema (es marca, no tema); solo sus usos derivados (`--text-link`, `--focus-ring`, `--text-on-accent`) se recalculan para el canvas claro, porque el mismo acento que pasa contraste en oscuro puede fallarlo en claro (verificado: 2.04:1 crudo vs. 7.62:1 oscurecido). Diseñado con evidencia real de los dos consumidores del ecosistema (`anclora-talent`, `anclora-command-center`) — ninguno de los dos se modifica en esta release.
+
+Contrato completo, con la separación explícita de qué posee el Design System vs. qué posee cada aplicación (persistencia, detección de preferencia de sistema, hidratación SSR): `docs/themes/light-dark-theme-contract.md`.
+
+### Añadido — 5 tokens semánticos que faltaban por completo
+
+Auditoría de componentes (Wave 1.6 §8) encontró 6 custom properties referenciadas por componentes canónicos (`editorShell`, `textEditor` — validados por consumidor real) o candidatos (`editorStudio`, `exportSuite`) sin ninguna definición en el paquete: `--text-tertiary`, `--surface-soft`, `--surface-highlight`, `--shadow-soft`, `--shadow-strong`, `--accent-mint`. Se definieron los 5 primeros (como alias/derivaciones de tokens ya existentes, sin inventar significado nuevo). `--accent-mint` se deja explícitamente sin resolver — no hay evidencia de qué debía representar "mint", e inventar un valor sin esa evidencia sería exactamente el tipo de decisión no fundamentada que este proyecto evita; registrado en `design-system.manifest.json#knownGaps`.
+
+### Corregido — color hardcodeado en `chapter-rail.css`
+
+`.ac-chapter-rail__item[data-active="true"] .ac-chapter-rail__index` usaba `rgba(255,255,255,.18)` — un tinte blanco que solo funciona como highlight sobre un canvas oscuro, invisible en el nuevo tema claro. Sustituido por `color-mix(in srgb, var(--text-primary) 18%, transparent)`, que resuelve en la dirección correcta en ambos temas.
+
+### Añadido — verificación de contraste (`scripts/verify-theme-contrast.mjs`, `scripts/lib/contrast.mjs`)
+
+Incorporado a `npm run verify`. Verifica 8 pares críticos AA (texto sobre canvas, texto sobre acento, focus-ring, 4 pares de estado) contra los valores literales reales de `semantic.css`/`core.css`, y falla si esos literales divergen del propio código (evita que la documentación de contraste y el CSS real se desalineen en silencio).
+
+### Añadido — pase de accesibilidad en modo claro
+
+`scripts/verify-browser.mjs --mode=a11y` ejecuta ahora un pase adicional de axe-core contra `components-canonical.html` con `data-theme="light"` forzado (antes solo se verificaba el estado por defecto/oscuro de cada página). 0 violaciones en esta release.
+
+### Añadido — catálogo con conmutador de tema en vivo
+
+`preview/components-canonical.html` gana una sección "Semantic foundations, both themes" (capa semántica sin marca de producto), muestras de Modal/StatusBadge/EmptyState, y un botón real que conmuta `data-theme` en `<html>` — reemplaza la nota "dark only" de 0.6.0, que ya no era cierta.
+
+### Corregido — afirmación de arquitectura desactualizada
+
+`ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md` §4 ya no describe el contrato de tema claro como aspiracional — documenta lo implementado en esta versión y lo que queda explícitamente fuera de alcance (sombras por tema, `--accent-mint`).
+
+Versión additive, retrocompatible — sin cambios de comportamiento para ningún consumidor real: 0.6.1 → 0.7.0 (minor).
+
 ## [0.6.1] — 2026-09-21
 
 ### Corregido — contradicción en las combinaciones válidas de `.ac-button--icon`

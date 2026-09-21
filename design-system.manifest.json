@@ -1,7 +1,21 @@
 {
   "name": "@anclora/design-system",
-  "version": "0.6.1",
-  "_agentReadme": "This manifest is the machine-readable contract for coding agents working in any Anclora repo. Read componentStatus before adding a component (canonical = consume it, do not rebuild it; candidate = usable but not yet a hard requirement; needsConsumerEvidence = ships but has no confirmed real usage, verify before relying on it). Read profiles before choosing shell/density defaults for a new app. Read extensionPoints before overriding anything — if the property you need to change is not listed as a component's extension point, add a variant here instead of overriding the base selector. Read prohibitedPatterns before writing CSS that touches an .ac-* selector directly. Full architecture: ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md. Full evidence: docs/ecosystem-audit/.",
+  "version": "0.7.0",
+  "_agentReadme": "This manifest is the machine-readable contract for coding agents working in any Anclora repo. Read componentStatus before adding a component (canonical = consume it, do not rebuild it; candidate = usable but not yet a hard requirement; needsConsumerEvidence = ships but has no confirmed real usage, verify before relying on it). Read profiles before choosing shell/density defaults for a new app. Read extensionPoints before overriding anything — if the property you need to change is not listed as a component's extension point, add a variant here instead of overriding the base selector. Read prohibitedPatterns before writing CSS that touches an .ac-* selector directly. Read theme before implementing light/dark in any new app — as of 0.7.0 the package ships a real canonical light theme, do not invent a local one. Full architecture: ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md. Full theme contract: docs/themes/light-dark-theme-contract.md. Full evidence: docs/ecosystem-audit/.",
+  "theme": {
+    "publicSelector": "data-theme",
+    "supportedValues": ["dark", "light"],
+    "defaultBehavior": "No data-theme attribute set -> :root values apply, which are identical to [data-theme=\"dark\"] (backward compatible with every pre-0.7.0 consumer).",
+    "tokenEntrypoint": "tokens/semantic.css",
+    "dsOwns": ["visual theme semantics per role (--bg, --text-primary, --status-danger-text, etc.)", "WCAG 2.2 AA contrast for every semantic text/surface pair it defines"],
+    "appOwns": ["system preference detection (prefers-color-scheme)", "persistence of user choice", "the theme-switch UI control", "SSR-safe pre-hydration script that sets data-theme before first paint"],
+    "mustNotRedefine": ["the meaning of a semantic role (e.g. what counts as 'danger')", "a third theme state", "--focus-ring or any accessibility-load-bearing token, for aesthetic reasons"],
+    "brandVsTheme": "--accent (and other .product-anclora-* brand tokens in themes/product.css) is theme-invariant — the same brand color is used in both dark and light. Only its DERIVED usages (--text-link, --focus-ring, --text-on-accent) are recomputed per theme, because a brand accent that passes contrast in dark mode can fail it in light mode (verified: Core's own silver accent is 2.04:1 as raw text on the light canvas, fails AA; darkened via color-mix it's 7.62:1).",
+    "answersForAgents": {
+      "I need light/dark theme for a new Anclora app. Should I create my own palette?": "No. Set data-theme=\"dark\"|\"light\" on <html> and consume the canonical semantic tokens from tokens/semantic.css — do not copy a token block from anclora-talent or anclora-command-center, and do not invent your own selector/class/attribute for theme.",
+      "Can I set a custom brand accent while still using the canonical themes?": "Yes — that's what themes/product.css's .product-anclora-* layer is for. Override --accent (and, only if your brand identity genuinely requires it, --bg/--fg*) there; do not touch the semantic role definitions in tokens/semantic.css itself."
+    }
+  },
   "componentStatus": {
     "canonical": [
       "button", "surfacePanel", "formField", "dataTable", "statusBadge", "emptyState", "modal",
@@ -58,6 +72,10 @@
   "deprecated": [
     { "api": "--coin-syncxml", "replacement": "--coin-guesthub", "since": "0.4.1", "reason": "product rename, alias kept for one release" },
     { "api": ".product-anclora-syncxml", "replacement": ".product-anclora-guesthub", "since": "0.4.1", "reason": "product rename, alias kept for one release" }
+  ],
+  "knownGaps": [
+    { "token": "--accent-mint", "usedBy": ["editorStudio.css", "editorShell.css", "textEditor.css"], "issue": "referenced but never defined anywhere in the package — discovered during the 0.7.0 theme audit, not introduced by it. Do not invent a value for this without a product decision on what 'mint' should represent; see docs/themes/light-dark-theme-contract.md §8." },
+    { "token": "--shadow-*", "issue": "theme-invariant (same black-based value in dark and light) as of 0.7.0 — not redefined per data-theme. Acceptable simplification for now, documented as a scoped-out follow-up, not an oversight." }
   ],
   "entrypoints": {
     "system": "./src/system.css",

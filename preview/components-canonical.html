@@ -10,6 +10,10 @@
         color-scheme: dark;
       }
 
+      [data-theme="light"] {
+        color-scheme: light;
+      }
+
       * {
         box-sizing: border-box;
       }
@@ -20,6 +24,30 @@
           radial-gradient(circle at top, rgba(201, 169, 95, 0.08) 0%, transparent 32%),
           linear-gradient(180deg, #0d1420 0%, #121a27 100%);
         color: var(--text-primary);
+      }
+
+      [data-theme="light"] body {
+        background:
+          radial-gradient(circle at top, color-mix(in srgb, var(--accent) 6%, transparent) 0%, transparent 32%),
+          linear-gradient(180deg, var(--bg) 0%, var(--bg-strong) 100%);
+      }
+
+      .theme-toggle {
+        position: sticky;
+        top: 16px;
+        z-index: 10;
+        justify-self: end;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        border-radius: var(--radius-pill);
+        border: 1px solid var(--border-default);
+        background: var(--surface-panel);
+        color: var(--text-primary);
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
       }
 
       .demo-shell {
@@ -80,6 +108,10 @@
   </head>
   <body>
     <main class="demo-shell">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
+        <span id="theme-toggle-label">Dark (data-theme unset)</span>
+      </button>
+
       <section class="stack">
         <div class="eyebrow">Canonical components by tier</div>
         <h1 class="h1">La misma API visual debe cambiar de carácter sin romper el sistema.</h1>
@@ -269,13 +301,61 @@
         </article>
       </section>
 
+      <section class="stack" id="theme-foundation">
+        <h2 class="h3">Semantic foundations, both themes (added 0.7.0 — Wave 1.6)</h2>
+        <p class="component-note">
+          Unscoped by any `.product-anclora-*` brand class — this is Core's own canonical identity, not a per-product
+          skin. Use the toggle above to switch `data-theme` on `&lt;html&gt;` and watch this whole section (plus the
+          button matrix and the component samples below) repaint live from the same semantic tokens. Every text/
+          surface pair shown here is checked for WCAG 2.2 AA by `scripts/verify-theme-contrast.mjs`, not by eye.
+        </p>
+        <div class="ac-surface-panel tier-panel" style="display: grid; gap: 12px;">
+          <p style="color: var(--text-primary); margin: 0;">text-primary on surface-canvas</p>
+          <p style="color: var(--text-secondary); margin: 0;">text-secondary on surface-canvas</p>
+          <p style="color: var(--text-muted); margin: 0;">text-muted on surface-canvas (decorative use only)</p>
+          <p style="margin: 0;"><a href="#" style="color: var(--text-link);">text-link on surface-canvas</a></p>
+          <div class="component-cluster">
+            <span style="padding: 4px 10px; border-radius: var(--radius-sm); background: var(--status-success-surface); color: var(--status-success-text); font-size: 0.78rem;">success</span>
+            <span style="padding: 4px 10px; border-radius: var(--radius-sm); background: var(--status-warning-surface); color: var(--status-warning-text); font-size: 0.78rem;">warning</span>
+            <span style="padding: 4px 10px; border-radius: var(--radius-sm); background: var(--status-danger-surface); color: var(--status-danger-text); font-size: 0.78rem;">danger</span>
+            <span style="padding: 4px 10px; border-radius: var(--radius-sm); background: var(--status-review-surface); color: var(--status-review-text); font-size: 0.78rem;">review</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="stack">
+        <h2 class="h3">Component samples, both themes</h2>
+        <p class="component-note">Modal is not migrated for Command Center Pilot 2 in this wave — this only confirms its tokens resolve correctly in both themes (backdrop, panel, border, title, body text, close action, focus).</p>
+        <div class="component-grid">
+          <div class="ac-surface-panel tier-panel">
+            <p class="component-note" style="margin-bottom: 8px;">Modal surface</p>
+            <div class="ac-modal" style="position: static; max-width: 360px;">
+              <div class="ac-modal__header">
+                <p class="ac-modal__meta">Eyebrow</p>
+                <h3 class="ac-modal__title">Modal title</h3>
+              </div>
+              <div class="ac-modal__body"><p style="margin:0;">Body text on modal surface.</p></div>
+              <div class="ac-modal__footer">
+                <button class="ac-button ac-button--ghost ac-button--icon" type="button" aria-label="Cerrar"><span class="ac-button__icon" aria-hidden="true">✕</span></button>
+                <button class="ac-button ac-button--primary" type="button"><span class="ac-button__label">Confirmar</span></button>
+              </div>
+            </div>
+          </div>
+          <div class="ac-surface-panel tier-panel">
+            <p class="component-note" style="margin-bottom: 8px;">Status badge + empty state</p>
+            <span class="ac-status-badge ac-status-badge--success">Activo</span>
+            <div class="ac-empty-state" style="margin-top: 14px;">
+              <p class="ac-empty-state__title">Sin resultados</p>
+              <p class="ac-empty-state__summary">No hay elementos que coincidan con el filtro actual.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="stack" id="button-matrix">
         <h2 class="h3">Button dimensions (added 0.6.0 — Wave 1.5)</h2>
         <p class="component-note">
-          Dark only: `anclora-design-system` does not yet ship a light-theme override for its own semantic tokens
-          (each consumer currently defines its own `[data-theme='light']` block locally — see
-          `ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md` §4). This matrix shows every real combination the package
-          exports; it does not fabricate a light rendering the package cannot itself produce yet.
+          Verified in both themes as of 0.7.0 (Wave 1.6) — use the toggle above.
         </p>
 
         <div class="ac-surface-panel tier-panel" style="display: grid; gap: 20px;">
@@ -343,5 +423,22 @@
         </div>
       </section>
     </main>
+    <script>
+      (function () {
+        var toggle = document.getElementById('theme-toggle');
+        var label = document.getElementById('theme-toggle-label');
+        function apply(theme) {
+          if (theme) document.documentElement.setAttribute('data-theme', theme);
+          else document.documentElement.removeAttribute('data-theme');
+          label.textContent = theme === 'light' ? 'Light (data-theme="light")' : theme === 'dark' ? 'Dark (data-theme="dark")' : 'Dark (data-theme unset)';
+        }
+        var current = null;
+        toggle.addEventListener('click', function () {
+          current = current === 'light' ? 'dark' : 'light';
+          apply(current);
+        });
+        apply(current);
+      })();
+    </script>
   </body>
 </html>

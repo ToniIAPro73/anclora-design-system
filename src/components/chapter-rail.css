@@ -98,7 +98,15 @@
 }
 
 .ac-chapter-rail__item[data-active="true"] .ac-chapter-rail__index {
-  background: rgba(255, 255, 255, 0.18);
+  /* Was a hardcoded white tint (rgba(255,255,255,.18)) — only readable as a
+     highlight on a dark canvas; near-invisible in light theme. Deriving
+     from --text-primary instead gives the correct direction in both
+     themes: mostly-white text-primary in dark mode reproduces the exact
+     original highlight; mostly-black text-primary in light mode produces
+     an equivalent dark-on-light highlight. Found during the 0.7.0 (Wave
+     1.6) theme audit — see docs/themes/light-dark-theme-contract.md
+     §Component audit. */
+  background: color-mix(in srgb, var(--text-primary) 18%, transparent);
 }
 
 .ac-chapter-rail__body {
