@@ -1,6 +1,6 @@
 {
   "name": "@anclora/design-system",
-  "version": "0.16.0-rc.1",
+  "version": "1.0.0",
   "_agentReadme": "This manifest is the machine-readable contract for coding agents working in any Anclora repo. Read componentStatus before adding a component (canonical = consume it, do not rebuild it; candidate = usable but not yet a hard requirement; needsConsumerEvidence = ships but has no confirmed real usage, verify before relying on it). Read profiles before choosing shell/density defaults for a new app. Read extensionPoints before overriding anything — if the property you need to change is not listed as a component's extension point, add a variant here instead of overriding the base selector. Read prohibitedPatterns before writing CSS that touches an .ac-* selector directly. Read theme before implementing light/dark in any new app — as of 0.7.0 the package ships a real canonical light theme, do not invent a local one. Read borders before deciding which border token to use — not every border needs 3:1, but a control/status border does, and there's a specific token for that. Full architecture: ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md. Full theme contract: docs/themes/light-dark-theme-contract.md. Full border/status/link contract: docs/tokens/semantic-borders-and-status.md. Full evidence: docs/ecosystem-audit/.",
   "borders": {
     "roles": {
@@ -213,9 +213,9 @@
       "themeIndependence": "data-theme is independent from data-profile. A single-theme consumer may omit a theme switch while consuming canonical semantic roles."
     },
     "dependencyPolicy": {
-      "canonical": "Pin an immutable Git SHA for pre-v1 adoption.",
+      "canonical": "Pin the immutable V1 Git SHA for reproducible adoption.",
       "forbidden": ["development", "main", "latest", "floating branch tarball"],
-      "currentDistribution": "private GitHub SHA tarball; registry publication is not required before v1",
+      "currentDistribution": "private GitHub SHA tarball; registry publication is a post-v1 governance candidate",
       "supportedOlder": "A consumer may remain on an older immutable SHA while its imported public paths remain supported and the migration gap is recorded."
     },
     "cssImportContract": {
@@ -244,8 +244,8 @@
     }
   },
   "releaseCandidate": {
-    "status": "RC_READY",
-    "version": "0.16.0-rc.1",
+    "status": "V1_RELEASED",
+    "version": "1.0.0",
     "distribution": "private GitHub immutable SHA tarball",
     "registryRequired": false,
     "architectureFrozen": ["foundations", "stable component families", "profile architecture", "shared pattern governance", "public package exports", "adoption contract", "migration rules", "extension rules", "deprecation policy"],

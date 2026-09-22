@@ -64,7 +64,7 @@ if (contentGenerator?.bridge !== "none") fail("Content Generator AI bridge must 
 if (!inventoryPath || !exists(inventoryPath)) fail(`inventory path missing: ${contract?.inventory}`);
 if (!exists("docs/release/wave-10-release-candidate.md")) fail("Wave 10 RC contract documentation missing");
 if (contract?.profileScope?.declaration !== "data-profile on the application or route layout root") fail("profile declaration scope is not deterministic");
-if (contract?.dependencyPolicy?.canonical !== "Pin an immutable Git SHA for pre-v1 adoption.") fail("immutable SHA policy missing");
+if (contract?.dependencyPolicy?.canonical !== "Pin the immutable V1 Git SHA for reproducible adoption.") fail("immutable SHA policy missing");
 if (!Array.isArray(pkg.sideEffects) || !pkg.sideEffects.includes("*.css")) fail("CSS sideEffects metadata missing");
 
 const manifestEntrypoints = new Set();
@@ -77,7 +77,7 @@ const exportPaths = new Set(Object.values(pkg.exports ?? {}));
 if (manifestEntrypoints.size !== exportPaths.size || [...manifestEntrypoints].some((entry) => !exportPaths.has(entry))) fail("manifest entrypoints and package exports disagree");
 
 for (const entry of manifest.deprecated ?? []) for (const field of ["api", "replacement", "since", "reason", "removalCondition"]) if (!entry[field]) fail(`deprecated entry missing ${field}`);
-if (manifest.releaseCandidate?.status !== "RC_READY") fail("releaseCandidate status is not RC_READY");
+if (!new Set(["RC_READY", "V1_RELEASED"]).has(manifest.releaseCandidate?.status)) fail("releaseCandidate status is neither RC_READY nor V1_RELEASED");
 if (manifest.releaseCandidate?.blocksV1?.length !== 0) fail("releaseCandidate still contains BLOCKS_V1 findings");
 if (manifest.releaseCandidate?.additionalPilotRequired !== false) fail("releaseCandidate additional pilot decision is not explicit NO");
 

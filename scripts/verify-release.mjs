@@ -12,15 +12,18 @@ run("verify:token-contract");
 const pkg = JSON.parse(fs.readFileSync("package.json", "utf8"));
 const lock = JSON.parse(fs.readFileSync("package-lock.json", "utf8"));
 const manifest = JSON.parse(fs.readFileSync("design-system.manifest.json", "utf8"));
+const isV1 = pkg.version === "1.0.0";
 const checks = [
   [pkg.version === manifest.version, "package.json and manifest versions disagree"],
   [lock.version === pkg.version && lock.packages?.[""].version === pkg.version, "package-lock root version disagrees"],
-  [manifest.releaseCandidate?.status === "RC_READY", "release candidate is not RC_READY"],
+  [manifest.releaseCandidate?.status === (isV1 ? "V1_RELEASED" : "RC_READY"), `release status is not ${isV1 ? "V1_RELEASED" : "RC_READY"}`],
   [manifest.releaseCandidate?.blocksV1?.length === 0, "release candidate has BLOCKS_V1 findings"],
   [manifest.releaseCandidate?.additionalPilotRequired === false, "additional pilot decision is not NO"],
   [fs.existsSync("docs/release/wave-10-release-candidate.md"), "RC contract document is missing"],
   [fs.existsSync("docs/release/release-candidate-checklist.md"), "RC checklist is missing"],
   [fs.existsSync("docs/release/release-notes-0.16.0-rc.1.md"), "RC release notes are missing"],
+  [!isV1 || fs.existsSync("docs/release/release-notes-1.0.0.md"), "V1 release notes are missing"],
+  [!isV1 || fs.existsSync("docs/release/v1-release-freeze.md"), "V1 freeze record is missing"],
 ];
 const failures = checks.filter(([ok]) => !ok).map(([, message]) => message);
 if (failures.length) {

@@ -2,6 +2,14 @@
 
 Todas las versiones del design system se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
+## [1.0.0] — 2026-09-22
+
+### V1 — Stable Design System
+
+Se publica el contrato V1 desde el RC verificado sin cambios ejecutables de arquitectura. Quedan estabilizados Foundations, componentes canónicos, temas, perfiles Core/P-WKS/P-MKT, Shared Patterns, exports CSS públicos, adopción, migración, accesibilidad, bridges y deprecaciones. La distribución continúa mediante tarball privado de GitHub fijado a un SHA inmutable; no se publica en registry.
+
+V1 significa arquitectura estable, no adopción completa del ecosistema. Las migraciones de consumidores, features `EVIDENCE_REQUIRED` y la futura distribución en registry quedan fuera de esta release.
+
 ## [0.16.0-rc.1] — 2026-09-22
 
 ### Wave 10 — Final hardening & release candidate

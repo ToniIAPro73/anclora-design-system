@@ -62,7 +62,7 @@ La prioridad no es montar una infraestructura pesada, sino cubrir los riesgos re
 - ejecuta manifest, adoption contract, html, browser smoke, accesibilidad básica y package dry-run
 
 `npm run verify:release`
-- es el gate final de `0.16.0-rc.1`; la checklist humana está en [`release/release-candidate-checklist.md`](./release/release-candidate-checklist.md)
+- es el gate final de `1.0.0`; la checklist histórica de RC está en [`release/release-candidate-checklist.md`](./release/release-candidate-checklist.md)
 
 `npm run quality`
 - alias de `verify`
