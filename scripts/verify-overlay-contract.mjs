@@ -32,7 +32,7 @@ for (const needle of ["data-overlays-contract-fixture", "ac-menu__content", "ac-
   if (!preview.includes(needle)) failures.push(`overlay catalog missing ${needle}`);
 }
 
-if (manifest.version !== pkg.version || manifest.version !== "0.12.0") failures.push("version must be 0.12.0 and match package.json");
+if (manifest.version !== pkg.version) failures.push("manifest version must match package.json");
 if (manifest.overlays?.contractDoc !== "./docs/components/overlays-menus-and-popovers.md") failures.push("manifest overlays contractDoc missing");
 for (const component of ["menu", "popover", "tooltip", "drawer"]) {
   if (!manifest.overlays?.canonical?.includes(component)) failures.push(`manifest overlays missing canonical ${component}`);

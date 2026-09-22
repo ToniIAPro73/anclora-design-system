@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Navigation & App Shell · Anclora Design System</title>
+    <link rel="stylesheet" href="../src/system.css" />
+    <style>
+      body { margin: 0; background: var(--surface-canvas); color: var(--text-primary); font-family: var(--font-sans); }
+      .fixture { min-height: 100vh; }
+      .fixture-sidebar { padding: 22px 16px; background: color-mix(in srgb, var(--surface-panel) 92%, transparent); border-right: 1px solid var(--border-default); }
+      .fixture-main { min-width: 0; }
+      .fixture-topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 24px; border-bottom: 1px solid var(--border-default); background: var(--surface-glass); }
+      .fixture-content { display: grid; gap: 24px; }
+      .fixture-card { padding: 24px; }
+      .fixture-nav { display: grid; gap: 8px; margin-top: 24px; }
+      .fixture-nav a { display: flex; align-items: center; min-height: 42px; padding: 0 12px; border-radius: var(--radius-md); color: var(--text-secondary); text-decoration: none; }
+      .fixture-nav a:hover, .fixture-nav a:focus-visible, .fixture-nav a[aria-current="page"] { background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--text-primary); }
+      .fixture-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+      @media (max-width: 960px) { .fixture-sidebar { display: none; } .fixture-topbar { min-height: 64px; } }
+    </style>
+  </head>
+  <body>
+    <a class="ac-app-shell__skip-link ac-button ac-button--ghost" href="#main-content">Saltar al contenido</a>
+    <div class="ac-app-shell" data-profile="workspace">
+      <aside class="ac-app-shell__sidebar fixture-sidebar" aria-label="Navegación de workspace">
+        <strong>Anclora Workspace</strong>
+        <p class="ac-topbar__meta">P-WKS · shell operativo</p>
+        <nav class="fixture-nav" aria-label="Navegación principal">
+          <a href="#overview" aria-current="page">Resumen</a>
+          <a href="#records">Registros</a>
+          <a href="#settings">Configuración</a>
+        </nav>
+      </aside>
+      <main class="ac-app-shell__main" id="main-content">
+        <header class="ac-app-shell__topbar fixture-topbar">
+          <button class="ac-app-shell__mobile-trigger ac-button ac-button--ghost ac-button--icon" type="button" aria-label="Abrir navegación">☰</button>
+          <div><p class="ac-topbar__eyebrow">Workspace / Operational</p><h1 class="ac-topbar__title">Navigation shell</h1></div>
+          <div class="fixture-actions"><button class="ac-button ac-button--ghost" type="button">Tema</button><button class="ac-button ac-button--secondary" type="button">Cuenta</button></div>
+        </header>
+        <section class="ac-page-container ac-app-shell__page" data-width="wide">
+          <div class="ac-page-header">
+            <div class="ac-page-header__context"><p class="ac-topbar__eyebrow">Core + P-WKS</p><h2 class="ac-page-header__title">Página de operaciones</h2><p class="ac-page-header__description">Fixture genérico para validar jerarquía, acciones, ancho de contenido y labels largos en español.</p></div>
+            <div class="ac-page-header__actions"><button class="ac-button ac-button--primary" type="button">Crear registro</button><button class="ac-button ac-button--ghost" type="button">Exportar</button></div>
+          </div>
+          <article class="ac-surface-panel fixture-card"><h3>Contenido principal</h3><p class="ac-topbar__meta">El consumidor aporta routing, permisos, identidad, grupos y datos. El DS aporta la anatomía y los estados.</p></article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

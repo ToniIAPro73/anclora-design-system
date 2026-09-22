@@ -47,6 +47,11 @@ const pages = [
     route: "/preview/detail-modal.html",
     readySelector: "[data-detail-modal-fixtures]",
   },
+  {
+    id: "navigation-shell",
+    route: "/preview/navigation-shell.html",
+    readySelector: ".ac-app-shell",
+  },
 ];
 
 const a11yPages = pages.filter((page) =>
@@ -56,6 +61,7 @@ const a11yPages = pages.filter((page) =>
     "components-canonical",
     "localization-fixtures",
     "detail-modal",
+    "navigation-shell",
   ]).has(page.id)
 );
 

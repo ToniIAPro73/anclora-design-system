@@ -1,0 +1,26 @@
+/* Canonical content width modes. Content ownership remains with the app. */
+
+.ac-page-container {
+  width: 100%;
+  box-sizing: border-box;
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+.ac-page-container[data-width="standard"] {
+  max-width: 1200px;
+}
+
+.ac-page-container[data-width="wide"] {
+  max-width: 1440px;
+}
+
+.ac-page-container[data-width="full"] {
+  max-width: none;
+}
+
+@media (max-width: 640px) {
+  .ac-page-container {
+    padding-inline: var(--space-4);
+  }
+}

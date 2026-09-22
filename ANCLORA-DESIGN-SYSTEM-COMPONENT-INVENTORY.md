@@ -1,5 +1,18 @@
 # Anclora Design System — Component Inventory
 
+## Wave 7 update — Navigation & App Shell
+
+The structural shell contract is now canonical at `0.13.0`:
+
+| Component | Entrypoint | Status | Contract |
+| --- | --- | --- | --- |
+| App Shell | `components/app-shell.css` | canonical | `docs/navigation-and-app-shell-contract.md` |
+| Page Container | `components/page-container.css` | canonical | standard / wide / full width modes |
+| Page Header | `components/page-header.css` | canonical | composable title / description / meta / actions |
+| Sidebar Nav | `components/sidebar-nav.css` | candidate anatomy | consumer evidence exists; profile contract governs composition |
+| Topbar | `components/topbar.css` | candidate anatomy | slot-based placement; runtime remains consumer-owned |
+| Breadcrumb | `components/breadcrumb.css` | evidence-required for advanced runtime | short hierarchical use only; no overflow system canonicalised |
+
 Fecha: 2026-09-21. Inventario real (no aspiracional) derivado de `design-system.manifest.json` (32 módulos de componente shipeados) cruzado con `docs/validated-consumers-matrix.md` (estado de validación por consumo real) y los hallazgos de gap de la Fase 3 (taxonomía).
 
 ## Componentes existentes (32, todos CSS, `src/components/*.css`)

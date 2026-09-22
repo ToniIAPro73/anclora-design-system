@@ -1,0 +1,115 @@
+/*
+ * Canonical structural contract for complete applications.
+ * The Design System owns anatomy and responsive presentation; consumers own
+ * routing, auth, permissions and state.
+ */
+
+.ac-app-shell {
+  --ac-shell-sidebar-width: 264px;
+  --ac-shell-topbar-height: 72px;
+  --ac-shell-gap: var(--space-6);
+  display: grid;
+  grid-template-columns: var(--ac-shell-sidebar-width) minmax(0, 1fr);
+  min-height: 100dvh;
+  width: 100%;
+  background: var(--surface-canvas);
+  color: var(--text-primary);
+  box-sizing: border-box;
+}
+
+.ac-app-shell *,
+.ac-app-shell *::before,
+.ac-app-shell *::after {
+  box-sizing: inherit;
+}
+
+.ac-app-shell[data-profile="workspace"] {
+  --ac-shell-sidebar-width: 264px;
+  --ac-shell-gap: var(--space-6);
+}
+
+.ac-app-shell[data-profile="marketing"] {
+  display: block;
+  min-height: auto;
+}
+
+.ac-app-shell__sidebar {
+  min-width: 0;
+  min-height: 100dvh;
+  overflow-y: auto;
+}
+
+.ac-app-shell__main {
+  display: flex;
+  min-width: 0;
+  min-height: 100dvh;
+  flex-direction: column;
+}
+
+.ac-app-shell__topbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--layer-sticky, 20);
+  min-height: var(--ac-shell-topbar-height);
+}
+
+.ac-app-shell__page {
+  display: grid;
+  min-width: 0;
+  gap: var(--ac-shell-gap);
+  padding: var(--space-8) var(--space-8) var(--space-12);
+}
+
+.ac-app-shell__page > * {
+  min-width: 0;
+}
+
+.ac-app-shell__mobile-trigger {
+  display: none;
+}
+
+.ac-app-shell__skip-link {
+  position: fixed;
+  z-index: var(--layer-skip-link, 100);
+  top: var(--space-3);
+  left: var(--space-3);
+  transform: translateY(-200%);
+}
+
+.ac-app-shell__skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+@media (max-width: 960px) {
+  .ac-app-shell[data-profile="workspace"] {
+    display: block;
+  }
+
+  .ac-app-shell[data-profile="workspace"] .ac-app-shell__sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: var(--layer-drawer, 50);
+    width: min(var(--ac-shell-sidebar-width), calc(100vw - 56px));
+    min-height: 100dvh;
+    transform: translateX(-105%);
+    transition: transform var(--dur-base) var(--ease-spring);
+  }
+
+  .ac-app-shell[data-profile="workspace"][data-navigation-open="true"] .ac-app-shell__sidebar {
+    transform: translateX(0);
+  }
+
+  .ac-app-shell__mobile-trigger {
+    display: inline-flex;
+  }
+
+  .ac-app-shell__page {
+    padding: var(--space-6) var(--space-5) var(--space-10);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-app-shell__sidebar {
+    transition: none;
+  }
+}

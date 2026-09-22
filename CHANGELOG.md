@@ -2,6 +2,12 @@
 
 Todas las versiones del design system se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
+## [0.13.0] — 2026-09-22
+
+### Añadido — contrato canónico de Navigation & App Shell (Wave 7)
+
+Se formalizan Core/default, P-WKS y P-MKT como perfiles basados en arquetipo de interacción, con una declaración determinista mediante `data-profile`. Se añade la anatomía CSS-first de App Shell, Page Container y Page Header, se explican las fronteras de routing/permissions entre aplicación y Design System, y se explicita la transformación P-WKS Sidebar → Drawer en viewport pequeño. El catálogo incorpora un fixture de shell y el nuevo gate `verify:navigation-shell-contract`. No se modifican consumidores ni se inicia Pilot 7.
+
 ## [0.9.0] — 2026-09-21
 
 ### Añadido — contrato canónico de Forms & Inputs (Wave 3)

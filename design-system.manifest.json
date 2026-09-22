@@ -1,6 +1,6 @@
 {
   "name": "@anclora/design-system",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "_agentReadme": "This manifest is the machine-readable contract for coding agents working in any Anclora repo. Read componentStatus before adding a component (canonical = consume it, do not rebuild it; candidate = usable but not yet a hard requirement; needsConsumerEvidence = ships but has no confirmed real usage, verify before relying on it). Read profiles before choosing shell/density defaults for a new app. Read extensionPoints before overriding anything — if the property you need to change is not listed as a component's extension point, add a variant here instead of overriding the base selector. Read prohibitedPatterns before writing CSS that touches an .ac-* selector directly. Read theme before implementing light/dark in any new app — as of 0.7.0 the package ships a real canonical light theme, do not invent a local one. Read borders before deciding which border token to use — not every border needs 3:1, but a control/status border does, and there's a specific token for that. Full architecture: ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md. Full theme contract: docs/themes/light-dark-theme-contract.md. Full border/status/link contract: docs/tokens/semantic-borders-and-status.md. Full evidence: docs/ecosystem-audit/.",
   "borders": {
     "roles": {
@@ -113,29 +113,48 @@
       "themeSwitcher", "languageSwitcher", "stepper", "chapterRail", "templateCatalog",
       "previewOverlay", "previewControls", "workspaceStage", "workflowShell", "editorShell",
       "alert", "toast", "errorState", "loading", "progress", "processing", "skeleton",
-      "menu", "popover", "tooltip", "drawer",
+      "menu", "popover", "tooltip", "drawer", "appShell", "pageContainer", "pageHeader",
       "textEditor", "exportSuite"
     ],
     "needsConsumerEvidence": [
-      "appTile", "metricCard", "sectionHeading", "sidebarNav", "tabs", "breadcrumb", "subnav",
-      "statStrip", "editorStudio", "topbar"
+      "appTile", "metricCard", "sectionHeading", "tabs", "breadcrumb", "subnav",
+      "statStrip", "editorStudio"
     ],
     "_note": "canonical = at least one real consumer verified in code (see ANCLORA-DESIGN-SYSTEM-COMPONENT-INVENTORY.md). needsConsumerEvidence = shipped as CSS, no confirmed real usage found as of 2026-09-21 — usable as a candidate, do not describe it to a user as battle-tested."
   },
   "profiles": {
+    "Core": {
+      "name": "Core / default",
+      "description": "Shared semantic tokens, accessibility, overlays, controls and content primitives. Use when the product has no persistent workspace shell and is not a public narrative marketing surface.",
+      "owns": ["semantic tokens", "theme contract", "focus and disabled semantics", "navigation item anatomy", "page container modes", "page header composition", "overlay/layer integration"],
+      "mustNotOwn": ["routing", "auth", "permissions", "product navigation labels", "business state"]
+    },
     "P-MKT": {
       "name": "Marketing / Landing",
       "description": "Public, unauthenticated, single-scroll narrative page. No persistent nav shell.",
-      "mayOverride": ["spacing density (looser)", "hero/CTA emphasis", "headline typography family"],
-      "mustNotOverride": ["semantic color meaning", "base radii", "focus/disabled behavior", "light/dark theme contract"]
+      "owns": ["public header/navigation composition", "CTA-oriented header regions", "narrative content shell", "marketing spacing defaults"],
+      "mayOverride": ["spacing density (looser)", "hero/CTA emphasis", "headline typography family", "public header composition"],
+      "mustNotOverride": ["semantic color meaning", "base radii", "focus/disabled behavior", "light/dark theme contract", "Core navigation semantics"]
     },
     "P-WKS": {
       "name": "Workspace / Operational",
       "description": "Authenticated, persistent sidebar/topbar shell, high information density: tables, entity lists, forms, modals, status badges.",
+      "owns": ["persistent workspace sidebar composition", "operational topbar slots", "sidebar-to-mobile-Drawer transformation", "dense page composition"],
       "mayOverride": ["component density/size defaults (use .ac-button--compact, not a new class)", "navigation shell defaults", "contextual emphasis of status"],
-      "mustNotOverride": ["semantic color meaning", "base radii", "focus/disabled behavior", "component base anatomy (see prohibitedPatterns)", "light/dark theme contract"]
+      "mustNotOverride": ["semantic color meaning", "base radii", "focus/disabled behavior", "component base anatomy (see prohibitedPatterns)", "light/dark theme contract", "routing or permission logic"]
     },
-    "_note": "Full app-to-profile assignment: ANCLORA-DESIGN-SYSTEM-PRODUCT-MATRIX.md. An app with no strong shell/density need needs no profile ('Core / default' is valid) — do not force one."
+    "_note": "Profile declaration is deterministic: set data-profile=\"workspace\" for P-WKS, data-profile=\"marketing\" for P-MKT, and omit it for Core/default. Full app-to-profile assignment: ANCLORA-DESIGN-SYSTEM-PRODUCT-MATRIX.md."
+  },
+  "navigationShell": {
+    "contractDoc": "./docs/navigation-and-app-shell-contract.md",
+    "profileAttribute": "data-profile",
+    "profileValues": { "workspace": "P-WKS", "marketing": "P-MKT", "omitted": "Core/default" },
+    "routingOwnership": "consumer",
+    "permissionOwnership": "consumer",
+    "activeState": "consumer supplies aria-current=page on the route link",
+    "mobileWorkspaceModel": "persistent sidebar becomes modal Drawer below 960px when evidence supports P-WKS",
+    "scrollModel": "one page/content scroll by default; sidebar and Drawer may scroll independently when content requires it",
+    "evidenceRequired": ["collapsibleSidebar", "resizableSidebar", "megaMenu", "commandPalette", "workspaceSwitcher", "breadcrumbOverflow", "multiLevelTreeNavigation", "tabbedRouteShell", "dockPanel"]
   },
   "extensionPoints": {
     "button": {
@@ -248,7 +267,10 @@
       "editorShell": "./src/components/editor-shell.css",
       "textEditor": "./src/components/text-editor.css",
       "exportSuite": "./src/components/export-suite.css",
-      "topbar": "./src/components/topbar.css"
+      "topbar": "./src/components/topbar.css",
+      "appShell": "./src/components/app-shell.css",
+      "pageContainer": "./src/components/page-container.css",
+      "pageHeader": "./src/components/page-header.css"
     }
   },
   "recommendedImport": "@anclora/design-system/system.css"

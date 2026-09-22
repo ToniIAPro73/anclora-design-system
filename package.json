@@ -1,6 +1,6 @@
 {
   "name": "@anclora/design-system",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "private": true,
   "description": "Executable brand and UI system for the Anclora ecosystem.",
   "license": "UNLICENSED",
@@ -72,7 +72,10 @@
     "./components/editor-shell.css": "./src/components/editor-shell.css",
     "./components/text-editor.css": "./src/components/text-editor.css",
     "./components/export-suite.css": "./src/components/export-suite.css",
-    "./components/topbar.css": "./src/components/topbar.css"
+    "./components/topbar.css": "./src/components/topbar.css",
+    "./components/app-shell.css": "./src/components/app-shell.css",
+    "./components/page-container.css": "./src/components/page-container.css",
+    "./components/page-header.css": "./src/components/page-header.css"
   },
   "scripts": {
     "verify:manifest": "node ./scripts/verify-manifest.mjs",
@@ -82,12 +85,13 @@
     "verify:data-table-contract": "node ./scripts/verify-data-table-contract.mjs",
     "verify:feedback-contract": "node ./scripts/verify-feedback-contract.mjs",
     "verify:overlay-contract": "node ./scripts/verify-overlay-contract.mjs",
+    "verify:navigation-shell-contract": "node ./scripts/verify-navigation-shell-contract.mjs",
     "verify:theme-contrast": "node ./scripts/verify-theme-contrast.mjs",
     "verify:browser": "node ./scripts/verify-browser.mjs --mode=smoke",
     "verify:a11y": "node ./scripts/verify-browser.mjs --mode=a11y",
     "verify:snapshots": "node ./scripts/verify-browser.mjs --mode=snapshots",
     "verify:package": "npm pack --dry-run",
-    "verify": "npm run verify:manifest && npm run verify:html && npm run verify:button-contract && npm run verify:forms-contract && npm run verify:data-table-contract && npm run verify:feedback-contract && npm run verify:overlay-contract && npm run verify:theme-contrast && npm run verify:browser && npm run verify:a11y && npm run verify:package",
+    "verify": "npm run verify:manifest && npm run verify:navigation-shell-contract && npm run verify:html && npm run verify:button-contract && npm run verify:forms-contract && npm run verify:data-table-contract && npm run verify:feedback-contract && npm run verify:overlay-contract && npm run verify:theme-contrast && npm run verify:browser && npm run verify:a11y && npm run verify:package",
     "quality": "npm run verify",
     "pack:check": "npm pack --dry-run",
     "snapshots:update": "npm run verify:snapshots"
