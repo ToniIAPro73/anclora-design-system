@@ -1,0 +1,17 @@
+/* Full-surface recovery state; distinct from an inline alert or field error. */
+.ac-error-state {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  max-width: 34rem;
+  margin-inline: auto;
+  padding: clamp(24px, 5vw, 48px);
+  border: 1px solid var(--status-danger-border);
+  border-radius: var(--radius-lg);
+  background: var(--surface-panel);
+  text-align: center;
+}
+.ac-error-state__mark { color: var(--status-danger-text); font-size: 1.5rem; }
+.ac-error-state__title, .ac-error-state__summary { margin: 0; }
+.ac-error-state__summary { color: var(--text-secondary); line-height: 1.55; }
+.ac-error-state__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2); }

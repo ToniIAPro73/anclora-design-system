@@ -1,6 +1,6 @@
 {
   "name": "@anclora/design-system",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "_agentReadme": "This manifest is the machine-readable contract for coding agents working in any Anclora repo. Read componentStatus before adding a component (canonical = consume it, do not rebuild it; candidate = usable but not yet a hard requirement; needsConsumerEvidence = ships but has no confirmed real usage, verify before relying on it). Read profiles before choosing shell/density defaults for a new app. Read extensionPoints before overriding anything — if the property you need to change is not listed as a component's extension point, add a variant here instead of overriding the base selector. Read prohibitedPatterns before writing CSS that touches an .ac-* selector directly. Read theme before implementing light/dark in any new app — as of 0.7.0 the package ships a real canonical light theme, do not invent a local one. Read borders before deciding which border token to use — not every border needs 3:1, but a control/status border does, and there's a specific token for that. Full architecture: ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md. Full theme contract: docs/themes/light-dark-theme-contract.md. Full border/status/link contract: docs/tokens/semantic-borders-and-status.md. Full evidence: docs/ecosystem-audit/.",
   "borders": {
     "roles": {
@@ -70,16 +70,33 @@
       "I need mobile": "Use horizontal overflow for simple tables; use a documented accessible list/card composition for action-heavy tables."
     }
   },
+  "feedback": {
+    "contractDoc": "./docs/components/feedback-and-system-states.md",
+    "architecture": "Separate persistent alerts, transient toasts, full-surface empty/error states, short-lived loading, determinate progress, operation processing and structural skeleton placeholders. No generic mega-feedback component.",
+    "components": ["alert", "toast", "emptyState", "errorState", "loading", "progress", "processing", "skeleton"],
+    "statePrecedence": ["loading", "error", "empty", "content"],
+    "runtimeOwnership": "The Design System owns anatomy, tokens and semantic guidance. Each product owns data fetching, queues, timers, portals, retry logic and live-region timing.",
+    "ariaGuidance": "Use role=status for polite progress/loading updates and role=alert only for urgent dynamic errors. A static informational alert may have no live role. Progress exposes min/max/value when determinate; indeterminate progress must not fake a value.",
+    "answersForAgents": {
+      "an API request failed for the page": "Use Error State with a recovery action.",
+      "a field is invalid": "Use the Forms field message with aria-invalid and aria-describedby.",
+      "an operation succeeded": "Use Toast or an in-context confirmation; do not use a full-page error/success state.",
+      "an import or export is running": "Use Loading for unknown duration, Progress for a trustworthy numeric value, and Processing when the operation has meaningful activity context.",
+      "there are no records": "Use Empty State; distinguish first-use, no-results, filtered and permission variants through content and product-owned context."
+    },
+    "evidenceRequired": ["notificationCentre", "jobDashboard", "resumableJobManager"]
+  },
   "componentStatus": {
     "canonical": [
       "button", "surfacePanel", "formField", "dataTable", "statusBadge", "emptyState", "modal",
       "themeSwitcher", "languageSwitcher", "stepper", "chapterRail", "templateCatalog",
       "previewOverlay", "previewControls", "workspaceStage", "workflowShell", "editorShell",
+      "alert", "toast", "errorState", "loading", "progress", "processing", "skeleton",
       "textEditor", "exportSuite"
     ],
     "needsConsumerEvidence": [
       "appTile", "metricCard", "sectionHeading", "sidebarNav", "tabs", "breadcrumb", "subnav",
-      "statStrip", "toast", "drawer", "editorStudio", "topbar"
+      "statStrip", "drawer", "editorStudio", "topbar"
     ],
     "_note": "canonical = at least one real consumer verified in code (see ANCLORA-DESIGN-SYSTEM-COMPONENT-INVENTORY.md). needsConsumerEvidence = shipped as CSS, no confirmed real usage found as of 2026-09-21 — usable as a candidate, do not describe it to a user as battle-tested."
   },
@@ -129,7 +146,11 @@
     "Building a data-fetching MegaDataTable or generic sorting/query engine in the Design System.",
     "Replacing semantic tables with generic div grids without a documented responsive/accessibility reason.",
     "Making every table row clickable or relying on tr onClick without an equivalent keyboard interaction.",
-    "Creating table-specific checkbox, select, input, status or pagination variants when canonical primitives compose."
+    "Creating table-specific checkbox, select, input, status or pagination variants when canonical primitives compose.",
+    "Building a generic MegaFeedback component that merges alert, toast, empty, error, loading and progress semantics.",
+    "Using role=alert for every informational message or exposing a fake progress value for indeterminate work.",
+    "Replacing an actionable operation indicator with a spinner-only or skeleton-only surface.",
+    "Creating a consumer-local status palette, toast queue or notification centre without evidence and a documented contract."
   ],
   "deprecated": [
     { "api": "--coin-syncxml", "replacement": "--coin-guesthub", "since": "0.4.1", "reason": "product rename, alias kept for one release" },
@@ -182,6 +203,12 @@
       "statusBadge": "./src/components/status-badge.css",
       "emptyState": "./src/components/empty-state.css",
       "toast": "./src/components/toast.css",
+      "alert": "./src/components/alert.css",
+      "errorState": "./src/components/error-state.css",
+      "loading": "./src/components/loading.css",
+      "progress": "./src/components/progress.css",
+      "processing": "./src/components/processing.css",
+      "skeleton": "./src/components/skeleton.css",
       "modal": "./src/components/modal.css",
       "drawer": "./src/components/drawer.css",
       "previewOverlay": "./src/components/preview-overlay.css",

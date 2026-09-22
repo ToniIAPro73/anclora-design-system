@@ -180,6 +180,12 @@ Ninguna existía en `src/themes/product.css` hasta esta versión.
 ## [0.1.0] — fecha original de creación del repo
 
 Versión inicial: 10 apps (`group`, `private-estates`, `synergi`, `data-lab`, `nexus`, `content-generator-ai`, `advisor-ai`, `talent`, `impulso`, `command-center`), arquitectura de tokens/taxonomy/themes/components/patterns establecida.
+## [0.11.0] — 2026-09-22
+
+### Añadido — contrato canónico de Feedback & System States (Wave 5)
+
+Se formalizan Alert, Toast, Empty State, Error State, Loading, Progress, Processing y Skeleton como patrones separados, con anatomía, semántica accesible, responsive, reducción de movimiento y responsabilidades claras entre Design System y runtime de producto. Se incorpora un catálogo bilingüe de estados en ambos temas, verificación mecánica y evidencia de consumidores reales. No se modifican repositorios consumidores.
+
 ## [0.10.0] — 2026-09-22
 
 ### Añadido — contrato canónico Data Table (Wave 4)

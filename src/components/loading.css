@@ -1,0 +1,14 @@
+/* Loading is a short-lived state; pair the indicator with accessible status text. */
+.ac-loading-state { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--text-secondary); }
+.ac-spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid color-mix(in srgb, currentColor 24%, transparent);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  color: var(--text-link);
+  animation: ac-spin 700ms linear infinite;
+}
+@keyframes ac-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .ac-spinner { animation-duration: 1400ms; } }

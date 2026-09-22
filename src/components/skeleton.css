@@ -1,0 +1,7 @@
+/* Structural placeholder only; never replace an action's progress indicator. */
+.ac-skeleton { display: block; min-height: 1rem; border-radius: var(--radius-sm); background: var(--surface-panel-strong); animation: ac-skeleton-pulse 1200ms ease-in-out infinite; }
+.ac-skeleton--text { width: 100%; }
+.ac-skeleton--title { width: min(70%, 18rem); height: 1.35rem; }
+.ac-skeleton--block { min-height: 7rem; }
+@keyframes ac-skeleton-pulse { 0%, 100% { opacity: 0.58; } 50% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .ac-skeleton { animation: none; opacity: 0.72; } }

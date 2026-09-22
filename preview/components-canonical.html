@@ -417,6 +417,44 @@
         </div>
       </section>
 
+      <section class="stack" id="feedback-system-states" data-feedback-contract-fixture>
+        <h2 class="h3">Feedback &amp; System States contract (Wave 5)</h2>
+        <p class="component-note">ES/EN fixtures for persistent alerts, transient toasts, collection states and operation states. Live-region timing, queues and retry logic remain application-owned.</p>
+        <div class="component-grid">
+          <div class="ac-surface-panel tier-panel">
+            <p class="component-note"><strong>Persistent feedback / Feedback persistente</strong></p>
+            <div class="ac-alert" data-tone="info" role="status">
+              <span class="ac-alert__icon" aria-hidden="true">ⓘ</span>
+              <div class="ac-alert__content"><p class="ac-alert__title">Revisión pendiente / Review pending</p><p class="ac-alert__summary">Hay documentos que requieren una comprobación antes de continuar.</p></div>
+              <button class="ac-button ac-button--ghost ac-button--icon ac-alert__dismiss" type="button" aria-label="Cerrar aviso / Dismiss alert"><span class="ac-button__icon" aria-hidden="true">✕</span></button>
+            </div>
+            <div class="ac-alert" data-tone="danger" role="alert" style="margin-top: 12px;">
+              <span class="ac-alert__icon" aria-hidden="true">!</span>
+              <div class="ac-alert__content"><p class="ac-alert__title">No se pudo cargar / Could not load</p><p class="ac-alert__summary">Comprueba la conexión y vuelve a intentarlo.</p><div class="ac-alert__actions"><button class="ac-button ac-button--compact ac-button--secondary" type="button">Reintentar / Retry</button></div></div>
+            </div>
+          </div>
+          <div class="ac-surface-panel tier-panel">
+            <p class="component-note"><strong>Transient feedback / Feedback transitorio</strong></p>
+            <div class="ac-toast-stack" style="position: static; width: auto;">
+              <div class="ac-toast" data-tone="success" role="status"><div class="ac-toast__header"><p class="ac-toast__title">Guardado / Saved</p><button class="ac-button ac-button--ghost ac-button--icon" type="button" aria-label="Cerrar notificación / Dismiss notification"><span class="ac-button__icon" aria-hidden="true">✕</span></button></div><p class="ac-toast__summary">Los cambios están listos para compartir.</p></div>
+              <div class="ac-toast" data-tone="danger" role="alert"><div class="ac-toast__header"><p class="ac-toast__title">Importación detenida / Import stopped</p><button class="ac-button ac-button--ghost ac-button--icon" type="button" aria-label="Cerrar notificación / Dismiss notification"><span class="ac-button__icon" aria-hidden="true">✕</span></button></div><p class="ac-toast__summary">El archivo contiene filas que no se han podido validar.</p><div class="ac-toast__actions"><button class="ac-button ac-button--compact ac-button--secondary" type="button">Ver errores / View errors</button></div></div>
+            </div>
+          </div>
+          <div class="ac-surface-panel tier-panel">
+            <p class="component-note"><strong>Collection states / Estados de colección</strong></p>
+            <div class="ac-empty-state"><p class="ac-empty-state__title">Sin resultados / No results</p><p class="ac-empty-state__summary">Prueba otro filtro para encontrar coincidencias.</p><button class="ac-button ac-button--compact ac-button--ghost" type="button">Limpiar filtro / Clear filter</button></div>
+            <div class="ac-error-state" style="margin-top: 12px; padding: 20px;"><span class="ac-error-state__mark" aria-hidden="true">!</span><p class="ac-error-state__title">Algo ha fallado / Something went wrong</p><p class="ac-error-state__summary">No podemos mostrar este contenido ahora.</p><div class="ac-error-state__actions"><button class="ac-button ac-button--compact ac-button--secondary" type="button">Reintentar / Retry</button><a class="ac-button ac-button--compact ac-button--ghost" href="#feedback-system-states">Volver / Go back</a></div></div>
+          </div>
+          <div class="ac-surface-panel tier-panel">
+            <p class="component-note"><strong>Operations / Operaciones</strong></p>
+            <div class="ac-loading-state" role="status" aria-live="polite" aria-busy="true"><span class="ac-spinner" aria-hidden="true"></span><span>Cargando datos / Loading data</span></div>
+            <div class="ac-processing-state" style="margin-top: 14px;"><div class="ac-processing-state__header"><span class="ac-spinner" aria-hidden="true"></span><p class="ac-processing-state__title">Procesando importación / Processing import</p></div><p class="ac-processing-state__summary">Validando registros; puedes seguir trabajando en otra sección.</p><div class="ac-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="64" aria-valuetext="64% completado / complete"><span class="ac-progress__label">64% completado / complete</span><div class="ac-progress__track"><div class="ac-progress__bar" style="width: 64%;"></div></div></div></div>
+            <div class="ac-progress" data-indeterminate="true" role="progressbar" aria-label="Preparando exportación / Preparing export" style="margin-top: 14px;"><span class="ac-progress__label">Preparando exportación / Preparing export</span><div class="ac-progress__track"><div class="ac-progress__bar"></div></div></div>
+            <div aria-hidden="true" style="display:grid; gap:8px; margin-top:14px;"><span class="ac-skeleton ac-skeleton--title"></span><span class="ac-skeleton ac-skeleton--text"></span><span class="ac-skeleton ac-skeleton--block"></span></div>
+          </div>
+        </div>
+      </section>
+
       <section class="stack" id="data-table-contract" data-data-table-fixture>
         <h2 class="h3">Data Table contract (Wave 4)</h2>
         <p class="component-note">

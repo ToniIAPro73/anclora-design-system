@@ -26,7 +26,13 @@ Fecha: 2026-09-21. Inventario real (no aspiracional) derivado de `design-system.
 | breadcrumb | `breadcrumb.css` | no validado | — |
 | subnav | `subnav.css` | no validado | — |
 | statStrip | `stat-strip.css` | no validado | — |
-| toast | `toast.css` | no validado | — |
+| toast | `toast.css` | canonical | anclora-tableextractor, anclora-private-estates |
+| alert | `alert.css` | canonical | anclora-shiftimport, anclora-command-center, anclora-private-estates |
+| errorState | `error-state.css` | canonical | anclora-shiftimport, anclora-command-center, anclora-content-generator-ai |
+| loading | `loading.css` | canonical | anclora-shiftimport, anclora-talent, anclora-filestudio |
+| progress | `progress.css` | canonical | anclora-filestudio, anclora-tableextractor |
+| processing | `processing.css` | canonical | anclora-shiftimport, anclora-filestudio, anclora-tableextractor |
+| skeleton | `skeleton.css` | canonical | anclora-talent, anclora-private-estates, anclora-content-generator-ai |
 | drawer | `drawer.css` | no validado | — |
 | previewOverlay | `preview-overlay.css` | `canonical` (parte de `editorial-preview-controls`) | `anclora-talent` |
 | previewControls | `preview-controls.css` | `canonical` | `anclora-talent` |

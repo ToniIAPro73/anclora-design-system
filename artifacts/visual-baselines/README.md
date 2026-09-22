@@ -10,7 +10,9 @@ Cobertura actual:
 - `localization-fixtures`
 
 Cada preview se captura en:
-- `desktop`
+- `desktop-1440`
+- `desktop-1360`
+- `tablet-834`
 - `mobile`
 
 Uso:

@@ -1,0 +1,29 @@
+/* Canonical persistent feedback. Runtime owns queueing and live-region policy. */
+.ac-alert {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-3);
+  align-items: start;
+  padding: var(--space-4);
+  border: 1px solid var(--border-control);
+  border-radius: var(--radius-lg);
+  background: var(--surface-panel);
+  color: var(--text-primary);
+}
+.ac-alert__icon { color: var(--status-review-text); line-height: 1.4; }
+.ac-alert__content { display: grid; gap: var(--space-1); min-width: 0; }
+.ac-alert__title { margin: 0; font-weight: 700; }
+.ac-alert__summary { margin: 0; color: var(--text-secondary); line-height: 1.5; }
+.ac-alert__actions { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
+.ac-alert__dismiss { justify-self: end; }
+.ac-alert[data-tone="success"] { border-color: var(--status-success-border); }
+.ac-alert[data-tone="success"] .ac-alert__icon { color: var(--status-success-text); }
+.ac-alert[data-tone="warning"] { border-color: var(--status-warning-border); }
+.ac-alert[data-tone="warning"] .ac-alert__icon { color: var(--status-warning-text); }
+.ac-alert[data-tone="danger"] { border-color: var(--status-danger-border); }
+.ac-alert[data-tone="danger"] .ac-alert__icon { color: var(--status-danger-text); }
+@media (max-width: 600px) {
+  .ac-alert { grid-template-columns: auto 1fr; }
+  .ac-alert__dismiss { grid-column: 2; justify-self: start; }
+  .ac-alert__actions { grid-column: 1 / -1; }
+}
