@@ -1,6 +1,11 @@
-/* Canonical table for operational data summaries. */
+/* Canonical table contract — semantic HTML first.
+   The component owns presentation and interaction affordances only. Data
+   fetching, sorting, filtering, selection and pagination state stay in the
+   consuming application. */
 
 .ac-data-table {
+  --ac-data-table-cell-padding-y: 14px;
+  --ac-data-table-cell-padding-x: 18px;
   width: 100%;
   overflow: hidden;
   border: 1px solid var(--border-default);
@@ -14,21 +19,25 @@
 
 .ac-data-table__scroll {
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
 }
 
 .ac-data-table table {
   width: 100%;
+  min-width: 100%;
   border-collapse: collapse;
 }
 
 .ac-data-table th,
 .ac-data-table td {
-  padding: 14px 18px;
+  padding: var(--ac-data-table-cell-padding-y) var(--ac-data-table-cell-padding-x);
   border-bottom: 1px solid var(--border-subtle);
   text-align: left;
+  vertical-align: middle;
 }
 
 .ac-data-table th {
+  background: color-mix(in srgb, var(--surface-subtle) 82%, transparent);
   color: var(--text-eyebrow);
   font-size: 0.66rem;
   font-weight: 700;
@@ -40,6 +49,110 @@
   color: var(--text-secondary);
   font-size: 0.94rem;
   line-height: 1.5;
+}
+
+.ac-data-table tbody tr {
+  transition: background-color var(--dur-base) ease;
+}
+
+.ac-data-table tbody tr:hover > * {
+  background: color-mix(in srgb, var(--surface-highlight) 70%, transparent);
+}
+
+.ac-data-table tbody tr[data-selected="true"] > * {
+  background: var(--surface-highlight);
+  color: var(--text-primary);
+}
+
+.ac-data-table tbody tr[data-selected="true"] .ac-data-table__meta {
+  color: var(--text-primary) !important;
+}
+
+.ac-data-table tbody tr[data-disabled="true"] {
+  opacity: 0.56;
+}
+
+.ac-data-table tbody tr[data-interactive="true"]:focus-within > * {
+  box-shadow: inset 0 2px 0 var(--focus-ring), inset 0 -2px 0 var(--focus-ring);
+}
+
+.ac-data-table th[data-align="end"],
+.ac-data-table td[data-align="end"] {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.ac-data-table th[data-align="center"],
+.ac-data-table td[data-align="center"] {
+  text-align: center;
+}
+
+.ac-data-table th[data-column="actions"],
+.ac-data-table td[data-column="actions"] {
+  text-align: end;
+  white-space: nowrap;
+}
+
+.ac-data-table__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+/* Sorting is an application-owned state machine. The header contract is a
+   native button inside a real th plus aria-sort on that th. */
+.ac-data-table__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 36px;
+  margin: -6px -8px;
+  padding: 6px 8px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+.ac-data-table__sort:hover {
+  background: var(--surface-highlight);
+  color: var(--text-primary);
+}
+
+.ac-data-table__sort:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.ac-data-table__sort-indicator {
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.ac-data-table--compact {
+  --ac-data-table-cell-padding-y: 10px;
+  --ac-data-table-cell-padding-x: 14px;
+}
+
+/* Opt-in only. Sticky headers require .ac-data-table__scroll to be the
+   intentional scroll container and a non-transparent header surface. */
+.ac-data-table--sticky thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--surface-panel-strong);
+}
+
+.ac-data-table__state {
+  padding: var(--space-6);
+  color: var(--text-secondary);
+  text-align: center;
 }
 
 .ac-data-table tr:last-child td {

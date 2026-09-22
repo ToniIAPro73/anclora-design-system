@@ -9,7 +9,7 @@ Fecha: 2026-09-21. Inventario real (no aspiracional) derivado de `design-system.
 | button | `button.css` | `canonical` | `anclora-talent` (con fork de anatomía, ver Fase 2.5), `anclora-command-center` (wrapper limpio) |
 | surfacePanel | `surface-panel.css` | `canonical` | `anclora-talent` |
 | formField | `form-field.css` | `canonical` | `anclora-talent` |
-| dataTable | `data-table.css` | `canonical` (uso confirmado en `command-center/src/main.tsx`) | `anclora-talent`, `anclora-command-center` |
+| dataTable | `data-table.css` | `canonical` — Wave 4 contract: semantic table, default/compact density, opt-in sorting/selection/sticky/action composition | CSS import in `anclora-command-center`; real behaviour evidence audited in `anclora-shiftimport`, `anclora-talent`, `anclora-fiscal` and `anclora-tableextractor` |
 | statusBadge | `status-badge.css` | `canonical` | `anclora-talent`, `anclora-command-center` |
 | emptyState | `empty-state.css` | `canonical` | `anclora-talent`, `anclora-command-center` |
 | modal | `modal.css` | `canonical` | `anclora-talent`, `anclora-command-center` |

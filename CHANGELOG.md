@@ -180,3 +180,22 @@ Ninguna existía en `src/themes/product.css` hasta esta versión.
 ## [0.1.0] — fecha original de creación del repo
 
 Versión inicial: 10 apps (`group`, `private-estates`, `synergi`, `data-lab`, `nexus`, `content-generator-ai`, `advisor-ai`, `talent`, `impulso`, `command-center`), arquitectura de tokens/taxonomy/themes/components/patterns establecida.
+## [0.10.0] — 2026-09-22
+
+### Añadido — contrato canónico Data Table (Wave 4)
+
+La primitive existente `.ac-data-table` queda definida como un contrato
+CSS-first y semantic-HTML-first para tablas presentacionales, Data Tables e
+Interactive Data Tables. Añade densidad `compact`, estados de fila,
+alineación semántica, acciones, sorting accesible con `aria-sort` y sticky
+header opt-in. La selección, el sorting, el filtrado, la paginación y las
+acciones bulk siguen siendo composición y estado propiedad de la aplicación.
+
+Se documentan las estrategias responsive, la composición con Button, Forms,
+Status Badge y Empty State, y los límites explícitos frente a Data Grid:
+virtualización, edición tipo spreadsheet, resize, pinning y drag-reorder
+quedan `EVIDENCE_REQUIRED`.
+
+El catálogo incorpora fixtures realistas en español/inglés para light/dark,
+default/compact, sorting, selected row, status cells, row actions, empty/no
+results y overflow móvil. No se modifican consumidores del ecosistema.

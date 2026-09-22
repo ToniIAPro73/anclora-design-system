@@ -1,6 +1,6 @@
 {
   "name": "@anclora/design-system",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "_agentReadme": "This manifest is the machine-readable contract for coding agents working in any Anclora repo. Read componentStatus before adding a component (canonical = consume it, do not rebuild it; candidate = usable but not yet a hard requirement; needsConsumerEvidence = ships but has no confirmed real usage, verify before relying on it). Read profiles before choosing shell/density defaults for a new app. Read extensionPoints before overriding anything — if the property you need to change is not listed as a component's extension point, add a variant here instead of overriding the base selector. Read prohibitedPatterns before writing CSS that touches an .ac-* selector directly. Read theme before implementing light/dark in any new app — as of 0.7.0 the package ships a real canonical light theme, do not invent a local one. Read borders before deciding which border token to use — not every border needs 3:1, but a control/status border does, and there's a specific token for that. Full architecture: ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md. Full theme contract: docs/themes/light-dark-theme-contract.md. Full border/status/link contract: docs/tokens/semantic-borders-and-status.md. Full evidence: docs/ecosystem-audit/.",
   "borders": {
     "roles": {
@@ -42,6 +42,33 @@
     "combobox": { "status": "evidence-required", "rule": "Do not promote a shared combobox until two materially different consumers validate the API and keyboard model." },
     "extensionPoints": ["layout wrapper", "field density only where a sanctioned variant exists", "product copy and option data"],
     "prohibitedPatterns": ["placeholder-only labels", "color-only errors", "clickable div controls without native semantics", "consumer-local focus rings or control borders", "premature shared combobox abstraction"]
+  },
+  "dataTable": {
+    "contractDoc": "./docs/components/data-table.md",
+    "cssEntrypoint": "./src/components/data-table.css",
+    "layers": {
+      "primitives": "native table semantics: caption, thead, tbody, tr, th and td",
+      "pattern": ".ac-data-table with .ac-data-table__scroll",
+      "behaviours": "compose sorting, selection, filters, pagination and bulk actions; application owns state"
+    },
+    "defaultResponsiveStrategy": "horizontal overflow for simple tables; documented mobile list/card transformation for action-heavy tables",
+    "density": ["default", "compact"],
+    "sorting": "native button inside th plus aria-sort; no sorting engine",
+    "selection": "application-owned state using canonical Forms checkbox; data-selected is presentation only",
+    "status": "compose ac-status-badge semantic tones",
+    "rowActions": "compose ac-button, including ac-button--icon only with an accessible name",
+    "pagination": "separate application composition; no table-owned pagination component",
+    "sticky": "opt-in via ac-data-table--sticky; sticky columns are not supported",
+    "dataGrid": "evidence-required",
+    "extensionPoints": ["compact density", "data alignment", "sticky header opt-in", "product-owned column content"],
+    "prohibitedPatterns": ["MegaDataTable", "data-fetching table wrapper", "generic sorting engine", "local table-action-button", "inline spreadsheet editing", "virtualisation", "column resize", "pinned columns", "drag reorder"],
+    "answersForAgents": {
+      "I need to display records": "Use the canonical native table contract and .ac-data-table; do not create a local table family.",
+      "I need row actions": "Compose the canonical Button/link/menu semantics; do not create .table-action-button or .row-menu-button.",
+      "I need filters": "Compose canonical Forms outside the table; the table does not own filter controls.",
+      "I need an editable spreadsheet-like grid": "Do not force Data Table; classify as DATA_GRID_EVIDENCE_REQUIRED.",
+      "I need mobile": "Use horizontal overflow for simple tables; use a documented accessible list/card composition for action-heavy tables."
+    }
   },
   "componentStatus": {
     "canonical": [
@@ -98,7 +125,11 @@
     "Creating a new parallel button/card/modal class family in a consumer app (e.g. '.app-button', '.dashboard-button') when a canonical .ac-* component with a suitable variant already exists or could exist as one — propose a variant here instead.",
     "Redefining semantic tokens (--status-*, --danger, --success, --warning, --focus-ring) with app-local hex values instead of consuming the semantic layer.",
     "Inventing a new theme-toggle mechanism (a fourth alternative to the data-theme attribute contract) in a new app.",
-    "Treating a shadcn/ui-generated component's default HSL/OKLCH palette as final without wiring it to Anclora's semantic/component tokens."
+    "Treating a shadcn/ui-generated component's default HSL/OKLCH palette as final without wiring it to Anclora's semantic/component tokens.",
+    "Building a data-fetching MegaDataTable or generic sorting/query engine in the Design System.",
+    "Replacing semantic tables with generic div grids without a documented responsive/accessibility reason.",
+    "Making every table row clickable or relying on tr onClick without an equivalent keyboard interaction.",
+    "Creating table-specific checkbox, select, input, status or pagination variants when canonical primitives compose."
   ],
   "deprecated": [
     { "api": "--coin-syncxml", "replacement": "--coin-guesthub", "since": "0.4.1", "reason": "product rename, alias kept for one release" },

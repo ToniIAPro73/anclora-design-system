@@ -56,6 +56,7 @@
         padding: 32px 0 80px;
         display: grid;
         gap: 24px;
+        overflow-x: clip;
       }
 
       .tier-grid {
@@ -115,6 +116,29 @@
 
       .component-input {
         width: 100%;
+      }
+
+      .data-table-fixture {
+        display: grid;
+        gap: 18px;
+      }
+
+      .data-table-fixture__legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        color: var(--text-muted);
+        font-size: 0.78rem;
+      }
+
+      .data-table-fixture__legend span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .data-table-fixture__legend strong {
+        color: var(--text-primary);
       }
 
       @media (max-width: 1100px) {
@@ -388,6 +412,83 @@
             <div class="ac-empty-state" style="margin-top: 14px;">
               <p class="ac-empty-state__title">Sin resultados</p>
               <p class="ac-empty-state__summary">No hay elementos que coincidan con el filtro actual.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stack" id="data-table-contract" data-data-table-fixture>
+        <h2 class="h3">Data Table contract (Wave 4)</h2>
+        <p class="component-note">
+          Semantic table first: the application owns data, sorting and selection state; the DS owns the surface,
+          density, focus, row and responsive presentation contract. The default mobile strategy is horizontal scroll.
+          A Data Grid with cell editing, virtualisation or pinned columns is deliberately out of scope.
+        </p>
+        <div class="ac-surface-panel tier-panel data-table-fixture">
+          <div class="data-table-fixture__legend">
+            <span><strong>ES</strong> Operaciones activas</span>
+            <span><strong>EN</strong> Operational records</span>
+            <span><strong>Density</strong> default + compact</span>
+          </div>
+          <div class="ac-data-table ac-data-table--sticky">
+            <div class="ac-data-table__scroll" role="region" tabindex="0" aria-label="Operaciones activas / Active operations">
+              <table>
+                <caption class="sr-only">Operaciones activas / Active operations</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Registro / Record</th>
+                    <th scope="col" aria-sort="ascending">
+                      <button class="ac-data-table__sort" type="button" aria-label="Ordenar por fecha, ascendente / Sort by date, ascending">
+                        Actualizado / Updated <span class="ac-data-table__sort-indicator" aria-hidden="true">↑</span>
+                      </button>
+                    </th>
+                    <th scope="col" data-align="end">Importe / Amount</th>
+                    <th scope="col">Estado / Status</th>
+                    <th scope="col" data-column="actions">Acciones / Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-selected="true">
+                    <th scope="row"><span class="ac-data-table__primary">Expediente 1042</span><br /><span class="ac-data-table__meta">Revisión prioritaria</span></th>
+                    <td>22 sep 2026</td>
+                    <td data-align="end">24.800&nbsp;€</td>
+                    <td><span class="ac-status-badge ac-status-badge--success">Activo / Active</span></td>
+                    <td data-column="actions"><div class="ac-data-table__actions"><a class="ac-button ac-button--compact ac-button--secondary" href="#data-table-contract">Abrir / Open</a><button class="ac-button ac-button--compact ac-button--icon ac-button--ghost" type="button" aria-label="Más acciones para Expediente 1042 / More actions for Record 1042"><span class="ac-button__icon" aria-hidden="true">⋯</span></button></div></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><span class="ac-data-table__primary">Expediente 1038</span><br /><span class="ac-data-table__meta">Documentación pendiente</span></th>
+                    <td>18 sep 2026</td>
+                    <td data-align="end">8.450&nbsp;€</td>
+                    <td><span class="ac-status-badge ac-status-badge--warning">Revisión / Review</span></td>
+                    <td data-column="actions"><div class="ac-data-table__actions"><a class="ac-button ac-button--compact ac-button--secondary" href="#data-table-contract">Abrir / Open</a><button class="ac-button ac-button--compact ac-button--icon ac-button--ghost" type="button" aria-label="Más acciones para Expediente 1038 / More actions for Record 1038"><span class="ac-button__icon" aria-hidden="true">⋯</span></button></div></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="ac-data-table ac-data-table--compact">
+            <div class="ac-data-table__scroll" role="region" tabindex="0" aria-label="Compact table example">
+              <table>
+                <caption class="sr-only">Compact table example</caption>
+                <thead><tr><th scope="col">Team</th><th scope="col">Owner</th><th scope="col" data-column="actions">Action</th></tr></thead>
+                <tbody><tr><th scope="row">Data Lab</th><td>Admisiones</td><td data-column="actions"><a class="ac-button ac-button--compact ac-button--ghost" href="#data-table-contract">Ver detalle</a></td></tr></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="component-grid">
+            <div>
+              <p class="component-note"><strong>No data</strong> — compose EmptyState when the dataset has no records.</p>
+              <div class="ac-empty-state" style="min-height: 180px; margin-top: 10px;">
+                <p class="ac-empty-state__title">Sin operaciones</p>
+                <p class="ac-empty-state__summary">No hay registros todavía / No records yet.</p>
+              </div>
+            </div>
+            <div>
+              <p class="component-note"><strong>No results</strong> — use different copy after filtering.</p>
+              <div class="ac-empty-state" style="min-height: 180px; margin-top: 10px;">
+                <p class="ac-empty-state__title">Sin coincidencias</p>
+                <p class="ac-empty-state__summary">Prueba otro filtro / Try another filter.</p>
+              </div>
             </div>
           </div>
         </div>
