@@ -129,6 +129,15 @@
   --motion-enter-overlay: var(--dur-base);
   --motion-hero-emphasis: var(--dur-slow);
 
+  /* Small, intentional overlay stack. Runtime layers may sit above these only
+     when they own a documented product shell or browser-level surface. */
+  --layer-menu: 30;
+  --layer-popover: 30;
+  --layer-tooltip: 35;
+  --layer-drawer: 40;
+  --layer-modal: 50;
+  --layer-toast: 60;
+
   --surface-radius-card: var(--radius-xl);
   --surface-radius-frame: var(--radius-lg);
   --surface-radius-panel: var(--radius-xl);

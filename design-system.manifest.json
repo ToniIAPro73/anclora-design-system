@@ -1,6 +1,6 @@
 {
   "name": "@anclora/design-system",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "_agentReadme": "This manifest is the machine-readable contract for coding agents working in any Anclora repo. Read componentStatus before adding a component (canonical = consume it, do not rebuild it; candidate = usable but not yet a hard requirement; needsConsumerEvidence = ships but has no confirmed real usage, verify before relying on it). Read profiles before choosing shell/density defaults for a new app. Read extensionPoints before overriding anything — if the property you need to change is not listed as a component's extension point, add a variant here instead of overriding the base selector. Read prohibitedPatterns before writing CSS that touches an .ac-* selector directly. Read theme before implementing light/dark in any new app — as of 0.7.0 the package ships a real canonical light theme, do not invent a local one. Read borders before deciding which border token to use — not every border needs 3:1, but a control/status border does, and there's a specific token for that. Full architecture: ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md. Full theme contract: docs/themes/light-dark-theme-contract.md. Full border/status/link contract: docs/tokens/semantic-borders-and-status.md. Full evidence: docs/ecosystem-audit/.",
   "borders": {
     "roles": {
@@ -86,17 +86,39 @@
     },
     "evidenceRequired": ["notificationCentre", "jobDashboard", "resumableJobManager"]
   },
+  "overlays": {
+    "contractDoc": "./docs/components/overlays-menus-and-popovers.md",
+    "architecture": "CSS visual contract plus semantic HTML and an optional consumer-owned accessible runtime. The Design System does not ship a universal Overlay component or mandate Radix.",
+    "decisionRules": {
+      "three contextual actions": "Menu, usually opened by an explicit Button/icon-only Button trigger.",
+      "short supplemental help": "Tooltip on hover and keyboard focus; it is non-interactive and never the only accessible name.",
+      "rich contextual controls": "Non-modal Popover; the page remains interactive and the panel owns only its contextual content.",
+      "mobile side panel": "Drawer/Sheet when content is substantial or a desktop contextual surface needs a mobile composition.",
+      "blocking confirmation": "Modal/Dialog, not Popover or Menu.",
+      "searchable options": "Combobox contract; currently evidence-required and not a generic Popover."
+    },
+    "canonical": ["menu", "popover", "tooltip", "drawer"],
+    "runtimeOwnership": {
+      "menu": "Consumer-owned or recommended headless primitive; runtime owns roving focus, keyboard navigation, dismissal and focus return.",
+      "popover": "Consumer-owned or recommended headless primitive; runtime owns positioning, collision handling, focus strategy and dismissal.",
+      "tooltip": "Consumer-owned or recommended tooltip primitive; runtime owns hover/focus timing and relationship; content remains non-interactive.",
+      "drawer": "Consumer-owned or recommended dialog/sheet primitive; modal drawers require focus containment and inert/backdrop behaviour."
+    },
+    "evidenceRequired": ["contextMenu", "nestedMenu", "commandPalette", "megaMenu", "nestedDrawer", "dockingPanel"],
+    "prohibitedPatterns": ["MegaOverlay", "generic div menu items without keyboard semantics", "tooltip used as an icon accessible name", "interactive controls inside Tooltip", "manual focus trap duplicated per consumer", "arbitrary z-index scale", "generic Popover used for Combobox or Select semantics", "Popover used for blocking confirmation", "Modal used for a lightweight command list"]
+  },
   "componentStatus": {
     "canonical": [
       "button", "surfacePanel", "formField", "dataTable", "statusBadge", "emptyState", "modal",
       "themeSwitcher", "languageSwitcher", "stepper", "chapterRail", "templateCatalog",
       "previewOverlay", "previewControls", "workspaceStage", "workflowShell", "editorShell",
       "alert", "toast", "errorState", "loading", "progress", "processing", "skeleton",
+      "menu", "popover", "tooltip", "drawer",
       "textEditor", "exportSuite"
     ],
     "needsConsumerEvidence": [
       "appTile", "metricCard", "sectionHeading", "sidebarNav", "tabs", "breadcrumb", "subnav",
-      "statStrip", "drawer", "editorStudio", "topbar"
+      "statStrip", "editorStudio", "topbar"
     ],
     "_note": "canonical = at least one real consumer verified in code (see ANCLORA-DESIGN-SYSTEM-COMPONENT-INVENTORY.md). needsConsumerEvidence = shipped as CSS, no confirmed real usage found as of 2026-09-21 — usable as a candidate, do not describe it to a user as battle-tested."
   },
@@ -150,7 +172,11 @@
     "Building a generic MegaFeedback component that merges alert, toast, empty, error, loading and progress semantics.",
     "Using role=alert for every informational message or exposing a fake progress value for indeterminate work.",
     "Replacing an actionable operation indicator with a spinner-only or skeleton-only surface.",
-    "Creating a consumer-local status palette, toast queue or notification centre without evidence and a documented contract."
+    "Creating a consumer-local status palette, toast queue or notification centre without evidence and a documented contract.",
+    "Creating a universal MegaOverlay that merges Menu, Popover, Tooltip, Drawer and Modal semantics.",
+    "Using Tooltip for interactive content or as the only accessible name of an icon-only control.",
+    "Using Popover for Combobox/Select semantics or for a blocking confirmation.",
+    "Adding consumer-local arbitrary z-index values or duplicating focus traps without a documented runtime need."
   ],
   "deprecated": [
     { "api": "--coin-syncxml", "replacement": "--coin-guesthub", "since": "0.4.1", "reason": "product rename, alias kept for one release" },
@@ -209,6 +235,9 @@
       "progress": "./src/components/progress.css",
       "processing": "./src/components/processing.css",
       "skeleton": "./src/components/skeleton.css",
+      "menu": "./src/components/menu.css",
+      "popover": "./src/components/popover.css",
+      "tooltip": "./src/components/tooltip.css",
       "modal": "./src/components/modal.css",
       "drawer": "./src/components/drawer.css",
       "previewOverlay": "./src/components/preview-overlay.css",

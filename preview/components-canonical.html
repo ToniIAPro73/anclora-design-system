@@ -455,6 +455,56 @@
         </div>
       </section>
 
+      <section class="stack" id="overlays-contract" data-overlays-contract-fixture>
+        <h2 class="h3">Overlays, Menus &amp; Contextual Interaction (Wave 6)</h2>
+        <p class="component-note">Interactive fixtures: Menu for commands, Popover for rich non-modal context, Tooltip for short supplemental help, Drawer for substantial edge-attached content. Runtime owns keyboard/focus/portal orchestration; the fixtures provide a small reference runtime for manual testing.</p>
+        <div class="component-grid">
+          <div class="ac-surface-panel tier-panel">
+            <p class="component-note"><strong>Menu / Menú de acciones</strong></p>
+            <div class="ac-menu" data-placement="bottom-start">
+              <button id="menu-trigger" class="ac-button ac-button--secondary ac-button--compact" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="menu-content"><span class="ac-button__label">Más acciones / More actions</span></button>
+              <div id="menu-content" class="ac-menu__content" role="menu" aria-labelledby="menu-trigger" hidden>
+                <div class="ac-menu__label">Documento / Document</div>
+                <button class="ac-menu__item" role="menuitem" type="button">Abrir / Open</button>
+                <button class="ac-menu__item" role="menuitem" type="button" aria-disabled="true">Compartir / Share</button>
+                <div class="ac-menu__separator" role="separator"></div>
+                <button class="ac-menu__item" data-tone="danger" role="menuitem" type="button">Eliminar / Delete</button>
+              </div>
+            </div>
+            <p class="component-note">Actions use menu semantics; disabled, separator and destructive examples are visible once opened. A trigger must expose an accessible name.</p>
+          </div>
+          <div class="ac-surface-panel tier-panel">
+            <p class="component-note"><strong>Popover / Contexto enriquecido</strong></p>
+            <div class="ac-popover" data-placement="bottom-start">
+              <button id="popover-trigger" class="ac-button ac-button--ghost ac-button--compact" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="popover-content"><span class="ac-button__label">Ver contexto / View context</span></button>
+              <div id="popover-content" class="ac-popover__content" role="dialog" aria-labelledby="popover-title" hidden>
+                <div class="ac-popover__header"><h3 id="popover-title" class="ac-popover__title">Filtro guardado / Saved filter</h3></div>
+                <div class="ac-popover__body"><p class="ac-popover__summary">La página sigue disponible mientras ajustas este contexto.</p><label class="ac-form-field__label" for="overlay-filter">Equipo / Team</label><input id="overlay-filter" class="field-input" value="Operaciones / Operations" /></div>
+                <div class="ac-popover__actions"><button class="ac-button ac-button--compact ac-button--primary" type="button">Aplicar / Apply</button></div>
+              </div>
+            </div>
+            <p class="component-note">Interactive content belongs in Popover, not Tooltip. Select/Combobox semantics remain Forms-owned.</p>
+          </div>
+          <div class="ac-surface-panel tier-panel">
+            <p class="component-note"><strong>Tooltip / Ayuda suplementaria</strong></p>
+            <span class="ac-tooltip" data-placement="top"><button id="tooltip-trigger" class="ac-button ac-button--ghost ac-button--icon" type="button" aria-label="Información sobre la confianza / Confidence information" aria-describedby="tooltip-content"><span class="ac-button__icon" aria-hidden="true">i</span></button><span id="tooltip-content" class="ac-tooltip__content" role="tooltip">Ayuda breve, no interactiva / Short, non-interactive help</span></span>
+            <p class="component-note">Shown statically for visual review; a real runtime reveals it on hover and focus. Tooltip never supplies the icon's accessible name.</p>
+          </div>
+          <div class="ac-surface-panel tier-panel">
+            <p class="component-note"><strong>Drawer / Sheet responsive</strong></p>
+            <button id="drawer-trigger" class="ac-button ac-button--secondary ac-button--compact" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="drawer-fixture"><span class="ac-button__label">Abrir panel / Open panel</span></button>
+            <p class="component-note">Use for substantial edge-attached content or mobile adaptation. Modal vs non-modal focus behaviour belongs to the runtime.</p>
+          </div>
+        </div>
+        <div id="drawer-fixture" class="ac-drawer-backdrop" data-overlay-drawer hidden>
+          <aside class="ac-drawer" data-side="right" data-modal="true" role="dialog" aria-modal="true" aria-labelledby="drawer-title" tabindex="-1">
+            <header class="ac-drawer__header"><h3 id="drawer-title" class="ac-drawer__title">Panel contextual / Context panel</h3><p class="ac-drawer__summary">Contenido sustancial que puede desplazarse sin perder el contexto principal.</p></header>
+            <div class="ac-drawer__body"><p>Filtros, detalle o navegación móvil pueden vivir aquí. La aplicación debe devolver el foco al disparador al cerrar.</p><button class="ac-button ac-button--compact ac-button--ghost" type="button">Ver detalle / View detail</button></div>
+            <footer class="ac-drawer__footer"><button id="drawer-close" class="ac-button ac-button--compact ac-button--secondary" type="button">Cerrar / Close</button></footer>
+          </aside>
+        </div>
+      </section>
+
       <section class="stack" id="data-table-contract" data-data-table-fixture>
         <h2 class="h3">Data Table contract (Wave 4)</h2>
         <p class="component-note">
@@ -709,6 +759,32 @@
           apply(current);
         });
         apply(current);
+      })();
+      (function () {
+        var pairs = [
+          ['menu-trigger', 'menu-content'],
+          ['popover-trigger', 'popover-content'],
+        ];
+        pairs.forEach(function (pair) {
+          var trigger = document.getElementById(pair[0]);
+          var content = document.getElementById(pair[1]);
+          trigger.addEventListener('click', function () {
+            var open = content.hidden;
+            content.hidden = !open;
+            trigger.setAttribute('aria-expanded', String(open));
+            if (open) (content.querySelector('[role="menuitem"], input, button') || content).focus();
+          });
+          trigger.addEventListener('keydown', function (event) { if (event.key === 'ArrowDown' || event.key === 'Enter' || event.key === ' ') { event.preventDefault(); trigger.click(); } });
+          content.addEventListener('keydown', function (event) { if (event.key === 'Escape') { content.hidden = true; trigger.setAttribute('aria-expanded', 'false'); trigger.focus(); } });
+        });
+        var drawerTrigger = document.getElementById('drawer-trigger');
+        var drawer = document.getElementById('drawer-fixture');
+        var drawerClose = document.getElementById('drawer-close');
+        function closeDrawer() { drawer.hidden = true; drawerTrigger.setAttribute('aria-expanded', 'false'); drawerTrigger.focus(); }
+        drawerTrigger.addEventListener('click', function () { drawer.hidden = false; drawerTrigger.setAttribute('aria-expanded', 'true'); drawer.querySelector('.ac-drawer').focus(); });
+        drawerClose.addEventListener('click', closeDrawer);
+        drawer.addEventListener('click', function (event) { if (event.target === drawer) closeDrawer(); });
+        drawer.addEventListener('keydown', function (event) { if (event.key === 'Escape') closeDrawer(); });
       })();
     </script>
   </body>

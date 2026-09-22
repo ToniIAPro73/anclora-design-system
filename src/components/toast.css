@@ -5,7 +5,7 @@
   gap: var(--space-3);
   position: fixed;
   inset: var(--space-4) var(--space-4) auto auto;
-  z-index: 20;
+  z-index: var(--layer-toast);
   width: min(380px, calc(100vw - (var(--space-4) * 2)));
   pointer-events: none;
 }

@@ -24,6 +24,9 @@
 @import url("./progress.css");
 @import url("./processing.css");
 @import url("./skeleton.css");
+@import url("./menu.css");
+@import url("./popover.css");
+@import url("./tooltip.css");
 @import url("./modal.css");
 @import url("./drawer.css");
 @import url("./preview-overlay.css");

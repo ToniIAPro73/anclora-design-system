@@ -51,7 +51,7 @@ for (const needle of [
 
 if (manifest.feedback?.contractDoc !== "./docs/components/feedback-and-system-states.md") failures.push("manifest feedback contractDoc is missing");
 if (!Array.isArray(manifest.feedback?.components) || manifest.feedback.components.length !== 8) failures.push("manifest feedback component list is incomplete");
-if (manifest.version !== pkg.version || manifest.version !== "0.11.0") failures.push("feedback release version must be 0.11.0 and match package.json");
+if (manifest.version !== pkg.version) failures.push("feedback contract version must match package.json");
 if (!manifest.componentStatus?.canonical?.includes("toast")) failures.push("toast must be canonical after Wave 5 evidence");
 
 if (failures.length) {

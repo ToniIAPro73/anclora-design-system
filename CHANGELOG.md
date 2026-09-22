@@ -180,6 +180,12 @@ Ninguna existía en `src/themes/product.css` hasta esta versión.
 ## [0.1.0] — fecha original de creación del repo
 
 Versión inicial: 10 apps (`group`, `private-estates`, `synergi`, `data-lab`, `nexus`, `content-generator-ai`, `advisor-ai`, `talent`, `impulso`, `command-center`), arquitectura de tokens/taxonomy/themes/components/patterns establecida.
+## [0.12.0] — 2026-09-22
+
+### Añadido — contrato canónico de Overlays, Menus & Contextual Interaction (Wave 6)
+
+Se formalizan las fronteras entre Menu, Popover, Tooltip, Drawer/Sheet y Modal, con reglas deterministas para agentes, anatomía visual, capas semánticas, responsive, temas y reducción de movimiento. El runtime accesible permanece en el consumidor o en un primitive headless recomendado; Combobox, Context Menu complejo, command palette y docking siguen siendo evidence-required. Se incorpora catálogo interactivo y verificación mecánica. No se modifican consumidores.
+
 ## [0.11.0] — 2026-09-22
 
 ### Añadido — contrato canónico de Feedback & System States (Wave 5)

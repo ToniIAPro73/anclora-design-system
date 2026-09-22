@@ -2,6 +2,7 @@
 
 .ac-modal-backdrop {
   position: relative;
+  z-index: var(--layer-modal);
   display: grid;
   place-items: center;
   min-height: 100%;

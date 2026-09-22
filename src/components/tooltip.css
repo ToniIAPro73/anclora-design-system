@@ -1,0 +1,20 @@
+/* Supplemental, non-interactive help. Runtime must expose it on hover and focus. */
+.ac-tooltip { position: relative; }
+.ac-tooltip__content {
+  position: absolute;
+  z-index: var(--layer-tooltip);
+  width: max-content;
+  max-width: min(280px, calc(100vw - (var(--space-4) * 2)));
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background: var(--surface-overlay);
+  color: var(--text-inverse);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  pointer-events: none;
+  user-select: none;
+}
+.ac-tooltip[data-placement="top"] .ac-tooltip__content { inset: auto auto calc(100% + var(--space-2)) 50%; transform: translateX(-50%); }
+.ac-tooltip[data-placement="bottom"] .ac-tooltip__content { inset: calc(100% + var(--space-2)) auto auto 50%; transform: translateX(-50%); }
+@media (prefers-reduced-motion: reduce) { .ac-tooltip__content { transition: none; } }

@@ -1,0 +1,23 @@
+/* Non-modal contextual surface. It is not a dialog and must not become one. */
+.ac-popover { position: relative; }
+.ac-popover__content {
+  position: absolute;
+  z-index: var(--layer-popover);
+  width: min(360px, calc(100vw - (var(--space-4) * 2)));
+  max-height: min(34rem, calc(100vh - (var(--space-8) * 2)));
+  overflow: auto;
+  padding: var(--space-4);
+  border: 1px solid var(--border-control);
+  border-radius: var(--radius-lg);
+  background: var(--surface-elevated);
+  box-shadow: var(--shadow-xl), var(--shadow-inset);
+  color: var(--text-primary);
+}
+.ac-popover__content[hidden] { display: none; }
+.ac-popover__header, .ac-popover__body, .ac-popover__actions { display: grid; gap: var(--space-2); }
+.ac-popover__title, .ac-popover__summary { margin: 0; }
+.ac-popover__summary { color: var(--text-secondary); line-height: 1.55; }
+.ac-popover__actions { display: flex; flex-wrap: wrap; align-items: center; padding-top: var(--space-2); }
+.ac-popover[data-placement="bottom-start"] .ac-popover__content { inset: calc(100% + var(--space-2)) auto auto 0; }
+.ac-popover[data-placement="bottom-end"] .ac-popover__content { inset: calc(100% + var(--space-2)) 0 auto auto; }
+@media (prefers-reduced-motion: reduce) { .ac-popover__content { transition: none; } }

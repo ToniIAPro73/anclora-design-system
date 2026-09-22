@@ -33,7 +33,10 @@ Fecha: 2026-09-21. Inventario real (no aspiracional) derivado de `design-system.
 | progress | `progress.css` | canonical | anclora-filestudio, anclora-tableextractor |
 | processing | `processing.css` | canonical | anclora-shiftimport, anclora-filestudio, anclora-tableextractor |
 | skeleton | `skeleton.css` | canonical | anclora-talent, anclora-private-estates, anclora-content-generator-ai |
-| drawer | `drawer.css` | no validado | — |
+| menu | `menu.css` | canonical | anclora-talent, anclora-shiftimport, anclora-private-estates |
+| popover | `popover.css` | canonical | anclora-content-generator-ai, anclora-talent |
+| tooltip | `tooltip.css` | canonical | anclora-shiftimport, anclora-talent |
+| drawer | `drawer.css` | canonical | anclora-shiftimport, anclora-command-center |
 | previewOverlay | `preview-overlay.css` | `canonical` (parte de `editorial-preview-controls`) | `anclora-talent` |
 | previewControls | `preview-controls.css` | `canonical` | `anclora-talent` |
 | workspaceStage | `workspace-stage.css` | `canonical` | `anclora-talent` |

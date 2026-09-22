@@ -1,6 +1,9 @@
 /* Canonical drawer shell for filters, context or assistant panels. */
 
 .ac-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--layer-drawer);
   display: grid;
   justify-items: end;
   min-height: 100%;
@@ -9,6 +12,7 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
+.ac-drawer-backdrop[hidden] { display: none; }
 
 .ac-drawer {
   width: min(420px, 100%);
@@ -25,12 +29,23 @@
   box-shadow: var(--shadow-xl), var(--shadow-inset);
 }
 
+.ac-drawer[data-side="left"] { justify-self: start; }
+.ac-drawer[data-side="right"] { justify-self: end; }
+.ac-drawer[data-modal="true"] { outline: none; }
+
 .ac-drawer__header,
 .ac-drawer__body,
 .ac-drawer__footer {
   display: grid;
   gap: var(--space-3);
 }
+
+@media (max-width: 600px) {
+  .ac-drawer-backdrop { padding: 0; align-items: end; }
+  .ac-drawer { width: 100%; min-height: min(86vh, 720px); max-height: 86vh; border-radius: var(--surface-radius-panel) var(--surface-radius-panel) 0 0; overflow: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) { .ac-drawer, .ac-drawer-backdrop { transition: none; } }
 
 .ac-drawer__title {
   margin: 0;

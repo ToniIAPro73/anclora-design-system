@@ -196,8 +196,44 @@ async function checkModalViewportSafety(page, viewport) {
   return failures;
 }
 
+async function checkOverlayInteractions(page) {
+  const failures = [];
+  const result = await page.evaluate(() => {
+    const click = (selector) => document.querySelector(selector)?.click();
+    const menuTrigger = document.querySelector("#menu-trigger");
+    const menu = document.querySelector("#menu-content");
+    click("#menu-trigger");
+    const menuOpened = Boolean(menu && !menu.hidden && menu.querySelector("[role=menuitem]") === document.activeElement);
+    menu?.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+    const menuReturned = Boolean(menu?.hidden && document.activeElement === menuTrigger);
+
+    const popoverTrigger = document.querySelector("#popover-trigger");
+    const popover = document.querySelector("#popover-content");
+    click("#popover-trigger");
+    const popoverOpened = Boolean(popover && !popover.hidden && popover.querySelector("input") === document.activeElement);
+    popover?.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+    const popoverReturned = Boolean(popover?.hidden && document.activeElement === popoverTrigger);
+
+    const drawerTrigger = document.querySelector("#drawer-trigger");
+    const drawer = document.querySelector("[data-overlay-drawer]");
+    click("#drawer-trigger");
+    const drawerOpened = Boolean(drawer && !drawer.hidden && drawer.querySelector(".ac-drawer") === document.activeElement);
+    drawer?.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+    const drawerReturned = Boolean(drawer?.hidden && document.activeElement === drawerTrigger);
+    const tooltip = document.querySelector("[role=tooltip]");
+    const tooltipNonInteractive = Boolean(tooltip && !tooltip.querySelector("button,a,input,select,textarea"));
+    return { menuOpened, menuReturned, popoverOpened, popoverReturned, drawerOpened, drawerReturned, tooltipNonInteractive };
+  });
+
+  for (const [name, passed] of Object.entries(result)) {
+    if (!passed) failures.push(`${name} interaction contract failed at ${page.url()}`);
+  }
+  return failures;
+}
+
 async function runSmoke(browser, origin) {
   const modalFailures = [];
+  const overlayFailures = [];
 
   for (const viewport of viewports) {
     const context = await browser.newContext({
@@ -214,6 +250,9 @@ async function runSmoke(browser, origin) {
       if (preview.id === "detail-modal") {
         modalFailures.push(...(await checkModalViewportSafety(page, viewport)));
       }
+      if (preview.id === "components-canonical") {
+        overlayFailures.push(...(await checkOverlayInteractions(page)));
+      }
     }
 
     await context.close();
@@ -222,6 +261,11 @@ async function runSmoke(browser, origin) {
   if (modalFailures.length > 0) {
     console.error("Detail modal viewport-safety verification failed:");
     for (const failure of modalFailures) console.error(`- ${failure}`);
+    process.exit(1);
+  }
+  if (overlayFailures.length > 0) {
+    console.error("Overlay interaction verification failed:");
+    for (const failure of overlayFailures) console.error(`- ${failure}`);
     process.exit(1);
   }
 }
