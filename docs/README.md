@@ -8,8 +8,10 @@ Normative navigation for agents and engineers:
 - [Profiles](./navigation-and-app-shell-contract.md) — Core/default, P-WKS and P-MKT scope.
 - [Adoption](./adoption/ecosystem-adoption.inventory.json) — machine-readable adoption inventory.
 - [Governance](./canonical-role-and-governance.md) — authority and extension boundaries.
-- [Release / migration](./release/wave-10-release-candidate.md) — RC freeze, public package contract and migration batches.
+- [V1 reference](./release/ANCLORA-DESIGN-SYSTEM-V1-COMPLETE.md) — complete stable architecture, consumption and migration manual.
+- [Release / migration history](./release/wave-10-release-candidate.md) — RC freeze, public package contract and migration batches.
 
-The Wave 10 RC document is the single normative home for release/freeze
-decisions. The Wave 9 document remains historical rationale and points to the
-current `adoptionStage` / `referenceConsumer` schema.
+The V1 reference is the current normative home for consumption and migration.
+The Wave 10 RC document is retained as release history, and the Wave 9
+document remains historical rationale for the current `adoptionStage` /
+`referenceConsumer` schema.
