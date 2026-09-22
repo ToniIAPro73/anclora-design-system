@@ -24,7 +24,15 @@ La prioridad no es montar una infraestructura pesada, sino cubrir los riesgos re
 
 `npm run verify:adoption-contract`
 - valida el inventario machine-readable de consumidores
-- comprueba estados de adopción, perfiles, pinning inmutable, deprecaciones y exports públicos de Shared Patterns
+- comprueba `adoptionStage` exclusivo, `referenceConsumer` ortogonal, perfiles, pinning inmutable, deprecaciones, package exports y reconciliación exacta de frontends
+
+`npm run verify:token-contract`
+- escanea referencias `var(--token)` del CSS ejecutable
+- falla ante tokens canónicos indefinidos y permite únicamente extensiones externas documentadas con fallback
+
+`npm run verify:release`
+- orquesta `verify`, ownership de tokens, versión package/manifest/lockfile y el checklist RC
+- no oculta fallos ni publica el paquete
 
 `npm run verify:html`
 - inspecciona `preview/*.html`
@@ -52,6 +60,9 @@ La prioridad no es montar una infraestructura pesada, sino cubrir los riesgos re
 
 `npm run verify`
 - ejecuta manifest, adoption contract, html, browser smoke, accesibilidad básica y package dry-run
+
+`npm run verify:release`
+- es el gate final de `0.16.0-rc.1`; la checklist humana está en [`release/release-candidate-checklist.md`](./release/release-candidate-checklist.md)
 
 `npm run quality`
 - alias de `verify`
@@ -83,6 +94,12 @@ Esto no sustituye al versionado ni a los checks del paquete, pero evita confundi
 
 - visual diff automatizado
 - wrappers JS/TS
+
+## Estado de visual baselines
+
+Los snapshots actuales son `MANUAL_QA_SUPPORT` / generadores de baseline; no
+son un gate de regresión por diff. `verify:browser` y `verify:a11y` sí son gates
+reales de carga, interacción estructural y accesibilidad automatizada.
 
 ## Siguiente escalón recomendado
 

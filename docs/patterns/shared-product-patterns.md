@@ -21,12 +21,12 @@ Visual resemblance alone is insufficient. A pattern may remain `PATTERN_CANDIDAT
 
 | id | scope | evidence | composition | maturity |
 | --- | --- | --- | --- | --- |
-| `auth-entry` | CROSS_PROFILE | ShiftImport, Content Generator AI, TableExtractor, Talent, Data Lab | Form fields, Button, Alert/Error State, secondary links | canonical |
-| `settings-section` | CORE_SHARED / P-WKS_SHARED | Content Generator AI, Talent, ShiftImport settings surface | Page Header/section heading, Form Field, choice controls, Button, feedback | canonical |
-| `file-upload` | CORE_SHARED / P-WKS_SHARED | TableExtractor, FileStudio, Talent, ShiftImport | native file input, upload anatomy, Form Field, Button, Alert, Empty State | canonical |
-| `processing-result` | CORE_SHARED / P-WKS_SHARED | FileStudio, Talent, Content Generator AI | file metadata, Processing/Progress, Status, result actions | canonical |
-| `bulk-action-bar` | P-WKS_SHARED | FileStudio, ShiftImport | selected count, Button/Menu, destructive confirmation when needed | canonical |
-| `destructive-confirmation` | CROSS_PROFILE | ShiftImport, Command Center, FileStudio, Talent | Modal, consequence copy, cancel/destructive Button, loading/error feedback | canonical |
+| `auth-entry` | CROSS_PROFILE | ShiftImport, Content Generator AI, TableExtractor, Talent, Data Lab | Form fields, Button, Alert/Error State, secondary links | STABLE |
+| `settings-section` | CORE_SHARED / P-WKS_SHARED | Content Generator AI, Talent, ShiftImport settings surface | Page Header/section heading, Form Field, choice controls, Button, feedback | STABLE |
+| `file-upload` | CORE_SHARED / P-WKS_SHARED | TableExtractor, FileStudio, Talent, ShiftImport | native file input, upload anatomy, Form Field, Button, Alert, Empty State | CONSUMER_VALIDATED |
+| `processing-result` | CORE_SHARED / P-WKS_SHARED | FileStudio, Talent, Content Generator AI | file metadata, Processing/Progress, Status, result actions | CANONICAL_NEEDS_MORE_RUNTIME_EVIDENCE |
+| `bulk-action-bar` | P-WKS_SHARED | FileStudio, ShiftImport | selected count, Button/Menu, destructive confirmation when needed | CANONICAL_NEEDS_MORE_RUNTIME_EVIDENCE |
+| `destructive-confirmation` | CROSS_PROFILE | ShiftImport, Command Center, FileStudio, Talent | Modal, consequence copy, cancel/destructive Button, loading/error feedback | CONSUMER_VALIDATED |
 
 Pattern classes are CSS-first layout contracts in `src/patterns/shared-product-patterns.css`; they are not React runtime components.
 
@@ -50,7 +50,7 @@ Compose file metadata with the existing Processing/Progress and semantic status 
 
 ### Bulk action bar
 
-Show selected count, the primary bulk action, any destructive action and clear-selection affordance. Selection state, permissions, batching and partial failures remain application-owned. On mobile the bar becomes a stacked action region; actions retain at least the canonical Button target size.
+The canonical meaning is an explicit selection-driven action region: show selected count, the primary bulk action, any destructive action and clear-selection affordance. Selection state, permissions, batching and partial failures remain application-owned. A generic batch/job toolbar without explicit selection is product-specific evidence, not full validation. On mobile the bar becomes a stacked action region; actions retain at least the canonical Button target size.
 
 ### Destructive confirmation
 
@@ -72,7 +72,7 @@ Use the canonical Modal/Dialog anatomy with an explicit consequence, optional en
 | `file-preview` | EVIDENCE_REQUIRED | PDF, image, table and converted-artifact previews differ materially. |
 | `combobox`, `data-grid` | EVIDENCE_REQUIRED | New consumer evidence is recorded, but no promotion occurs in Wave 8. |
 
-`EMPTY DATASET` and `NO FILTER RESULTS` remain distinct application messages composed with the canonical Empty State; no second no-results component is introduced.
+`EMPTY DATASET` and `NO FILTER RESULTS` remain distinct application messages composed with the canonical Empty State; no second no-results component is introduced. `processing-result` is a composition contract: result data, metadata, success/partial/failure semantics and domain actions remain application-owned.
 
 ## Agent rules
 

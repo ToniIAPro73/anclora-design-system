@@ -61,7 +61,7 @@
   min-height: 2rem;
   padding: 0 0.8rem;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--accent-mint) 14%, transparent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
   color: var(--text-primary);
   font-size: 0.78rem;
   font-weight: 700;
@@ -222,7 +222,7 @@
 }
 
 .ac-editor-inspector__segmented button[data-active="true"] {
-  background: var(--accent-mint);
+  background: var(--accent);
   color: #08121b;
 }
 

@@ -3,6 +3,8 @@
 Fecha: 2026-09-22
 Repositorio: `anclora-design-system`
 
+Contrato vigente: [`Wave 10 RC`](./release/wave-10-release-candidate.md), versión `0.16.0-rc.1`.
+
 ## Objetivo
 
 Este repo ya puede consumirse desde apps sin depender de copiar previews.
@@ -34,7 +36,7 @@ Para la capa estable de Shared Product Patterns puede usarse el export granular:
 @import "@anclora/design-system/patterns/shared-product-patterns.css";
 ```
 
-Antes de migrar una app, consultar el [contrato de adopción de Wave 9](./adoption/wave-9-profile-and-adoption-hardening.md) y el [inventario machine-readable](./adoption/ecosystem-adoption.inventory.json). Las dependencias pre-v1 deben fijar un SHA Git inmutable; `development`, `main` y `latest` no son valores válidos.
+Antes de migrar una app, consultar el [contrato RC de Wave 10](./release/wave-10-release-candidate.md) y el [inventario machine-readable](./adoption/ecosystem-adoption.inventory.json). Las dependencias pre-v1 deben fijar un SHA Git inmutable; `development`, `main` y `latest` no son valores válidos.
 
 ## 2. Composicion recomendada
 

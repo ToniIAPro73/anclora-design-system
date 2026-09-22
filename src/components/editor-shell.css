@@ -61,7 +61,7 @@
   padding: 0 0.6rem;
   min-height: 2rem;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--accent-mint) 14%, transparent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
   color: var(--text-primary);
   font-size: 0.78rem;
   font-weight: 700;
@@ -120,8 +120,8 @@
   width: 1.8rem;
   height: 1.8rem;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--accent-mint) 16%, transparent);
-  color: var(--accent-mint);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--accent);
 }
 
 .ac-editor-panel__eyebrow {

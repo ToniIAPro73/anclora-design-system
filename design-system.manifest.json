@@ -1,6 +1,6 @@
 {
   "name": "@anclora/design-system",
-  "version": "0.15.0",
+  "version": "0.16.0-rc.1",
   "_agentReadme": "This manifest is the machine-readable contract for coding agents working in any Anclora repo. Read componentStatus before adding a component (canonical = consume it, do not rebuild it; candidate = usable but not yet a hard requirement; needsConsumerEvidence = ships but has no confirmed real usage, verify before relying on it). Read profiles before choosing shell/density defaults for a new app. Read extensionPoints before overriding anything — if the property you need to change is not listed as a component's extension point, add a variant here instead of overriding the base selector. Read prohibitedPatterns before writing CSS that touches an .ac-* selector directly. Read theme before implementing light/dark in any new app — as of 0.7.0 the package ships a real canonical light theme, do not invent a local one. Read borders before deciding which border token to use — not every border needs 3:1, but a control/status border does, and there's a specific token for that. Full architecture: ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md. Full theme contract: docs/themes/light-dark-theme-contract.md. Full border/status/link contract: docs/tokens/semantic-borders-and-status.md. Full evidence: docs/ecosystem-audit/.",
   "borders": {
     "roles": {
@@ -31,6 +31,23 @@
       "I need light/dark theme for a new Anclora app. Should I create my own palette?": "No. Set data-theme=\"dark\"|\"light\" on <html> and consume the canonical semantic tokens from tokens/semantic.css — do not copy a token block from anclora-talent or anclora-command-center, and do not invent your own selector/class/attribute for theme.",
       "Can I set a custom brand accent while still using the canonical themes?": "Yes — that's what themes/product.css's .product-anclora-* layer is for. Override --accent (and, only if your brand identity genuinely requires it, --bg/--fg*) there; do not touch the semantic role definitions in tokens/semantic.css itself."
     }
+  },
+  "tokenOwnership": {
+    "categories": {
+      "FOUNDATION": "Raw scales, brand primitives and platform-independent building blocks.",
+      "SEMANTIC": "Theme-aware meaning such as surfaces, text, focus, borders and status roles.",
+      "COMPONENT": "Anatomy and component-specific composition values.",
+      "PROFILE": "Structural/compositional values for Core/default, P-WKS and P-MKT.",
+      "PRODUCT_EXTENSION_POINT": "Documented product identity or composition values; never a replacement for semantic meaning."
+    },
+    "externalReferences": {
+      "--layer-sticky": "Optional consumer cascade override with a fallback in app-shell.css.",
+      "--layer-skip-link": "Optional consumer cascade override with a fallback in app-shell.css.",
+      "--ac-stat-columns": "Optional stat-strip composition override with a fallback.",
+      "--stack-gap": "Optional primitive composition override with a fallback.",
+      "--cluster-gap": "Optional primitive composition override with a fallback."
+    },
+    "rule": "Every executable Design System token is defined once in the canonical package or explicitly classified as an optional external extension with a fallback. Product extensions may not redefine semantic roles, focus, generic anatomy or state meaning."
   },
   "forms": {
     "contractDoc": "./docs/components/forms-and-inputs.md",
@@ -101,7 +118,7 @@
     "canonical": {
       "auth-entry": {
         "name": "Authentication Entry",
-        "maturity": "canonical",
+        "maturity": "STABLE",
         "profileScope": "CROSS_PROFILE",
         "components": ["formField", "button", "alert", "errorState"],
         "requiredSemantics": ["labelled form controls", "primary action", "associated error feedback", "recovery or alternative navigation"],
@@ -109,7 +126,7 @@
       },
       "settings-section": {
         "name": "Settings Section",
-        "maturity": "canonical",
+        "maturity": "STABLE",
         "profileScope": "CORE_SHARED / P-WKS_SHARED",
         "components": ["pageHeader", "formField", "choiceControl", "button", "toast", "alert"],
         "requiredSemantics": ["heading and description", "labelled controls", "grouped preferences", "save feedback"],
@@ -117,7 +134,7 @@
       },
       "file-upload": {
         "name": "File Upload",
-        "maturity": "canonical",
+        "maturity": "CONSUMER_VALIDATED",
         "profileScope": "CORE_SHARED / P-WKS_SHARED",
         "components": ["formField", "button", "alert", "emptyState", "processing"],
         "requiredSemantics": ["keyboard file selection", "accepted-format guidance", "validation feedback", "removal", "explicit process action"],
@@ -125,7 +142,7 @@
       },
       "processing-result": {
         "name": "Processing Result",
-        "maturity": "canonical",
+        "maturity": "CANONICAL_NEEDS_MORE_RUNTIME_EVIDENCE",
         "profileScope": "CORE_SHARED / P-WKS_SHARED",
         "components": ["processing", "progress", "statusBadge", "button", "errorState"],
         "requiredSemantics": ["file or operation metadata", "polite progress state", "semantic result state", "next action"],
@@ -133,7 +150,7 @@
       },
       "bulk-action-bar": {
         "name": "Bulk Action Bar",
-        "maturity": "canonical",
+        "maturity": "CANONICAL_NEEDS_MORE_RUNTIME_EVIDENCE",
         "profileScope": "P-WKS_SHARED",
         "components": ["button", "menu", "statusBadge", "modal"],
         "requiredSemantics": ["selected count", "primary bulk action", "clear selection", "explicit destructive confirmation when needed"],
@@ -141,7 +158,7 @@
       },
       "destructive-confirmation": {
         "name": "Destructive Confirmation",
-        "maturity": "canonical",
+        "maturity": "CONSUMER_VALIDATED",
         "profileScope": "CROSS_PROFILE",
         "components": ["modal", "button", "alert", "loading", "errorState"],
         "requiredSemantics": ["explicit consequence", "cancel action", "destructive confirm", "runtime-owned pending/error state"],
@@ -171,18 +188,20 @@
   },
   "adoptionContract": {
     "inventory": "./docs/adoption/ecosystem-adoption.inventory.json",
-    "contractDoc": "./docs/adoption/wave-9-profile-and-adoption-hardening.md",
-    "statusModel": [
-      "NOT_ADOPTED",
-      "PARTIAL",
-      "FOUNDATIONS",
-      "COMPONENTS",
-      "SHELL_PROFILE",
-      "PATTERNS",
-      "SUBSTANTIAL",
-      "REFERENCE_CONSUMER",
-      "UNRELATED_SHARED_PACKAGE"
-    ],
+    "contractDoc": "./docs/release/wave-10-release-candidate.md",
+    "schemaVersion": "2.0",
+    "adoptionStageField": "adoptionStage",
+    "adoptionStages": {
+      "NOT_ADOPTED": "No runtime dependency or public Design System import verified.",
+      "FOUNDATIONS": "At least one public token, foundation or theme entrypoint is imported at runtime.",
+      "COMPONENTS": "At least one public component family is imported and composed at runtime.",
+      "SHELL_PROFILE": "The consumer composes a canonical profile or shell contract at runtime.",
+      "PATTERNS": "A shared product pattern is composed in a real workflow; runtime validation may still be partial.",
+      "SUBSTANTIAL": "Multiple canonical layers are consumed across a meaningful product surface."
+    },
+    "referenceConsumerField": "referenceConsumer",
+    "referenceConsumerDefinition": "Validated implementation evidence or useful integration example; never the source of truth and not an adoption stage.",
+    "includedConsumerKinds": ["frontend"],
     "profileScope": {
       "declaration": "data-profile on the application or route layout root",
       "values": {
@@ -218,11 +237,22 @@
       "referenceConsumersAreNotAuthority": "Inspect reference consumers for evidence only; canonical executable truth remains this repository."
     },
     "wave10": {
-      "blocksV1": ["resolve public CSS consumption for supported bundler classes", "close manifest/package export agreement", "reconcile unresolved canonical semantic token ownership"],
+      "blocksV1": [],
       "doesNotBlockV1": ["unmigrated independent consumers", "unimplemented Command Palette, Combobox or Data Grid without blocking evidence"],
       "postV1Candidates": ["promotion of evidence-required interaction patterns", "registry distribution after release governance exists"],
       "consumerMigrationOnly": ["local forks in Talent", "consumer-specific theme and headless runtime adapters"]
     }
+  },
+  "releaseCandidate": {
+    "status": "RC_READY",
+    "version": "0.16.0-rc.1",
+    "distribution": "private GitHub immutable SHA tarball",
+    "registryRequired": false,
+    "architectureFrozen": ["foundations", "stable component families", "profile architecture", "shared pattern governance", "public package exports", "adoption contract", "migration rules", "extension rules", "deprecation policy"],
+    "notFrozen": ["consumer adoption percentage", "evidence-required features", "product extensions", "post-v1 registry distribution", "new product patterns with evidence"],
+    "blocksV1": [],
+    "additionalPilotRequired": false,
+    "postV1Promotion": ["EVIDENCE_REQUIRED", "PROMOTION_CANDIDATE", "AUDIT_CONTRACT", "CONSUMER_VALIDATION", "STABLE"]
   },
   "overlays": {
     "contractDoc": "./docs/components/overlays-menus-and-popovers.md",
@@ -258,7 +288,26 @@
       "appTile", "metricCard", "sectionHeading", "tabs", "breadcrumb", "subnav",
       "statStrip", "editorStudio"
     ],
-    "_note": "canonical = at least one real consumer verified in code (see ANCLORA-DESIGN-SYSTEM-COMPONENT-INVENTORY.md). needsConsumerEvidence = shipped as CSS, no confirmed real usage found as of 2026-09-21 — usable as a candidate, do not describe it to a user as battle-tested."
+    "maturity": {
+      "STABLE": "Executable contract verified in this repository and supported by real consumer evidence.",
+      "CANONICAL_NEEDS_MORE_RUNTIME_EVIDENCE": "Shipped canonical CSS with incomplete independent consumer/runtime evidence; do not describe as battle-tested.",
+      "EVIDENCE_REQUIRED": "Not a v1 stable contract; requires a focused audit and consumer validation before promotion.",
+      "DEPRECATED": "Supported only for compatibility until its documented removal condition is met."
+    },
+    "stable": [
+      "button", "surfacePanel", "formField", "dataTable", "statusBadge", "emptyState", "modal",
+      "themeSwitcher", "languageSwitcher", "stepper", "chapterRail", "templateCatalog",
+      "previewOverlay", "previewControls", "workspaceStage", "workflowShell", "editorShell",
+      "alert", "toast", "errorState", "loading", "progress", "processing", "skeleton",
+      "menu", "popover", "tooltip", "drawer", "appShell", "pageContainer", "pageHeader",
+      "textEditor", "exportSuite"
+    ],
+    "canonicalNeedsMoreRuntimeEvidence": [
+      "appTile", "metricCard", "sectionHeading", "tabs", "breadcrumb", "subnav",
+      "statStrip", "editorStudio"
+    ],
+    "evidenceRequired": ["combobox", "dataGrid", "contextMenu", "nestedMenu", "commandPalette", "megaMenu", "workspaceSwitcher", "resizableSidebar", "breadcrumbOverflow", "dockingPanel"],
+    "_note": "The legacy canonical/needsConsumerEvidence arrays remain as compatibility metadata; the maturity object is the v1 decision surface."
   },
   "profiles": {
     "Core": {
@@ -339,11 +388,10 @@
     "Adding consumer-local arbitrary z-index values or duplicating focus traps without a documented runtime need."
   ],
   "deprecated": [
-    { "api": "--coin-syncxml", "replacement": "--coin-guesthub", "since": "0.4.1", "reason": "product rename, alias kept for one release" },
-    { "api": ".product-anclora-syncxml", "replacement": ".product-anclora-guesthub", "since": "0.4.1", "reason": "product rename, alias kept for one release" }
+    { "api": "--coin-syncxml", "replacement": "--coin-guesthub", "since": "0.4.1", "reason": "product rename, alias retained for consumer migration", "removalCondition": "Remove after all supported consumers confirm no legacy token usage and the next breaking release is announced." },
+    { "api": ".product-anclora-syncxml", "replacement": ".product-anclora-guesthub", "since": "0.4.1", "reason": "product rename, alias retained for consumer migration", "removalCondition": "Remove after all supported consumers confirm no legacy selector usage and the next breaking release is announced." }
   ],
   "knownGaps": [
-    { "token": "--accent-mint", "usedBy": ["editorStudio.css", "editorShell.css", "textEditor.css"], "issue": "referenced but never defined anywhere in the package — discovered during the 0.7.0 theme audit, not introduced by it. Do not invent a value for this without a product decision on what 'mint' should represent; see docs/themes/light-dark-theme-contract.md §8." },
     { "token": "--shadow-*", "issue": "theme-invariant (same black-based value in dark and light) as of 0.7.0 — not redefined per data-theme. Acceptable simplification for now, documented as a scoped-out follow-up, not an oversight." }
   ],
   "entrypoints": {

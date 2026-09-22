@@ -2,6 +2,14 @@
 
 Todas las versiones del design system se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
+## [0.16.0-rc.1] — 2026-09-22
+
+### Wave 10 — Final hardening & release candidate
+
+Se congela el contrato arquitectónico pre-v1: `system.css` y los exports CSS granulares quedan documentados como API pública, la distribución mantiene SHA Git inmutable y se añade `npm run verify:release`. El inventario de adopción pasa a separar el campo exclusivo `adoptionStage` del rol ortogonal `referenceConsumer`; el verificador reconcilia exactamente las 26 frontends reales. Se formalizan ownership de tokens, madurez de componentes/patrones, bridges, deprecaciones y el registro finito de features `EVIDENCE_REQUIRED`.
+
+Se resuelve el único token canónico referenciado pero no definido (`--accent-mint`) usando el propietario semántico existente `--accent`, sin crear una nueva paleta. No se modifican consumidores, no se publican paquetes en registry y no se inicia una nueva ola arquitectónica.
+
 ## [0.15.0] — 2026-09-22
 
 ### Añadido — Profile & Adoption Hardening (Wave 9)

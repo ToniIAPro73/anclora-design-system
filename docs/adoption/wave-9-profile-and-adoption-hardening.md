@@ -3,8 +3,11 @@
 ## Profile & Adoption Hardening
 
 Fecha: 2026-09-22  
-Versión de contrato: `0.15.0`  
+Versión de contrato histórica: `0.15.0`
 Fuente ejecutable: este repositorio (`anclora-design-system`)
+
+> Wave 10 supersedes the overloaded adoption status model described below.
+> The current normative contract is [`../release/wave-10-release-candidate.md`](../release/wave-10-release-candidate.md): use `adoptionStage` for the exclusive lifecycle stage and `referenceConsumer` as an orthogonal boolean role.
 
 Wave 9 endurece la adopción operativa del Design System. No añade una nueva familia visual, no migra consumidores y no comienza Wave 10. El inventario machine-readable canónico está en [`ecosystem-adoption.inventory.json`](./ecosystem-adoption.inventory.json) y se referencia desde `design-system.manifest.json#adoptionContract`.
 
@@ -16,7 +19,7 @@ Los consumidores fueron inspeccionados en solo lectura. No se copia código de c
 
 Wave 9 permite documentación, manifest, exports públicos, contratos de compatibilidad, metadatos de adopción/deprecación y verificadores. No autoriza implementar Combobox, Data Grid, Context Menu complejo, Command Palette, Sidebar universal, Inspector, Stepper de producto, preview avanzada, onboarding, import flow o entity-management framework.
 
-## Adoption status model
+## Adoption status model (historical Wave 9 schema)
 
 El estado es de migración, no de calidad de producto:
 
