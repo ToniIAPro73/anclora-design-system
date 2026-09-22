@@ -1,0 +1,145 @@
+/* Wave 8 shared product patterns.
+   These classes provide layout/anatomy only. Runtime, data, permissions and
+   business state remain owned by the consuming application. */
+
+.ac-pattern-auth-entry,
+.ac-pattern-settings-section,
+.ac-pattern-file-upload,
+.ac-pattern-processing-result,
+.ac-pattern-bulk-action-bar,
+.ac-pattern-destructive-confirmation {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.ac-pattern-auth-entry {
+  width: min(100%, 480px);
+  margin-inline: auto;
+}
+
+.ac-pattern-auth-entry__actions,
+.ac-pattern-settings-section__actions,
+.ac-pattern-bulk-action-bar__actions,
+.ac-pattern-processing-result__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ac-pattern-settings-section__header,
+.ac-pattern-file-upload__header,
+.ac-pattern-processing-result__header,
+.ac-pattern-bulk-action-bar__header,
+.ac-pattern-destructive-confirmation__header {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.ac-pattern-settings-section__body,
+.ac-pattern-file-upload__body,
+.ac-pattern-processing-result__body {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.ac-pattern-settings-section__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  padding-block-start: var(--space-3);
+  border-block-start: 1px solid var(--border-subtle);
+}
+
+.ac-pattern-file-upload__dropzone {
+  display: grid;
+  place-items: center;
+  min-block-size: 156px;
+  padding: var(--space-5);
+  border: 1px dashed var(--border-control);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--surface-panel) 78%, transparent);
+  text-align: center;
+}
+
+.ac-pattern-file-upload__dropzone:focus-within,
+.ac-pattern-file-upload__dropzone[data-drag-active="true"] {
+  border-color: var(--focus-ring);
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.ac-pattern-file-upload__file-list {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ac-pattern-file-upload__file,
+.ac-pattern-processing-result__file {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: var(--surface-panel);
+}
+
+.ac-pattern-file-upload__file > * {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.ac-pattern-processing-result__file-meta {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.ac-pattern-processing-result__file-name {
+  overflow-wrap: anywhere;
+  font-weight: 700;
+}
+
+.ac-pattern-bulk-action-bar {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  padding: var(--space-3);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface-panel-strong);
+}
+
+.ac-pattern-bulk-action-bar__selection {
+  color: var(--text-secondary);
+}
+
+.ac-pattern-destructive-confirmation__consequence {
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+@media (max-width: 640px) {
+  .ac-pattern-settings-section__footer,
+  .ac-pattern-bulk-action-bar__actions,
+  .ac-pattern-processing-result__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ac-pattern-settings-section__footer .ac-button,
+  .ac-pattern-bulk-action-bar__actions .ac-button,
+  .ac-pattern-processing-result__actions .ac-button {
+    width: 100%;
+  }
+
+  .ac-pattern-bulk-action-bar {
+    grid-template-columns: 1fr;
+  }
+}

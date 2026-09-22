@@ -9,3 +9,4 @@
 @import url("./foundations/typography.css");
 @import url("./foundations/primitives.css");
 @import url("./components/index.css");
+@import url("./patterns/shared-product-patterns.css");

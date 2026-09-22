@@ -2,6 +2,14 @@
 
 Todas las versiones del design system se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
+## [0.14.0] — 2026-09-22
+
+### Añadido — Shared Product Patterns (Wave 8)
+
+Se formaliza una capa CSS-first de composiciones de producto por encima de los componentes y por debajo de los perfiles de aplicación. Se promueven únicamente seis patrones con evidencia multi-consumidor: `auth-entry`, `settings-section`, `file-upload`, `processing-result`, `bulk-action-bar` y `destructive-confirmation`. El manifest incorpora inventario, alcance de perfil, criterios de promoción y reglas para agentes; se añade el catálogo navegable, documentación contractual y `verify:shared-patterns`.
+
+Los flujos de onboarding, importación, inspector, toolbar de filtros, stepper, preview, combobox y data grid permanecen como evidencia requerida o producto-específicos. No se modifican consumidores ni se inicia Pilot 8.
+
 ## [0.13.0] — 2026-09-22
 
 ### Añadido — contrato canónico de Navigation & App Shell (Wave 7)

@@ -52,6 +52,11 @@ const pages = [
     route: "/preview/navigation-shell.html",
     readySelector: ".ac-app-shell",
   },
+  {
+    id: "shared-product-patterns",
+    route: "/preview/shared-product-patterns.html",
+    readySelector: "[data-shared-product-patterns]",
+  },
 ];
 
 const a11yPages = pages.filter((page) =>
@@ -62,6 +67,7 @@ const a11yPages = pages.filter((page) =>
     "localization-fixtures",
     "detail-modal",
     "navigation-shell",
+    "shared-product-patterns",
   ]).has(page.id)
 );
 

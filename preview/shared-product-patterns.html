@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shared Product Patterns — Anclora Design System</title>
+    <link rel="stylesheet" href="../src/system.css" />
+    <style>
+      :root { color-scheme: dark; }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--text-primary); font-family: var(--font-sans); }
+      .patterns-page { width: min(1200px, calc(100% - 40px)); margin: 0 auto; padding: 40px 0 80px; display: grid; gap: 24px; }
+      .patterns-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; min-width: 0; }
+      .pattern-card { display: grid; gap: 16px; min-width: 0; padding: 24px; }
+      .pattern-card h2, .pattern-card h3, .pattern-card p { margin: 0; }
+      .pattern-card__copy { color: var(--text-secondary); line-height: 1.55; }
+      .pattern-card__meta { display: flex; flex-wrap: wrap; gap: 8px; }
+      .pattern-card__meta span { min-width: 0; overflow-wrap: anywhere; padding: 4px 8px; border: 1px solid var(--border-default); border-radius: var(--radius-pill); color: var(--text-secondary); font: 0.75rem var(--font-mono); }
+      .fixture-stack { display: grid; gap: 12px; }
+      .fixture-panel { min-width: 0; padding: 18px; border: 1px solid var(--border-default); border-radius: var(--radius-lg); background: var(--surface-panel); }
+      .fixture-label { margin: 0 0 10px; color: var(--text-eyebrow); font-size: 0.72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+      .fixture-muted { color: var(--text-secondary); }
+      .fixture-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+      .fixture-row--spread { justify-content: space-between; }
+      .fixture-input { min-height: 44px; width: 100%; padding: 10px 12px; border: 1px solid var(--border-control); border-radius: var(--radius-md); background: var(--surface-panel-strong); color: var(--text-primary); }
+      .theme-light { background: var(--bg); color: var(--text-primary); }
+      .theme-light .fixture-panel { background: var(--surface-panel); }
+      @media (max-width: 760px) { .patterns-grid { grid-template-columns: minmax(0, 1fr); } .patterns-page { width: calc(100% - 24px); padding-top: 24px; } }
+    </style>
+  </head>
+  <body data-profile="workspace">
+    <main class="patterns-page" data-shared-product-patterns>
+      <header class="ac-surface-panel pattern-card">
+        <div class="pattern-card__meta"><span>Wave 8</span><span>CSS-first composition</span><span>ES / EN</span></div>
+        <h1 class="h1">Shared Product Patterns</h1>
+        <p class="pattern-card__copy">Composiciones recurrentes entre productos. La aplicación conserva autenticación, estado, permisos, persistencia, APIs y reglas de negocio.</p>
+        <div class="fixture-row"><a class="ac-button ac-button--ghost" href="../docs/patterns/shared-product-patterns.md">Contract documentation</a><a class="ac-button ac-button--secondary" href="./index.html">Back to catalog</a></div>
+      </header>
+
+      <section class="patterns-grid" aria-label="Canonical shared product pattern fixtures">
+        <article class="ac-card pattern-card">
+          <div class="pattern-card__meta"><span>auth-entry</span><span>CROSS_PROFILE</span></div>
+          <h2>Authentication Entry</h2>
+          <p class="pattern-card__copy">Entrar en tu espacio · Sign in to your workspace</p>
+          <form class="ac-pattern-auth-entry fixture-panel" aria-labelledby="auth-title">
+            <div class="ac-pattern-auth-entry__header"><h3 id="auth-title">Acceso seguro</h3><p class="fixture-muted">Usa tu correo y contraseña para continuar.</p></div>
+            <div class="ac-form-field"><label class="ac-form-field__label" for="auth-email">Correo electrónico</label><input class="ac-field-input" id="auth-email" type="email" autocomplete="email" /></div>
+            <div class="ac-form-field"><label class="ac-form-field__label" for="auth-password">Password</label><input class="ac-field-input" id="auth-password" type="password" autocomplete="current-password" /></div>
+            <div class="ac-pattern-auth-entry__actions"><button class="ac-button ac-button--primary" type="submit">Entrar / Sign in</button><a href="#forgot">¿Has olvidado tu contraseña?</a></div>
+          </form>
+        </article>
+
+        <article class="ac-card pattern-card">
+          <div class="pattern-card__meta"><span>settings-section</span><span>CORE + P-WKS</span></div>
+          <h2>Settings Section</h2>
+          <p class="pattern-card__copy">Preferencias de interfaz / Interface preferences</p>
+          <section class="ac-pattern-settings-section fixture-panel" aria-labelledby="settings-title">
+            <div class="ac-pattern-settings-section__header"><h3 id="settings-title">Idioma y tema</h3><p class="fixture-muted">Estas preferencias se guardan en tu cuenta.</p></div>
+            <div class="ac-form-field"><label class="ac-form-field__label" for="settings-language">Idioma / Language</label><select class="ac-field-select" id="settings-language"><option>Español</option><option>English</option></select></div>
+            <label class="ac-choice-control"><input class="ac-choice-control__input" type="checkbox" checked /><span class="ac-choice-control__label">Usar modo oscuro / Use dark mode</span></label>
+            <div class="ac-pattern-settings-section__footer"><button class="ac-button ac-button--ghost" type="button">Cancelar</button><button class="ac-button ac-button--primary" type="button">Guardar cambios</button></div>
+          </section>
+        </article>
+
+        <article class="ac-card pattern-card">
+          <div class="pattern-card__meta"><span>file-upload</span><span>CORE + P-WKS</span></div>
+          <h2>File Upload</h2>
+          <p class="pattern-card__copy">La selección no inicia por sí sola el procesamiento.</p>
+          <section class="ac-pattern-file-upload fixture-panel" aria-labelledby="upload-title">
+            <div class="ac-pattern-file-upload__header"><h3 id="upload-title">Añadir archivos / Add files</h3><p class="fixture-muted">PDF, CSV, XLSX · 10 MB max.</p></div>
+            <label class="ac-pattern-file-upload__dropzone" data-drag-active="false" for="upload-input"><strong>Arrastra un archivo aquí</strong><span class="fixture-muted">o selecciona uno con el teclado</span><input id="upload-input" type="file" hidden /></label>
+            <ul class="ac-pattern-file-upload__file-list"><li class="ac-pattern-file-upload__file"><span>schedule-september.xlsx</span><button class="ac-button ac-button--ghost ac-button--sm" type="button">Quitar / Remove</button></li></ul>
+            <div class="fixture-row"><button class="ac-button ac-button--primary" type="button">Procesar archivo / Process file</button></div>
+          </section>
+        </article>
+
+        <article class="ac-card pattern-card">
+          <div class="pattern-card__meta"><span>processing-result</span><span>CORE + P-WKS</span></div>
+          <h2>Processing Result</h2>
+          <p class="pattern-card__copy">Metadata + operation state + result actions.</p>
+          <section class="ac-pattern-processing-result fixture-panel" aria-labelledby="result-title">
+            <div class="ac-pattern-processing-result__header"><h3 id="result-title">Conversion completed</h3><p class="fixture-muted">El archivo está listo para la siguiente acción.</p></div>
+            <div class="ac-pattern-processing-result__file"><div class="ac-pattern-processing-result__file-meta"><span class="ac-pattern-processing-result__file-name">report-final.pdf</span><span class="fixture-muted">PDF · 2.4 MB · 100%</span></div><span class="ac-status-badge ac-status-badge--success">Completado</span></div>
+            <div class="ac-pattern-processing-result__actions"><button class="ac-button ac-button--primary" type="button">Descargar / Download</button><button class="ac-button ac-button--ghost" type="button">Procesar otro</button></div>
+          </section>
+        </article>
+
+        <article class="ac-card pattern-card">
+          <div class="pattern-card__meta"><span>bulk-action-bar</span><span>P-WKS</span></div>
+          <h2>Bulk Action Bar</h2>
+          <p class="pattern-card__copy">Selection state remains in the product; actions compose canonical controls.</p>
+          <div class="ac-pattern-bulk-action-bar fixture-panel"><span class="ac-pattern-bulk-action-bar__selection"><strong>3</strong> elementos seleccionados / selected</span><div class="ac-pattern-bulk-action-bar__actions"><button class="ac-button ac-button--secondary ac-button--compact" type="button">Exportar</button><button class="ac-button ac-button--destructive ac-button--compact" type="button">Eliminar</button><button class="ac-button ac-button--ghost ac-button--compact" type="button">Limpiar</button></div></div>
+        </article>
+
+        <article class="ac-card pattern-card">
+          <div class="pattern-card__meta"><span>destructive-confirmation</span><span>CROSS_PROFILE</span></div>
+          <h2>Destructive Confirmation</h2>
+          <p class="pattern-card__copy">The mutation and pending state are application-owned.</p>
+          <div class="ac-pattern-destructive-confirmation fixture-panel" role="group" aria-labelledby="delete-title"><div class="ac-pattern-destructive-confirmation__header"><h3 id="delete-title">Eliminar este archivo</h3><p class="ac-pattern-destructive-confirmation__consequence">Esta acción no se puede deshacer. Se eliminará <strong>report-final.pdf</strong>.</p></div><div class="fixture-row"><button class="ac-button ac-button--ghost" type="button">Cancelar</button><button class="ac-button ac-button--destructive" type="button">Eliminar archivo</button></div></div>
+        </article>
+      </section>
+
+      <section class="ac-surface-panel pattern-card theme-light" data-theme="light" aria-labelledby="theme-title"><h2 id="theme-title">Light theme reference</h2><p class="pattern-card__copy">Los mismos patrones conservan semántica, foco y lectura en tema claro; no se crea una anatomía paralela.</p><div class="fixture-row"><span class="ac-status-badge ac-status-badge--success">Accessible status</span><button class="ac-button ac-button--primary" type="button">Continue / Continuar</button></div></section>
+    </main>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 {
   "name": "@anclora/design-system",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "_agentReadme": "This manifest is the machine-readable contract for coding agents working in any Anclora repo. Read componentStatus before adding a component (canonical = consume it, do not rebuild it; candidate = usable but not yet a hard requirement; needsConsumerEvidence = ships but has no confirmed real usage, verify before relying on it). Read profiles before choosing shell/density defaults for a new app. Read extensionPoints before overriding anything — if the property you need to change is not listed as a component's extension point, add a variant here instead of overriding the base selector. Read prohibitedPatterns before writing CSS that touches an .ac-* selector directly. Read theme before implementing light/dark in any new app — as of 0.7.0 the package ships a real canonical light theme, do not invent a local one. Read borders before deciding which border token to use — not every border needs 3:1, but a control/status border does, and there's a specific token for that. Full architecture: ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md. Full theme contract: docs/themes/light-dark-theme-contract.md. Full border/status/link contract: docs/tokens/semantic-borders-and-status.md. Full evidence: docs/ecosystem-audit/.",
   "borders": {
     "roles": {
@@ -85,6 +85,89 @@
       "there are no records": "Use Empty State; distinguish first-use, no-results, filtered and permission variants through content and product-owned context."
     },
     "evidenceRequired": ["notificationCentre", "jobDashboard", "resumableJobManager"]
+  },
+  "sharedPatterns": {
+    "contractDoc": "./docs/patterns/shared-product-patterns.md",
+    "implementation": "CSS-first composition classes; application owns runtime, state, data, permissions and business rules",
+    "promotionCriteria": [
+      "recurs in at least 2 independent products",
+      "prefer 3 when implementations differ materially",
+      "same semantic purpose and compatible lifecycle",
+      "domain-neutral and accessibility-beneficial",
+      "composes canonical components",
+      "responsive behaviour is stable at mobile, tablet and desktop",
+      "ES/EN copy expansion does not break the composition"
+    ],
+    "canonical": {
+      "auth-entry": {
+        "name": "Authentication Entry",
+        "maturity": "canonical",
+        "profileScope": "CROSS_PROFILE",
+        "components": ["formField", "button", "alert", "errorState"],
+        "requiredSemantics": ["labelled form controls", "primary action", "associated error feedback", "recovery or alternative navigation"],
+        "allowedExtensionPoints": ["provider-owned fields", "product copy", "secondary links", "application-owned auth state"]
+      },
+      "settings-section": {
+        "name": "Settings Section",
+        "maturity": "canonical",
+        "profileScope": "CORE_SHARED / P-WKS_SHARED",
+        "components": ["pageHeader", "formField", "choiceControl", "button", "toast", "alert"],
+        "requiredSemantics": ["heading and description", "labelled controls", "grouped preferences", "save feedback"],
+        "allowedExtensionPoints": ["available settings", "copy", "persistence state", "responsive action footer"]
+      },
+      "file-upload": {
+        "name": "File Upload",
+        "maturity": "canonical",
+        "profileScope": "CORE_SHARED / P-WKS_SHARED",
+        "components": ["formField", "button", "alert", "emptyState", "processing"],
+        "requiredSemantics": ["keyboard file selection", "accepted-format guidance", "validation feedback", "removal", "explicit process action"],
+        "allowedExtensionPoints": ["accepted types", "single or multiple files", "file metadata", "application-owned transfer and parsing"]
+      },
+      "processing-result": {
+        "name": "Processing Result",
+        "maturity": "canonical",
+        "profileScope": "CORE_SHARED / P-WKS_SHARED",
+        "components": ["processing", "progress", "statusBadge", "button", "errorState"],
+        "requiredSemantics": ["file or operation metadata", "polite progress state", "semantic result state", "next action"],
+        "allowedExtensionPoints": ["operation labels", "result metadata", "retry/download/inspect actions"]
+      },
+      "bulk-action-bar": {
+        "name": "Bulk Action Bar",
+        "maturity": "canonical",
+        "profileScope": "P-WKS_SHARED",
+        "components": ["button", "menu", "statusBadge", "modal"],
+        "requiredSemantics": ["selected count", "primary bulk action", "clear selection", "explicit destructive confirmation when needed"],
+        "allowedExtensionPoints": ["selection state", "permission-filtered actions", "partial failure feedback"]
+      },
+      "destructive-confirmation": {
+        "name": "Destructive Confirmation",
+        "maturity": "canonical",
+        "profileScope": "CROSS_PROFILE",
+        "components": ["modal", "button", "alert", "loading", "errorState"],
+        "requiredSemantics": ["explicit consequence", "cancel action", "destructive confirm", "runtime-owned pending/error state"],
+        "allowedExtensionPoints": ["entity identifier", "consequence copy", "application mutation state"]
+      }
+    },
+    "evidenceRequired": [
+      "filter-toolbar",
+      "mobile-filter-drawer",
+      "onboarding",
+      "inspector",
+      "form-action-footer",
+      "stepper-progression",
+      "file-preview",
+      "combobox",
+      "data-grid"
+    ],
+    "productSpecific": ["import-flow", "entity-management"],
+    "answersForAgents": {
+      "I need login": "Compose auth-entry; authentication provider, session and redirect logic remain in the application.",
+      "I need settings": "Compose settings-section; available settings and persistence remain in the application.",
+      "I need upload and processing": "Separate file-upload from processing-result; do not build a domain-specific transfer component.",
+      "I need delete confirmation": "Compose destructive-confirmation with the canonical Modal; the mutation remains application-owned.",
+      "I need filters above a dataset": "Check filter-toolbar evidence first; Wave 8 keeps it a candidate until a stable cross-product lifecycle is proven.",
+      "I need employee onboarding": "No canonical onboarding pattern exists; keep the workflow product-specific unless new evidence satisfies promotion criteria."
+    }
   },
   "overlays": {
     "contractDoc": "./docs/components/overlays-menus-and-popovers.md",
@@ -194,6 +277,9 @@
     "Creating a consumer-local status palette, toast queue or notification centre without evidence and a documented contract.",
     "Creating a universal MegaOverlay that merges Menu, Popover, Tooltip, Drawer and Modal semantics.",
     "Using Tooltip for interactive content or as the only accessible name of an icon-only control.",
+    "Creating a local filter-toolbar, upload anatomy or destructive-confirmation wrapper when the canonical shared-pattern contract applies.",
+    "Copying a product-specific import, onboarding or entity-management workflow into Core as a shared pattern.",
+    "Building a monolithic super-pattern component that owns business state, permissions, persistence or API calls.",
     "Using Popover for Combobox/Select semantics or for a blocking confirmation.",
     "Adding consumer-local arbitrary z-index values or duplicating focus traps without a documented runtime need."
   ],

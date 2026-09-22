@@ -4,7 +4,7 @@ import { join } from 'node:path';
 const root = new URL('..', import.meta.url).pathname;
 const manifest = JSON.parse(readFileSync(join(root, 'design-system.manifest.json'), 'utf8'));
 const required = [
-  ['version', '0.13.0'],
+  ['version', '0.14.0'],
   ['navigationShell.profileAttribute', 'data-profile'],
   ['navigationShell.routingOwnership', 'consumer'],
   ['navigationShell.permissionOwnership', 'consumer'],
