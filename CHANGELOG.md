@@ -2,6 +2,12 @@
 
 Todas las versiones del design system se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
+## [0.15.0] — 2026-09-22
+
+### Añadido — Profile & Adoption Hardening (Wave 9)
+
+Se añade un inventario machine-readable del ecosistema, un modelo determinista de adopción, reglas de scope para aplicaciones mixtas P-WKS/P-MKT, política de bridges/headless runtimes, pinning inmutable por SHA, deprecaciones y backlog finito de Wave 10. Se incorpora `verify:adoption-contract` y se publica el entrypoint `patterns/shared-product-patterns.css`. No se modifican consumidores ni se inicia Pilot 9.
+
 ## [0.14.0] — 2026-09-22
 
 ### Añadido — Shared Product Patterns (Wave 8)

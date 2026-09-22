@@ -1,6 +1,6 @@
 {
   "name": "@anclora/design-system",
-  "version": "0.14.0",
+  "version": "0.15.0",
   "_agentReadme": "This manifest is the machine-readable contract for coding agents working in any Anclora repo. Read componentStatus before adding a component (canonical = consume it, do not rebuild it; candidate = usable but not yet a hard requirement; needsConsumerEvidence = ships but has no confirmed real usage, verify before relying on it). Read profiles before choosing shell/density defaults for a new app. Read extensionPoints before overriding anything — if the property you need to change is not listed as a component's extension point, add a variant here instead of overriding the base selector. Read prohibitedPatterns before writing CSS that touches an .ac-* selector directly. Read theme before implementing light/dark in any new app — as of 0.7.0 the package ships a real canonical light theme, do not invent a local one. Read borders before deciding which border token to use — not every border needs 3:1, but a control/status border does, and there's a specific token for that. Full architecture: ANCLORA-DESIGN-SYSTEM-ARCHITECTURE.md. Full theme contract: docs/themes/light-dark-theme-contract.md. Full border/status/link contract: docs/tokens/semantic-borders-and-status.md. Full evidence: docs/ecosystem-audit/.",
   "borders": {
     "roles": {
@@ -167,6 +167,61 @@
       "I need delete confirmation": "Compose destructive-confirmation with the canonical Modal; the mutation remains application-owned.",
       "I need filters above a dataset": "Check filter-toolbar evidence first; Wave 8 keeps it a candidate until a stable cross-product lifecycle is proven.",
       "I need employee onboarding": "No canonical onboarding pattern exists; keep the workflow product-specific unless new evidence satisfies promotion criteria."
+    }
+  },
+  "adoptionContract": {
+    "inventory": "./docs/adoption/ecosystem-adoption.inventory.json",
+    "contractDoc": "./docs/adoption/wave-9-profile-and-adoption-hardening.md",
+    "statusModel": [
+      "NOT_ADOPTED",
+      "PARTIAL",
+      "FOUNDATIONS",
+      "COMPONENTS",
+      "SHELL_PROFILE",
+      "PATTERNS",
+      "SUBSTANTIAL",
+      "REFERENCE_CONSUMER",
+      "UNRELATED_SHARED_PACKAGE"
+    ],
+    "profileScope": {
+      "declaration": "data-profile on the application or route layout root",
+      "values": {
+        "workspace": "P-WKS",
+        "marketing": "P-MKT",
+        "omitted": "Core/default"
+      },
+      "mixedArchetypeRule": "A repository may contain multiple route/layout roots with different profiles. Do not nest competing data-profile declarations; the nearest sanctioned layout root owns the surface.",
+      "themeIndependence": "data-theme is independent from data-profile. A single-theme consumer may omit a theme switch while consuming canonical semantic roles."
+    },
+    "dependencyPolicy": {
+      "canonical": "Pin an immutable Git SHA for pre-v1 adoption.",
+      "forbidden": ["development", "main", "latest", "floating branch tarball"],
+      "currentDistribution": "private GitHub SHA tarball; registry publication is not required before v1",
+      "supportedOlder": "A consumer may remain on an older immutable SHA while its imported public paths remain supported and the migration gap is recorded."
+    },
+    "cssImportContract": {
+      "aggregate": "@anclora/design-system/system.css",
+      "granular": "Public exports under tokens/*, taxonomy/*, themes/*, foundations/*, components/* and patterns/shared-product-patterns.css.",
+      "consumerBridge": "If a bundler cannot resolve nested CSS imports from an external package, a documented granular-import bridge is allowed; do not copy token or component CSS without recording the bridge.",
+      "sideEffects": "CSS entrypoints are package side effects and are declared in package.json."
+    },
+    "headlessPolicy": "Radix, Base UI, shadcn and other headless runtimes may remain implementation details for focus, keyboard, portals and positioning. The .ac-* contract remains the visual authority.",
+    "extensionPolicy": "Product copy, branding accents, composition and documented profile behaviour may extend the system. Semantic roles, focus, generic anatomy and state meaning may not be redefined locally.",
+    "deprecationPolicy": {
+      "marker": "Add a manifest deprecated entry and documentation marker with replacement, since, reason and removal condition.",
+      "warningPeriod": "At least one compatible release before removal in pre-v1; breaking removals require an explicit version/release note.",
+      "silentRemoval": false
+    },
+    "qaPolicy": {
+      "consumerMigration": "One coherent surface per wave, followed by real-browser responsive, i18n and accessibility validation.",
+      "destructiveE2E": "Fail closed against production-backed consumers; use dedicated non-production QA or service credentials and ignored artifacts.",
+      "referenceConsumersAreNotAuthority": "Inspect reference consumers for evidence only; canonical executable truth remains this repository."
+    },
+    "wave10": {
+      "blocksV1": ["resolve public CSS consumption for supported bundler classes", "close manifest/package export agreement", "reconcile unresolved canonical semantic token ownership"],
+      "doesNotBlockV1": ["unmigrated independent consumers", "unimplemented Command Palette, Combobox or Data Grid without blocking evidence"],
+      "postV1Candidates": ["promotion of evidence-required interaction patterns", "registry distribution after release governance exists"],
+      "consumerMigrationOnly": ["local forks in Talent", "consumer-specific theme and headless runtime adapters"]
     }
   },
   "overlays": {
@@ -357,6 +412,9 @@
       "appShell": "./src/components/app-shell.css",
       "pageContainer": "./src/components/page-container.css",
       "pageHeader": "./src/components/page-header.css"
+    },
+    "patterns": {
+      "sharedProductPatterns": "./src/patterns/shared-product-patterns.css"
     }
   },
   "recommendedImport": "@anclora/design-system/system.css"

@@ -22,6 +22,10 @@ La prioridad no es montar una infraestructura pesada, sino cubrir los riesgos re
 - valida `design-system.manifest.json`
 - comprueba que todos los entrypoints exportados existen
 
+`npm run verify:adoption-contract`
+- valida el inventario machine-readable de consumidores
+- comprueba estados de adopción, perfiles, pinning inmutable, deprecaciones y exports públicos de Shared Patterns
+
 `npm run verify:html`
 - inspecciona `preview/*.html`
 - inspecciona `src/examples/**/*.html`
@@ -47,7 +51,7 @@ La prioridad no es montar una infraestructura pesada, sino cubrir los riesgos re
 - deja artefactos en `artifacts/visual-baselines/`
 
 `npm run verify`
-- ejecuta manifest, html, browser smoke, accesibilidad básica y package dry-run
+- ejecuta manifest, adoption contract, html, browser smoke, accesibilidad básica y package dry-run
 
 `npm run quality`
 - alias de `verify`

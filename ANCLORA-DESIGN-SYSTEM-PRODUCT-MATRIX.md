@@ -1,5 +1,7 @@
 # Anclora Design System — Product Matrix
 
+> **HISTORICAL MATRIX (2026-09-21):** Wave 9 supersedes this snapshot with the machine-readable [`docs/adoption/ecosystem-adoption.inventory.json`](./docs/adoption/ecosystem-adoption.inventory.json) and its governing contract. This file remains as phase evidence; do not use it as the current adoption source of truth.
+
 Fecha: 2026-09-21. Cruza perfil (Fase 3) × estado real de adopción del DS (Fase 2.5) para las 25 apps en alcance. Fuente de cada celda: `docs/ecosystem-audit/00-frontend-inventory-and-drift-audit.md` y `docs/ecosystem-audit/01-product-taxonomy.md` — no se repite aquí la evidencia línea a línea, se referencia.
 
 Estados de adopción (reemplaza la escala anterior de `consumer-status-map.md`, que se marca superseded — ver `docs/ecosystem-audit/04-documentation-cleanup.md`):

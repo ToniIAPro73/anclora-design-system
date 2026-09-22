@@ -48,6 +48,8 @@ Current layers:
 - `system.css`
   Aggregate entrypoint for the extracted system.
 - package consumers should import `@anclora/design-system/system.css`
+- `patterns/shared-product-patterns.css`
+  Public granular entrypoint for the stable shared product pattern layer.
 - machine-readable entrypoints are listed in `design-system.manifest.json`
 
 Compatibility:
@@ -73,3 +75,9 @@ Current real-consumer validation:
 
 - `anclora-talent` validates the premium editorial workspace stack
 - this includes workflow shells, workspace stages, template catalogs, chapter rails, preview controls, export suites, editor shells and text editor surfaces
+
+Adoption governance:
+
+- read `docs/adoption/wave-9-profile-and-adoption-hardening.md` before migrating a consumer
+- read `docs/adoption/ecosystem-adoption.inventory.json` for current evidence and migration state
+- pin an immutable Git SHA; never use a floating branch dependency

@@ -1,6 +1,6 @@
 # Consuming The Design System
 
-Fecha: 2026-04-20
+Fecha: 2026-09-22
 Repositorio: `anclora-design-system`
 
 ## Objetivo
@@ -27,6 +27,14 @@ Si la app todavia depende del wrapper historico:
 ```css
 @import "@anclora/design-system/legacy.css";
 ```
+
+Para la capa estable de Shared Product Patterns puede usarse el export granular:
+
+```css
+@import "@anclora/design-system/patterns/shared-product-patterns.css";
+```
+
+Antes de migrar una app, consultar el [contrato de adopción de Wave 9](./adoption/wave-9-profile-and-adoption-hardening.md) y el [inventario machine-readable](./adoption/ecosystem-adoption.inventory.json). Las dependencias pre-v1 deben fijar un SHA Git inmutable; `development`, `main` y `latest` no son valores válidos.
 
 ## 2. Composicion recomendada
 
@@ -69,7 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 ```
 
-Para una app consumidora Premium como `anclora-talent` *(ejemplo histórico de patrón de integración — `anclora-talent` está pausado desde 2026-08; el patrón de clases sigue siendo válido, usa `anclora-command-center` o `anclora-impulso` como referencia activa de tier Premium)*:
+Para una app consumidora Premium como `anclora-talent` (ejemplo histórico de integración; el estado actual de adopción se mantiene en el inventario de Wave 9):
 
 ```tsx
 <body className="tier-premium domain-human-capital archetype-app role-consumer cluster-core product-anclora-talent">
