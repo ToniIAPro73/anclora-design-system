@@ -1,0 +1,101 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<title>15 · Botones y acciones</title>
+<link rel="stylesheet" href="../manual.css"></head><body>
+<div class="page" data-num="15">
+<div class="hdr">
+  <div class="brand"><img src="../assets/img/anclora-group-lockup-horizontal-sobre-claro.png" alt="Anclora Group"></div>
+  <div class="hdr-t"><div>SISTEMA DE DISEÑO ANCLORA V1</div><div>MANUAL MAESTRO · GUÍA VISUAL, TÉCNICA Y DE IMPLEMENTACIÓN</div></div>
+  <div class="hdr-n">15</div>
+</div>
+<div class="main"><div class="tb">
+  <div class="eyebrow">Parte III · Componentes</div>
+  <div class="tb-row"><h1 class="">Botones y acciones</h1><div class="aside">Una interfaz<br>coherente<br>que guía<br>y genera<br>confianza.</div></div>
+  <div class="rule"></div>
+  <p class="sub">Las acciones comparten una anatomía estable y cambian su énfasis según el contexto. Contrato de src/components/button.css.</p>
+</div>
+<div class="content">
+<div class="row">
+  <div class="card f15">
+    <div class="ch"><span class="n">1</span><h2>Variantes canónicas</h2><span class="tag">.ac-button--*</span></div>
+    <div class="ui" style="padding:16px;box-shadow:none;display:grid;grid-template-columns:repeat(4,1fr);gap:12px 10px;align-items:end">
+      <div><div class="muted" style="font-size:9px;margin-bottom:6px">Primaria <span style="color:#8fc3c7">--primary</span></div><span class="btn pri" style="height:44px;padding:0 20px;font-size:12px">Guardar</span></div>
+      <div><div class="muted" style="font-size:9px;margin-bottom:6px">Secundaria <span style="color:#8fc3c7">--secondary</span></div><span class="btn sec" style="height:44px;padding:0 20px;font-size:12px">Cancelar</span></div>
+      <div><div class="muted" style="font-size:9px;margin-bottom:6px">Fantasma <span style="color:#8fc3c7">--ghost</span></div><span class="btn" style="height:44px;padding:0 20px;font-size:12px;background:rgba(255,255,255,.04);color:#ecf0f5;border-color:rgba(168,174,184,.23)">Ver más</span></div>
+      <div><div class="muted" style="font-size:9px;margin-bottom:6px">Destructiva <span style="color:#8fc3c7">--destructive</span></div><span class="btn" style="height:44px;padding:0 20px;font-size:12px;background:rgba(194,74,74,.14);color:#ffb8b9;border-color:rgba(194,74,74,.32)">Eliminar</span></div>
+      <div><div class="muted" style="font-size:9px;margin-bottom:6px">Compacto <span style="color:#8fc3c7">--compact</span></div><span class="btn pri cmp" style="height:36px;padding:0 14px;font-size:11px;border-radius:12px">Aplicar</span></div>
+      <div><div class="muted" style="font-size:9px;margin-bottom:6px">Sólo icono <span style="color:#8fc3c7">--icon</span></div><span class="btn sec" style="height:44px;width:44px;padding:0"><svg class="ic " viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></div>
+      <div><div class="muted" style="font-size:9px;margin-bottom:6px">Icono compacto</div><span class="btn sec" style="height:36px;width:36px;padding:0;border-radius:12px"><svg class="ic " viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg></span></div>
+      <div><div class="muted" style="font-size:9px;margin-bottom:6px">Deshabilitado</div><span class="btn pri" style="height:44px;padding:0 20px;font-size:12px;opacity:.45">Guardar</span></div>
+    </div>
+    <p class="xs" style="margin-top:6px">Muestras a tamaño real. Las variantes de color y de tamaño se combinan: <code>ac-button ac-button--compact ac-button--primary</code>.</p>
+  </div>
+  <div class="card f1">
+    <div class="ch"><span class="n">2</span><h2>Anatomía</h2></div>
+    <div style="display:flex;justify-content:center;margin:16px 0 8px"><span class="btn" style="height:44px;padding:0 20px;font-size:12px;background:#a8aeb8;color:#0f1720;gap:8px;outline:2px solid #0f6b73;outline-offset:3px"><svg class="ic " viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg>Guardar</span></div>
+    <table class="t">
+      <tr><td><code>.ac-button__icon</code></td><td>1,1 rem · <code>currentColor</code></td></tr>
+      <tr><td><code>.ac-button__label</code></td><td>Inter 700 · 0,76 rem · mayúsculas · 0,18 em</td></tr>
+      <tr><td>Separación</td><td><code>--space-2</code> · 8 px</td></tr>
+      <tr><td>Borde</td><td>1 px · <code>--ac-button-border</code></td></tr>
+      <tr><td>Foco</td><td>Anillo <code>--focus-ring</code> visible</td></tr>
+    </table>
+  </div>
+</div>
+<div class="card">
+  <div class="ch"><span class="n">3</span><h2>Tamaños y densidades</h2><span class="tag">Valores normativos v1.0.0</span></div>
+  <table class="t">
+    <tr><th>Tamaño</th><th>Clase</th><th>Altura mínima</th><th>Relleno horizontal</th><th>Radio</th><th>Texto</th><th>Uso</th></tr>
+    <tr><td><b>Predeterminado</b></td><td><code>.ac-button</code></td><td><b>44 px</b> · <code>--action-min-height</code></td><td>20 px</td><td><code>--radius-pill</code></td><td>0,76 rem · 700 · MAYÚS.</td><td>Uso general</td></tr>
+    <tr><td><b>Pequeño</b></td><td><code>--sm</code></td><td><b>38 px</b></td><td>16 px</td><td><code>--radius-pill</code></td><td>0,7 rem</td><td>Barras y tarjetas</td></tr>
+    <tr><td><b>Grande</b></td><td><code>--lg</code></td><td><b>50 px</b></td><td>24 px</td><td><code>--radius-pill</code></td><td>0,76 rem</td><td>Llamadas a la acción principales</td></tr>
+    <tr><td><b>Compacto</b></td><td><code>--compact</code></td><td><b>36 px</b></td><td>14 px</td><td><code>--radius-sm</code> · 12 px</td><td>0,7 rem · 600 · sin mayúsculas</td><td>Filas, menús de tarjeta, pies de modal (P-WKS)</td></tr>
+    <tr><td><b>Sólo icono</b></td><td><code>--icon</code></td><td colspan="2">Cuadrado: ancho = altura heredada (44 / 38 / 50 / 36 px)</td><td>Hereda</td><td>—</td><td>Requiere nombre accesible</td></tr>
+  </table>
+  <div class="row" style="margin-top:10px;gap:10px">
+    <div class="note f1"><svg class="ic " viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-5M12 8h.01"/></svg><div><b>Por nivel (tier):</b> <code>--action-min-height</code> vale 42 px en <code>tier-internal</code>, 44 px en premium y portfolio, y 46 px en ultra premium.</div></div>
+    <div class="note gold f1"><svg class="ic " viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"/><path d="M4 8l8 2 8-2M12 10v5M8 22l4-7 4 7"/></svg><div><b>Tamaño de objetivo:</b> todos superan el mínimo AA de 24 px (WCAG 2.2 · 2.5.8). Sólo 44 y 50 px alcanzan la recomendación AAA de 44 px (2.5.5).</div></div>
+  </div>
+</div>
+<div class="row">
+  <div class="card f15">
+    <div class="ch"><span class="n">4</span><h2>Estados de interacción</h2></div>
+    <div class="ui" style="padding:14px;box-shadow:none;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;text-align:center">
+      <div><div class="muted" style="font-size:9px;margin-bottom:6px">Reposo</div><span class="btn pri" style="height:40px">Guardar</span></div>
+      <div><div class="muted" style="font-size:9px;margin-bottom:6px">Al pasar · −2 px</div><span class="btn pri" style="height:40px;transform:translateY(-2px);box-shadow:0 14px 28px rgba(168,174,184,.18)">Guardar</span></div>
+      <div><div class="muted" style="font-size:9px;margin-bottom:6px">Foco</div><span class="btn pri" style="height:40px;outline:2px solid #cfd3da;outline-offset:3px">Guardar</span></div>
+      <div><div class="muted" style="font-size:9px;margin-bottom:6px">Activo</div><span class="btn pri" style="height:40px;filter:brightness(.88)">Guardar</span></div>
+      <div><div class="muted" style="font-size:9px;margin-bottom:6px">Deshabilitado</div><span class="btn pri" style="height:40px;opacity:.45">Guardar</span></div>
+    </div>
+  </div>
+  <div class="card rose f1">
+    <div class="ch"><span class="n">5</span><h2>No hacer</h2></div>
+    <div class="list">
+      <div class="li"><span class="chk no"><svg class="ic " viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div class="t">Colores o sombras fuera de los tokens.</div></div>
+      <div class="li"><span class="chk no"><svg class="ic " viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div class="t">Familias paralelas como <code>.dashboard-button</code>.</div></div>
+      <div class="li"><span class="chk no"><svg class="ic " viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div class="t">Destructiva + compacta + icono para una acción irreversible importante.</div></div>
+      <div class="li"><span class="chk no"><svg class="ic " viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div class="t">Botón para navegar entre rutas: usa un enlace.</div></div>
+    </div>
+  </div>
+</div>
+
+</div></div>
+<svg class="wave" viewBox="0 0 1055 150" preserveAspectRatio="none">
+ <defs>
+  <linearGradient id="wg1" x1="0" x2="1"><stop offset="0" stop-color="#9fb9c2" stop-opacity=".10"/><stop offset=".5" stop-color="#6f9fa8" stop-opacity=".30"/><stop offset="1" stop-color="#9fb9c2" stop-opacity=".12"/></linearGradient>
+  <linearGradient id="wg2" x1="0" x2="1"><stop offset="0" stop-color="#c9d3db" stop-opacity=".35"/><stop offset=".6" stop-color="#a9c4ca" stop-opacity=".30"/><stop offset="1" stop-color="#dfe6ea" stop-opacity=".2"/></linearGradient>
+  <linearGradient id="wg3" x1="0" x2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".0"/><stop offset=".4" stop-color="#ffffff" stop-opacity=".85"/><stop offset="1" stop-color="#ffffff" stop-opacity=".2"/></linearGradient>
+ </defs>
+ <path d="M0 70 C 180 20 330 20 520 62 S 860 118 1055 52 L1055 150 L0 150 Z" fill="url(#wg2)"/>
+ <path d="M0 98 C 200 50 360 70 560 96 S 880 120 1055 78 L1055 150 L0 150 Z" fill="url(#wg1)"/>
+ <path d="M0 116 C 220 88 420 100 600 118 S 900 132 1055 104" fill="none" stroke="url(#wg3)" stroke-width="2"/>
+ <path d="M0 84 C 190 40 350 44 540 80 S 870 116 1055 66" fill="none" stroke="#ffffff" stroke-opacity=".7" stroke-width="1.2"/>
+ <path d="M870 150 A 190 190 0 0 1 1055 10" fill="none" stroke="#0f6b73" stroke-opacity=".28" stroke-width="1"/>
+ <path d="M930 150 A 150 150 0 0 1 1055 40" fill="none" stroke="#0f6b73" stroke-opacity=".2" stroke-width="1"/>
+</svg>
+<div class="ftr">
+  <div><div class="k">VERSIÓN</div><div class="v">1.0.0</div></div>
+  <div><div class="k">ORGANIZACIÓN</div><div class="v">Anclora Group</div></div>
+  <div><div class="k">DOCUMENTO</div><div class="v">Manual maestro del ecosistema</div></div>
+  <div class="hz"><span>UN MISMO<br>HORIZONTE</span></div>
+</div>
+</div></body></html>

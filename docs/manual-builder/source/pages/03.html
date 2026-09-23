@@ -1,0 +1,63 @@
+<!--META {"num":3,"slug":"como-usar-este-manual","part":"Parte I · Apertura y contrato","title":"Cómo usar este manual","sub":"Qué es normativo, qué es ilustrativo y cómo deben leerlo un equipo o un modelo de lenguaje.","aside":"Un mismo<br>contrato.<br>Personas<br>y modelos."} -->
+<div class="row">
+  <div class="card f1">
+    <div class="ch"><span class="n">1</span><h2>Qué es normativo</h2></div>
+    <div class="list">
+      <div class="li"><span class="chk">{{i:check}}</span><div class="t">Valores con nombre de token, clase o atributo: <code>--radius-md</code>, <code>.ac-button--compact</code>, <code>data-profile</code>.</div></div>
+      <div class="li"><span class="chk">{{i:check}}</span><div class="t">Estados de madurez en mayúsculas: <code>STABLE</code>, <code>EVIDENCE_REQUIRED</code>…</div></div>
+      <div class="li"><span class="chk">{{i:check}}</span><div class="t">Reglas «hacer / no hacer» y listas de verificación.</div></div>
+    </div>
+  </div>
+  <div class="card warm f1">
+    <div class="ch"><span class="n" style="background:var(--gold-bg)">2</span><h2>Qué es ilustrativo</h2></div>
+    <div class="list">
+      <div class="li"><span class="chk gold">{{i:info}}</span><div class="t">Maquetas de pantallas, datos de ejemplo, nombres de personas y cifras.</div></div>
+      <div class="li"><span class="chk gold">{{i:info}}</span><div class="t">Los colores decorativos del manual (teal, oro, marfil) <b>no son tokens</b>.</div></div>
+      <div class="li"><span class="chk gold">{{i:info}}</span><div class="t">Las maquetas usan los tokens reales, pero a escala reducida.</div></div>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="ch"><span class="n">3</span><h2>Política lingüística</h2><span class="tag">Aplicada en las 30 páginas</span></div>
+  <p class="p ink">Todo lo visible para el lector está en español. El inglés sólo aparece cuando es un <b>identificador técnico</b> que el desarrollador o el LLM debe usar literalmente.</p>
+  <div class="grid4" style="margin-top:10px">
+    <div class="mini"><b>Barra lateral</b><div class="tech">Identificador: Sidebar</div></div>
+    <div class="mini"><b>Panel lateral</b><div class="tech">Componente canónico: drawer</div></div>
+    <div class="mini"><b>Carga de archivos</b><div class="tech">ID de patrón: file-upload</div></div>
+    <div class="mini"><b>Confirmación destructiva</b><div class="tech">ID: destructive-confirmation</div></div>
+  </div>
+</div>
+<div class="card">
+  <div class="ch"><span class="n">4</span><h2>Convenciones de madurez</h2><span class="tag">design-system.manifest.json</span></div>
+  <div class="grid5" style="gap:10px">
+    <div class="mini"><span class="pill green">STABLE</span><p class="xs" style="margin-top:6px">Contrato verificado y respaldado por consumidores reales. Consúmelo; no lo rehagas.</p></div>
+    <div class="mini"><span class="pill teal">CONSUMER_VALIDATED</span><p class="xs" style="margin-top:6px">Patrón validado en consumidores reales; aún sin el estatus estable.</p></div>
+    <div class="mini"><span class="pill amber" style="white-space:normal">CANONICAL_NEEDS_MORE_ RUNTIME_EVIDENCE</span><p class="xs" style="margin-top:6px">CSS canónico con evidencia de uso incompleta. No lo presentes como probado.</p></div>
+    <div class="mini"><span class="pill grey">EVIDENCE_REQUIRED</span><p class="xs" style="margin-top:6px">Fuera de V1 estable. Requiere auditoría y validación antes de promocionarse.</p></div>
+    <div class="mini"><span class="pill red">DEPRECATED</span><p class="xs" style="margin-top:6px">Sólo por compatibilidad hasta cumplir su condición de retirada.</p></div>
+  </div>
+</div>
+<div class="row">
+  <div class="card tint f15">
+    <div class="ch"><span class="n">5</span><h2>Ruta rápida de implementación</h2></div>
+    <div class="list">
+      <div class="li"><span class="num dark">1</span><div class="t">Identifica el perfil: Core, P-WKS o P-MKT (págs. 4–6).</div></div>
+      <div class="li"><span class="num dark">2</span><div class="t">Fija el SHA Git inmutable de V1; nunca <code>main</code>, <code>development</code> ni <code>latest</code>.</div></div>
+      <div class="li"><span class="num dark">3</span><div class="t">Importa <code>@anclora/design-system/system.css</code>.</div></div>
+      <div class="li"><span class="num dark">4</span><div class="t">Declara <code>data-theme</code> y, si procede, <code>data-profile</code> en la raíz.</div></div>
+      <div class="li"><span class="num dark">5</span><div class="t">Compón primitivas y patrones canónicos; extiende sólo donde está sancionado.</div></div>
+      <div class="li"><span class="num dark">6</span><div class="t">Valida en navegador real: adaptación a pantallas, ES/EN y accesibilidad.</div></div>
+    </div>
+  </div>
+  <div class="card dark f1">
+    <div class="ch"><span class="n" style="background:rgba(255,255,255,.12);color:#fff">6</span><h2>Si hay conflicto</h2></div>
+    <p class="small" style="color:#c7d1dd;margin-bottom:8px">El manual es una guía derivada. Ante cualquier discrepancia prevalece el repositorio, en este orden:</p>
+    <div class="list" style="color:#e6ecf3">
+      <div class="li" style="border-color:rgba(255,255,255,.1)"><span class="num gold">1</span><div class="t" style="color:#e6ecf3"><code>design-system.manifest.json</code></div></div>
+      <div class="li" style="border-color:rgba(255,255,255,.1)"><span class="num gold">2</span><div class="t" style="color:#e6ecf3">Exportaciones de <code>package.json</code> y <code>src/system.css</code></div></div>
+      <div class="li" style="border-color:rgba(255,255,255,.1)"><span class="num gold">3</span><div class="t" style="color:#e6ecf3">CSS canónico en <code>src/</code></div></div>
+      <div class="li" style="border-color:rgba(255,255,255,.1)"><span class="num gold">4</span><div class="t" style="color:#e6ecf3">Documentación normativa del repositorio</div></div>
+    </div>
+    <p class="xs" style="color:#9fb0c2;margin-top:8px">El conflicto se señala y se resuelve; nunca se inventa un tercer contrato.</p>
+  </div>
+</div>

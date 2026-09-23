@@ -1,0 +1,57 @@
+<!--META {"num":5,"slug":"temas-y-perfiles","part":"Parte I · Apertura y contrato","title":"Temas, perfiles<br>y acentos de producto","sub":"El perfil fija la estructura, el tema fija la luminosidad y el producto fija el acento. Son capas distintas."} -->
+<div class="row">
+  <div class="card f1">
+    <div class="ch"><h2>Matriz tema × perfil</h2><span class="tag">Mismos tokens semánticos</span></div>
+    <div class="grid3" style="gap:10px">
+      <div><div class="lbl" style="margin-bottom:4px">Core · oscuro</div>
+        <div class="ui" style="height:150px;padding:10px"><div class="panel" style="height:100%"><div style="font-family:Fraunces;font-weight:600;font-size:14px">Título</div><div class="bar" style="width:80%;margin:8px 0 6px"></div><div class="bar" style="width:60%"></div><div style="margin-top:12px;display:flex;gap:6px"><span class="btn pri">Acción</span><span class="btn sec">Cancelar</span></div></div></div></div>
+      <div><div class="lbl" style="margin-bottom:4px">P-WKS · oscuro</div>
+        <div class="ui" style="height:150px;display:flex"><div class="side" style="width:64px"><div class="nav on">{{i:home}}</div><div class="nav">{{i:users}}</div><div class="nav">{{i:table}}</div></div><div style="flex:1;padding:8px"><div class="bar" style="width:70%;margin-bottom:10px"></div><div class="panel" style="height:66px"><div class="bar" style="margin-bottom:6px"></div><div class="bar" style="width:70%;margin-bottom:6px"></div><div class="bar" style="width:85%"></div></div></div></div></div>
+      <div><div class="lbl" style="margin-bottom:4px">P-MKT · oscuro</div>
+        <div class="ui" style="height:150px"><div class="top" style="height:26px"><span style="font-weight:700;font-size:8px;letter-spacing:.1em">ANCLORA</span><span class="f1"></span><span class="btn pri" style="height:16px;font-size:6px">Contacto</span></div><div style="padding:10px"><div style="font-family:Fraunces;font-weight:600;font-size:16px;line-height:1.05">Narrativa<br>de valor</div><span class="btn pri" style="height:18px;font-size:6.5px;margin-top:8px">Conocer más</span></div></div></div>
+      <div><div class="lbl" style="margin-bottom:4px">Core · claro</div>
+        <div class="ui light" style="height:150px;padding:10px"><div class="panel" style="height:100%"><div style="font-family:Fraunces;font-weight:600;font-size:14px">Título</div><div class="bar" style="width:80%;margin:8px 0 6px"></div><div class="bar" style="width:60%"></div><div style="margin-top:12px;display:flex;gap:6px"><span class="btn pri">Acción</span><span class="btn lt">Cancelar</span></div></div></div></div>
+      <div><div class="lbl" style="margin-bottom:4px">P-WKS · claro</div>
+        <div class="ui light" style="height:150px;display:flex"><div class="side" style="width:64px"><div class="nav on">{{i:home}}</div><div class="nav">{{i:users}}</div><div class="nav">{{i:table}}</div></div><div style="flex:1;padding:8px"><div class="bar" style="width:70%;margin-bottom:10px"></div><div class="panel" style="height:66px"><div class="bar" style="margin-bottom:6px"></div><div class="bar" style="width:70%;margin-bottom:6px"></div><div class="bar" style="width:85%"></div></div></div></div></div>
+      <div><div class="lbl" style="margin-bottom:4px">P-MKT · claro</div>
+        <div class="ui light" style="height:150px"><div class="top" style="height:26px"><span style="font-weight:700;font-size:8px;letter-spacing:.1em">ANCLORA</span><span class="f1"></span><span class="btn pri" style="height:16px;font-size:6px">Contacto</span></div><div style="padding:10px"><div style="font-family:Fraunces;font-weight:600;font-size:16px;line-height:1.05">Narrativa<br>de valor</div><span class="btn pri" style="height:18px;font-size:6.5px;margin-top:8px">Conocer más</span></div></div></div>
+    </div>
+    <p class="xs" style="margin-top:8px">Las seis combinaciones usan el acento por defecto (<code>--coin-group</code>, plata). El perfil no aporta color.</p>
+  </div>
+  <div class="card tint" style="width:300px">
+    <div class="ch"><h2>Declaración</h2></div>
+    <div class="small" style="margin-bottom:6px">En la raíz de la aplicación o de la plantilla de ruta:</div>
+    <div class="ui" style="padding:12px;font-family:var(--mono);font-size:10px;line-height:1.7;box-shadow:none">
+      <span style="color:#8fc3c7">&lt;div</span> <span style="color:#d8bf86">class</span>=<span style="color:#a9efb7">"ac-app-shell product-anclora-command-center"</span><br>&nbsp;&nbsp;<span style="color:#d8bf86">data-profile</span>=<span style="color:#a9efb7">"workspace"</span><br>&nbsp;&nbsp;<span style="color:#d8bf86">data-theme</span>=<span style="color:#a9efb7">"light"</span><span style="color:#8fc3c7">&gt;</span>
+    </div>
+    <div class="list" style="margin-top:8px">
+      <div class="li"><span class="num">1</span><div class="t">Sin <code>data-theme</code> se aplican los valores oscuros.</div></div>
+      <div class="li"><span class="num">2</span><div class="t">Un repositorio puede tener varias raíces con perfiles distintos, nunca anidadas.</div></div>
+      <div class="li"><span class="num">3</span><div class="t">Un producto con un solo tema puede omitir el selector de tema.</div></div>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="ch"><h2>El acento lo aporta el producto</h2><span class="tag">src/themes/product.css → --accent</span></div>
+  <div class="grid6" style="gap:10px"><div><div class="ui" style="padding:10px;box-shadow:none"><div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><span class="dot" style="background:#a8aeb8"></span><b style="color:#fff;font-size:9.5px">Grupo</b></div><span class="btn" style="background:#a8aeb8;color:#0f1720;height:22px">Acción</span><div style="margin-top:8px;font-size:9px;color:color-mix(in srgb,#a8aeb8 80%,white 20%);text-decoration:underline">Enlace de texto</div><div style="margin-top:6px;height:3px;border-radius:2px;background:#a8aeb8"></div></div><div class="tech" style="margin-top:4px">--coin-group</div><div class="xs">#a8aeb8</div></div><div><div class="ui" style="padding:10px;box-shadow:none"><div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><span class="dot" style="background:#6c63ff"></span><b style="color:#fff;font-size:9.5px">Command Center</b></div><span class="btn" style="background:#6c63ff;color:#0f1720;height:22px">Acción</span><div style="margin-top:8px;font-size:9px;color:color-mix(in srgb,#6c63ff 80%,white 20%);text-decoration:underline">Enlace de texto</div><div style="margin-top:6px;height:3px;border-radius:2px;background:#6c63ff"></div></div><div class="tech" style="margin-top:4px">--coin-command</div><div class="xs">#6c63ff</div></div><div><div class="ui" style="padding:10px;box-shadow:none"><div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><span class="dot" style="background:#e06848"></span><b style="color:#fff;font-size:9.5px">Content Generator AI</b></div><span class="btn" style="background:#e06848;color:#0f1720;height:22px">Acción</span><div style="margin-top:8px;font-size:9px;color:color-mix(in srgb,#e06848 80%,white 20%);text-decoration:underline">Enlace de texto</div><div style="margin-top:6px;height:3px;border-radius:2px;background:#e06848"></div></div><div class="tech" style="margin-top:4px">--internal-coral</div><div class="xs">#e06848</div></div><div><div class="ui" style="padding:10px;box-shadow:none"><div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><span class="dot" style="background:#1dab89"></span><b style="color:#fff;font-size:9.5px">Advisor AI</b></div><span class="btn" style="background:#1dab89;color:#0f1720;height:22px">Acción</span><div style="margin-top:8px;font-size:9px;color:color-mix(in srgb,#1dab89 80%,white 20%);text-decoration:underline">Enlace de texto</div><div style="margin-top:6px;height:3px;border-radius:2px;background:#1dab89"></div></div><div class="tech" style="margin-top:4px">--coin-advisor</div><div class="xs">#1dab89</div></div><div><div class="ui" style="padding:10px;box-shadow:none"><div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><span class="dot" style="background:#d4af37"></span><b style="color:#fff;font-size:9.5px">Private Estates</b></div><span class="btn" style="background:#d4af37;color:#0f1720;height:22px">Acción</span><div style="margin-top:8px;font-size:9px;color:color-mix(in srgb,#d4af37 80%,white 20%);text-decoration:underline">Enlace de texto</div><div style="margin-top:6px;height:3px;border-radius:2px;background:#d4af37"></div></div><div class="tech" style="margin-top:4px">--coin-pe</div><div class="xs">#d4af37</div></div><div><div class="ui" style="padding:10px;box-shadow:none"><div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><span class="dot" style="background:#5fa8ff"></span><b style="color:#fff;font-size:9.5px">Group Landing</b></div><span class="btn" style="background:#5fa8ff;color:#0f1720;height:22px">Acción</span><div style="margin-top:8px;font-size:9px;color:color-mix(in srgb,#5fa8ff 80%,white 20%);text-decoration:underline">Enlace de texto</div><div style="margin-top:6px;height:3px;border-radius:2px;background:#5fa8ff"></div></div><div class="tech" style="margin-top:4px">--signal-blue</div><div class="xs">#5fa8ff</div></div></div>
+  <div class="note" style="margin-top:10px">{{i:info}}<div>El acento sirve para rellenos, iconos y decoración. Como texto se usa su derivado <code>--text-link</code> (oscuro: <code>color-mix(accent 80%, blanco 20%)</code>; claro: acento oscurecido), verificado a 4,5:1.</div></div>
+</div>
+<div class="row">
+  <div class="card f1" style="background:linear-gradient(180deg,rgba(227,241,233,.9),rgba(227,241,233,.5))">
+    <div class="ch"><span class="bubble green">{{i:check}}</span><h2>Qué puede variar</h2></div>
+    <div class="list">
+      <div class="li"><div class="t"><b>Producto:</b> acento, logotipo, iconografía, textos y composición.</div></div>
+      <div class="li"><div class="t"><b>P-WKS:</b> densidad de componentes (<code>.ac-button--compact</code>) y valores por defecto de la estructura.</div></div>
+      <div class="li"><div class="t"><b>P-MKT:</b> espaciado más holgado, énfasis de la cabecera principal y de la llamada a la acción, familia de titulares y cabecera pública.</div></div>
+    </div>
+  </div>
+  <div class="card rose f1">
+    <div class="ch"><span class="bubble red">{{i:x}}</span><h2>Qué no puede variar</h2></div>
+    <div class="list">
+      <div class="li"><div class="t">Significado semántico del color y de los estados.</div></div>
+      <div class="li"><div class="t">Radios base, foco y estado deshabilitado.</div></div>
+      <div class="li"><div class="t">Contrato de tema claro/oscuro y semántica de navegación Core.</div></div>
+      <div class="li"><div class="t">Anatomía base de los componentes.</div></div>
+    </div>
+  </div>
+</div>

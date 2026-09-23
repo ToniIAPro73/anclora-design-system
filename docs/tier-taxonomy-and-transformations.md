@@ -99,6 +99,25 @@ Implementación obligatoria en el design system:
 - patterns de hero inmersivo, gallery, overlays y formularios de alto valor
 - sweep o shimmer muy medido solo donde añada valor percibido real
 
+### `microSaaS`
+
+Propósito:
+- utilidades SaaS pequeñas, enfocadas y recurrentes
+- procesamiento de documentos, datos o tareas concretas con un flujo corto
+
+Firma UX/UI:
+- densidad funcional media-alta y jerarquía directa
+- shell compacto, estados de procesamiento explícitos y resultados verificables
+- identidad de producto contenida sobre tokens semánticos comunes
+- accesibilidad, internacionalización y feedback operativo como requisitos base
+
+Implementación obligatoria en el Design System:
+- taxonomía `tier-microsaas`
+- composición con Forms, Data Table, Feedback, File Upload y Processing cuando aplique
+- extensiones de producto limitadas a acento, copy, densidad y datos propios
+
+Productos iniciales clasificados en este tier: `anclora-tableextractor`, `anclora-clearsheet` y `anclora-purgedoc`.
+
 ## Matriz de diferenciación rápida
 
 | Tier | Ritmo | Densidad | Visual depth | Motion | CTA |
@@ -107,6 +126,7 @@ Implementación obligatoria en el design system:
 | `portfolio` | editorial | baja-media | clara | sobrio | conversión inmediata |
 | `premium` | marca + operación | media | rica | refinado | dominante, pero contenido |
 | `ultra premium` | ceremonial | media | exclusiva | distintivo | firma de alto valor |
+| `microSaaS` | directo | media-alta | contenida | funcional | resultado y siguiente acción |
 
 ## Transformaciones admitidas
 
@@ -180,6 +200,7 @@ Regla:
 ## Qué debe existir en el repo al cerrar esta fase
 
 - taxonomía visible y documentada para `internal`, `portfolio`, `premium` y `ultra premium`
+- taxonomía visible y documentada para `microSaaS` y sus consumidores iniciales
 - preview contractual que muestre la diferencia entre tiers
 - criterios de transformación para apps existentes o externas
 - validación visual documentada como gate antes de pasar de fase

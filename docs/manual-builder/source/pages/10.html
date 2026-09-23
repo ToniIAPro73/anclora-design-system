@@ -1,0 +1,78 @@
+<!--META {"num":10,"slug":"tipografia-canonica","part":"Parte II · Identidad y fundamentos","title":"Sistema tipográfico","sub":"Dos familias canónicas, Fraunces e Inter, y una escala de tokens compartida.","aside":"Tipografía<br>que conecta<br>ideas, productos<br>y personas."} -->
+<div class="row">
+  <div class="card f15">
+    <div class="ch"><h2>Familias canónicas</h2><span class="tag">src/tokens/core.css · v1.0.0</span></div>
+    <div class="list">
+      <div class="li" style="align-items:center;gap:16px">
+        <div style="width:92px;font-family:Fraunces;font-weight:700;font-size:50px;line-height:1;color:var(--navy)">Aa</div>
+        <div class="f1"><div class="lbl">Titulares · display</div><h3 style="font-size:19px;margin:3px 0 4px">Fraunces</h3>
+          <div class="small">Incluida en el paquete · pesos 400, 600 y 700.</div>
+          <div style="margin-top:5px"><code>--font-display: "Fraunces", "Georgia", serif</code></div></div>
+      </div>
+      <div class="li" style="align-items:center;gap:16px">
+        <div style="width:92px;font-family:Inter;font-weight:600;font-size:46px;line-height:1;color:var(--navy)">Aa</div>
+        <div class="f1"><div class="lbl">Interfaz y cuerpo · sans</div><h3 style="font-size:19px;margin:3px 0 4px;font-family:Inter;font-weight:600">Inter</h3>
+          <div class="small">Incluida en el paquete · pesos 400, 500, 600 y 700.</div>
+          <div style="margin-top:5px"><code>--font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif</code></div></div>
+      </div>
+      <div class="li" style="align-items:center;gap:16px">
+        <div style="width:92px;font-family:var(--mono);font-weight:500;font-size:36px;line-height:1;color:var(--navy)">{ }</div>
+        <div class="f1"><div class="lbl">Código · mono</div><h3 style="font-size:19px;margin:3px 0 4px">JetBrains Mono</h3>
+          <div class="small">No incluida: la carga el consumidor o se aplica el respaldo.</div>
+          <div style="margin-top:5px"><code>--font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace</code></div></div>
+      </div>
+    </div>
+      </div>
+  <div class="card warm f1">
+    <div class="ch"><h2>Familia portfolio</h2></div>
+    <p class="small" style="margin-bottom:8px">Pila acotada para productos de la familia <b>portfolio</b> (<code>.product-anclora-portfolio</code> y afines). Nunca se usa como tipografía general.</p>
+    <div class="list">
+      <div class="li"><div class="t"><b>Titulares</b><span class="small">Cormorant Garamond → Fraunces → Georgia</span><span class="tech">--font-portfolio-display</span></div></div>
+      <div class="li"><div class="t"><b>Texto</b><span class="small">Montserrat → Inter</span><span class="tech">--font-portfolio-sans</span></div></div>
+      <div class="li"><div class="t"><b>Firma caligráfica</b><span class="small">Allura, sólo mediante <code>.display-script</code> y como acento decorativo</span><span class="tech">--font-portfolio-script</span></div></div>
+    </div>
+    <div class="note gold" style="margin-top:8px">{{i:alert}}<div>Estas fuentes no se incluyen en el paquete. Si el producto no las carga, se aplican Fraunces e Inter como respaldo.</div></div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card f1">
+    <div class="ch"><h2>Escala de tamaños</h2><span class="tag">Tokens --fs-*</span></div>
+    <div style="display:flex;align-items:flex-end;gap:10px;height:66px;border-bottom:1px solid var(--line);padding-bottom:6px">
+      <span style="font-family:Fraunces;font-weight:600;color:var(--navy);font-size:12px">Aa</span><span style="font-family:Fraunces;font-weight:600;color:var(--navy);font-size:14px">Aa</span><span style="font-family:Fraunces;font-weight:600;color:var(--navy);font-size:16px">Aa</span><span style="font-family:Fraunces;font-weight:600;color:var(--navy);font-size:18px">Aa</span><span style="font-family:Fraunces;font-weight:600;color:var(--navy);font-size:20px">Aa</span><span style="font-family:Fraunces;font-weight:600;color:var(--navy);font-size:24px">Aa</span><span style="font-family:Fraunces;font-weight:600;color:var(--navy);font-size:30px">Aa</span><span style="font-family:Fraunces;font-weight:600;color:var(--navy);font-size:36px">Aa</span><span style="font-family:Fraunces;font-weight:600;color:var(--navy);font-size:48px;line-height:1">Aa</span><span style="font-family:Fraunces;font-weight:600;color:var(--navy);font-size:60px;line-height:1">Aa</span><span style="font-family:Fraunces;font-weight:600;color:var(--navy);font-size:72px;line-height:.9">Aa</span>
+    </div>
+    <table class="t" style="margin-top:6px">
+      <tr><th>Token</th><th>xs</th><th>sm</th><th>base</th><th>md</th><th>lg</th><th>xl</th><th>2xl</th><th>3xl</th><th>4xl</th><th>5xl</th><th>6xl</th></tr>
+      <tr><td><b>rem</b></td><td>0,75</td><td>0,875</td><td>1</td><td>1,125</td><td>1,25</td><td>1,5</td><td>1,875</td><td>2,25</td><td>3</td><td>3,75</td><td>4,5</td></tr>
+      <tr><td><b>px</b></td><td>12</td><td>14</td><td>16</td><td>18</td><td>20</td><td>24</td><td>30</td><td>36</td><td>48</td><td>60</td><td>72</td></tr>
+    </table>
+    <p class="xs" style="margin-top:6px">Espaciado de letra: <code>--track-title: -0.02em</code> · <code>--track-eyebrow: 0.22em</code> · <code>--track-button: 0.18em</code></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card f2">
+    <div class="ch"><h2>Roles tipográficos</h2><span class="tag">src/foundations/typography.css</span></div>
+    <table class="t">
+      <tr><th>Rol</th><th>Clase</th><th>Familia · peso</th><th>Tamaño</th><th>Interlineado</th></tr>
+      <tr><td><b>Titular de portada</b></td><td><code>.h1</code></td><td>Fraunces · 600</td><td>2,6–4,7 rem</td><td>1,02</td></tr>
+      <tr><td><b>Título de sección</b></td><td><code>.h2</code></td><td>Fraunces · 600</td><td>1,8–2,4 rem</td><td>1,08</td></tr>
+      <tr><td><b>Título de bloque</b></td><td><code>.h3</code></td><td>Fraunces · 600</td><td>1,25–1,55 rem</td><td>1,15</td></tr>
+      <tr><td><b>Entradilla</b></td><td><code>.p-lead</code></td><td>Inter · 400</td><td>1,12 rem</td><td>1,78</td></tr>
+      <tr><td><b>Cuerpo</b></td><td><code>.p</code></td><td>Inter · 400</td><td>1 rem</td><td>1,72</td></tr>
+      <tr><td><b>Antetítulo</b></td><td><code>.eyebrow</code></td><td>Inter · 700 · MAYÚS.</td><td>0,76 rem</td><td>—</td></tr>
+      
+    </table>
+  </div>
+  <div class="card tint f1">
+      <div class="ch"><h2 style="font-size:20px">Reglas de uso</h2></div>
+      <div class="list">
+        <div class="li"><span class="chk">{{i:check}}</span><div class="t">Fraunces para titulares; Inter para interfaz y lectura.</div></div>
+        <div class="li"><span class="chk">{{i:check}}</span><div class="t">P-MKT puede cambiar la familia de titulares como extensión documentada.</div></div>
+        <div class="li"><span class="chk">{{i:check}}</span><div class="t"><code>--font-internal</code> y <code>--font-saas</code> son alias de Inter.</div></div>
+        <div class="li"><span class="chk no">{{i:x}}</span><div class="t">«Anclora Serif» y «Anclora Sans» no existen.</div></div>
+        <div class="li"><span class="chk no">{{i:x}}</span><div class="t">Playfair Display no forma parte de V1.</div></div>
+      </div>
+    </div>
+</div>
+</div>

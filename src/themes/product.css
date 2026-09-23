@@ -402,3 +402,24 @@
   --line-strong: rgba(89, 182, 53, 0.3);
   font-family: var(--font-internal);
 }
+
+.product-anclora-tableextractor,
+.product-anclora-clearsheet,
+.product-anclora-purgedoc {
+  --bg: #0b0f19;
+  --bg-raised: #101828;
+  --bg-strong: #1e293b;
+  --fg1: #f8fafc;
+  --fg2: rgba(248, 250, 252, 0.72);
+  --fg3: #38bdf8;
+  --accent: var(--coin-tableextractor);
+  --border: rgba(56, 189, 248, 0.2);
+  --line-soft: rgba(248, 250, 252, 0.06);
+  --line-strong: rgba(56, 189, 248, 0.34);
+  --text-link: #7dd3fc;
+  --focus-ring: rgba(56, 189, 248, 0.58);
+  font-family: var(--font-sans);
+}
+
+.product-anclora-clearsheet { --accent: var(--coin-clearsheet); --fg3: #60a5fa; --text-link: #93c5fd; --focus-ring: rgba(37, 99, 235, 0.58); }
+.product-anclora-purgedoc { --accent: var(--coin-purgedoc); --fg3: #60a5fa; --text-link: #93c5fd; --focus-ring: rgba(59, 130, 246, 0.58); }

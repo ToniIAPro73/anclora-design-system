@@ -1,0 +1,63 @@
+<!--META {"num":2,"slug":"vision-general","part":"Parte I · Apertura y contrato","title":"Visión general del<br>sistema de diseño","sub":"Un contrato común que separa lo compartido de lo que pertenece a cada producto."} -->
+<div class="card">
+  <div class="ch"><h2>Propósito y alcance</h2></div>
+  <p class="p ink" style="font-size:13.5px;line-height:1.6">El Sistema de Diseño Anclora es el contrato común, basado en CSS, que comparte todo el ecosistema. Define los fundamentos semánticos, los componentes visuales canónicos, las reglas de composición por perfil, los patrones reutilizables, los puntos de entrada públicos, las expectativas de accesibilidad y las reglas de migración y compatibilidad.</p>
+  <p class="p ink" style="font-size:13.5px;line-height:1.6;margin-top:6px">No es un entorno de ejecución de producto, un sistema de rutas, un sistema de autenticación, una capa de datos, un modelo de permisos ni un motor de flujos de trabajo. Esos ámbitos pertenecen a cada producto.</p>
+</div>
+<div class="grid6">
+  <span class="pill navy" style="justify-content:center;padding:8px 4px;font-size:12px;border-radius:12px">Fundamentos</span>
+  <span class="pill" style="justify-content:center;padding:10px 4px;font-size:12px;border-radius:12px;background:#17466a;color:#fff">Tokens semánticos</span>
+  <span class="pill" style="justify-content:center;padding:10px 4px;font-size:12px;border-radius:12px;background:var(--teal);color:#fff">Componentes</span>
+  <span class="pill" style="justify-content:center;padding:10px 4px;font-size:12px;border-radius:12px;background:#3a8467;color:#fff">Patrones compartidos</span>
+  <span class="pill" style="justify-content:center;padding:10px 4px;font-size:12px;border-radius:12px;background:#b58a3c;color:#fff">Perfiles de producto</span>
+  <span class="pill" style="justify-content:center;padding:10px 4px;font-size:12px;border-radius:12px;background:#7a603c;color:#fff">Extensiones de producto</span>
+</div>
+<div class="row">
+  <div class="card tint f1">
+    <div class="ch"><h2>Qué pertenece al sistema</h2></div>
+    <div class="list">
+      <div class="li"><span class="chk">{{i:check}}</span><div class="t">Tokens semánticos, fundamentos y contrato de temas claro/oscuro.</div></div>
+      <div class="li"><span class="chk">{{i:check}}</span><div class="t">Anatomía estable de componentes y sus estados genéricos.</div></div>
+      <div class="li"><span class="chk">{{i:check}}</span><div class="t">Reglas de composición de perfiles y patrones neutrales de dominio.</div></div>
+      <div class="li"><span class="chk">{{i:check}}</span><div class="t">Exportaciones públicas, compatibilidad, obsolescencia y verificación.</div></div>
+    </div>
+  </div>
+  <div class="card warm f1">
+    <div class="ch"><h2>Qué pertenece al producto</h2></div>
+    <div class="list">
+      <div class="li"><span class="chk gold">{{i:check}}</span><div class="t">Rutas, textos, etiquetas, datos, persistencia y llamadas a API.</div></div>
+      <div class="li"><span class="chk gold">{{i:check}}</span><div class="t">Autenticación, permisos, estado de negocio y flujos de dominio.</div></div>
+      <div class="li"><span class="chk gold">{{i:check}}</span><div class="t">Gestión en ejecución del foco y del posicionamiento, colas, temporizadores y portales.</div></div>
+      <div class="li"><span class="chk gold">{{i:check}}</span><div class="t">Composición e identidad propias en los puntos de extensión documentados.</div></div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="card f1">
+    <div class="ch"><h2>Modelo por capas</h2></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:5px;font-size:11.5px">
+      <span class="pill navy" style="padding:6px 14px">Gobernanza · contratos · infraestructura</span>{{i:chev}}
+      <div style="border:1px dashed var(--teal);border-radius:12px;padding:8px 10px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:center"><span class="pill teal">Fundamentos</span>→<span class="pill teal">Tokens</span>→<span class="pill teal">Componentes</span>→<span class="pill green">Patrones</span>→<span class="pill gold">Perfiles</span></div>{{i:chev}}
+      <span class="pill amber" style="padding:6px 14px">Extensiones de producto</span>{{i:chev}}
+      <span class="pill grey" style="padding:6px 14px">Consumidores</span>
+    </div>
+  </div>
+  <div class="card f1">
+    <div class="ch"><h2>Principios</h2></div>
+    <div class="list">
+      <div class="li"><span class="num">1</span><div class="t">El significado semántico es central; la identidad se extiende en puntos documentados.</div></div>
+      <div class="li"><span class="num">2</span><div class="t">CSS y HTML semántico son el contrato portable; los frameworks son entornos.</div></div>
+      <div class="li"><span class="num">3</span><div class="t">Los perfiles clasifican arquetipos de interacción, no verticales de negocio.</div></div>
+      <div class="li"><span class="num">4</span><div class="t">Declarar algo estable exige verificación ejecutable y evidencia de consumidores.</div></div>
+      <div class="li"><span class="num">5</span><div class="t">Accesibilidad, adaptación a pantallas y textos bilingües forman parte del contrato.</div></div>
+    </div>
+  </div>
+</div>
+<div class="card" style="background:rgba(239,236,228,.85)">
+  <div class="ch"><h2>Modelo de autoridad</h2><span class="tag">Detalle en la página 27</span></div>
+  <div class="list">
+    <div class="li" style="align-items:center"><span class="dot" style="width:16px;height:16px;background:var(--navy)"></span><div class="t f1"><b>Gobernanza, contratos e infraestructura</b></div><div class="small" style="width:420px">Definen los límites y las responsabilidades del ecosistema.</div></div>
+    <div class="li" style="align-items:center"><span class="dot" style="width:16px;height:16px;background:var(--teal)"></span><div class="t f1"><b>Sistema de Diseño Anclora</b> <span class="tech">anclora-design-system</span></div><div class="small" style="width:420px">Autoridad ejecutable y canónica de las capas que publica.</div></div>
+    <div class="li" style="align-items:center"><span class="dot" style="width:16px;height:16px;background:#17466a"></span><div class="t f1"><b>Consumidores</b></div><div class="small" style="width:420px">Composición, ejecución y lógica de producto. Aportan evidencia, no autoridad.</div></div>
+  </div>
+</div>

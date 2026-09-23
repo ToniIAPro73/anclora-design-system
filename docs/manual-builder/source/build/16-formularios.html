@@ -1,0 +1,117 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<title>16 · Campos, formularios y controles</title>
+<link rel="stylesheet" href="../manual.css"></head><body>
+<div class="page" data-num="16">
+<div class="hdr">
+  <div class="brand"><img src="../assets/img/anclora-group-lockup-horizontal-sobre-claro.png" alt="Anclora Group"></div>
+  <div class="hdr-t"><div>SISTEMA DE DISEÑO ANCLORA V1</div><div>MANUAL MAESTRO · GUÍA VISUAL, TÉCNICA Y DE IMPLEMENTACIÓN</div></div>
+  <div class="hdr-n">16</div>
+</div>
+<div class="main"><div class="tb">
+  <div class="eyebrow">Parte III · Componentes</div>
+  <div class="tb-row"><h1 class="sm">Campos, formularios y controles</h1></div>
+  <div class="rule"></div>
+  <p class="sub">El campo gestiona etiqueta, ayuda y mensaje; el control gestiona valor, foco y estado.</p>
+</div>
+<div class="content">
+<div class="row">
+  <div class="card f15">
+    <div class="ch"><h2>Tipos de campo</h2><span class="tag">Tema claro</span></div>
+    <div class="grid3" style="gap:12px 14px">
+      <div><b style="font-size:12px">Campo de texto</b><div class="tech">field-input</div><div style="height:36px;border:1px solid rgba(16,20,28,.5);border-radius:12px;background:#fff;margin-top:5px;padding:0 10px;display:flex;align-items:center;font-size:12px">Juan Pérez</div></div>
+      <div><b style="font-size:12px">Búsqueda</b><div class="tech">field-search</div><div style="height:36px;border:1px solid rgba(16,20,28,.5);border-radius:12px;background:#fff;margin-top:5px;padding:0 10px;display:flex;align-items:center;gap:6px;font-size:12px;color:#6b7280"><svg class="ic " viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Buscar productos…</div></div>
+      <div><b style="font-size:12px">Selector</b><div class="tech">field-select</div><div style="height:36px;border:1px solid rgba(16,20,28,.5);border-radius:12px;background:#fff;margin-top:5px;padding:0 10px;display:flex;align-items:center;justify-content:space-between;font-size:12px">Selecciona una opción<svg class="ic " viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div></div>
+      <div><b style="font-size:12px">Área de texto</b><div class="tech">field-textarea</div><div style="height:56px;border:1px solid rgba(16,20,28,.5);border-radius:12px;background:#fff;margin-top:5px;padding:8px 10px;font-size:12px;color:#6b7280">Escribe tu mensaje…</div></div>
+      <div><b style="font-size:12px">Solo lectura</b><div class="tech">readonly</div><div style="height:36px;border:1px dashed rgba(16,20,28,.35);border-radius:12px;background:#e7ebf0;margin-top:5px;padding:0 10px;display:flex;align-items:center;font-size:12px">AN-2026-001</div><div class="xs">Enfocable y se envía.</div></div>
+      <div><b style="font-size:12px">Deshabilitado</b><div class="tech">disabled</div><div style="height:36px;border:1px solid rgba(16,20,28,.15);border-radius:12px;background:#eef0f3;margin-top:5px;padding:0 10px;display:flex;align-items:center;font-size:12px;color:#9aa1ab">No disponible</div><div class="xs">No se enfoca ni se envía.</div></div>
+    </div>
+  </div>
+  <div class="card f1">
+    <div class="ch"><h2>Anatomía</h2><span class="tag">.ac-form-field</span></div>
+    <div style="font-size:12px;font-weight:600;color:#10141c">Nombre completo <span style="color:#b42318">*</span></div>
+    <div style="height:44px;border:1px solid #b42318;border-radius:12px;background:#fff;margin-top:6px;padding:0 12px;display:flex;align-items:center;justify-content:space-between;font-size:13px">Ana@<span style="color:#b42318"><svg class="ic " viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></span></div>
+    <div style="font-size:11px;color:#b42318;margin-top:6px">Introduce un nombre válido.</div>
+    <table class="t" style="margin-top:10px">
+      <tr><td><b>Etiqueta</b></td><td>Siempre visible; nunca sólo el marcador.</td></tr>
+      <tr><td><b>Control</b></td><td>Altura mínima 44 px.</td></tr>
+      <tr><td><b>Ayuda / mensaje</b></td><td>0,82 rem · separación 6 px.</td></tr>
+      <tr><td><b>Error</b></td><td><code>aria-invalid="true"</code> + <code>aria-describedby</code></td></tr>
+      <tr><td><b>Obligatorio</b></td><td><code>required</code> en el control; el asterisco es complementario.</td></tr>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="card f1">
+    <div class="ch"><h2>Controles de elección</h2><span class="tag">ac-choice-control</span></div>
+    <div class="grid3">
+      <div><b style="font-size:12px">Casilla</b><div class="list" style="margin-top:4px">
+        <div class="li" style="align-items:center"><span style="width:18px;height:18px;border:1.5px solid rgba(16,20,28,.5);border-radius:5px;background:#fff"></span><div class="t small">Desactivada</div></div>
+        <div class="li" style="align-items:center"><span style="width:18px;height:18px;border-radius:5px;background:#10141c;color:#fff;display:flex;align-items:center;justify-content:center"><svg class="ic " viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div class="t small">Activada</div></div>
+        <div class="li" style="align-items:center"><span style="width:18px;height:18px;border-radius:5px;background:#c9ced6"></span><div class="t small">Deshabilitada</div></div></div></div>
+      <div><b style="font-size:12px">Radio</b><div class="list" style="margin-top:4px">
+        <div class="li" style="align-items:center"><span style="width:18px;height:18px;border:1.5px solid rgba(16,20,28,.5);border-radius:50%;background:#fff"></span><div class="t small">Desactivado</div></div>
+        <div class="li" style="align-items:center"><span style="width:18px;height:18px;border:5px solid #10141c;border-radius:50%;background:#fff"></span><div class="t small">Activado</div></div>
+        <div class="li" style="align-items:center"><span style="width:18px;height:18px;border-radius:50%;background:#c9ced6"></span><div class="t small">Deshabilitado</div></div></div></div>
+      <div><b style="font-size:12px">Interruptor</b> <span class="tech">--switch</span><div class="list" style="margin-top:4px">
+        <div class="li" style="align-items:center"><span style="width:34px;height:20px;border-radius:999px;background:#c9ced6;position:relative"><span style="position:absolute;left:2px;top:2px;width:16px;height:16px;border-radius:50%;background:#fff"></span></span><div class="t small">Inactivo</div></div>
+        <div class="li" style="align-items:center"><span style="width:34px;height:20px;border-radius:999px;background:#10141c;position:relative"><span style="position:absolute;right:2px;top:2px;width:16px;height:16px;border-radius:50%;background:#fff"></span></span><div class="t small">Activo</div></div>
+        <div class="li" style="align-items:center"><span style="width:34px;height:20px;border-radius:999px;background:#e3e6eb;position:relative"><span style="position:absolute;left:2px;top:2px;width:16px;height:16px;border-radius:50%;background:#f5f6f8"></span></span><div class="t small">Deshabilitado</div></div></div></div>
+    </div>
+  </div>
+  <div class="card f1">
+    <div class="ch"><h2>Ejemplo de formulario</h2></div>
+    <div class="grid2" style="gap:8px 12px">
+      <div><div style="font-size:11px;font-weight:600">Nombre completo <span style="color:#b42318">*</span></div><div style="height:34px;border:1px solid rgba(16,20,28,.5);border-radius:12px;background:#fff;margin-top:4px;padding:0 10px;display:flex;align-items:center;font-size:11.5px">María López</div></div>
+      <div><div style="font-size:11px;font-weight:600">Rol</div><div style="height:34px;border:1px solid rgba(16,20,28,.5);border-radius:12px;background:#fff;margin-top:4px;padding:0 10px;display:flex;align-items:center;justify-content:space-between;font-size:11.5px">Diseñadora<svg class="ic " viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div></div>
+      <div><div style="font-size:11px;font-weight:600">Correo electrónico <span style="color:#b42318">*</span></div><div style="height:34px;border:1px solid rgba(16,20,28,.5);border-radius:12px;background:#fff;margin-top:4px;padding:0 10px;display:flex;align-items:center;font-size:11.5px">maria@anclora.com</div><div class="xs">Te enviaremos una confirmación.</div></div>
+      <div><div style="font-size:11px;font-weight:600">Empresa</div><div style="height:34px;border:1px solid rgba(16,20,28,.5);border-radius:12px;background:#fff;margin-top:4px;padding:0 10px;display:flex;align-items:center;font-size:11.5px">Anclora Group</div></div>
+    </div>
+    <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:12px"><span class="btn lt" style="height:36px">Cancelar</span><span class="btn" style="height:36px;background:#a8aeb8;color:#10141c">Enviar</span></div>
+  </div>
+</div>
+<div class="row">
+  <div class="card tint f1">
+    <div class="ch"><h2 style="font-size:20px">Buenas prácticas</h2></div>
+    <div class="list">
+      <div class="li"><span class="num">1</span><div class="t">Etiquetas visibles y descriptivas.</div></div>
+      <div class="li"><span class="num">2</span><div class="t">Mensajes de error comprensibles, asociados al control.</div></div>
+      <div class="li"><span class="num">3</span><div class="t">Agrupa campos relacionados y mantén un orden lógico.</div></div>
+      <div class="li"><span class="num">4</span><div class="t">Navegación completa por teclado y foco del sistema.</div></div>
+    </div>
+  </div>
+  <div class="card rose f1">
+    <div class="ch"><h2 style="font-size:20px">Prohibido</h2></div>
+    <div class="list">
+      <div class="li"><span class="chk no"><svg class="ic " viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div class="t">Etiquetas sólo como marcador de posición.</div></div>
+      <div class="li"><span class="chk no"><svg class="ic " viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div class="t">Errores comunicados únicamente con color.</div></div>
+      <div class="li"><span class="chk no"><svg class="ic " viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div class="t"><code>div</code> clicables sin semántica nativa.</div></div>
+      <div class="li"><span class="chk no"><svg class="ic " viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div class="t">Anillos de foco o bordes locales. Autocompletado compartido (<code>combobox</code>): <span class="pill grey">EVIDENCE_REQUIRED</span></div></div>
+    </div>
+  </div>
+</div>
+<div class="card dark">
+  <div class="ch"><h2 style="font-size:20px">Semántica en código</h2><span class="tag" style="color:#9fd3d6">Relación campo · mensaje</span></div>
+  <div style="font-family:var(--mono);font-size:10.5px;line-height:1.7;color:#dfe5ec">&lt;div class="ac-form-field" data-invalid="true"&gt;<br>&nbsp;&nbsp;&lt;label for="email"&gt;Correo electrónico&lt;/label&gt;<br>&nbsp;&nbsp;&lt;input id="email" class="field-input" required aria-invalid="true" aria-describedby="email-msg"&gt;<br>&nbsp;&nbsp;&lt;p id="email-msg"&gt;Introduce un correo válido.&lt;/p&gt;<br>&lt;/div&gt;</div>
+</div>
+
+</div></div>
+<svg class="wave" viewBox="0 0 1055 150" preserveAspectRatio="none">
+ <defs>
+  <linearGradient id="wg1" x1="0" x2="1"><stop offset="0" stop-color="#9fb9c2" stop-opacity=".10"/><stop offset=".5" stop-color="#6f9fa8" stop-opacity=".30"/><stop offset="1" stop-color="#9fb9c2" stop-opacity=".12"/></linearGradient>
+  <linearGradient id="wg2" x1="0" x2="1"><stop offset="0" stop-color="#c9d3db" stop-opacity=".35"/><stop offset=".6" stop-color="#a9c4ca" stop-opacity=".30"/><stop offset="1" stop-color="#dfe6ea" stop-opacity=".2"/></linearGradient>
+  <linearGradient id="wg3" x1="0" x2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".0"/><stop offset=".4" stop-color="#ffffff" stop-opacity=".85"/><stop offset="1" stop-color="#ffffff" stop-opacity=".2"/></linearGradient>
+ </defs>
+ <path d="M0 70 C 180 20 330 20 520 62 S 860 118 1055 52 L1055 150 L0 150 Z" fill="url(#wg2)"/>
+ <path d="M0 98 C 200 50 360 70 560 96 S 880 120 1055 78 L1055 150 L0 150 Z" fill="url(#wg1)"/>
+ <path d="M0 116 C 220 88 420 100 600 118 S 900 132 1055 104" fill="none" stroke="url(#wg3)" stroke-width="2"/>
+ <path d="M0 84 C 190 40 350 44 540 80 S 870 116 1055 66" fill="none" stroke="#ffffff" stroke-opacity=".7" stroke-width="1.2"/>
+ <path d="M870 150 A 190 190 0 0 1 1055 10" fill="none" stroke="#0f6b73" stroke-opacity=".28" stroke-width="1"/>
+ <path d="M930 150 A 150 150 0 0 1 1055 40" fill="none" stroke="#0f6b73" stroke-opacity=".2" stroke-width="1"/>
+</svg>
+<div class="ftr">
+  <div><div class="k">VERSIÓN</div><div class="v">1.0.0</div></div>
+  <div><div class="k">ORGANIZACIÓN</div><div class="v">Anclora Group</div></div>
+  <div><div class="k">DOCUMENTO</div><div class="v">Manual maestro del ecosistema</div></div>
+  <div class="hz"><span>UN MISMO<br>HORIZONTE</span></div>
+</div>
+</div></body></html>

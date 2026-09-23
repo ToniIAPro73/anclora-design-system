@@ -1,0 +1,115 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<title>19 · Menús, capas y superposiciones</title>
+<link rel="stylesheet" href="../manual.css"></head><body>
+<div class="page" data-num="19">
+<div class="hdr">
+  <div class="brand"><img src="../assets/img/anclora-group-lockup-horizontal-sobre-claro.png" alt="Anclora Group"></div>
+  <div class="hdr-t"><div>SISTEMA DE DISEÑO ANCLORA V1</div><div>MANUAL MAESTRO · GUÍA VISUAL, TÉCNICA Y DE IMPLEMENTACIÓN</div></div>
+  <div class="hdr-n">19</div>
+</div>
+<div class="main"><div class="tb">
+  <div class="eyebrow">Parte III · Componentes</div>
+  <div class="tb-row"><h1 class="sm">Menús, capas y superposiciones</h1></div>
+  <div class="rule"></div>
+  <p class="sub">Las capas contextuales complementan la navegación y deben respetar jerarquía, foco y semántica.</p>
+</div>
+<div class="content">
+<div class="card">
+  <div class="ch"><h2>Familia de capas</h2><span class="tag">Contrato visual CSS + comportamiento accesible del producto</span></div>
+  <div class="grid5" style="gap:10px">
+    <div class="mini"><b>1. Menú</b> <span class="tech">menu</span><p class="xs">Acciones contextuales abiertas desde un botón.</p>
+      <div style="margin-top:8px;border:1px solid #e3e7ee;border-radius:10px;padding:6px;font-size:10px;background:#fff;box-shadow:0 8px 18px rgba(12,26,44,.08)"><div style="padding:3px 4px">Ver detalle</div><div style="padding:3px 4px">Editar</div><div style="padding:3px 4px">Duplicar</div><div style="padding:3px 4px;border-top:1px solid #e3e7ee;color:#b42318">Eliminar</div></div></div>
+    <div class="mini"><b>2. Panel lateral</b> <span class="tech">drawer</span><p class="xs">Panel modal lateral para contenido sustancial o navegación móvil.</p>
+      <div style="margin-top:8px;display:flex;height:74px;border-radius:10px;overflow:hidden;border:1px solid #e3e7ee"><div style="flex:1;background:rgba(16,20,28,.35)"></div><div style="width:58%;background:#fff;padding:6px;font-size:9px"><b>Filtros</b><div style="height:5px;background:#e3e7ee;border-radius:3px;margin-top:6px"></div><div style="height:5px;background:#e3e7ee;border-radius:3px;margin-top:5px;width:70%"></div></div></div></div>
+    <div class="mini"><b>3. Ventana contextual</b> <span class="tech">popover</span><p class="xs">No modal; controles ricos junto a un elemento.</p>
+      <div style="margin-top:8px;border:1px solid #e3e7ee;border-radius:10px;padding:6px;font-size:10px;background:#fff;box-shadow:0 8px 18px rgba(12,26,44,.08)"><b>Opciones de vista</b><div style="padding:3px 0">☐ Mostrar archivados</div><div style="padding:3px 0">☑ Agrupar por estado</div></div></div>
+    <div class="mini"><b>4. Descripción emergente</b> <span class="tech">tooltip</span><p class="xs">Ayuda breve al pasar o enfocar. Nunca interactiva.</p>
+      <div style="margin-top:14px;text-align:center"><span style="display:inline-block;background:#10141c;color:#fff;font-size:9.5px;padding:6px 9px;border-radius:8px">Exporta los resultados en CSV</span><div style="margin-top:4px"><svg class="ic " viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-5M12 8h.01"/></svg></div></div></div>
+    <div class="mini"><b>5. Diálogo modal</b> <span class="tech">modal</span><p class="xs">Bloqueante: confirmaciones y tareas críticas.</p>
+      <div style="margin-top:8px;border:1px solid #e3e7ee;border-radius:12px;padding:8px;font-size:10px;background:#fff;box-shadow:0 8px 18px rgba(12,26,44,.1)"><b>¿Confirmar acción?</b><div class="xs">No se puede deshacer.</div><div style="display:flex;gap:4px;margin-top:6px;justify-content:flex-end"><span class="btn lt" style="height:20px;font-size:7px;padding:0 8px">Cancelar</span><span class="btn" style="height:20px;font-size:7px;padding:0 8px;background:#a8aeb8">Confirmar</span></div></div></div>
+  </div>
+</div>
+<div class="row">
+  <div class="card f1">
+    <div class="ch"><h2>Capas y prioridad</h2><span class="tag">--layer-*</span></div>
+    <div style="display:flex;gap:14px;align-items:center">
+      <div style="position:relative;width:170px;height:200px">
+        <div style="position:absolute;left:10px;top:150px;width:150px;height:34px;border-radius:10px;background:#e7ebf0;border:1px solid #cfd5de;transform:skewX(-18deg)"></div>
+        <div style="position:absolute;left:10px;top:118px;width:150px;height:34px;border-radius:10px;background:#bfdde0;transform:skewX(-18deg)"></div>
+        <div style="position:absolute;left:10px;top:86px;width:150px;height:34px;border-radius:10px;background:#5fa7ad;transform:skewX(-18deg)"></div>
+        <div style="position:absolute;left:10px;top:54px;width:150px;height:34px;border-radius:10px;background:#1f5a73;transform:skewX(-18deg)"></div>
+        <div style="position:absolute;left:10px;top:22px;width:150px;height:34px;border-radius:10px;background:#0c1a2c;transform:skewX(-18deg)"></div>
+        <div style="position:absolute;left:10px;top:-10px;width:150px;height:34px;border-radius:10px;background:#c9a45e;transform:skewX(-18deg)"></div>
+      </div>
+      <table class="t f1">
+        <tr><td><b>Notificación breve</b></td><td><code>--layer-toast</code></td><td>60</td></tr>
+        <tr><td><b>Diálogo modal</b></td><td><code>--layer-modal</code></td><td>50</td></tr>
+        <tr><td><b>Panel lateral</b></td><td><code>--layer-drawer</code></td><td>40</td></tr>
+        <tr><td><b>Descripción emergente</b></td><td><code>--layer-tooltip</code></td><td>35</td></tr>
+        <tr><td><b>Menú y ventana contextual</b></td><td><code>--layer-menu</code> · <code>--layer-popover</code></td><td>30</td></tr>
+        <tr><td><b>Contenido base</b></td><td>—</td><td>auto</td></tr>
+      </table>
+    </div>
+    <p class="xs" style="margin-top:6px">Prohibida cualquier escala de z-index arbitraria.</p>
+  </div>
+  <div class="card f1">
+    <div class="ch"><h2>Cuándo usar cada capa</h2></div>
+    <table class="t">
+      <tr><td>Tres acciones contextuales</td><td><b>Menú</b> desde un botón</td></tr>
+      <tr><td>Ayuda breve complementaria</td><td><b>Descripción emergente</b></td></tr>
+      <tr><td>Controles ricos sin bloquear</td><td><b>Ventana contextual</b></td></tr>
+      <tr><td>Contenido amplio o composición móvil</td><td><b>Panel lateral</b></td></tr>
+      <tr><td>Confirmación bloqueante</td><td><b>Diálogo modal</b></td></tr>
+      <tr><td>Opciones con búsqueda</td><td><code>combobox</code> · <span class="pill grey">EVIDENCE_REQUIRED</span></td></tr>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="card tint f15">
+    <div class="ch"><h2 style="font-size:20px">Expectativas de accesibilidad</h2></div>
+    <div class="grid2" style="gap:0 18px">
+      <div class="li"><span class="bubble" style="width:28px;height:28px"><svg class="ic " viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><div class="t"><b>Foco inicial</b><span class="small">Entra en un elemento significativo.</span></div></div>
+      <div class="li"><span class="bubble" style="width:28px;height:28px"><svg class="ic " viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></span><div class="t"><b>Retorno de foco</b><span class="small">Al cerrar vuelve al disparador.</span></div></div>
+      <div class="li"><span class="bubble" style="width:28px;height:28px"><svg class="ic " viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg></span><div class="t"><b>Escape y teclado</b><span class="small">Cierre con Escape; operable sin ratón.</span></div></div>
+      <div class="li"><span class="bubble" style="width:28px;height:28px"><svg class="ic " viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><div class="t"><b>Contención</b><span class="small">Modal y panel: foco contenido, fondo inerte y desplazamiento bloqueado.</span></div></div>
+      <div class="li"><span class="bubble" style="width:28px;height:28px"><svg class="ic " viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></span><div class="t"><b>Roles</b><span class="small"><code>role="dialog"</code>, <code>role="menu"</code>, <code>aria-expanded</code>, <code>aria-haspopup</code>.</span></div></div>
+      <div class="li"><span class="bubble" style="width:28px;height:28px"><svg class="ic " viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><div class="t"><b>Nombre accesible</b><span class="small">La descripción emergente nunca es el único nombre.</span></div></div>
+    </div>
+  </div>
+  <div class="card warm f1">
+    <div class="ch"><span class="bubble gold"><svg class="ic " viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></span><h2 style="font-size:20px">No sustituir la navegación</h2></div>
+    <p class="small">Los menús son comandos contextuales: nunca reemplazan los enlaces de ruta.</p>
+    <div class="list" style="margin-top:6px">
+      <div class="li"><span class="chk no"><svg class="ic " viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div class="t">Ventana contextual para una confirmación.</div></div>
+      <div class="li"><span class="chk no"><svg class="ic " viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div class="t">Modal para una lista ligera de comandos.</div></div>
+      <div class="li"><span class="chk no"><svg class="ic " viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span><div class="t">Trampas de foco duplicadas en cada producto.</div></div>
+    </div>
+  </div>
+</div>
+<div class="card dark">
+  <div class="ch"><h2 style="font-size:20px">Disparador de menú en código</h2></div>
+  <div style="font-family:var(--mono);font-size:10.5px;line-height:1.7;color:#dfe5ec">&lt;button class="ac-button ac-button--ghost" aria-haspopup="menu" aria-expanded="false" aria-controls="acciones"&gt;Acciones&lt;/button&gt;<br>&lt;div id="acciones" class="ac-menu" role="menu"&gt; &lt;button role="menuitem"&gt;Editar&lt;/button&gt; … &lt;/div&gt;</div>
+  <p class="xs" style="color:#9fb0c2;margin-top:6px">Radix, Base UI u otro motor sin interfaz pueden gestionar foco y posición; la clase <code>.ac-*</code> sigue siendo la autoridad visual.</p>
+</div>
+
+</div></div>
+<svg class="wave" viewBox="0 0 1055 150" preserveAspectRatio="none">
+ <defs>
+  <linearGradient id="wg1" x1="0" x2="1"><stop offset="0" stop-color="#9fb9c2" stop-opacity=".10"/><stop offset=".5" stop-color="#6f9fa8" stop-opacity=".30"/><stop offset="1" stop-color="#9fb9c2" stop-opacity=".12"/></linearGradient>
+  <linearGradient id="wg2" x1="0" x2="1"><stop offset="0" stop-color="#c9d3db" stop-opacity=".35"/><stop offset=".6" stop-color="#a9c4ca" stop-opacity=".30"/><stop offset="1" stop-color="#dfe6ea" stop-opacity=".2"/></linearGradient>
+  <linearGradient id="wg3" x1="0" x2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".0"/><stop offset=".4" stop-color="#ffffff" stop-opacity=".85"/><stop offset="1" stop-color="#ffffff" stop-opacity=".2"/></linearGradient>
+ </defs>
+ <path d="M0 70 C 180 20 330 20 520 62 S 860 118 1055 52 L1055 150 L0 150 Z" fill="url(#wg2)"/>
+ <path d="M0 98 C 200 50 360 70 560 96 S 880 120 1055 78 L1055 150 L0 150 Z" fill="url(#wg1)"/>
+ <path d="M0 116 C 220 88 420 100 600 118 S 900 132 1055 104" fill="none" stroke="url(#wg3)" stroke-width="2"/>
+ <path d="M0 84 C 190 40 350 44 540 80 S 870 116 1055 66" fill="none" stroke="#ffffff" stroke-opacity=".7" stroke-width="1.2"/>
+ <path d="M870 150 A 190 190 0 0 1 1055 10" fill="none" stroke="#0f6b73" stroke-opacity=".28" stroke-width="1"/>
+ <path d="M930 150 A 150 150 0 0 1 1055 40" fill="none" stroke="#0f6b73" stroke-opacity=".2" stroke-width="1"/>
+</svg>
+<div class="ftr">
+  <div><div class="k">VERSIÓN</div><div class="v">1.0.0</div></div>
+  <div><div class="k">ORGANIZACIÓN</div><div class="v">Anclora Group</div></div>
+  <div><div class="k">DOCUMENTO</div><div class="v">Manual maestro del ecosistema</div></div>
+  <div class="hz"><span>UN MISMO<br>HORIZONTE</span></div>
+</div>
+</div></body></html>

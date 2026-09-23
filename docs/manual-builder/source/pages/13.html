@@ -1,0 +1,74 @@
+<!--META {"num":13,"slug":"espaciado-radios-composicion","part":"Parte II · Identidad y fundamentos","title":"Espaciado, radios y composición","h1":"sm","sub":"La estructura espacial define el ritmo del sistema. V1 fija escalas y contenedores, no una retícula de columnas."} -->
+<div class="row">
+  <div class="card f15">
+    <div class="ch"><span class="n">1</span><h2>Escala de espaciado</h2><span class="tag">--space-*</span></div>
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;height:112px;padding:0 4px">
+      <div style="text-align:center"><div style="width:4px;height:4px;background:var(--teal-2);margin:auto;border-radius:1px"></div><div class="xs" style="margin-top:4px"><b>1</b><br>4</div></div>
+      <div style="text-align:center"><div style="width:8px;height:8px;background:var(--teal-2);margin:auto;border-radius:2px"></div><div class="xs" style="margin-top:4px"><b>2</b><br>8</div></div>
+      <div style="text-align:center"><div style="width:12px;height:12px;background:var(--teal-2);margin:auto;border-radius:2px"></div><div class="xs" style="margin-top:4px"><b>3</b><br>12</div></div>
+      <div style="text-align:center"><div style="width:16px;height:16px;background:var(--teal-2);margin:auto;border-radius:3px"></div><div class="xs" style="margin-top:4px"><b>4</b><br>16</div></div>
+      <div style="text-align:center"><div style="width:20px;height:20px;background:var(--teal-2);margin:auto;border-radius:3px"></div><div class="xs" style="margin-top:4px"><b>5</b><br>20</div></div>
+      <div style="text-align:center"><div style="width:24px;height:24px;background:var(--teal-2);margin:auto;border-radius:4px"></div><div class="xs" style="margin-top:4px"><b>6</b><br>24</div></div>
+      <div style="text-align:center"><div style="width:32px;height:32px;background:var(--teal-2);margin:auto;border-radius:4px"></div><div class="xs" style="margin-top:4px"><b>8</b><br>32</div></div>
+      <div style="text-align:center"><div style="width:40px;height:40px;background:var(--teal-2);margin:auto;border-radius:5px"></div><div class="xs" style="margin-top:4px"><b>10</b><br>40</div></div>
+      <div style="text-align:center"><div style="width:48px;height:48px;background:var(--teal-2);margin:auto;border-radius:6px"></div><div class="xs" style="margin-top:4px"><b>12</b><br>48</div></div>
+      <div style="text-align:center"><div style="width:64px;height:64px;background:var(--teal-2);margin:auto;border-radius:6px"></div><div class="xs" style="margin-top:4px"><b>16</b><br>64</div></div>
+      <div style="text-align:center"><div style="width:72px;height:72px;background:var(--teal-2);margin:auto;border-radius:6px;opacity:.85"></div><div class="xs" style="margin-top:4px"><b>20</b><br>80</div></div>
+      <div style="text-align:center"><div style="width:80px;height:80px;background:var(--teal-2);margin:auto;border-radius:6px;opacity:.7"></div><div class="xs" style="margin-top:4px"><b>24</b><br>96</div></div>
+    </div>
+    <p class="xs" style="margin-top:6px">Sufijo del token arriba, valor en px abajo (1 rem = 16 px). No existen <code>--space-7</code>, <code>-9</code> ni <code>-11</code>.</p>
+  </div>
+  <div class="card f1">
+    <div class="ch"><span class="n">2</span><h2>Ritmo de composición</h2></div>
+    <table class="t">
+      <tr><td><code>--card-gap</code></td><td>20 px (<code>--space-5</code>)</td></tr>
+      <tr><td><code>--panel-padding</code></td><td>clamp(20 px, 2,4vw, 28 px)</td></tr>
+      <tr><td><code>--shell-gutter</code></td><td>clamp(20 px, 4vw, 40 px)</td></tr>
+      <tr><td><code>--shell-section-gap</code></td><td>48 px (<code>--space-12</code>)</td></tr>
+      <tr><td><code>--content-measure</code></td><td>52 rem de lectura</td></tr>
+    </table>
+  </div>
+</div>
+<div class="card">
+  <div class="ch"><span class="n">3</span><h2>Radios</h2><span class="tag">--radius-* · base no modificable por perfil</span></div>
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:10px">
+    <div style="text-align:center"><div style="width:96px;height:66px;border:2px solid var(--navy);border-radius:12px;background:#fff"></div><div class="tech" style="margin-top:6px">--radius-sm</div><b>12 px</b><div class="xs">Botón compacto, campos</div></div>
+    <div style="text-align:center"><div style="width:96px;height:66px;border:2px solid var(--navy);border-radius:18px;background:#fff"></div><div class="tech" style="margin-top:6px">--radius-md</div><b>18 px</b><div class="xs">Paneles medios</div></div>
+    <div style="text-align:center"><div style="width:96px;height:66px;border:2px solid var(--navy);border-radius:24px;background:#fff"></div><div class="tech" style="margin-top:6px">--radius-lg</div><b>24 px</b><div class="xs">Marcos · <code>--surface-radius-frame</code></div></div>
+    <div style="text-align:center"><div style="width:110px;height:76px;border:2px solid var(--navy);border-radius:32px;background:#fff"></div><div class="tech" style="margin-top:6px">--radius-xl</div><b>32 px</b><div class="xs">Tarjetas y paneles</div></div>
+    <div style="text-align:center"><div style="width:110px;height:76px;border:2px solid var(--navy);border-radius:34px;background:#fff"></div><div class="tech" style="margin-top:6px">--radius-2xl</div><b>34 px</b><div class="xs">Superficies amplias</div></div>
+    <div style="text-align:center"><div style="width:130px;height:44px;border:2px solid var(--navy);border-radius:999px;background:#fff"></div><div class="tech" style="margin-top:6px">--radius-pill</div><b>999 px</b><div class="xs">Botones, insignias</div></div>
+  </div>
+</div>
+<div class="row">
+  <div class="card f1">
+    <div class="ch"><span class="n">4</span><h2>Contenedores de página</h2><span class="tag">ac-page-container[data-width]</span></div>
+    <div class="list">
+      <div class="li" style="align-items:center"><div style="width:150px"><div style="height:18px;border-radius:5px;background:var(--teal-bg-2);width:70%"></div></div><div class="t f1"><code>standard</code> · estándar · máx. 1200 px<span class="small">Lectura, formularios y densidad media.</span></div></div>
+      <div class="li" style="align-items:center"><div style="width:150px"><div style="height:18px;border-radius:5px;background:var(--teal-bg-2);width:88%"></div></div><div class="t f1"><code>wide</code> · amplio · máx. 1440 px<span class="small">Espacios de trabajo y tablas.</span></div></div>
+      <div class="li" style="align-items:center"><div style="width:150px"><div style="height:18px;border-radius:5px;background:var(--teal-bg-2);width:100%"></div></div><div class="t f1"><code>full</code> · completo · 100 %<span class="small">Superficies que gestionan su propio ancho.</span></div></div>
+    </div>
+    <p class="xs" style="margin-top:6px">Ancho máximo de la estructura: <code>--shell-max-width</code> 1320 px.</p>
+  </div>
+  <div class="card f1">
+    <div class="ch"><span class="n">5</span><h2>Bordes y elevación</h2></div>
+    <table class="t">
+      <tr><td><code>--border-subtle</code></td><td>Decorativo; sin garantía de contraste.</td></tr>
+      <tr><td><code>--border-default</code></td><td>Separadores y contornos.</td></tr>
+      <tr><td><code>--border-control</code></td><td>Controles: ≥ 3:1 garantizado.</td></tr>
+      <tr><td><code>--shadow-xs … xl</code></td><td>Cinco niveles, de 6/14 a 38/90 px.</td></tr>
+    </table>
+    <p class="xs" style="margin-top:6px">Las sombras son invariantes por tema en V1 (limitación documentada).</p>
+  </div>
+</div>
+<div class="card">
+  <div class="ch"><span class="n">6</span><h2>Movimiento</h2><span class="tag">--dur-* · --ease · --motion-*</span></div>
+  <div class="grid4">
+    <div class="mini"><b>Rápido</b><div class="tech">--dur-fast · 160 ms</div><p class="xs">Estados de control y foco.</p></div>
+    <div class="mini"><b>Base</b><div class="tech">--dur-base · 220 ms</div><p class="xs">Botones, capas contextuales.</p></div>
+    <div class="mini"><b>Lento</b><div class="tech">--dur-slow · 360 ms</div><p class="xs">Énfasis de la cabecera principal.</p></div>
+    <div class="mini"><b>Curva</b><div class="tech">cubic-bezier(0.22, 1, 0.36, 1)</div><p class="xs">Elevación al pasar: −2 px botón, −3 px tarjeta.</p></div>
+  </div>
+  <p class="xs" style="margin-top:8px">Con <code>prefers-reduced-motion</code> se eliminan desplazamientos y animaciones sin perder información ni control.</p>
+</div>
+<div class="note gold">{{i:alert}}<div><b>Sin retícula de columnas normativa.</b> V1 no impone 12 columnas ni puntos de ruptura globales: define espaciado fluido, contenedores y perfiles. Cada producto fija su maquetación; el único valor estructural por defecto es 960 px para la barra lateral P-WKS (pág. 22).</div></div>

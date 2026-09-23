@@ -394,6 +394,15 @@
   "knownGaps": [
     { "token": "--shadow-*", "issue": "theme-invariant (same black-based value in dark and light) as of 0.7.0 — not redefined per data-theme. Acceptable simplification for now, documented as a scoped-out follow-up, not an oversight." }
   ],
+  "tierTaxonomy": {
+    "microsaas": {
+      "class": "tier-microsaas",
+      "purpose": "Focused, recurring SaaS utilities with compact workflows and verifiable results.",
+      "composition": ["forms", "dataTable", "feedback", "processing"],
+      "initialConsumers": ["anclora-tableextractor", "anclora-clearsheet", "anclora-purgedoc"],
+      "extensionPolicy": "Products may extend accent, copy, density and product data; semantic roles and component anatomy remain canonical."
+    }
+  },
   "entrypoints": {
     "system": "./src/system.css",
     "legacy": "./colors_and_type.css",

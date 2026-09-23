@@ -1,0 +1,78 @@
+<!--META {"num":4,"slug":"taxonomia","part":"Parte I · Apertura y contrato","title":"Taxonomía del sistema","sub":"Cuatro decisiones independientes: estructura, identidad, tema y producto. Ninguna sustituye a otra."} -->
+<div class="card dark" style="padding:12px 18px 10px">
+  <div class="ch" style="margin-bottom:12px"><h2 style="font-size:26px">Cuatro ejes · un mismo producto</h2><span class="tag" style="color:#9fd3d6">Se combinan libremente</span></div>
+  <div class="grid4" style="gap:10px">
+    <div style="border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:9px">
+      <span class="pill" style="background:#17466a;color:#fff;width:100%;justify-content:center;padding:6px">PERFIL</span>
+      <p style="font-family:var(--serif);font-size:15px;margin:10px 0 4px;color:#fff">¿Cómo se usa la superficie?</p>
+      <div class="tech" style="color:#9fd3d6;margin-bottom:8px">data-profile</div>
+      <div class="list">
+        <div class="li" style="border-color:rgba(255,255,255,.1)"><div class="t" style="color:#fff"><b>Core</b><span class="small" style="color:#aab6c4">atributo omitido</span></div></div>
+        <div class="li" style="border-color:rgba(255,255,255,.1)"><div class="t" style="color:#fff"><b>P-WKS</b><span class="small" style="color:#aab6c4">"workspace" · espacio de trabajo</span></div></div>
+        <div class="li" style="border-color:rgba(255,255,255,.1)"><div class="t" style="color:#fff"><b>P-MKT</b><span class="small" style="color:#aab6c4">"marketing" · página pública</span></div></div>
+      </div>
+    </div>
+    <div style="border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:9px">
+      <span class="pill" style="background:var(--teal);color:#fff;width:100%;justify-content:center;padding:6px">NIVEL DE IDENTIDAD</span>
+      <p style="font-family:var(--serif);font-size:15px;margin:10px 0 4px;color:#fff">¿Qué intensidad de marca?</p>
+      <div class="tech" style="color:#9fd3d6;margin-bottom:8px">.tier-*</div>
+      <div class="list">
+        <div class="li" style="border-color:rgba(255,255,255,.1)"><div class="t" style="color:#fff"><b>Interno</b><span class="small" style="color:#aab6c4">tier-internal · operativo</span></div></div>
+        <div class="li" style="border-color:rgba(255,255,255,.1)"><div class="t" style="color:#fff"><b>Portfolio</b><span class="small" style="color:#aab6c4">tier-portfolio · escaparate</span></div></div>
+        <div class="li" style="border-color:rgba(255,255,255,.1)"><div class="t" style="color:#fff"><b>Premium</b><span class="small" style="color:#aab6c4">tier-premium</span></div></div>
+        <div class="li" style="border-color:rgba(255,255,255,.1)"><div class="t" style="color:#fff"><b>Ultra premium</b><span class="small" style="color:#aab6c4">tier-ultra-premium</span></div></div>
+        <div class="li" style="border-color:rgba(255,255,255,.1)"><div class="t" style="color:#fff"><b>MicroSaaS</b><span class="small" style="color:#aab6c4">tier-microsaas · utilidad enfocada</span></div></div>
+      </div>
+    </div>
+    <div style="border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:9px">
+      <span class="pill" style="background:#3a8467;color:#fff;width:100%;justify-content:center;padding:6px">TEMA</span>
+      <p style="font-family:var(--serif);font-size:15px;margin:10px 0 4px;color:#fff">¿Claro u oscuro?</p>
+      <div class="tech" style="color:#9fd3d6;margin-bottom:8px">data-theme</div>
+      <div class="list">
+        <div class="li" style="border-color:rgba(255,255,255,.1)"><div class="t" style="color:#fff"><b>Oscuro</b><span class="small" style="color:#aab6c4">"dark" · también sin atributo</span></div></div>
+        <div class="li" style="border-color:rgba(255,255,255,.1)"><div class="t" style="color:#fff"><b>Claro</b><span class="small" style="color:#aab6c4">"light" · canónico desde 0.7.0</span></div></div>
+      </div>
+    </div>
+    <div style="border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:9px">
+      <span class="pill" style="background:#b58a3c;color:#fff;width:100%;justify-content:center;padding:6px">PRODUCTO</span>
+      <p style="font-family:var(--serif);font-size:15px;margin:10px 0 4px;color:#fff">¿Qué acento de marca?</p>
+      <div class="tech" style="color:#9fd3d6;margin-bottom:8px">.product-anclora-*</div>
+      <div class="list">
+        <div class="li" style="border-color:rgba(255,255,255,.1)"><div class="t" style="color:#fff"><b>Acento</b><span class="small" style="color:#aab6c4">fija <code>--accent</code> desde <code>--coin-*</code></span></div></div>
+        <div class="li" style="border-color:rgba(255,255,255,.1)"><div class="t" style="color:#fff"><b>Familia tipográfica</b><span class="small" style="color:#aab6c4">sans, internal o portfolio</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="sub" style="font-size:18px;padding:0 6px">Perfil, nivel, tema y producto son independientes: un mismo producto puede ser P-WKS, premium, claro y con su propio acento a la vez.</p>
+<div class="card tint">
+  <div class="ch"><h2>Cómo decidir cada eje</h2></div>
+  <div class="grid4" style="gap:14px">
+    <div><b>Perfil</b><p class="small">Estructura autenticada y persistente → P-WKS. Narrativa pública → P-MKT. Ninguno de los dos → Core.</p></div>
+    <div><b>Nivel (tier)</b><p class="small">Lo fija el contrato de marca de la aplicación en la bóveda de gobernanza, no el equipo que implementa.</p></div>
+    <div><b>Tema</b><p class="small">Decisión de producto. Si admite ambos, alterna <code>data-theme</code>; nunca crea un tema local.</p></div>
+    <div><b>Producto</b><p class="small">Usa la clase existente en <code>src/themes/product.css</code>. Si no existe, se registra la carencia; no se inventa un acento.</p></div>
+  </div>
+</div>
+<div class="row">
+  <div class="card f1">
+    <div class="ch"><h2>Ejes complementarios</h2><span class="tag">src/taxonomy/</span></div>
+    <table class="t">
+      <tr><th>Eje</th><th>Clases</th><th>Uso</th></tr>
+      <tr><td><b>Dominio</b></td><td><code>domain-*</code></td><td>Vertical de negocio (p. ej. capital humano).</td></tr>
+      <tr><td><b>Arquetipo</b></td><td><code>archetype-*</code></td><td>landing, workspace, app, portal, command-center.</td></tr>
+      <tr><td><b>Rol de usuario</b></td><td><code>role-*</code></td><td>guest, partner, consumer, operator, executive.</td></tr>
+      <tr><td><b>Clúster</b></td><td><code>cluster-*</code></td><td>Agrupación visual del ecosistema.</td></tr>
+    </table>
+    <div style="margin-top:8px"><code>&lt;body class="tier-premium domain-human-capital archetype-workspace role-operator cluster-core product-anclora-talent"&gt;</code></div>
+  </div>
+</div>
+<div class="card" style="background:rgba(239,236,228,.85)">
+  <div class="ch"><h2>Reglas clave</h2></div>
+  <div class="grid2" style="gap:4px 24px">
+    <div class="li" style="border:0"><span class="num">1</span><div class="t">El perfil depende del <b>arquetipo de interacción</b>, no del vertical, la marca ni el uso de IA.</div></div>
+    <div class="li" style="border:0"><span class="num">2</span><div class="t">Tema y perfil son ortogonales: no existen selectores como <code>P-WKS-dark</code>.</div></div>
+    <div class="li" style="border:0"><span class="num">3</span><div class="t">El nivel cambia intensidad y ritmo; nunca el significado semántico.</div></div>
+    <div class="li" style="border:0"><span class="num">4</span><div class="t">La lógica y los flujos de negocio quedan fuera del sistema de diseño.</div></div>
+  </div>
+</div>
