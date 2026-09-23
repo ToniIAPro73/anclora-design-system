@@ -7,6 +7,7 @@ const { chromium } = require(path.join(__dirname, '../../../node_modules/playwri
   const page = await browser.newPage({ viewport: { width: 1055, height: 1491 } });
   await page.goto(`file://${path.join(source, 'build/_manual-completo.html')}`);
   await page.evaluate(() => document.fonts.ready);
+  await page.waitForTimeout(500);
   await page.pdf({
     path: path.join(__dirname, '../../../docs/release/ANCLORA_MANUAL_V1_ES.pdf'),
     width: '1055px',

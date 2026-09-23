@@ -156,7 +156,7 @@ def build_complete(generated):
         bodies.append(html.split("<body>", 1)[1].rsplit("</body>", 1)[0])
     complete = '''<!doctype html><html lang="es"><head><meta charset="utf-8">
 <title>Sistema de Diseño Anclora V1 · Manual maestro</title>
-<link rel="stylesheet" href="../manual.css"><style>@page{size:1055px 1491px;margin:0}html,body{background:#fff}.page{page-break-after:always;break-after:page}*{box-shadow:none!important;filter:none!important}.wave{-webkit-mask-image:none!important}</style></head><body>
+<link rel="stylesheet" href="../manual.css"><style>@page{size:1055px 1491px;margin:0}html,body{background:#fff!important}.page{background-color:#edf7f5!important;background-image:radial-gradient(120% 60% at 80% 0%,#fff 0%,rgba(255,255,255,0) 60%),linear-gradient(180deg,#f8fcfb 0%,#edf7f5 55%,#deefec 100%)!important;page-break-after:always;break-after:page}*{box-shadow:none!important;filter:none!important}.wave{-webkit-mask-image:none!important}</style></head><body>
 ''' + "\n".join(bodies) + "\n</body></html>"
     out = BUILD / "_manual-completo.html"
     out.write_text(complete)
