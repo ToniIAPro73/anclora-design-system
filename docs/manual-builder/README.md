@@ -1,8 +1,8 @@
 # Generación del manual y materiales ejecutivos
 
-Esta carpeta contiene la fuente editable del Manual Maestro V1 que antes se mantenía fuera del repositorio. Las páginas HTML de `source/pages/` son la fuente editorial; `source/manual.css` contiene únicamente estilos de impresión; y `source/build.py` ensambla las páginas y genera `source/build/_manual-completo.html`.
+Esta carpeta contiene la fuente y el pipeline canónico del Manual Maestro V1. Las páginas HTML de `source/pages/` son la fuente editorial disponible; `source/manual.css` contiene los estilos de impresión; y `source/build.py` ensambla el manual completo en `source/build/_manual-completo.html`.
 
-La entrega original aporta fuente editorial para las páginas 1–13 y HTML ya generado para las páginas 14–30. El baseline generado se conserva en `source/build/` para reproducir la V1 completa; las páginas 14–30 quedan marcadas como backfill pendiente antes de declarar el manual 100 % regenerable desde fuente.
+El material recibido incluía páginas editoriales 1–13 y el resultado HTML de las páginas 14–30. Ese resultado ya está integrado como baseline versionado dentro de `source/build/`, por lo que el pipeline puede reproducir el PDF V1 completo. La ausencia de una fuente editorial independiente para esas páginas es una característica del material de origen, no una tarea necesaria para utilizar el pipeline.
 
 ## Flujo local
 
@@ -14,7 +14,9 @@ npm run manual:render
 npm run manual:pdf
 ```
 
-El pipeline usa Python y el Playwright ya declarado por este repositorio. Los HTML intermedios y PNG de comprobación viven en `source/build/` y `source/png/`, y quedan fuera del control de versiones. El PDF final se escribe en `docs/release/ANCLORA_MANUAL_V1_ES.pdf`.
+Este es el único pipeline oficial de generación del manual. Usa Python y el Playwright ya declarado por este repositorio. Los HTML intermedios y PNG de comprobación viven en `source/build/` y `source/png/`; el PDF final se escribe en `docs/release/ANCLORA_MANUAL_V1_ES.pdf`.
+
+El generador anterior basado en `docs/release/ANCLORA-DESIGN-SYSTEM-V1-COMPLETE.md` se ha retirado. Ese Markdown se mantiene como referencia contractual de consumo y migración, no como fuente de generación del PDF.
 
 Cada ampliación del sistema debe seguir este orden:
 
@@ -26,4 +28,4 @@ Cada ampliación del sistema debe seguir este orden:
 
 ## Presentación ejecutiva
 
-`reference/` conserva los PPTX entregados con la V1 como artefactos de referencia. La carpeta adjunta no incluía el archivo fuente editable ni un script de generación de PowerPoint, por lo que esos PPTX no se pueden regenerar de forma determinista todavía. `reference/README.md` deja este límite explícito para evitar tratarlos como fuente de verdad.
+`reference/` conserva los PPTX entregados con la V1 como artefactos de referencia. No se ha creado un generador PPTX porque no forma parte del pipeline del manual PDF ni de la petición actual; los PPTX no son la fuente normativa del sistema.
