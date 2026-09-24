@@ -4,3 +4,4 @@ node_modules/
 artifacts/qa/
 docs/release/*.pdf
 docs/manual-builder/source/png/
+.DS_Store
