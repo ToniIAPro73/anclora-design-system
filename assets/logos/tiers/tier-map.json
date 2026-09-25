@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "change": "CHG-0014",
+  "updated": "2026-09-25",
+  "tiers": {
+    "group": {
+      "label": "Entidad Matriz",
+      "palette": {
+        "base": "#A8AEB8",
+        "light": "#D0D4DC",
+        "shadow": "#6E7580",
+        "interior": "#212838"
+      },
+      "masters": {
+        "png": "assets/logos/tiers/anclora-group-tier.png",
+        "webp": "assets/logos/tiers/anclora-group-tier.webp",
+        "jpg": "assets/logos/tiers/anclora-group-tier.jpg"
+      }
+    },
+    "saas": {
+      "label": "SaaS",
+      "palette": {
+        "base": "#22C7D6",
+        "light": "#7DE7EE",
+        "shadow": "#087F91",
+        "interior": "#0F3445"
+      },
+      "masters": {
+        "png": "assets/logos/tiers/anclora-saas-tier.png",
+        "webp": "assets/logos/tiers/anclora-saas-tier.webp",
+        "jpg": "assets/logos/tiers/anclora-saas-tier.jpg"
+      }
+    },
+    "ultra-premium": {
+      "label": "Ultra Premium",
+      "palette": {
+        "base": "#D4AF37",
+        "light": "#F0D060",
+        "shadow": "#8B7322",
+        "interior": "#0D3849"
+      },
+      "masters": {
+        "png": "assets/logos/tiers/anclora-ultra-premium-tier.png",
+        "webp": "assets/logos/tiers/anclora-ultra-premium-tier.webp",
+        "jpg": "assets/logos/tiers/anclora-ultra-premium-tier.jpg"
+      }
+    },
+    "premium": {
+      "label": "Premium",
+      "palette": {
+        "base": "#C07860",
+        "light": "#E0A090",
+        "shadow": "#805040",
+        "interior": "#1A2033"
+      },
+      "masters": {
+        "png": "assets/logos/tiers/anclora-premium-tier.png",
+        "webp": "assets/logos/tiers/anclora-premium-tier.webp",
+        "jpg": "assets/logos/tiers/anclora-premium-tier.jpg"
+      }
+    },
+    "internal": {
+      "label": "Internal",
+      "palette": {
+        "base": "#1DAB89",
+        "light": "#63D8B7",
+        "shadow": "#0E6D5B",
+        "interior": "#15211F"
+      },
+      "masters": {
+        "png": "assets/logos/tiers/anclora-internal-tier.png",
+        "webp": "assets/logos/tiers/anclora-internal-tier.webp",
+        "jpg": "assets/logos/tiers/anclora-internal-tier.jpg"
+      }
+    }
+  },
+  "jpg_background": "#0C1524",
+  "logos": {
+    "assets/logos/anclora-advisor-ai-reducido.png": "internal",
+    "assets/logos/anclora-advisor-ai.png": "internal",
+    "assets/logos/anclora-advisor-ai.webp": "internal",
+    "assets/logos/anclora-azure-bay-landing-page-reducido.png": "ultra-premium",
+    "assets/logos/anclora-azure-bay-landing-page.png": "ultra-premium",
+    "assets/logos/anclora-azure-bay-landing-page.webp": "ultra-premium",
+    "assets/logos/anclora-clearsheet.png": "saas",
+    "assets/logos/anclora-clearsheet.webp": "saas",
+    "assets/logos/anclora-command-center-reducido.png": "premium",
+    "assets/logos/anclora-command-center.png": "premium",
+    "assets/logos/anclora-command-center.webp": "premium",
+    "assets/logos/anclora-content-generator-ai-reducido.png": "internal",
+    "assets/logos/anclora-content-generator-ai.png": "internal",
+    "assets/logos/anclora-content-generator-ai.webp": "internal",
+    "assets/logos/anclora-data-lab-reducido.png": "premium",
+    "assets/logos/anclora-data-lab.png": "premium",
+    "assets/logos/anclora-data-lab.webp": "premium",
+    "assets/logos/anclora-energyscan-reducido.png": "premium",
+    "assets/logos/anclora-energyscan-showcase-reducido.png": "premium",
+    "assets/logos/anclora-energyscan-showcase.png": "premium",
+    "assets/logos/anclora-energyscan-showcase.webp": "premium",
+    "assets/logos/anclora-energyscan.png": "premium",
+    "assets/logos/anclora-energyscan.webp": "premium",
+    "assets/logos/anclora-filestudio-reducido.png": "internal",
+    "assets/logos/anclora-filestudio.png": "internal",
+    "assets/logos/anclora-filestudio.webp": "internal",
+    "assets/logos/anclora-fiscal-reducido.png": "internal",
+    "assets/logos/anclora-fiscal-showcase-reducido.png": "internal",
+    "assets/logos/anclora-fiscal-showcase.png": "internal",
+    "assets/logos/anclora-fiscal-showcase.webp": "internal",
+    "assets/logos/anclora-fiscal.png": "internal",
+    "assets/logos/anclora-fiscal.webp": "internal",
+    "assets/logos/anclora-groundsync-reducido.png": "premium",
+    "assets/logos/anclora-groundsync.png": "premium",
+    "assets/logos/anclora-groundsync.webp": "premium",
+    "assets/logos/anclora-group-landing-reducido.png": "group",
+    "assets/logos/anclora-group-landing.png": "group",
+    "assets/logos/anclora-group-landing.webp": "group",
+    "assets/logos/anclora-group-reducido.png": "group",
+    "assets/logos/anclora-group.png": "group",
+    "assets/logos/anclora-group.webp": "group",
+    "assets/logos/anclora-guesthub-reducido.png": "premium",
+    "assets/logos/anclora-guesthub.png": "premium",
+    "assets/logos/anclora-guesthub.webp": "premium",
+    "assets/logos/anclora-impulso-reducido.png": "premium",
+    "assets/logos/anclora-impulso.png": "premium",
+    "assets/logos/anclora-impulso.webp": "premium",
+    "assets/logos/anclora-linguo-cam-reducido.png": "internal",
+    "assets/logos/anclora-linguo-cam.png": "internal",
+    "assets/logos/anclora-linguo-cam.webp": "internal",
+    "assets/logos/anclora-nexus-reducido.png": "internal",
+    "assets/logos/anclora-nexus.png": "internal",
+    "assets/logos/anclora-nexus.webp": "internal",
+    "assets/logos/anclora-portfolio-reducido.png": "ultra-premium",
+    "assets/logos/anclora-portfolio-showcase-reducido.png": "ultra-premium",
+    "assets/logos/anclora-portfolio-showcase.png": "ultra-premium",
+    "assets/logos/anclora-portfolio-showcase.webp": "ultra-premium",
+    "assets/logos/anclora-portfolio.png": "ultra-premium",
+    "assets/logos/anclora-portfolio.webp": "ultra-premium",
+    "assets/logos/anclora-private-estates-exp-reducido.png": "ultra-premium",
+    "assets/logos/anclora-private-estates-exp.png": "ultra-premium",
+    "assets/logos/anclora-private-estates-exp.webp": "ultra-premium",
+    "assets/logos/anclora-private-estates-landing-reducido.png": "ultra-premium",
+    "assets/logos/anclora-private-estates-landing.png": "ultra-premium",
+    "assets/logos/anclora-private-estates-landing.webp": "ultra-premium",
+    "assets/logos/anclora-private-estates-reducido.png": "ultra-premium",
+    "assets/logos/anclora-private-estates.png": "ultra-premium",
+    "assets/logos/anclora-private-estates.webp": "ultra-premium",
+    "assets/logos/anclora-purgedoc.png": "saas",
+    "assets/logos/anclora-purgedoc.webp": "saas",
+    "assets/logos/anclora-syncxml-showcase-reducido.png": "premium",
+    "assets/logos/anclora-syncxml-showcase.png": "premium",
+    "assets/logos/anclora-syncxml-showcase.webp": "premium",
+    "assets/logos/anclora-synergi-reducido.png": "premium",
+    "assets/logos/anclora-synergi.png": "premium",
+    "assets/logos/anclora-synergi.webp": "premium",
+    "assets/logos/anclora-tableextractor.png": "saas",
+    "assets/logos/anclora-tableextractor.webp": "saas",
+    "assets/logos/anclora-talent-reducido.png": "premium",
+    "assets/logos/anclora-talent.png": "premium",
+    "assets/logos/anclora-talent.webp": "premium",
+    "assets/logos/anclora-visionflow-reducido.png": "internal",
+    "assets/logos/anclora-visionflow.png": "internal",
+    "assets/logos/anclora-visionflow.webp": "internal"
+  }
+}
