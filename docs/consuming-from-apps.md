@@ -71,7 +71,7 @@ En `app/layout.tsx`:
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body className="tier-premium domain-cross-domain archetype-command-center role-executive cluster-core product-anclora-command-center">
+      <body className="tier-internal domain-cross-domain archetype-command-center role-executive cluster-core product-anclora-command-center">
         {children}
       </body>
     </html>

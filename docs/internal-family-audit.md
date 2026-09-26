@@ -30,7 +30,7 @@ Resultado general:
 - `Anclora Content Generator AI` encaja como `internal production studio`
 - `Anclora Advisor AI` encaja como `internal expert assistant workspace`
 - `Anclora Group` encaja como `internal ecosystem gateway`
-- `Anclora Command Center` encaja como `internal executive orchestration` *(SUPERSEDED 2026-08 — tier vigente confirmado como Premium, ver nota en la sección de evidencia)*
+- `Anclora Command Center` encaja como `internal executive orchestration` *(tier Internal/ACTIVE vigente por CHG-0019, 2026-09-27; la clasificación Premium de esta auditoría queda histórica)*
 - `Anclora Fiscal` encaja como `internal operational vertical` *(añadido 2026-08)*
 - `Anclora VisionFlow` encaja como `internal production studio` *(añadido 2026-08)*
 - `Anclora FileStudio` **no encaja limpiamente en ningún subperfil existente** — candidato a nuevo subperfil `internal utility tool` *(añadido 2026-08)*
@@ -49,7 +49,7 @@ Patrón transversal:
 | `Anclora Nexus` | `internal operational vertical` | `internal operational vertical` | `fit` | operación de vertical con shell, módulos y densidad útil bien marcados |
 | `Anclora Content Generator AI` | `internal production studio` | `internal production studio` | `fit` | estudio editorial interno con foco real en producción, revisión y workspace |
 | `Anclora Advisor AI` | `internal expert assistant workspace` | `internal expert assistant workspace` | `fit` | asistencia experta bien perfilada, con consulta, contexto y módulos especializados |
-| `Anclora Command Center` | `internal executive orchestration` | `internal executive orchestration` | `superseded` *(tier vigente: Premium)* | capa ejecutiva de KPIs, coste, alertas y tendencia integrada hoy en `Anclora Nexus` — ver nota de estado |
+| `Anclora Command Center` | `internal executive orchestration` | `internal executive orchestration` | `superseded` *(tier vigente: Internal/ACTIVE por CHG-0019)* | capa ejecutiva de KPIs, coste, alertas y tendencia integrada hoy en `Anclora Nexus` — ver nota de estado |
 | `Anclora Group` | `internal ecosystem gateway` | `internal ecosystem gateway` | `fit` | puerta corporativa coherente, más institucional que un simple launcher |
 | `Anclora Fiscal` | `internal operational vertical` | `internal operational vertical` | `fit` | operación de cumplimiento (VERI\*FACTU) con navegación agrupada y alertas de integridad |
 | `Anclora VisionFlow` | `internal production studio` | `internal production studio` | `fit` | estudio que produce briefs/vision maps/SDD exports mediante pipeline de aprobación |
@@ -293,7 +293,7 @@ No parece:
 
 ## `Anclora Command Center` *(SUPERSEDED 2026-08 — ver nota)*
 
-> **Nota de estado (2026-08):** esta entrada auditó la superficie embebida en `Boveda-Anclora/dashboard` / `Nexus`, no el repo independiente `anclora-command-center` verificado más tarde en la misma sesión de trabajo. Con evidencia de código real de ambos, se confirmó **Premium** como el tier vigente para el repo independiente (ver `docs/premium-family-audit.md`, entrada `anclora-command-center`) — coincide con la clasificación original del ecosistema y con el tier declarado explícitamente en `docs/consuming-from-apps.md`. Esta entrada se conserva como referencia histórica de la superficie embebida, que puede seguir siendo una vista `internal` legítima dentro de Nexus sin que eso determine el tier del producto independiente. No tratar como fuente de verdad vigente sobre el tier de `anclora-command-center`.
+> **Nota de estado histórica (2026-08; corregida por CHG-0019):** esta entrada auditó la superficie embebida en `Boveda-Anclora/dashboard` / `Nexus`, no el repo independiente `anclora-command-center`. La mención histórica a Premium queda supersedida: el tier vigente del repo independiente es **Internal/ACTIVE**, con runtime AOS/VPS y sin proyecto Vercel. Esta entrada se conserva como referencia de la superficie embebida y no como fuente de verdad contractual.
 
 ## Veredicto
 
