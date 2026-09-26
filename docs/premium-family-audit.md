@@ -41,7 +41,7 @@ También aparece una diferencia importante dentro del grupo:
 
 - `anclora-talent` ya actúa como consumidor real del design system y representa el caso más consolidado
 - `anclora-synergi` y `anclora-data-lab` expresan bien la intención premium, pero todavía lo hacen con gramáticas locales y no con adopción canónica del sistema
-- *(2026-08)* `anclora-energyscan`, `anclora-syncxml`, `anclora-impulso` y `anclora-command-center` confirman el patrón: identidad premium clara por producto, cero adopción sistémica todavía
+- *(2026-08, histórico)* `anclora-energyscan`, `anclora-syncxml` y `anclora-impulso` confirman el patrón. Command Center queda fuera de Premium por `CHG-0019` (2026-09-27) y pasa a Internal/ACTIVE.
 
 ## Matriz de evaluación
 
@@ -53,7 +53,7 @@ También aparece una diferencia importante dentro del grupo:
 | `anclora-data-lab` | premium | premium | `partial-fit` | dashboard premium analítico bien enfocado, pero aún sin absorción real del design system |
 | `anclora-syncxml` | premium | premium | `partial-fit` *(añadido 2026-08)* | herramienta de cumplimiento (RD 933/2021) con identidad premium propia, pre-mvp |
 | `anclora-impulso` | premium | premium | `fit` *(añadido 2026-08)* | coach de fitness con IA, copy real de producto bien resuelto, mvp-functional |
-| `anclora-command-center` | premium | premium | `fit` *(tier confirmado 2026-08)* | panel ejecutivo consolidado; identidad y tier ya verificados sin ambigüedad |
+| `anclora-command-center` | internal | internal | `superseded` *(CHG-0019, 2026-09-27)* | panel ejecutivo consolidado; interfaz operacional interna sobre AOS/VPS |
 
 ## Evidencia por repo
 
@@ -212,7 +212,7 @@ Señales fuertes:
 - panel ejecutivo consolidado: KPIs, coste, alertas y tendencia en una sola superficie de síntesis
 - identidad púrpura-navy (`#6C63FF` + secundario `#5FA8FF`) confirmada por variables CSS nombradas (`--accent`, `--secondary`) en `src/index.css`
 
-**Conflicto de tier — resuelto 2026-08:** este mismo repo aparecía en `internal-family-audit.md` clasificado como `internal executive orchestration`, citando una implementación embebida en `Boveda-Anclora/dashboard` / `Nexus`. Confirmado con el cliente: **Premium es el tier vigente** para `anclora-command-center` como repo independiente — coincide con la clasificación original del ecosistema (previa a cualquier documento de auditoría) y con `docs/consuming-from-apps.md`, que ya declaraba `tier-premium` explícitamente. La entrada en `internal-family-audit.md` se marcó como `superseded`: probablemente describía la superficie embebida en Nexus, una vista legítimamente `internal` dentro de esa app, distinta del producto independiente aquí auditado.
+**Historial supersedido por CHG-0019 (2026-09-27):** este mismo repo aparecía aquí como `premium` y en `internal-family-audit.md` como `internal executive orchestration`. La decisión explícita del propietario reclasifica ahora el repo independiente como **Internal/ACTIVE**: interfaz operacional interna AOS/VPS, privada y sin proyecto Vercel. La entrada Premium se conserva como antecedente histórico y no como clasificación vigente.
 
 Veredicto:
 
