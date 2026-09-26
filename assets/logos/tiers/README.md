@@ -1,11 +1,11 @@
-# Logos por tier (CHG-0014, 2026-09-25)
+# Logos por tier (CHG-0014, 2026-09-25; actualizado CHG-0018, 2026-09-26)
 
 Maestros canónicos del sistema de logos por tier. Fuente normativa: `anclora-vault/10-group/brand/ANCLORA_BRANDING_ICON_SYSTEM.md` § "Sistema de logos por tier".
 
 | Tier | Maestros | Aplicaciones |
 | --- | --- | --- |
 | Entidad Matriz | `anclora-group-tier.{png,webp,jpg}` | `anclora-group`, `anclora-group-landing` |
-| SaaS | `anclora-saas-tier.{png,webp,jpg}` | `anclora-tableextractor`, `anclora-clearsheet`, `anclora-purgedoc` |
+| SaaS | `anclora-saas-tier.{png,webp,jpg}` | `anclora-tableextractor`, `anclora-clearsheet`, `anclora-purgedoc`, `anclora-filestudio` *(migrado desde Internal, CHG-0018, 2026-09-26)* |
 | Ultra Premium | `anclora-ultra-premium-tier.{png,webp,jpg}` | `anclora-private-estates`, `anclora-private-estates-landing`, `anclora-portfolio`, `anclora-azure-bay-landing`, `anclora-portfolio-showcase` |
 | Premium | `anclora-premium-tier.{png,webp,jpg}` | tier `premium` del registro y sus showcases |
 | Internal | `anclora-internal-tier.{png,webp,jpg}` | tier `internal` del registro y sus showcases |

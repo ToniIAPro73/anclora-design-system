@@ -1,7 +1,7 @@
 {
-  "version": 1,
-  "change": "CHG-0014",
-  "updated": "2026-09-25",
+  "version": 2,
+  "change": "CHG-0018",
+  "updated": "2026-09-26",
   "tiers": {
     "group": {
       "label": "Entidad Matriz",
@@ -99,9 +99,9 @@
     "assets/logos/anclora-energyscan-showcase.webp": "premium",
     "assets/logos/anclora-energyscan.png": "premium",
     "assets/logos/anclora-energyscan.webp": "premium",
-    "assets/logos/anclora-filestudio-reducido.png": "internal",
-    "assets/logos/anclora-filestudio.png": "internal",
-    "assets/logos/anclora-filestudio.webp": "internal",
+    "assets/logos/anclora-filestudio-reducido.png": "saas",
+    "assets/logos/anclora-filestudio.png": "saas",
+    "assets/logos/anclora-filestudio.webp": "saas",
     "assets/logos/anclora-fiscal-reducido.png": "internal",
     "assets/logos/anclora-fiscal-showcase-reducido.png": "internal",
     "assets/logos/anclora-fiscal-showcase.png": "internal",
