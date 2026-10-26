@@ -58,7 +58,7 @@ REASON=Repository houses shared design tokens, component library, and asset guid
 
 APPLICATION_NAME=Anclora Design System
 REPOSITORY=anclora-design-system
-APPLICATION_TYPE=governance_or_static_library
+APPLICATION_TYPE=library
 FRAMEWORK=Node.js
 
 ## 2. Runtime Topology
