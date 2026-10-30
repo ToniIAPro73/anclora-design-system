@@ -220,7 +220,6 @@ Clasificación provisional a validar con el estudio:
 - `portfolio`
   - `anclora-portfolio`
   - `anclora-azure-bay-landing`
-  - `anclora-playa-viva-uniestate`
 
 - `premium`
   - `anclora-talent`
@@ -270,7 +269,7 @@ Los perfiles de la skill deben salir de este estudio comparativo, no de intuicio
 
 1. validar el grupo `premium` con `anclora-talent`, `anclora-synergi` y `anclora-data-lab`
 2. validar `internal` con `anclora-content-generator-ai`, `anclora-advisor-ai` y `anclora-nexus`
-3. validar `portfolio` con `anclora-portfolio`, `anclora-azure-bay-landing` y `anclora-playa-viva-uniestate`
+3. validar `portfolio` con `anclora-portfolio` y `anclora-azure-bay-landing`
 4. validar `ultra premium` con `anclora-private-estates`
 5. usar `calculadora-fiscal-183-premium` como caso de adopción externa hacia `ultra premium`
 

@@ -364,11 +364,8 @@
 
 .product-anclora-guesthub,
 .product-anclora-syncxml, /* DEPRECATED legacy alias — removal pending consumer cutover */
-.product-anclora-syncxml-showcase,
 .anclora-syncxml {
-  /* syncxml-showcase comparte el tema completo por el mismo motivo:
-     producto real en fase pre-mvp, no pieza de portfolio.
-     RENAMED 2026-09-01: Anclora SyncXML → Anclora GuestHub; los selectores
+  /* RENAMED 2026-09-01: Anclora SyncXML → Anclora GuestHub; los selectores
      legacy `*-syncxml` se mantienen como alias durante una release. */
   --bg: #070a12;
   --bg-raised: #101827;
