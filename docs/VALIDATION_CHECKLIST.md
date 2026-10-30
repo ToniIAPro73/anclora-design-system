@@ -1,4 +1,4 @@
-# Checklist de validación — retirada de repos retirados de los mapeos activos (2026-10-30)
+# Checklist de validación — adopción AOS canónica (2026-10-30)
 
 > Se sobrescribe en cada entrega; el historial queda en Git.
 
@@ -7,18 +7,19 @@
 **Datos:** no se usaron ni modificaron datos de aplicación.
 
 ## 1. Qué cambia
-- Se retira el logo, el mapeo de tier, la celda de preview y el selector de tema de `anclora-syncxml-showcase` (repositorio retirado).
-- El perfil de auditoría `portfolio` deja de citar `anclora-playa-viva-uniestate` (repositorio histórico fuera de AOS).
-- `anclora-insights-adn` y las referencias históricas (CHANGELOG) no cambian.
+- Bootstrap mínimo (`AGENTS.md`, adaptadores de proveedor) y contratos `.anclora/` alineados con el modelo AOS ratificado (D-2026-0042): autoridad en Governance, router mínimo, claves Preview heredadas retiradas, semántica de runtime derivada de hechos ya declarados.
+- Copias de contratos sincronizadas desde Vault (0 ficheros).
+- Sin cambios de código de producto, dependencias ni despliegue.
 
 ## 2. Ya comprobado por el agente
 | Comprobación | Resultado |
 | --- | --- |
-| `verify:manifest`, `verify:html`, `verify:adoption-contract`, `verify:token-contract` | PASS |
-| `git diff --check` | PASS |
+| `aos-adopt` inspect/plan/apply, diff limitado a ficheros contractuales | PASS |
+| `runtime_semantics.py` sobre `.anclora/PRODUCTION_RUNTIME.md` | PASS |
+| Enlaces a Governance en los `.md` modificados, `git diff --check` | PASS |
 
 ## 3. NOT_RUN
-Resto de verificaciones de contrato y de release: el cambio solo retira activos y referencias de un producto retirado.
+Tests, lint, typecheck, build y E2E de la aplicación: el diff es solo documentación/configuración contractual.
 
 ## 4. Para Toni
 Sin pasos manuales. Bloqueante: no.
